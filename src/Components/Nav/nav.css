@@ -7,6 +7,20 @@
     font-family: 'Poppins', sans-serif;
 }
 
+:root{
+    --white-color:white;
+
+    --black-color:#070417;
+
+    --red-color:#C32F07;
+
+    --grey-color: #808080;
+}   
+
+.openbtn, .closebtn{
+    display: none;
+    font-size: 20px;
+}
 
 .header{
     display: grid;
@@ -14,7 +28,14 @@
     align-items: center;
     padding: 15px 5%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: var(--white-color);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
 }
+
+
 
 .header img{
     width: 300px;
@@ -23,12 +44,31 @@
 .ulDiv{
     display: flex;
     gap: 250px;
+    align-items: center;
 }
 
 
 .nav-ul li{
     display: inline-block;
-    padding-right: 30px;
+    padding-right: 40px;
+    cursor: pointer;
+    position: relative;
+}
+
+ul li::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--red-color);
+    transition: width 0.3s ease;
+    transform: translateY(-50%);
+}
+
+ul li:hover::before {
+    width: 50%;
 }
 
 .navBtn{
@@ -41,9 +81,74 @@
     border: none;
     cursor: pointer;
     border-radius: 10px;
+    background-color: var(--grey-color);
+    color: var(--white-color);
 }
 
 .navBtn .signup{
-    background-color: rgb(210, 17, 17);
+    background-color: var(--red-color);
     color: white;
+}
+
+/* ================== media query styles ================= */
+@media only screen and (min-width:321px) and (max-width:768px){
+
+    .openbtn, .closebtn{
+        display: block;
+        font-size: 30px;
+        position: absolute;
+    }
+
+    .openbtn{
+        right: 20px;
+    }
+
+    .closebtn{
+        top: 30px;
+        right: 20px;
+    }
+
+
+    .ulDiv{
+        background-color: var(--black-color) ;
+        color: var(--white-color);
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 60px;
+        left: -100%;
+        /* left: 0; */
+        bottom: 0;
+        padding-left: 40px;
+        padding-top: 60px;
+
+    }
+
+    .open{
+        left: 0;
+        transition: all 0.5s ease;
+    }
+
+    .close{
+        left: -100%;
+        transition: all 0.5s ease;
+    }  
+
+
+    .header img{
+        width: 200px;
+    }
+
+    .nav-ul li{
+        display: block;
+        padding-bottom:20px;
+        font-size: 15px;
+    }
+
+    .navBtn{
+        display: flex;
+        gap: 20px;
+    }
+    
 }

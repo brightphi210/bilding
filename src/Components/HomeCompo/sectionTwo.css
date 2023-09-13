@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --white-color:white;
+
+    --black-color:#070417;
+
+    --red-color:#C32F07;
+
+    --grey-color: #808080;
+}  
+
+
+
+/* ================= Section Two ======================= */
+.sectionTwoGen{
+    padding: 100px 8%;
+}
+
+.sectionTwo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.sectionTwoFirst img{
+    width: 100%;
+}
+
+.sectionTwoTwo{
+    width: 100%;
+}
+
+.sectionTwoTwo h2{
+    font-size: 40px;
+}
+
+.sectionTwoTwo p{
+    font-size: 17px;
+    line-height: 30px;
+}
+
+.p2{
+    padding-top: 30px;
+}
+
+.sectionTwoTwo button{
+    padding: 20px 60px;
+    border-radius: 20px;
+    background-color: var(--red-color);
+    color: var(--white-color);
+    font-size: 16px;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+
+.sectionTwoTwo button:hover{
+    background-color: rgb(226, 66, 66);
+    transition: all ease 0.3s;
+}
+
+
+/* ==================== what flex ================= */
+
+.whatDiv{
+    padding-top: 100px ;
+}
+
+.whatDiv h1{
+    font-size: 30px;
+}
+
+.whatDiv p{
+    font-size: 18px;
+}
+
+.whatDivFlex{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding-top: 30px;
+}
+
+.skilledDiv{
+    display: flex;
+    background-color:#F5F5F5;
+    padding: 60px 30px;
+    border-radius: 50px;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.skilledDiv h2{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.skilledDiv p{
+    font-size: 15px;
+}
+
+
+.skilledDiv button{
+    font-size: 15px;
+    padding: 13px 40px;
+    border-radius: 20px;
+    background-color: var(--red-color);
+    border: none;
+    color: var(--white-color);
+    margin-top: 20px;
+}
+
+.skilledDiv button:hover{
+    background-color: rgb(226, 66, 66);
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    .sectionTwoGen{
+        padding: 100px 8%;
+    }
+    
+    .sectionTwo{
+        grid-template-columns: 1fr;
+    }
+
+    .sectionTwoFirst img{
+        width: 100%;
+    }
+    
+    .sectionTwoTwo{
+        width: 100%;
+    }
+    
+    .sectionTwoTwo h2{
+        font-size: 20px;
+    }
+    
+    .sectionTwoTwo p{
+        font-size: 13px;
+        line-height: 25px;
+        padding-top: 20px;
+        text-align: justify;
+    }
+    
+    .sectionTwoTwo button{
+        padding: 14px 30px;
+        border-radius: 15px;
+    }
+
+
+    /* ==================== what flex ================= */
+    .whatDivFlex{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding-top: 30px;
+    }
+
+    .whatDiv{
+        padding-top: 100px ;
+    }
+    
+    .whatDiv h1{
+        font-size: 25px;
+    }
+    
+    .whatDiv p{
+        font-size: 15px;
+    }
+    
+    .whatDivFlex{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-top: 30px;
+    }
+    
+    .skilledDiv{
+        display: flex;
+        background-color:#F5F5F5;
+        padding: 20px;
+        border-radius: 30px;
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+    }
+    
+    
+    .skilledDiv img{
+        width: 80px;
+    }
+    
+    .skilledDiv h2{
+        font-size: 17px;
+        font-weight: 500;
+    }
+    
+    .skilledDiv p{
+        font-size: 12px;
+    }
+    
+    
+    .skilledDiv button{
+        font-size: 13px;
+        padding: 10px 20px;
+        margin-top: 10px;
+    }
+    
+    
+}
