@@ -7,7 +7,7 @@ import SectionTwo from '../Components/HomeCompo/SectionTwo'
 import SectionThree from '../Components/HomeCompo/SectionThree'
 import SectionFour from '../Components/HomeCompo/SectionFour'
 import SectionFive from '../Components/HomeCompo/sectionFive'
-
+import Footer from '../Components/Footer/Footer'
 
 const Home = () => {
   return (
@@ -18,6 +18,7 @@ const Home = () => {
         <SectionThree />
         <SectionFour />
         <SectionFive />
+        <Footer />
     </div>
   )
 }

@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --white-color:white;
+
+    --black-color:#000000;
+
+    --red-color:#C32F07;
+
+    --grey-color: #808080;
+}
+
+/* ============= Login ======================= */
+
+.loginDiv{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    align-items: center;
+}
+
+.logImage img{
+    height: 100vh;
+    width: 100%;
+} 
+
+.loginDiv h2{
+    font-size: 30px;
+}
+
+.formDiv{
+    padding: 50px 80px;
+    padding-top: 150px;
+}
+
+.myForm{
+    padding-top: 30px;
+}
+
+.myForm input{
+    width: 70%;
+    padding: 20px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: rgb(216, 216, 216) solid 1px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.myForm button{
+    display: block;
+    width: 50%;
+    padding: 15px;
+    font-size: 15px;
+    border: none;
+    background-color: var(--red-color);
+    color: var(--white-color);
+    border-radius: 30px;
+    margin-bottom: 30px;
+}
+
+.googleForm .googleLog{
+    padding: 15px;
+    width: 50%;
+    border-radius: 30px;
+    border: none;
+    background-color: #E8E8E8;
+    font-size: 15px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.signupBtn{
+    padding: 15px;
+    width: 50%;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--white-color);
+    color: var(--red-color);
+    font-size: 15px;
+    border: var(--red-color) solid 1px;
+    margin-top: 30px;
+    cursor: pointer;
+}

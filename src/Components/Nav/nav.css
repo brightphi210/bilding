@@ -85,9 +85,19 @@ ul li:hover::before {
     color: var(--white-color);
 }
 
+.navBtn button:hover{
+    background-color: #a8a8a8;
+    transition: all ease 0.3s;
+}
+
 .navBtn .signup{
     background-color: var(--red-color);
     color: white;
+}
+
+.navBtn .signup:hover{
+    background-color: #de4f27;
+    transition: all ease 0.3s;
 }
 
 /* ================== media query styles ================= */
