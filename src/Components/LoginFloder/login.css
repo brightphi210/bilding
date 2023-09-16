@@ -89,3 +89,43 @@
     margin-top: 30px;
     cursor: pointer;
 }
+
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    .loginDiv{
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 100vh;
+        align-items: center;
+    }
+
+    .logImage img{
+        height: 55vh;
+        width: 100%;
+    }
+    
+    
+    .myForm input{
+        width: 100%;
+        padding: 15px;
+    }
+
+    .formDiv{
+        padding: 20px 8%;
+        padding-top: 40px;
+        text-align: center;
+    }
+
+    .myForm button{
+        width: 100%;
+    }
+
+    .googleForm .googleLog{
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .signupBtn{
+        width: 100%;
+    }
+}

@@ -26,7 +26,15 @@
 
 .signupSection img{
     margin-top: 80px;
+    margin-bottom: 40px;
     width: 100%;
+}
+
+
+
+.signupSection h2{
+    font-size: 30px;
+    font-weight: 500;
 }
 
 .categoryDiv{
@@ -38,7 +46,72 @@
 
 .cateEach{
     border: gray solid 1px;
-    padding: 30px;
+    padding: 50px 30px;
     background-color: var(--white-color);
     border-radius: 30px;
+    position: relative;
+}
+
+.cateEach p{
+    text-align: left;
+    font-size: 20px;
+}
+
+.cateEach input{ 
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    padding: 50px;
+}
+
+.cateEach input[type="radio"]{
+    transform: scale(1.5);
+}
+
+.signupSection button{ 
+    padding: 15px;
+    width: 20%;
+    color: var(--white-color);
+    font-size: 15px;
+    border: none;
+    border-radius: 30px;
+    cursor: default;
+    transition: all ease 0.3s;
+}
+
+
+.signupSection span{
+    display: block;
+    font-size: 15px;
+    padding-bottom: 50px;
+    padding-top: 20px;
+} 
+
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    
+    .signupSection img{
+        height: 30vh;
+    }
+
+    .categoryDiv{
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 30px 8%;
+    }
+
+    .cateEach{
+        padding: 40px 30px;
+    }
+
+    .cateEach input{ 
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        padding: 50px;
+    }
+
+    .signupSection button{
+        width: 80%;
+    }
 }

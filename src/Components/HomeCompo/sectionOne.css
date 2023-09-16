@@ -62,11 +62,11 @@
     font-weight: 500;
 }
 
-.sectionOneFirst .span1{
+.sectionOneFirst .secSpan1{
     color: var(--red-color);
 }
 
-.sectionOneFirst .span2{
+.sectionOneFirst .secSpan2{
     color: var(--grey-color);
 }
 

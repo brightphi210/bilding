@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --white-color:white;
+
+    --black-color:#000000;
+
+    --red-color:#C32F07;
+
+    --grey-color: #808080;
+}
+
+/* ================ builderSectionOne ============= */
+.builderSectionOne{
+    padding: 100px 10%;
+    padding-bottom: 0;
+    /* text-align: center; */
+}
+
+.builderSectionOne h2{
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+.builderSectionOne p{
+    font-size: 15px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+
+.namesDiv{
+    display: flex;
+    gap: 20px;
+}
+
+
+.buiderForm{
+    padding: 10px 15%;
+    padding-top: 30px;
+}
+
+
+.buiderForm input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: rgb(207, 207, 207) 1px solid;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.checkDiv1{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.checkDiv1 input{
+    width: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.buiderForm span{
+    font-weight: 500;
+}
+
+.buiderForm button{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    font-size: 13px;
+    border: none;
+    border-radius: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.error{
+    position: absolute;
+    top: 100px;
+    background-color: rgb(207, 207, 207, 0.6);
+    padding: 20px;
+}
+
+.joinBtn{
+    background-color: pink;
+    color: var(--white-color);
+    padding: 13px;
+    width: 40%;
+}
+
+
+.hrDiv{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-top: 20px;
+}
+
+hr{
+    width: 100%;
+    height: 1px;
+}
+
+
+.googleBtn{
+    background-color: rgb(218, 218, 218);
+    padding: 13px;
+    width: 60%;
+}
+
+
+
+.span1{
+    padding: 20px 0;
+    display: block;
+}
+.span3{
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.terms{
+    color: var(--red-color);
+    cursor: pointer;
+}
+
+
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    
+    
+    .builderSectionOne{
+        padding: 100px 8%;
+        padding-bottom: 20px;
+        /* text-align: center; */
+    }
+   
+    .buiderForm{
+        padding: 10px 0;
+        padding-top: 30px;
+    }
+
+    .builderSectionOne h2{
+        font-size: 20px;
+    }
+
+    .builderSectionOne p{
+        font-size: 13px;
+        padding-top: 10px;
+    }
+
+
+    .span1, .span2{
+        font-size: 13px;
+    }
+
+    .joinBtn,
+    .googleBtn{
+        width: 100%;
+    }
+}
