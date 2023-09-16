@@ -89,6 +89,10 @@
         padding-bottom: 20px;
     }
 
+    .builderVerifySection h2{
+        font-size: 20px;
+    }
+
     .builderVerifySectionForm input{
         width: 100%;
 
@@ -107,5 +111,7 @@
 
     .builderVerifySectionForm button{
         width: 100%;
+        font-size: 13px;
+        padding: 10px;
     }
 }
