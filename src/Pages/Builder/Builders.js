@@ -1,7 +1,7 @@
 
 import React from 'react'
-import Builder from '../Components/Bulider/Builder'
-import Header from '../Components/LoginFloder/Header'
+import Builder from '../../Components/Bulider/Builder'
+import Header from '../../Components/LoginFloder/Header'
 const Builders = () => {
   return (
     <div>

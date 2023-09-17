@@ -5,6 +5,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    text-decoration: none;
 }
 
 :root{
@@ -96,8 +97,15 @@
 .joinBtn{
     background-color: pink;
     color: var(--white-color);
+    font-weight: 500;
+    border-radius: 20px;
     padding: 13px;
     width: 40%;
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    justify-content: center;
+    cursor: pointer;
 }
 
 

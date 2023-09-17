@@ -2,6 +2,7 @@
 import React from 'react'
 import veryImage from './very.png'
 import './verify.css'
+import { Link } from 'react-router-dom'
 const Verify = ({isOpen, onClose,}) => {
     
     if (!isOpen) return null;
@@ -15,6 +16,7 @@ const Verify = ({isOpen, onClose,}) => {
                 A verification link has been sent to your email, click the link to verify your account.
             </p>
             <button>Resend Link</button>
+            <Link to={'/builder/verify'}><button>Continue</button></Link>
         </section>
     </div>
   )

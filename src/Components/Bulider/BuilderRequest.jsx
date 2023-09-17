@@ -1,6 +1,8 @@
 import React from 'react'
 import './builderRequest.css'
 
+import { Link } from 'react-router-dom';
+
 import { useState } from 'react';
 const BuilderRequest = () => {
 
@@ -66,7 +68,7 @@ const BuilderRequest = () => {
                 
             </div>
 
-            <button style={{backgroundColor : btnColor, cursor: cusorPointer}}>Get Started</button>
+            <Link to={'/builder/create'}><button style={{backgroundColor : btnColor, cursor: cusorPointer}}>Get Started</button></Link>
             <p>Skip and head straight to your dashboard.</p>
         </section>
     </div>

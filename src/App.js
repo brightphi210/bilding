@@ -5,9 +5,11 @@ import Home from "./Pages/Home";
 
 import Signin from "./Pages/Signin";
 import Register from "./Pages/Register";
-import Builders from "./Pages/Builders";
-import BuilderVerifyPage from "./Pages/BuilderVerifyPage";
-import BuilderRequestPart from "./Pages/BuilderRequestPart";
+
+import Builders from "./Pages/Builder/Builders";
+import BuilderVerifyPage from "./Pages/Builder/BuilderVerifyPage";
+import BuilderRequestPart from "./Pages/Builder/BuilderRequestPart";
+import BuilderCreate from "./Pages/Builder/BuilderCreate";
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
           <Route path="/builder" element={<Builders />} />
           <Route path="/builder/verify" element={<BuilderVerifyPage />} />
           <Route path="/builder/request" element={<BuilderRequestPart />} />
+          <Route path="/builder/create" element={<BuilderCreate />} />
         </Routes>
         </BrowserRouter>
     </div>

@@ -7,7 +7,7 @@ import Select from 'react-select'
 import countryList from 'react-select-country-list'
 
 
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Verify from '../Verify/Verify'
 import './builder.css'
 const Builder = () => {
@@ -51,26 +51,27 @@ const Builder = () => {
 
         <form action="" className='buiderForm'>
           <div className='namesDiv'>
-            <input type="text" placeholder='First name' required/>
-            <input type="text" placeholder='Last name' required/>
+            <input type="text" placeholder='First name' />
+            <input type="text" placeholder='Last name' />
           </div>
-          <input type="text" placeholder='Phone number' required/>
-          <input type="text"  placeholder='Email address' required/>
-          <input type="password"  placeholder='Password' required/>
+          <input type="text" placeholder='Phone number' />
+          <input type="text"  placeholder='Email address' />
+          <input type="password"  placeholder='Password' />
           <Select options={options} value={value} onChange={changeHandler} className='select'/>
           
           <div className='checkDiv1'>
-            <input type="checkbox"  required/>
+            <input type="checkbox"  />
             <span className='span1'>Send me the latest insights and updates from Bilding.</span>
           </div>
 
           <div className='checkDiv1'>
-            <input type="checkbox" onClick={openModal} checked={isChecke} onChange={handleRadioChange} required/>
+            <input type="checkbox"  checked={isChecke} onChange={handleRadioChange} />
             <span className='span2'>I accept  Bilding’s <span className='terms'>terms of use, privacy policy</span> and <span className='terms'>user agreement.</span></span>
           </div>
 
 
-          <Link to={'/builder/verify'}><button className='joinBtn' style={{backgroundColor : btnBg}}>Join Bilding</button></Link>
+          {/* <Link to={'/builder/verify'}></Link> */}
+          <h3 className='joinBtn' style={{backgroundColor : btnBg}} onClick={openModal} type='submit'>Join Bilding</h3>
           <span className='span3'>Already have an account ? Log in</span>
           <div className='hrDiv'>
             <hr /> or <hr />
