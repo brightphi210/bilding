@@ -11,7 +11,7 @@ const BuilderCreate = () => {
 
   const [page, setPage] = useState(0)
 
-  const FormTitle = ["Project details", "Project Scope", "Project Budget"]
+  const FormTitle = ["1", "2", "3", ]
 
   const PageDisplayed = () => {
     if(page === 0){
@@ -24,39 +24,128 @@ const BuilderCreate = () => {
       return <BuilderCreateTHREE />
     }
   }
+
+  let myClassName1 = ''
+  let myClassName2 = ''
+  let myClassName3 = ''
+
+
+  let myCarolBtn1 = ''
+  let myCarolBtn2 = ''
+  let myCarolBtn3 = ''
+
+  if(page === 0){
+    myClassName1 = 'levelBorder1'
+    myClassName2 = ''
+    myClassName3 = ''
+
+    myCarolBtn1 = 'carolBtn1'
+    myCarolBtn2 = ''
+    myCarolBtn3 = ''
+  }
+  
+  else if(page === 1){
+    myClassName2 = 'levelBorder2'
+    myClassName1 = ''
+    myClassName3 = ''
+
+
+    myCarolBtn1 = ''
+    myCarolBtn2 = 'carolBtn2'
+    myCarolBtn3 = ''
+  }
+  
+  else if (page === 2) {
+    myClassName3 = 'levelBorder3'
+    myClassName1 = ''
+    myClassName2 = ''
+
+
+    myCarolBtn1 = ''
+    myCarolBtn2 = ''
+    myCarolBtn3 = 'carolBtn3'
+  };
+
+  let myMainBtn1 = '' 
+
+  if(page !== 0){
+    myMainBtn1 ='mainBtn1'
+  }
+
   return (
     <div>
       <section>
         <Header />
         <div className="container">
-          <div>
-            <div className="row">
-              <h2>{FormTitle[page]}</h2>
-            </div>
+          <h2>Create your project.</h2>
+          <p>Get all the help you need for your construction project.</p>
+
+
+          <div className='createLevel'>
+            <p className={myClassName1}>Project details</p>
+            <p className={myClassName2}>Project Scope</p> 
+            <p className={myClassName3}>Project Budget</p> 
+          </div>
+
+
+          <div className='createBtnDIv'>
 
             <div>
+              {PageDisplayed()}
+            </div>
+
+            <div className='mainBtnDiv'>
               <button 
-                disabled = {page === 0}
+                className={myMainBtn1}
                 onClick={() => {
-                  setPage((currPage) => currPage - 1)
+                  setPage(page - 1);
                 }}
               >
-                Prev
+                {page === 0 ? null : "Prev"}
               </button>
 
               
               <button 
-                disabled = {page === FormTitle.length - 1}
+                  className='mainBtn2'
                   onClick={() =>{
-                  setPage((currPage) => currPage + 1)
-                  }}>
-                Next
+                    if (page === FormTitle.length - 1) {
+                      alert("FORM SUBMITTED");
+                      // console.log(formData);
+                    } else {
+                      setPage((currPage) => currPage + 1);
+                    }
+                  }}
+                  
+                  >
+                  {page === 0 ? "Create Request" : page === 1 ? "Next" : "Submit"}
               </button>
             </div>
-          </div>
-        </div>
 
-        
+            <div className='createCarolDiv'>
+              <div className={myCarolBtn1}
+                onClick={() => {
+                setPage(0);
+                }}>
+              </div>
+
+              <div 
+                className={myCarolBtn2}
+                onClick={() => {
+                setPage(1);
+                }}>
+              </div>
+
+              <div 
+                className={myCarolBtn3}
+                onClick={() => {
+                setPage(2);
+                }}>
+              </div>
+            </div>
+
+            
+          </div>
+        </div>        
       </section>
     </div>
   )
