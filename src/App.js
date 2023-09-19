@@ -11,6 +11,8 @@ import BuilderVerifyPage from "./Pages/Builder/BuilderVerifyPage";
 import BuilderRequestPart from "./Pages/Builder/BuilderRequestPart";
 import BuilderCreate from "./Pages/Builder/BuilderCreate";
 
+import DashboardHome from "./Pages/Dashboard/DashboardHome";
+
 function App() {
   return (
     <div className="App">
@@ -19,10 +21,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Signin />} />
           <Route path="/register" element={<Register />} />
+
           <Route path="/builder" element={<Builders />} />
           <Route path="/builder/verify" element={<BuilderVerifyPage />} />
           <Route path="/builder/request" element={<BuilderRequestPart />} />
           <Route path="/builder/create" element={<BuilderCreate />} />
+
+          <Route path="/dashboard" element={<DashboardHome />} />
         </Routes>
         </BrowserRouter>
     </div>

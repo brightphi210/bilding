@@ -15,7 +15,16 @@ const Login = () => {
   const logUrl = "https://bildingapi.onrender.com/api/token/"
   const refreshUrl = "https://bildingapi.onrender.com/api/token/refresh/"
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  let myLoadingColor = ""
+
+  if(isLoading === true) {
+    myLoadingColor = "loadingColor"
+  }
+
   const handleSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     try {
         const response = await fetch(logUrl, {
@@ -31,13 +40,17 @@ const Login = () => {
 
         if (response.ok) {
             const data = await response.json();
-            localStorage.setItem('token', data.access);
-            navigate('/')
+            localStorage.setItem('authToken', data.access);
+            navigate('/dashboard');
         } else {
             console.log('Error logging')
         }
     } catch (error) {
         console.log('Error logging')
+    }
+
+    finally {
+    setIsLoading(false); // Set isLoading to false when login request is complete
     }
   };  
 
@@ -72,7 +85,10 @@ const Login = () => {
                 />
 
 
-                <button type='submit'>Login</button>
+                <button type='submit' style={{backgroundColor : myLoadingColor} }>{
+                  isLoading? 'Loading. . .' : 'Login'
+                }
+                </button>
             </form>
 
 

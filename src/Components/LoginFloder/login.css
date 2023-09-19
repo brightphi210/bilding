@@ -64,6 +64,11 @@
     color: var(--white-color);
     border-radius: 30px;
     margin-bottom: 30px;
+    border: #808080 solid 1px;
+}
+
+.loadingColor {
+    background-color: pink;
 }
 
 .googleForm .googleLog{

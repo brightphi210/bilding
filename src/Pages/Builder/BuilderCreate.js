@@ -94,32 +94,6 @@ const BuilderCreate = () => {
               {PageDisplayed()}
             </div>
 
-            <div className='mainBtnDiv'>
-              <button 
-                className={myMainBtn1}
-                onClick={() => {
-                  setPage(page - 1);
-                }}
-              >
-                {page === 0 ? null : "Prev"}
-              </button>
-
-              
-              <button 
-                  className='mainBtn2'
-                  onClick={() =>{
-                    if (page === FormTitle.length - 1) {
-                      alert("FORM SUBMITTED");
-                      // console.log(formData);
-                    } else {
-                      setPage((currPage) => currPage + 1);
-                    }
-                  }}
-                  
-                  >
-                  {page === 0 ? "Create Request" : page === 1 ? "Next" : "Submit"}
-              </button>
-            </div>
 
             <div className='createCarolDiv'>
               <div className={myCarolBtn1}
@@ -143,7 +117,34 @@ const BuilderCreate = () => {
               </div>
             </div>
 
-            
+            <div className='mainBtnDiv'>
+              <h4 
+                className={myMainBtn1}
+                onClick={() => {
+                  setPage(page - 1);
+                }}
+              >
+                {page === 0 ? null : "Back"}
+              </h4>
+
+              
+              <button 
+                  className='mainBtn2'
+                  onClick={() =>{
+                    if (page === FormTitle.length - 1) {
+                      alert("FORM SUBMITTED");
+                      // console.log(formData);
+                    } else {
+                      setPage((currPage) => currPage + 1);
+                    }
+                  }}
+                  
+                  >
+                  {page === 0 ? "Create Request" : page === 1 ? "Next" : "Submit"}
+              </button>
+            </div>
+
+
           </div>
         </div>        
       </section>

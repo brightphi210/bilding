@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState} from 'react';
-
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'
 
 import './nav.css'
 import logo from './1.png'
@@ -9,6 +8,17 @@ import logo from './1.png'
 const Nav = () => {
   const [isNavOpen, setIsNavOpen] = useState(false)
 
+  const navigate = useNavigate()
+
+  let localstorage2 = localStorage.getItem('authToken')
+  const [user, setUser] = useState(() => localstorage2)
+ 
+  const logoutUser = async (e) => {
+    e.preventDefault()
+    setUser(null)
+    localStorage.removeItem('authToken')
+    navigate('/', { state: { successMessage: 'Successfully logged Out !!' }})
+  }
 
   const openMenu = () => {
     setIsNavOpen(true)
@@ -27,20 +37,31 @@ const Nav = () => {
           
           <div className={`ulDiv ${isNavOpen ? "open" :"close"} `}>
             <ul className='nav-ul'>
-              <Link to={'/'}><li>Home</li></Link>
-              <li>About us</li>
-              <li>FAQ’s</li>
-              <li>Support</li>
-              <li>Testimonials</li>
+              <Link to={'/'}><li className='li'>Home</li></Link>
+              <li className='li'>About us</li>
+              <li className='li'>FAQ’s</li>
+              <li className='li'>Support</li>
+              <li className='li'>Testimonials</li>
             </ul>
 
-            <div className='navBtn'>
-              <Link to={'/login'}><button>Login</button></Link>
-              <Link to={'/register'}><button className='signup'>Sign Up</button></Link>
-            </div>
+            {user ? (
+              <>
+                <div className='navBtn'>
+                  <Link to={'/login'} onClick={logoutUser}><button>Logout</button></Link>
+                  <Link to={'/dashboard'}><button className='signup'>Dashboard</button></Link>
+                </div>
+              </>
+            ):(
+              <>
+                <div className='navBtn'>
+                  <Link to={'/login'}><button>Login</button></Link>
+                  <Link to={'/register'}><button className='signup'>Sign Up</button></Link>
+                </div>
+              </>
+            )}
+
             <i class="uil uil-multiply closebtn" onClick={closeMenu}></i>
           </div>
-          {/* <i class="uil uil-apps openbtn" ></i> */}
           <i class="uil uil-bars openbtn" onClick={openMenu}></i>
           
         </header>
