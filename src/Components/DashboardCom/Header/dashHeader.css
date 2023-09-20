@@ -227,6 +227,8 @@
         align-items: center;
     }
 
-    .dropdown{}
+    .dropdown li{
+        color: #000000;
+    }
 
 }
