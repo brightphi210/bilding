@@ -29,6 +29,7 @@
 
 .buiderRequestSection h2{
     font-size: 30px;
+    font-weight: 500;
 }
 
 .buiderRequestSection button{
@@ -85,18 +86,32 @@
     .builderRequestFlex{
         display: grid;
         grid-template-columns: 1fr;
-        justify-content: center;
+        justify-content: left;
         padding: 30px 0;
         gap: 20px;
     }
 
     .builderRequestOne p{
         font-size: 15px;
+        text-align: left;
     }
 
     .buiderRequestSection button{
         width: 100%;
         font-size: 13px;
     }
+
+    .builderRequestOne{
+        position: relative;
+    }
+
+    .radioBuid{
+        position: absolute;
+        right: 50px;
+        bottom: 20px;
+        width: 17px; 
+        height: 17px;
+    }
+
     
 }

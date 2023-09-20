@@ -108,6 +108,7 @@
     font-size: 15px;
     font-weight: 400;
     background-color: var(--white-color);
+    margin-top: 20px;
 }
 
 
@@ -122,7 +123,7 @@
     color: var(--white-color);
     border: none;
     border-radius: 30px;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 
@@ -146,10 +147,12 @@
 
     .createLevel{
         gap: 20px;
+        padding: 10px 0;
+        padding-top: 20px;
     }
 
     .createLevel p{
-        font-size: 15px;
+        font-size: 13px;
         color: grey;
     }
 
@@ -159,7 +162,19 @@
         padding: 0 1%;
     }
 
+    .mainBtn1{
+        padding: 10px;
+        font-size: 13px;
+    }
+
     .mainBtn2{
         margin-left: -40px;
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .createCarolDiv div{
+        width: 12px;
+        height: 12px;
     }
 }

@@ -99,9 +99,37 @@
 
     .createOneDiv input{
         font-size: 13px;
+        padding: 12px;
+    }
+
+    .createOneDiv label{
+        font-size: 12px;
+        padding-top: 10px;
     }
 
     .createOneDiv button{
         width: 100%;
+    }
+
+    .createOneDiv label{
+        text-align: left;
+        display: block;
+        padding-bottom: 10px;
+        font-size: 13px;
+    }
+    
+
+    .createSelect{
+        padding: 10px;
+    }
+
+
+    .createOneDiv textarea{
+        width: 100%;
+        height: 150px;
+        max-height: 150px;
+        padding: 13px;
+        font-size: 13px;
+
     }
 }

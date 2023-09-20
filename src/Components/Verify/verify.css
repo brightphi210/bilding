@@ -80,7 +80,7 @@
   
 @media only screen and (min-width:321px) and (max-width:768px){
   .modal{
-    margin: 0 8%;
+    margin: 0 5%;
     max-width: 100%;
     padding: 20px 30px;
   }

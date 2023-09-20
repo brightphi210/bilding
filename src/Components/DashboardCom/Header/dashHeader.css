@@ -25,7 +25,7 @@
 
 .dashHeaderSection{
     display: grid;
-    grid-template-columns: 1fr 2fr 3fr 1fr;
+    grid-template-columns: 1fr 5fr;
     padding: 20px 5%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     gap: 50px;
@@ -38,6 +38,11 @@
 
 .dashHeaderOne{
 
+}
+
+.nav-ul{
+    display: grid;
+    grid-template-columns: 3fr 650px 1fr;
 }
 
 .dashHeaderOne img{
@@ -59,6 +64,8 @@
     display: flex;
     gap: 20px;
     align-items: center;
+    width: 100%;
+    margin-left: 30px;
 }
 
 .notifyImageDiv img{
@@ -83,7 +90,7 @@
 } 
 
 .dashBoardForm div{
-    width: 30%;
+    width: 25%;
     cursor: pointer;
 }
 
@@ -132,3 +139,96 @@
 .profile:hover .dropdown {
     display: block;
   }
+
+  .dashIcons1, .dashIcons2{
+    display: none;
+  }
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    .dashIcons1{
+        display: block;
+        font-size: 30px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .dashIcons2{
+        display: block;
+        font-size: 30px;
+        position: absolute;
+        right: 20px;
+    }
+
+
+
+    .nav-ul{
+        background-color: var(--black-color) ;
+        color: var(--white-color);
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 60px;
+        left: -100%;
+        /* left: 0; */
+        bottom: 0;
+        padding-left: 40px;
+        padding-top: 60px;
+
+    }
+
+    .open{
+        left: 0;
+        transition: all 0.5s ease;
+    }
+
+    .close{
+        left: -100%;
+        transition: all 0.5s ease;
+    }
+
+
+    .dashHeaderTow {
+        display: block;
+        padding-bottom: 20px;
+    }
+
+    .dashHeaderTow li{
+        padding-bottom: 20px;
+    }
+
+    .dashBoardForm{
+        display: block;
+        padding-bottom: 20px;
+    }
+
+    .dashBoardForm  input{
+        margin-bottom: 20px;
+        width: 90%;
+    }
+
+    .dashBoardForm div{
+        margin-bottom: 20px;
+    }
+
+    .dashBoardForm button{
+        margin-bottom: 20px;
+        width: 90%;
+    }
+
+    .dashBoardForm{
+        display: block;
+        padding-bottom: 20px;
+    }
+
+    .notifyImageDiv{
+        display: flex;
+        align-items: center;
+    }
+
+    .dropdown li{
+        color: #000000;
+    }
+
+}

@@ -1,15 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-
 import './dashHome.css'
+import BuilerModal from '../Bulider/BuilerModal';
 
 import emptyImg from './Images/empty.png'
 
 const Home = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const responsive = {
     desktop: {
@@ -51,12 +61,34 @@ const Home = () => {
                 <h2>New update for you!</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. <br /> odit vel rerum,
-                  Commodi voluptatibus suscipit voluptatum dolorum, eius aperiam iure.
+                  Commodi voluptatibus.
                 </p>
                 <button>Learn more</button>
               </div>
             </div>
         </Carousel>
+
+        <div className='dashProjectNumDiv'>
+          <div className='dashProjectNum'>
+            <h2>0</h2>
+            <p>Projects</p>
+          </div>
+
+          <div className='dashProjectNum'>
+            <h2>0</h2>
+            <p>Requests</p>
+          </div>
+
+          <div className='dashProjectNum'>
+            <h2>0</h2>
+            <p>Skilled labor</p>
+          </div>
+
+          <div className='dashProjectNum'>
+            <h2>0</h2>
+            <p>Suppliers</p>
+          </div>
+        </div>
 
         <div className='dashEmptyDiv'>
           <img src={emptyImg} alt='empty' />
@@ -68,8 +100,10 @@ const Home = () => {
             for your construction job.
           </p>
 
-          <button>Create New</button>
+          <button onClick={openModal}>Create New</button>
         </div>
+
+        <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
       </section>
     </div>
   )

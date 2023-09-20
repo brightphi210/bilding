@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --white-color:white;
+
+    --black-color:#000000;
+
+    --red-color:#C32F07;
+
+    --grey-color: #808080;
+}
+
+
+/* Modal overlay styles */
+.dash-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+
+  .dash-modal {
+    background: #fff;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 100%;
+    margin: 20px 25%;
+    text-align: center;
+  }
+
+  .dash-modal h2 {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .dashClose{
+    position: absolute;
+    right: 50px;
+    top: 30x;
+    font-size: 25px;
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+  }
+
+
+  .dashClose:hover{
+    transform: rotate(45deg);
+  }
+
+
+  .dashmodalDiv{
+    display: flex;
+    gap: 100px;
+    padding-top: 30px;
+    align-items: center;
+  }
+
+  .dashmodalEach img{
+    width: 90%;
+  }
+
+  .dashmodalEach p{
+    font-size: 12px;
+    padding: 20px 0;
+  }
+
+  .dashmodalEach button{
+    background-color: var(--red-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    
+
+    .dash-modal-overlay{
+        padding: 0 5%;
+    }
+    .dash-modal {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+      }
+    
+      .dash-modal h2 {
+        font-size: 17px;
+        font-weight: 500;
+        padding-top: 0;
+      }
+    
+      .dashClose{
+        right: 30px;
+        top: 40px;
+        font-size: 20px;
+
+      }
+    
+    
+      .dashClose:hover{
+        transform: rotate(45deg);
+      }
+    
+    
+      .dashmodalDiv{
+        display: block;
+        gap: 0;
+        padding-top: 10px;
+      }
+    
+      .dashmodalEach{
+        padding-bottom: 10px;
+      }
+      .dashmodalEach img{
+        width: 70%;
+      }
+    
+      .dashmodalEach p{
+        font-size: 12px;
+        padding: 20px 0;
+      }
+    
+      .dashmodalEach button{
+        background-color: var(--red-color);
+        color: var(--white-color);
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 12px;
+      }
+}

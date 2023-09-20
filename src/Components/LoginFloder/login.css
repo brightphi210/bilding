@@ -104,6 +104,11 @@
         align-items: center;
     }
 
+    .loginDiv h2{
+        font-size: 20px;
+        font-weight: 500;
+    }
+
     .logImage img{
         height: 55vh;
         width: 100%;
@@ -112,7 +117,8 @@
     
     .myForm input{
         width: 100%;
-        padding: 15px;
+        padding: 13px;
+        font-size: 13px;
     }
 
     .formDiv{
@@ -123,14 +129,20 @@
 
     .myForm button{
         width: 100%;
+        padding: 13px;
+        font-size: 13px;
+        margin-bottom: 10px;
     }
 
     .googleForm .googleLog{
         width: 100%;
-        font-size: 14px;
+        font-size: 13px;
+        margin: 10px;
     }
 
     .signupBtn{
         width: 100%;
+        font-size: 13px;
+        margin-top: 13px;
     }
 }

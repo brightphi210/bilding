@@ -13,6 +13,15 @@ import { Link, useNavigate } from 'react-router-dom'
 import './dashHeader.css'
 
 const DashHeader = () => {
+    const [isNavOpen, setIsNavOpen] = useState(false)
+    const openMenu = () => {
+      setIsNavOpen(true)
+    };
+  
+  
+    const closeMenu = () => {
+      setIsNavOpen(false)
+    };
 
     const navigate = useNavigate()
 
@@ -32,31 +41,37 @@ const DashHeader = () => {
                 <Link to={'/'}><img src={dashLogo} alt="" /></Link>
             </div>
 
-            <ul className='dashHeaderTow'>
-                <li>Dashboard</li>
-                <li>Projects</li>
-                <li>Requests</li>
-                <li>Favorites <i class="uil uil-angle-down"></i></li>
-            </ul>
+            <div className={`nav-ul ${isNavOpen ? "open" :"close"} `}>
+                <ul className='dashHeaderTow'>
+                    <li>Dashboard</li>
+                    <li>Projects</li>
+                    <li>Requests</li>
+                    <li>Favorites <i class="uil uil-angle-down"></i></li>
+                </ul>
 
-            <form action="" className='dashBoardForm'>
-                <input type="text" placeholder='Looking for' />
-                <div >Suppliers <i class="uil uil-angle-down"></i></div>
-                <button>Search</button>
-            </form>
+                <form action="" className='dashBoardForm'>
+                    <input type="text" placeholder='Looking for' />
+                    <div>Suppliers <i class="uil uil-angle-down"></i></div>
+                    <button>Search</button>
+                </form>
 
-            <div className='notifyImageDiv'>
-                <div className='profile'>
-                    <img src={proLogo} alt="" />
-                    <ul className="dropdown">
-                        <li><i class="uil uil-edit-alt"></i> Edit Profile</li>
-                        <li><i class="uil uil-setting"></i> Settings</li>
-                        <li onClick={logoutUser}><i class="uil uil-sign-out-alt"></i> Logout</li>
-                    </ul>
+                <div className='notifyImageDiv'>
+                    <div className='profile'>
+                        <img src={proLogo} alt="" />
+                        <ul className="dropdown">
+                            <li><i class="uil uil-edit-alt"></i> Edit Profile</li>
+                            <li><i class="uil uil-setting"></i> Settings</li>
+                            <li onClick={logoutUser}><i class="uil uil-sign-out-alt"></i> Logout</li>
+                        </ul>
+                    </div>
+                    <img src={qLogo} alt="" />
+                    <img src={noteLogo} alt="" />
                 </div>
-                <img src={qLogo} alt="" />
-                <img src={noteLogo} alt="" />
+                <i class="uil uil-multiply dashIcons1" onClick={closeMenu}></i>
             </div>
+            {/* <i class="uil uil-bars dashIcons" onClick={openMenu}></i> */}
+            <i class="uil uil-bars dashIcons2" onClick={openMenu}></i>
+
         </section>
     </div>
   )

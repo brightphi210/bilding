@@ -58,6 +58,7 @@
     border: rgb(207, 207, 207) 1px solid;
     font-size: 14px;
     border-radius: 5px;
+    outline: none;
 }
 
 .checkDiv1{
@@ -70,6 +71,7 @@
     width: 30px;
     padding: 0;
     margin: 0;
+    
 }
 
 .buiderForm span{
