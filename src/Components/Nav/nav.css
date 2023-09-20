@@ -48,7 +48,7 @@
 }
 
 
-.nav-ul .li{
+.nav-ul1 .li{
     display: inline-block;
     padding-right: 40px;
     cursor: pointer;
@@ -68,7 +68,7 @@ ul .li::before {
     transform: translateY(-50%);
 }
 
-ul li:hover::before {
+ul .li:hover::before {
     width: 50%;
 }
 
@@ -151,7 +151,7 @@ ul li:hover::before {
         width: 200px;
     }
 
-    .nav-ul .li{
+    .nav-ul1 .li{
         display: block;
         padding-bottom:20px;
         font-size: 15px;

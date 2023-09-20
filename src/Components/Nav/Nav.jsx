@@ -36,7 +36,7 @@ const Nav = () => {
           </div>
           
           <div className={`ulDiv ${isNavOpen ? "open" :"close"} `}>
-            <ul className='nav-ul'>
+            <ul className='nav-ul1'>
               <Link to={'/'}><li className='li'>Home</li></Link>
               <li className='li'>About us</li>
               <li className='li'>FAQ’s</li>
