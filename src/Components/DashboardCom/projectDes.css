@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+:root{
+    --white-color:white;
+
+    --black-color:#000000;
+
+    --red-color:#C32F07;
+
+    --grey-color: #808080;
+}
+
+
+
+/* ===================== section ========================= */
+.dashProjectDesc{
+    padding: 120px 8%;
+}
+
+
+
+.dashDescLink{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.dashDesLinkUL{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.dashDesLinkUL li{
+    list-style: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.copyLink{
+    padding: 6px 30px;
+    background-color: rgb(255, 248, 238);
+    color: var(--red-color);
+}
+
+.detailSection{
+    background-color: #f7f7f7;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+
+
+.detailSection h2{
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 10px;
+    color: #5f5f5f;
+    cursor: pointer;
+}
+
+.detailSectionDiv{
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+}
+
+.secBorder{
+    border-bottom:#C32F07 solid 2px;
+    transition: all ease 0.2s;
+}

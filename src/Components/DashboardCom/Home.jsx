@@ -9,6 +9,8 @@ import BuilerModal from '../Bulider/BuilerModal';
 
 import emptyImg from './Images/empty.png'
 
+import { Link } from 'react-router-dom';
+
 const Home = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -90,7 +92,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='dashEmptyDiv'>
+        {/* <div className='dashEmptyDiv'>
           <img src={emptyImg} alt='empty' />
           <h2>It’s empty here.</h2>
 
@@ -103,7 +105,59 @@ const Home = () => {
           <button onClick={openModal}>Create New</button>
         </div>
 
-        <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
+        <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal> */}
+
+        <section className='dashShowDiv'>
+          <div className='dashShowDivOne'>
+            <h2>Active Projects</h2>
+            <div className='dashShowOneDiv'>
+              <div className='dashShowOneFlex'>
+                <div>
+                  <h3>Electrician to wire a two storey building in Asaba.</h3>
+                  <div>
+                    <span>Applications: 2</span>
+                    <span>Hired: 0</span>
+                  </div>
+                </div>
+                <Link to={'/dashboard/projects/description'}><button>View</button></Link>
+                <hr />
+              </div>
+
+
+              <div className='dashShowOneFlex'>
+                <div>
+                  <h3>Electrician to wire a two storey building in Asaba.</h3>
+                  <div>
+                    <span>Applications: 2</span>
+                    <span>Hired: 0</span>
+                  </div>
+                </div>
+                <Link to={'/dashboard/projects/description'}><button>View</button></Link>
+                <hr />
+              </div>
+            </div>
+            
+          </div>
+
+          <div className='dashShowDivTwo'>
+            <h2>Recent Activity</h2>
+            <div className='dashShowDivTwoBack'>
+              <div className='dashShowTwoFlex'>
+                <h3>New project created</h3>
+                <p>30 mins ago.</p>
+                <hr />
+              </div>
+
+              <div className='dashShowTwoFlex'>
+                <h3>New project created</h3>
+                <p>30 mins ago.</p>
+                <hr />
+              </div>
+              
+            </div>
+          </div>
+          <p className='viewAll'>View All <i class="uil uil-message"></i></p>
+        </section>
       </section>
     </div>
   )

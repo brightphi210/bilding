@@ -43,9 +43,9 @@ const DashHeader = () => {
 
             <div className={`nav-ul ${isNavOpen ? "open" :"close"} `}>
                 <ul className='dashHeaderTow'>
-                    <li>Dashboard</li>
-                    <li>Projects</li>
-                    <li>Requests</li>
+                    <Link to={'/dashboard'}><li>Dashboard</li></Link>
+                    <Link to={'/dashboard/projects'}><li>Projects</li></Link>
+                   <Link to={'/dashboard/requests'}><li>Requests</li></Link>
                     <li>Favorites <i class="uil uil-angle-down"></i></li>
                 </ul>
 

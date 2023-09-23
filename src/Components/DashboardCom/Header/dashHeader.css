@@ -58,6 +58,7 @@
 .dashHeaderTow li{
     list-style: none;
     cursor: pointer;
+    color: #000000;
 }
 
 .notifyImageDiv{
