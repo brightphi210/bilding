@@ -70,6 +70,11 @@ const Home = () => {
             </div>
         </Carousel>
 
+        <div className='createButton'>
+          <p>Create a new project or request </p>
+          <Link to={'/' + 'builder/options2'}><button>Create New</button></Link>
+        </div>
+
         <div className='dashProjectNumDiv'>
           <div className='dashProjectNum'>
             <h2>0</h2>

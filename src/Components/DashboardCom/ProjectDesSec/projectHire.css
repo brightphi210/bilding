@@ -45,7 +45,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    height: 100vh;
+    height: 100%;
+    overflow-y: scroll;
     width: 100%;
     max-width: 40%;
 }
@@ -148,4 +149,29 @@
 
 .projectLetter hr{
     border: rgb(224, 224, 224) solid 1px;
+}
+
+.projectLetterEach{
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.projectLetterEach img{
+    width: 80px;
+    height: 80px;
+}
+
+.projectLetterEach span{
+    font-size: 12px;
+}
+
+.projectLetterEach h3{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.projectLetterEach p{
+    font-size: 12px;
 }

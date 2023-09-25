@@ -1,6 +1,8 @@
 import React from 'react'
 import './projectHire.css'
 
+import proImage from './newvec.png'
+
 import newvecImg from './newvec.png'
 const ProjectHireModal = ({isOpen, onClose,}) => {
 
@@ -60,14 +62,50 @@ const ProjectHireModal = ({isOpen, onClose,}) => {
 
             <div className='projectLetter'>
                 <h1>Reviews</h1>
-                <p><b>Hires:</b> 20</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur. 
-                    Nibh aenean sit nulla vitae cursus dignissim vel nisl tincidunt. 
-                    Ipsum ipsum pellentesque tempor diam lobortis. Ut nisl feugiat Lorem 
-                    ipsum dolor sit amet consectetur. Nibh aenean sit nulla vitae cursus 
-                </p>
+                <div className='projectLetterEach'>
+                    <img src={proImage} alt="" />
+                    <div>
+                        <span>Chevron NIgeria</span>
+                        <h3>Electrician</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur. Nibh aenean sit nulla vitae 
+                            cursus dignissim vel nisl tincidunt. 
+                            Ipsum ipsum pellentesque tempor diam lobortis. Ut nisl feugiat...
+                        </p>
+                    </div>
+                </div>
+                <hr />
 
+
+
+                <div className='projectLetterEach'>
+                    <img src={proImage} alt="" />
+                    <div>
+                        <span>Chevron NIgeria</span>
+                        <h3>Electrician</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur. Nibh aenean sit nulla vitae 
+                            cursus dignissim vel nisl tincidunt. 
+                            Ipsum ipsum pellentesque tempor diam lobortis. Ut nisl feugiat...
+                        </p>
+                    </div>
+                </div>
+                <hr />
+
+
+
+                <div className='projectLetterEach'>
+                    <img src={proImage} alt="" />
+                    <div>
+                        <span>Chevron NIgeria</span>
+                        <h3>Electrician</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur. Nibh aenean sit nulla vitae 
+                            cursus dignissim vel nisl tincidunt. 
+                            Ipsum ipsum pellentesque tempor diam lobortis. Ut nisl feugiat...
+                        </p>
+                    </div>
+                </div>
                 <hr />
             </div>
         </section>

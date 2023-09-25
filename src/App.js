@@ -15,6 +15,9 @@ import DashboardHome from "./Pages/Dashboard/DashboardHome";
 import DashProjectPage from "./Pages/Dashboard/DashProjectPage";
 import DashRequestPage from "./Pages/Dashboard/DashRequestPage";
 import DashProjectDes from "./Pages/Dashboard/DashProjectDes";
+import BuilderProReq from "./Pages/Builder/BuilderProReq";
+// import 
+import BuilderReqCreatePage from "./Pages/Builder/BuilderReqCreatePage";
 
 function App() {
   return (
@@ -27,8 +30,13 @@ function App() {
 
           <Route path="/builder" element={<Builders />} />
           <Route path="/builder/verify" element={<BuilderVerifyPage />} />
-          <Route path="/builder/request" element={<BuilderRequestPart />} />
-          <Route path="/builder/create" element={<BuilderCreate />} />
+          <Route path="/builder/options1" element={<BuilderRequestPart />} />
+          <Route path="/builder/options2" element={<BuilderReqCreatePage />} />
+
+
+        {/* ================= Builder Create Routes ================= */}
+          <Route path="/builder/project/create" element={<BuilderCreate />} />
+          <Route path="/builder/request/create" element={<BuilderProReq />} />
 
 
 

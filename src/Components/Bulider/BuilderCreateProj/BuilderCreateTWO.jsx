@@ -14,6 +14,8 @@ const BuilderCreateTWO = () => {
         </select> 
       </div>
 
+
+
       <div className='createOneDiv'>
         <label>Experience e.g 3 years  expereince</label>
         <select type="text"  placeholder='Title' className='createSelect'>
@@ -23,9 +25,6 @@ const BuilderCreateTWO = () => {
         </select> 
       </div>
       
-      
-
-
 
       <div className='createOneDiv'>
         <label>Projected duration e.g 1-6 months, 6-12 months, over a year</label>
@@ -35,6 +34,7 @@ const BuilderCreateTWO = () => {
           <option value=""></option>
         </select> 
       </div>
+
 
 
       <div className='createOneDiv'>

@@ -1,27 +1,27 @@
-import React, { Component, useState } from 'react'
+import React from 'react'
+
+import BuilderReqCreateONE from '../../Components/Bulider/BuilderCreateReq/BuilderReqCreateONE'
+import BuilderReqCreateTwo from '../../Components/Bulider/BuilderCreateReq/BuilderReqCreateTwo'
+import BuilderReqCreateThree from '../../Components/Bulider/BuilderCreateReq/BuilderReqCreateThree'
 import Header from '../../Components/LoginFloder/Header'
 
-import './buildCreate.css'
+import { useState } from 'react'
 
-import BuilderCreateONE from '../../Components/Bulider/BuilderCreateProj/BuilderCreateONE'
-import BuilderCreateTWO from '../../Components/Bulider/BuilderCreateProj/BuilderCreateTWO'
-import BuilderCreateTHREE from '../../Components/Bulider/BuilderCreateProj/BuilderCreateTHREE'
 
-const BuilderCreate = () => {
-
-  const [page, setPage] = useState(0)
+const BuilderProReq = () => {
+    const [page, setPage] = useState(0)
 
   const FormTitle = ["1", "2", "3", ]
 
   const PageDisplayed = () => {
     if(page === 0){
-      return <BuilderCreateONE />
+      return <BuilderReqCreateONE />
     }
     if(page === 1){
-      return <BuilderCreateTWO />
+      return <BuilderReqCreateTwo />
     }
     if(page === 2){
-      return <BuilderCreateTHREE />
+      return <BuilderReqCreateThree />
     }
   }
 
@@ -71,22 +71,25 @@ const BuilderCreate = () => {
   if(page !== 0){
     myMainBtn1 ='mainBtn1'
   }
-
   return (
     <div>
-      <section>
+        <section>
         <Header />
         <div className="container">
-          <h2>Create your project.</h2>
+          <h2>Create your Request.</h2>
           <p>Get all the help you need for  your <br /> construction project.</p>
 
 
           <div className='createLevel'>
             <p className={myClassName1} onClick={()=>{
-              setPage(0)
-            }}>Project details</p>
-            <p className={myClassName2} onClick={setPage(1)}>Project Scope</p> 
-            <p className={myClassName3} onClick={setPage(2)}>Project Budget</p> 
+                setPage(0)
+            }}>Request details</p>
+            <p className={myClassName2} onClick={()=>{
+                setPage(1)
+            }}>Items</p> 
+            <p className={myClassName3} onClick={()=>{
+                setPage(2)
+            }}>Request Budget</p> 
           </div>
 
 
@@ -154,4 +157,4 @@ const BuilderCreate = () => {
   )
 }
 
-export default BuilderCreate
+export default BuilderProReq
