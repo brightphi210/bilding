@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom'
 
 import './builderCreateReview.css'
 import BuilderCreateReviewModals from './BuilderCreateReviewModals'
+import ProjectDetailsModal from '../BuilderReviewUpdates/ProjectDetailsModal'
 const BuilderCreateReview = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen1, setIsModalOpen1] = useState(false);
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
+  const [isModalOpen3, setIsModalOpen3] = useState(false);
+  const [isModalOpen4, setIsModalOpen4] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -15,6 +20,34 @@ const BuilderCreateReview = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+
+  const openModal1 = () => {
+    setIsModalOpen1(true);
+  };
+
+  const closeModal1 = () => {
+    setIsModalOpen1(false);
+  };
+
+
+
+  const openModal2 = () => {
+    setIsModalOpen2(true);
+  };
+
+  const closeModal2 = () => {
+    setIsModalOpen2(false);
+  };
+
+
+  const openModal3 = () => {
+    setIsModalOpen3(true);
+  };
+
+  const closeModal3 = () => {
+    setIsModalOpen3(false);
   };
 
   return (
@@ -32,7 +65,7 @@ const BuilderCreateReview = () => {
               <div className='builderCreateReviewOne'>
                 <div className='reviewFlex'>
                   <h2>Project Details</h2>
-                  <h4>Edit <i class="uil uil-edit"></i></h4>
+                  <h4 onClick={openModal1}>Edit <i class="uil uil-edit"></i></h4>
                 </div>
                 <hr />
                 <p>Project title e.g Contractor needed for high rise building</p>
@@ -99,6 +132,7 @@ const BuilderCreateReview = () => {
         </section>
 
         <BuilderCreateReviewModals isOpen={isModalOpen} onClose={closeModal}></BuilderCreateReviewModals>
+        <ProjectDetailsModal isOpen1={isModalOpen1} onClose1={closeModal1}></ProjectDetailsModal>
     </div>
   )
 }

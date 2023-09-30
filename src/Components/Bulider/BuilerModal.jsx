@@ -1,12 +1,12 @@
 import React from 'react'
 import './builderModal.css'
+import { Link } from 'react-router-dom'
 
 import dashModalImg1 from './Images/das1.png'
 import dashModalImg2 from './Images/dash2.png'
 const BuilerModal = ({isOpen, onClose,}) => {
 
     if (!isOpen) return null;
-
 
   return (
     <div className='dash-modal-overlay'>
@@ -17,13 +17,13 @@ const BuilerModal = ({isOpen, onClose,}) => {
                 <div className='dashmodalEach'>
                     <img src={dashModalImg1} alt="" />
                     <p>Find  the best skilled labor to bring your dream to life</p>
-                    <button>Create Project</button>
+                    <Link to={'/builder/project/create'}><button>Create Project</button></Link>
                 </div>
 
                 <div className='dashmodalEach'>
                     <img src={dashModalImg2} alt="" />
                     <p>Find the best suppliers and  goods, for your construction project.</p>
-                    <button>Create Request</button>
+                    <Link to={'/builder/request/create'}><button>Create Request</button></Link>
                 </div>
             </div>
         </section>

@@ -1,19 +1,30 @@
 import React from 'react'
 import './buildCreate123.css'
 
-const BuilderCreateTHREE = () => {
+const BuilderCreateTHREE = ({formData, setFormData, onSubmit, onChange }) => {
   return (
     <div>
       <form action="" className='createOneFormDiv'>
-      
+
         <div className='createOneDiv'>
           <label>Budget e.g ₦2,000,000</label>
-          <input type="text"  placeholder='Title'/>
+          <input 
+          type="number"  
+          placeholder='budget'
+          name='budget'
+          value={formData.budget}
+          onChange={onChange}
+          />
         </div>
 
         <div className='createOneDiv'>
           <label>Project description</label>
-          <textarea type="text"  placeholder='Description '/>
+          <textarea type="text"  
+          placeholder='Description '
+          name='description'
+          value={formData.description}
+          onChange={onChange}
+          />
         </div>
 
         <div className='createOneDiv'>

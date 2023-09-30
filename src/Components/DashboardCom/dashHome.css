@@ -169,7 +169,7 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 30px;
-    align-items: center;
+    align-items:flex-start;
     padding-bottom: 50px;
 }
 
@@ -183,7 +183,7 @@
 .dashShowOneDiv{
     background-color: #F4F4F4;
     width: 100%;
-    height: 300px;
+    height: 100%;
     padding: 50px;
     border-radius: 20px;
 }
@@ -226,6 +226,7 @@
 }
 
 .dashShowDivTwo{
+    
 }
 
 

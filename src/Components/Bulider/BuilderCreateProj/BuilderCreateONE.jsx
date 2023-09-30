@@ -2,7 +2,7 @@ import React from 'react'
 
 import './buildCreate123.css'
 
-const BuilderCreateONE = ({formData, setFormData, onSubmit}) => {
+const BuilderCreateONE = ({formData, setFormData, onSubmit, onChange }) => {
   return (
     <div>
       <form action="" className='createOneFormDiv' onSubmit={onSubmit}>
@@ -12,51 +12,46 @@ const BuilderCreateONE = ({formData, setFormData, onSubmit}) => {
           <input 
             type="text"  
             placeholder='Title'
+            name='title'
             value={formData.title}
-            onChange={(event) =>
-              setFormData({ ...formData, title: event.target.value })
-            }
+            onChange={onChange}
           />
         </div>
 
         <div className='createOneDiv'>
-        <label>Experience e.g 3 years  expereince</label>
-        <select 
-          placeholder='Title' 
-          className='createSelect'
-          value={formData.categories}
-          onChange={(event) =>
-            setFormData({ ...formData, categories: event.target.value })
-          }
-          >
-          <option value="">Category</option>
-          <option value="Skilledlabour">Skilled Labour</option>
-          <option value="Supplier">Supplier</option>
-        </select> 
-      </div>
-
-        {/* <div className='createOneDiv'>
           <label>Category e.g Electrical, plumbing, Construction</label>
-          <input 
-            type="text"  
-            placeholder='Category'
+          <select 
+            placeholder='Title' 
+            className='createSelect'
+            name='categories'
             value={formData.categories}
-            onChange={(event) =>
-              setFormData({ ...formData, categories: event.target.value })
-            }
-          />
-        </div> */}
+            onChange={onChange}
+            >
+            <option value="">Category</option>
+            <option value="Electrical">Electrical</option>
+            <option value="Plumbing">Plumbing</option>
+            <option value="Construction">Construction</option>
+            <option value="Plastering">Plastering</option>
+            <option value="Painting">Painting</option>
+            <option value="InteriorDecoration">Interior Decoration</option>
+          </select> 
+        </div>
+
 
         <div className='createOneDiv'>
-          <label>Skills e.g Building Design, Conduit wiring</label>
-          <input 
-            type="text"  
-            placeholder='Skills'
+          <label>Skills e.g Contractor, Engineer, Electrician</label>
+          <select 
+            placeholder='skills' 
+            className='createSelect'
+            name='skills'
             value={formData.skills}
-            onChange={(event) =>
-              setFormData({ ...formData, skills: event.target.value })
-            }
-            />
+            onChange={onChange}
+            >
+            <option value="">Skills</option>
+            <option value="Engineer">Engineer</option>
+            <option value="Electrician">Electrician</option>
+            <option value="Contractor">Contractor</option>
+          </select> 
         </div>
 
 

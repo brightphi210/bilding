@@ -28,6 +28,12 @@ const BuilderCreate = () => {
   });
 
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+
   let url = 'https://bildingapi.onrender.com/api/projects'
   const token = localStorage.getItem('authToken');
 
@@ -41,16 +47,16 @@ const BuilderCreate = () => {
         method: 'POST',
         headers : {
           "Authorization": `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/json',
         },
 
         body: JSON.stringify(formData),
         
       })
 
-      const data = await respose.json()
+      // const data = await respose.json()
 
-      if (data.success) {
+      if (respose.ok) {
         console.log('Product Successfully Created!');
         navigate('/dashboard')
       } else {
@@ -70,13 +76,27 @@ const BuilderCreate = () => {
 
   const PageDisplayed = () => {
     if(page === 0){
-      return <BuilderCreateONE formData={formData} setFormData={setFormData} onSubmit={handleSubmit}/>
+      return <BuilderCreateONE 
+      formData={formData} 
+      setFormData={setFormData} 
+      onSubmit={handleSubmit} 
+      onChange={handleChange}/>
     }
     if(page === 1){
-      return <BuilderCreateTWO />
+      return <BuilderCreateTWO 
+      formData={formData} 
+      setFormData={setFormData} 
+      onSubmit={handleSubmit} 
+      onChange={handleChange}
+      />
     }
     if(page === 2){
-      return <BuilderCreateTHREE />
+      return <BuilderCreateTHREE 
+      formData={formData} 
+      setFormData={setFormData} 
+      onSubmit={handleSubmit} 
+      onChange={handleChange}
+      />
     }
     
   }
@@ -194,8 +214,8 @@ const BuilderCreate = () => {
                   className='mainBtn2'
                   onClick={() =>{
                     if (page === FormTitle.length - 1) {
-                      alert("FORM SUBMITTED");
-                      // console.log(formData);
+                      // alert("FORM SUBMITTED");
+                      console.log(formData);
                       navigate('/builder/project/review');
 
                     } else {
@@ -206,7 +226,7 @@ const BuilderCreate = () => {
                   >
                   {page === 0 ? "Create Request" : page === 1 ? "Next" : "Review"}
               </button>
-              {/* <button type='submit'>fetchData</button> */}
+              <button type='submit' onClick={handleSubmit}>fetchData</button>
               
             </div>
 
