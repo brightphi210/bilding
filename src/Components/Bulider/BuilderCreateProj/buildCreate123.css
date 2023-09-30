@@ -91,6 +91,17 @@
     margin-bottom: 10px;
 }
 
+.createOneFormDiv button{
+    border: var(--red-color) solid 1px;
+    padding: 13px;
+    width: 30%;
+    border-radius: 20px;
+    font-size: 13px;
+    background-color: white;
+    color: #C32F07;
+    margin-top: 20px;
+}
+
 
 @media only screen and (min-width:321px) and (max-width:768px){
     .createOneFormDiv{

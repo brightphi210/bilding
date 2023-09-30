@@ -34,7 +34,6 @@
 .proDesOneFlexTwo h4{
     font-size: 25px;
     font-weight: 500;
-
 }
 
 
@@ -81,6 +80,8 @@
 
 
 
+
+
 /* .proDesOneFour{
     padding-top: 30px;
 }
@@ -120,11 +121,45 @@
 
 
 
+@media only screen and (min-width:321px) and (max-width:768px){
+    
+    .proDesOneDiv{
+        padding: 20px 0;
+    }
+
+
+    .proDesOneFlexTwo{
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-bottom: 30px;
+    }
+
+    .proSubGrid{
+        display: block;
+        gap: 150px;
+    }
+
+    .proDesOneFlexTwo h4{
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+
+    .proDesOneFlexThree p{
+        font-size: 12x;
+        width: 100%;
+        padding-bottom: 40px;
+        
+    }
+    
+}
+
+
 /* ========================== Project Section =================== */
 
 .projectSectionTwo{
     display: grid;
-    grid-template-columns: 60px 3fr 200px;
+    grid-template-columns: 60px 3fr 300px;
     padding-top: 40px;
     gap: 50px;
 }
@@ -180,7 +215,15 @@
     padding-bottom: 20px;
 }
 
+.projectSec2BtnsNew{
+    display: flex;
+}
 
+.projectSec2BtnsNew button{
+    font-size: 13px;
+    padding: 10px 20px;
+    margin-right: 20px;
+}
 
 .projectSec2Btns button{
     font-size: 13px;
@@ -219,6 +262,68 @@
 
 
 
+@media only screen and (min-width:321px) and (max-width:768px){
+
+    .projectSec2BtnsNew{
+        display: block;
+    }
+
+    .projectSectionTwo{
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-top: 20px;
+        gap: 10px;
+    }
+    
+
+    .proSeniorDiv img{
+        width: 50px;
+    }
+
+
+    .proSenior{
+        display: block;
+        padding-bottom: 20px;
+    }
+
+
+    .proSenior h2{
+        font-size: 20px;
+        font-weight: 500;
+        color: #000000;
+    
+    }
+
+
+    .projectSectionTwo p{
+       font-size: 11px; 
+    }   
+
+
+    .secTwoView{
+        width: 60%;
+        margin-bottom: 20px; 
+    }
+
+
+    .secTwoHire{
+        width: 60%;
+        margin-bottom: 30px;
+    }
+
+
+    .review{
+        font-size: 12px;
+    }
+
+
+    .hireNum{
+        font-size: 14px !important;
+    }
+}
+
+
+
 /* =============== project section 3 ========================= */
 
 .projectSecThree{
@@ -237,3 +342,25 @@
     color: #000000;
     padding-top: 20px;
 } 
+
+
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    .projectSecThree{
+        padding-top: 50px;
+        margin: auto;
+        justify-content: center;
+        text-align: center;
+    
+    }
+    .projectSecThree img{
+        width: 20%;
+    }
+    
+    .projectSecThree h2{
+        font-size: 20px;
+        color: #000000;
+        padding-top: 20px;
+        width: 60%;
+    } 
+}

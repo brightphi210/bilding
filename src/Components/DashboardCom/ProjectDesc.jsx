@@ -58,7 +58,7 @@ const ProjectDesc = () => {
             <section>
                 <div className='dashDescLink'>
                     <ul className='dashDesLinkUL'>
-                        <li><i class="uil uil-link"></i> https://bilding.contruction/project....</li>
+                        <li className='li'><i class="uil uil-link"></i> https://bilding.contruction/project....</li>
                         <li className='copyLink'>Copy project link</li>
                     </ul>
 

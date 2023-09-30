@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --white-color:white;
+
+    --black-color:#000000;
+
+    --red-color:#C32F07;
+
+    --grey-color: #808080;
+}
+
+
+/* =========================== section ============================= */
+
+
+.builderCreateReviewSections {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+
+  .builderCreateReviewDivs {
+    background: #fff;
+    padding: 60px 50px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 50%;
+    margin: 20px 25%;
+    text-align: center;
+  }
+
+  .reviewCloseIcon{
+    font-size: 25px;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #000000;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.reviewCloseIcon:hover{
+  rotate: 90deg;
+  transition: all ease 0.5s;
+}
+
+
+.builderCreateReviewDivs button{
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #C32F07;
+  color: white;
+  font-size: 13px;
+  width: 30%;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}

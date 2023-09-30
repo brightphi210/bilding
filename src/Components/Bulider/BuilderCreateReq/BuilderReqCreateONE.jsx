@@ -17,7 +17,7 @@ const BuilderReqCreateONE = () => {
 
           <div className='createOneDiv'>
             <label>Location</label>
-            <input type="text"  placeholder='Skills'/>
+            <input type="text"  placeholder='Project location'/>
           </div>
 
       </form>

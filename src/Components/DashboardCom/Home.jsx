@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-
+import React, { useState, useEffect } from 'react'
+import jwt_decode from "jwt-decode"
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -40,6 +40,52 @@ const Home = () => {
       slidesToSlide: 1
     }
   };
+
+  const [projects, setProjects] = useState([])
+
+  console.log(projects.length)
+
+  let url = 'https://bildingapi.onrender.com/api/projects'
+
+  // let token = localStorage.getItem('authToken') ? JSON.parse(localStorage.getItem('authToken')) : null;
+  // const [authTokens, setAuthTokens] = useState(() => token)
+  const token = localStorage.getItem('authToken');
+  
+  const fetccData = async () => {
+    // e.preventDefault();
+    console.log(token)
+
+
+    try{
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          // 'Content-Type': 'application/json',
+          "Authorization": `Bearer ${token}`
+        },
+
+      })
+
+
+      const data = await response.json()
+      setProjects(data)
+
+      console.log(data)
+
+
+    }catch(er){
+      console.log("Error fetching project data !!! ")
+    }
+  }
+
+
+  useEffect(()=>{
+    fetccData()
+  }, [])
+
+
+
+
   return (
     <div>
       <section className='dashSectionOne'>
@@ -72,12 +118,12 @@ const Home = () => {
 
         <div className='createButton'>
           <p>Create a new project or request </p>
-          <Link to={'/' + 'builder/options2'}><button>Create New</button></Link>
+          <Link to={'/' + 'builder/options2'}><h2 className='createBtn'>Create New</h2></Link>
         </div>
 
         <div className='dashProjectNumDiv'>
           <div className='dashProjectNum'>
-            <h2>0</h2>
+            <h2>{projects.length}</h2>
             <p>Projects</p>
           </div>
 
@@ -97,7 +143,55 @@ const Home = () => {
           </div>
         </div>
 
-        {/* <div className='dashEmptyDiv'>
+        {projects.length > 0 ? (
+          <section className='dashShowDiv'>
+            <div className='dashShowDivOne'>
+              <h2>Active Projects</h2>
+
+
+              <div className='dashShowOneDiv'>
+
+                {projects.map((project) =>  (
+                  <div className='dashShowOneFlex' >
+                    <div >
+                      <h3 >{project.title}</h3>
+                      <div>
+                        <span>Applications: 2</span>
+                        <span>Hired: 0</span>
+                      </div>
+                    </div>
+                    <Link to={'/dashboard/projects/description'}><button>View</button></Link>
+                    <hr />
+                  </div>
+                ))}
+              </div>
+            </div>
+    
+            <div className='dashShowDivTwo'>
+              <h2>Recent Activity</h2>
+              <div className='dashShowDivTwoBack'>
+                <div className='dashShowTwoFlex'>
+                  <h3>New project created</h3>
+                  <p>30 mins ago.</p>
+                  <hr />
+                </div>
+    
+                <div className='dashShowTwoFlex'>
+                  <h3>New project created</h3>
+                  <p>30 mins ago.</p>
+                  <hr />
+                </div>
+                
+              </div>
+            </div>
+            <p className='viewAll'>View All <i class="uil uil-message"></i></p>
+          </section>
+        ) :
+
+        (
+
+          <div>
+          <div className='dashEmptyDiv'>
           <img src={emptyImg} alt='empty' />
           <h2>It’s empty here.</h2>
 
@@ -110,59 +204,16 @@ const Home = () => {
           <button onClick={openModal}>Create New</button>
         </div>
 
-        <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal> */}
+        <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
+      </div>
+          
 
-        <section className='dashShowDiv'>
-          <div className='dashShowDivOne'>
-            <h2>Active Projects</h2>
-            <div className='dashShowOneDiv'>
-              <div className='dashShowOneFlex'>
-                <div>
-                  <h3>Electrician to wire a two storey building in Asaba.</h3>
-                  <div>
-                    <span>Applications: 2</span>
-                    <span>Hired: 0</span>
-                  </div>
-                </div>
-                <Link to={'/dashboard/projects/description'}><button>View</button></Link>
-                <hr />
-              </div>
+        )
+        
+        }
 
 
-              <div className='dashShowOneFlex'>
-                <div>
-                  <h3>Electrician to wire a two storey building in Asaba.</h3>
-                  <div>
-                    <span>Applications: 2</span>
-                    <span>Hired: 0</span>
-                  </div>
-                </div>
-                <Link to={'/dashboard/projects/description'}><button>View</button></Link>
-                <hr />
-              </div>
-            </div>
-            
-          </div>
 
-          <div className='dashShowDivTwo'>
-            <h2>Recent Activity</h2>
-            <div className='dashShowDivTwoBack'>
-              <div className='dashShowTwoFlex'>
-                <h3>New project created</h3>
-                <p>30 mins ago.</p>
-                <hr />
-              </div>
-
-              <div className='dashShowTwoFlex'>
-                <h3>New project created</h3>
-                <p>30 mins ago.</p>
-                <hr />
-              </div>
-              
-            </div>
-          </div>
-          <p className='viewAll'>View All <i class="uil uil-message"></i></p>
-        </section>
       </section>
     </div>
   )

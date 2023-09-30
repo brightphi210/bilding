@@ -2,10 +2,12 @@ import React, {useState} from 'react'
 import './projectDescSec123.css'
 import VectorImage from './newvec.png'
 import ProjectHireModal from './ProjectHireModal'
+import ProjectHireModal2 from './ProjectHireModal2'
 
 const ProjectDescSec2 = () => {
 
   const [modal, setModal] = useState(false)
+  const [modal2, setModal2] = useState(false)
 
   const showModal = ()=>{
       setModal(true)
@@ -13,6 +15,15 @@ const ProjectDescSec2 = () => {
 
   const hideModal = ()=>{
       setModal(false)
+  }
+
+
+  const showModal2 = ()=>{
+    setModal2(true)
+  }
+
+  const hideModal2 = ()=>{
+    setModal2(false)
   }
 
   
@@ -45,7 +56,7 @@ const ProjectDescSec2 = () => {
               <h2>₦1,600,000</h2>
               <div className='projectSec2Btns'>
                 <button className='secTwoView' onClick={showModal}>View</button>
-                <button className='secTwoHire'>Hire</button>
+                <button className='secTwoHire' onClick={showModal2}>Hire</button>
               </div>
             </div>
           </div>
@@ -125,6 +136,7 @@ const ProjectDescSec2 = () => {
         </section>
 
         <ProjectHireModal isOpen={modal} onClose={hideModal}/>
+        <ProjectHireModal2 isOpen2={modal2} onClose2={hideModal2}/>
       </section>
     </div>
   )

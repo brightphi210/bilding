@@ -27,6 +27,8 @@ const BuilerModal = ({isOpen, onClose,}) => {
                 </div>
             </div>
         </section>
+
+        
     </div>
   )
 }

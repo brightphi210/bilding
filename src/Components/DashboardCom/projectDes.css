@@ -79,3 +79,64 @@
     border-bottom:#C32F07 solid 2px;
     transition: all ease 0.2s;
 }
+
+
+@media only screen and (min-width:321px) and (max-width:768px){
+
+    .dashProjectDesc{
+        padding: 140px 8%;
+    }
+
+
+    .dashDescLink{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        align-items: center;
+    }
+    
+
+    .dashDesLinkUL{
+        display: block;
+        gap: 30px;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .copyLink{
+        width: 70%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .dashDesLinkUL{
+        font-size: 12px;
+        color: #808080;
+    }
+
+    .dashDesLinkUL li{
+        padding-top: 10px;
+    }
+
+
+    .detailSectionDiv{
+        display: block;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .detailSectionDiv h2{
+        font-size: 16px;
+        padding-bottom: 10px;
+        margin: 0;
+        margin-bottom: 20px;
+        width: 60%;
+        
+    }
+
+    .secBorder{
+        border-bottom:#C32F07 solid 2px;
+        transition: all ease 0.2s;
+        /* width: 20% !important; */
+    }
+}

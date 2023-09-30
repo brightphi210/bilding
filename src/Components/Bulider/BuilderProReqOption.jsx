@@ -53,14 +53,13 @@ const BuilderProReqOption = () => {
 
 
     const submit = () =>{
-        // e.preveDefault();
-        
+
         if(isChecked1){
             navigate('/builder/request/create')
         }
 
         else if(isChecked2){
-            navigate('/builder/request/create')
+            navigate('/builder/project/create')
         }
     }
   return (

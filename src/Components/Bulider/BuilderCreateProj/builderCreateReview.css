@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+:root{
+    --white-color:white;
+
+    --black-color:#000000;
+
+    --red-color:#C32F07;
+
+    --grey-color: #808080;
+}
+
+
+/* ==================== section ============================= */
+
+
+.builderCreateReviewSection{
+    margin: 120px 23%;
+}
+
+.builderCreateReviewDivOne{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+
+.builderCreateReviewDivOne h2{
+    font-size: 30px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+
+.builderCreateReview{
+    background-color:#EEEEEE;
+    padding: 50px;
+    border-radius: 30px;
+}
+
+.builderCreateReview h2{
+    font-size: 25px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+.builderCreateReview p{
+    padding-top: 20px;
+    font-size: 15px;
+}
+
+.builderCreateReview span{
+    color: #808080;
+    display: block;
+    text-align: justify;
+}
+
+.builderCreateReview h5{
+    color:#C32F07;
+    font-weight: 500;
+    font-size: 13px;
+    padding-bottom: 10px;
+    cursor: pointer;
+
+}
+
+.builderCreateReviewOne{
+    padding-top: 30px;
+}
+
+.reviewFlex{
+    display: grid;
+    grid-template-columns: 3fr 80px;
+}
+
+.reviewFlex h4{
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.reviewBtns{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 300px;
+    padding-top: 30px;
+}
+
+.reviewBtns button{
+    padding: 15px;
+    width: 20%;
+    font-size: 13px;
+    border-radius: 20px;
+    border: none;
+    background-color: #C32F07;
+    color: white;
+    cursor: pointer;
+    align-items: center;
+}
+
+.reviewBtns .back{
+    padding: 15px;
+    padding-bottom: 0;
+    width: 20%;
+    font-size: 13px;
+    border-radius: 20px;
+    cursor: pointer;
+    align-items: center;
+    background-color: white;
+    color: #C32F07;
+    border: #C32F07 solid 1px;
+    text-align: center;
+    font-weight: 400 !important;
+}
+
+@media only screen and (min-width:321px) and (max-width:768px){}

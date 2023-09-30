@@ -145,7 +145,7 @@
     display: none;
   }
 
-@media only screen and (min-width:321px) and (max-width:768px){
+@media only screen and (min-width:318px) and (max-width:768px){
     .dashIcons1{
         display: block;
         font-size: 30px;

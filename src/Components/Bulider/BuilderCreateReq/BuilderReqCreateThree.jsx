@@ -11,12 +11,12 @@ const BuilderReqCreateThree = () => {
             </div>
 
             <div className='createOneDiv'>
-                <label>Project description</label>
+                <label>Request description</label>
                 <textarea type="text"  placeholder='Description '/>
             </div>
 
             <div className='createOneDiv'>
-                <label>Upload images to aid your project description</label>
+                <label>Upload images to aid your request description</label>
                 <button>Upload image <i class="uil uil-upload-alt"></i></button>
             </div>
 
