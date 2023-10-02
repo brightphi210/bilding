@@ -15,6 +15,7 @@ const BuilderCreateONE = ({formData, setFormData, onSubmit, onChange }) => {
             name='title'
             value={formData.title}
             onChange={onChange}
+            required
           />
         </div>
 
@@ -26,6 +27,7 @@ const BuilderCreateONE = ({formData, setFormData, onSubmit, onChange }) => {
             name='categories'
             value={formData.categories}
             onChange={onChange}
+            required
             >
             <option value="">Category</option>
             <option value="Electrical">Electrical</option>
@@ -46,6 +48,7 @@ const BuilderCreateONE = ({formData, setFormData, onSubmit, onChange }) => {
             name='skills'
             value={formData.skills}
             onChange={onChange}
+            required
             >
             <option value="">Skills</option>
             <option value="Engineer">Engineer</option>
@@ -55,7 +58,7 @@ const BuilderCreateONE = ({formData, setFormData, onSubmit, onChange }) => {
         </div>
 
 
-        <button type="submit">Submit</button>
+        {/* <button type="submit">Submit</button> */}
       </form>
     </div>
   )

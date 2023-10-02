@@ -1,10 +1,12 @@
 import React from 'react'
 import './buildCreate123.css'
 
-const BuilderCreateTHREE = ({formData, setFormData, onSubmit, onChange }) => {
+const BuilderCreateTHREE = ({formData, setFormData, onSubmit, onChange,  }) => {
+
+
   return (
     <div>
-      <form action="" className='createOneFormDiv'>
+      <form action="" className='createOneFormDiv' onSubmit={onSubmit}>
 
         <div className='createOneDiv'>
           <label>Budget e.g ₦2,000,000</label>
@@ -19,7 +21,7 @@ const BuilderCreateTHREE = ({formData, setFormData, onSubmit, onChange }) => {
 
         <div className='createOneDiv'>
           <label>Project description</label>
-          <textarea type="text"  
+          <textarea  
           placeholder='Description '
           name='description'
           value={formData.description}
@@ -27,9 +29,17 @@ const BuilderCreateTHREE = ({formData, setFormData, onSubmit, onChange }) => {
           />
         </div>
 
+
+        
+
         <div className='createOneDiv'>
           <label>Upload images to aid your project description</label>
-          <button>Upload image <i class="uil uil-upload-alt"></i></button>
+          <input 
+            type="file" 
+            id='image' 
+            name="image" 
+            accept="image/*"
+            onChange={onChange} />
         </div>
 
       </form>

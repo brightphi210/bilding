@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
 import './projectDes.css'
-
 
 import ProjectDesSec1 from './ProjectDesSec/ProjectDesSec1'
 import ProjectDescSec2 from './ProjectDesSec/ProjectDescSec2'
@@ -9,7 +8,10 @@ import ProjectDescSec3 from './ProjectDesSec/ProjectDescSec3'
 import { Link } from 'react-router-dom'
 const ProjectDesc = () => {
 
+
+
     const [sect, setSect] = useState(0)
+
 
     const SecDisplay = () =>{
         if(sect === 0){

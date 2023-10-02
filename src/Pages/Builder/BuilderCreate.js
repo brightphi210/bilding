@@ -9,47 +9,81 @@ import BuilderCreateTWO from '../../Components/Bulider/BuilderCreateProj/Builder
 import BuilderCreateTHREE from '../../Components/Bulider/BuilderCreateProj/BuilderCreateTHREE'
 
 
+import BuilderCreateReview from '../../Components/Bulider/BuilderCreateProj/BuilderCreateReview'
+
 const BuilderCreate = () => {
+
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
 
   const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
-    // url: "",
-    // image: "",
+    url: "",
     title: "",
     categories: "",
     skills: "",
-    // scope: "",
-    // experience: "",
-    // duration: "",
-    // location: "",
-    // budget: "",
-    // description: "",
+    scope: "",
+    experience: "",
+    duration: "",
+    location: "",
+    budget: "",
+    description: "",
+    image: null,
   });
 
 
+
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    const { name, value, type } = e.target;
+    const newValue = type === "file" ? e.target.files[0] : value;
+    setFormData({ ...formData, [name]: newValue });
+  }
+  
 
 
   let url = 'https://bildingapi.onrender.com/api/projects'
   const token = localStorage.getItem('authToken');
 
   const handleSubmit  = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     console.log(`Latest Token ${token}`)
 
 
     try{
+
+
+      const formDataNew = new FormData();
+ 
+      formDataNew.append('url', formData.url);
+      formDataNew.append('title', formData.title);
+      formDataNew.append('categories', formData.categories);
+      formDataNew.append('skills', formData.skills);
+      formDataNew.append('scope', formData.scope);
+      formDataNew.append('experience', formData.experience);
+      formDataNew.append('duration', formData.duration);
+      formDataNew.append('budget', formData.budget);
+      formDataNew.append('description', formData.description);
+      formDataNew.append('image', formData.image);
+
+
       const respose = await fetch(url, {
         method: 'POST',
         headers : {
           "Authorization": `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-
         body: JSON.stringify(formData),
         
       })
@@ -90,6 +124,8 @@ const BuilderCreate = () => {
       onChange={handleChange}
       />
     }
+
+
     if(page === 2){
       return <BuilderCreateTHREE 
       formData={formData} 
@@ -98,7 +134,8 @@ const BuilderCreate = () => {
       onChange={handleChange}
       />
     }
-    
+
+
   }
 
   let myClassName1 = ''
@@ -208,15 +245,13 @@ const BuilderCreate = () => {
               >
                 {page === 0 ? null : "Back"}
               </h4>
-
               
               <button 
                   className='mainBtn2'
-                  onClick={() =>{
+                  type='submit'
+                  onClick={(e) =>{
                     if (page === FormTitle.length - 1) {
-                      // alert("FORM SUBMITTED");
-                      console.log(formData);
-                      navigate('/builder/project/review');
+                      openModal()
 
                     } else {
                       setPage((currPage) => currPage + 1);
@@ -224,16 +259,17 @@ const BuilderCreate = () => {
                   }}
                   
                   >
-                  {page === 0 ? "Create Request" : page === 1 ? "Next" : "Review"}
+                  {page === 0 ? "Proceed" : page === 1 ? "Next" : "review"}
               </button>
-              <button type='submit' onClick={handleSubmit}>fetchData</button>
               
             </div>
+            {/* <span onClick={openModal}>Review</span>  */}
 
 
           </div>
         </div>        
       </section>
+        <BuilderCreateReview isOpen={isModalOpen} onClose={closeModal}></BuilderCreateReview>
     </div>
   )
 }

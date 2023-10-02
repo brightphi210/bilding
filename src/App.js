@@ -48,7 +48,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardHome />} />
           <Route path="/dashboard/projects" element={<DashProjectPage />} />
           <Route path="/dashboard/requests" element={<DashRequestPage />} />
-          <Route path="/dashboard/projects/description" element={<DashProjectDes />} />
+          <Route path="/dashboard/projects/description/:id" element={<DashProjectDes />} />
 
         </Routes>
         </BrowserRouter>

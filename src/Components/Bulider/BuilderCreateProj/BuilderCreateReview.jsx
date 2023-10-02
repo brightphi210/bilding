@@ -6,13 +6,15 @@ import { Link } from 'react-router-dom'
 import './builderCreateReview.css'
 import BuilderCreateReviewModals from './BuilderCreateReviewModals'
 import ProjectDetailsModal from '../BuilderReviewUpdates/ProjectDetailsModal'
-const BuilderCreateReview = () => {
+const BuilderCreateReview = ({isOpen, onClose}) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpen1, setIsModalOpen1] = useState(false);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [isModalOpen3, setIsModalOpen3] = useState(false);
   const [isModalOpen4, setIsModalOpen4] = useState(false);
+  
+  if (!isOpen) return null;
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -51,8 +53,8 @@ const BuilderCreateReview = () => {
   };
 
   return (
-    <div>
-      <Header />
+    <div className='builderModalReviewPart'>
+      {/* <Header /> */}
         <section className='builderCreateReviewSection'>
             <div className='builderCreateReviewDivOne'>
               <h2>Review your project.</h2>
@@ -126,7 +128,7 @@ const BuilderCreateReview = () => {
             </div>
 
             <div className='reviewBtns'>
-              <Link to={'/builder/project/create'} className='back'><p >Back</p></Link>
+              <p className='back' onClick={onClose}>Back</p>
               <button onClick={openModal}>Post Project</button>
             </div>
         </section>

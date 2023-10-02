@@ -42,17 +42,18 @@ const Home = () => {
   };
 
   const [projects, setProjects] = useState([])
+  const [recentProjects, setRecentProject] = useState([])
 
   console.log(projects.length)
 
   let url = 'https://bildingapi.onrender.com/api/projects'
+  let url2 = 'https://bildingapi.onrender.com/api/recentprojects'
 
-  // let token = localStorage.getItem('authToken') ? JSON.parse(localStorage.getItem('authToken')) : null;
-  // const [authTokens, setAuthTokens] = useState(() => token)
   const token = localStorage.getItem('authToken');
   
+
+  // ============================ Fetch Projects ===============================
   const fetccData = async () => {
-    // e.preventDefault();
     console.log(token)
 
 
@@ -60,7 +61,6 @@ const Home = () => {
       const response = await fetch(url, {
         method: 'GET',
         headers: {
-          // 'Content-Type': 'application/json',
           "Authorization": `Bearer ${token}`
         },
 
@@ -83,6 +83,30 @@ const Home = () => {
     fetccData()
   }, [])
 
+
+  // ========================== Recent Project ========================
+
+  const fetchRecentData = async () => {
+    try{
+
+      const response = await fetch(url2, {
+        method: 'GET',
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
+      })
+
+      const data = await response.json()
+      setRecentProject(data)
+
+    }catch(e){
+      console.log("There An Error Fetching Recent Data !!!")
+    }
+  }
+
+  useEffect(()=>{
+    fetchRecentData()
+  }, [])
 
 
 
@@ -151,7 +175,7 @@ const Home = () => {
 
               <div className='dashShowOneDiv'>
 
-                {projects.map((project) =>  (
+                {projects.slice(0, 3).map((project) =>  (
                   <div className='dashShowOneFlex' >
                     <div >
                       <h3 >{project.title}</h3>
@@ -160,7 +184,7 @@ const Home = () => {
                         <span>Hired: 0</span>
                       </div>
                     </div>
-                    <Link to={'/dashboard/projects/description'}><button>View</button></Link>
+                    <Link to={`/dashboard/projects/description/${project.id}`}><button>View</button></Link>
                     <hr />
                   </div>
                 ))}
@@ -170,21 +194,18 @@ const Home = () => {
             <div className='dashShowDivTwo'>
               <h2>Recent Activity</h2>
               <div className='dashShowDivTwoBack'>
-                <div className='dashShowTwoFlex'>
-                  <h3>New project created</h3>
-                  <p>30 mins ago.</p>
-                  <hr />
-                </div>
-    
-                <div className='dashShowTwoFlex'>
-                  <h3>New project created</h3>
-                  <p>30 mins ago.</p>
-                  <hr />
-                </div>
                 
+                {recentProjects.slice(0, 3).map((recentproject) =>(
+                  <div className='dashShowTwoFlex'>
+                    <h3>{recentproject.project.title}</h3>
+                    <p>30 mins ago.</p>
+                    <hr />
+                  </div>
+                ))}
+
               </div>
             </div>
-            <p className='viewAll'>View All <i class="uil uil-message"></i></p>
+            <Link to={'/' + 'dashboard/projects'}><p className='viewAll'>View All <i class="uil uil-message"></i></p></Link>
           </section>
         ) :
 
