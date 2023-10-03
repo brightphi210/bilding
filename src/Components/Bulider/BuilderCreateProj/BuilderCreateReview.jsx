@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 import './builderCreateReview.css'
 import BuilderCreateReviewModals from './BuilderCreateReviewModals'
 import ProjectDetailsModal from '../BuilderReviewUpdates/ProjectDetailsModal'
+import ProjectScaleModal from '../BuilderReviewUpdates/ProjectScaleModal'
+import ProjectBudgetModal from '../BuilderReviewUpdates/ProjectBudgetModal'
 const BuilderCreateReview = ({isOpen, onClose}) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -85,7 +87,7 @@ const BuilderCreateReview = ({isOpen, onClose}) => {
               <div className='builderCreateReviewOne'>
               <div className='reviewFlex'>
                   <h2>Project Scope</h2>
-                  <h4>Edit <i class="uil uil-edit"></i></h4>
+                  <h4 onClick={openModal2}>Edit <i class="uil uil-edit"></i></h4>
                 </div>
                 <hr />
                 <p>Scope e.g large, medium, small</p>
@@ -105,7 +107,7 @@ const BuilderCreateReview = ({isOpen, onClose}) => {
               <div className='builderCreateReviewOne'>
                 <div className='reviewFlex'>
                   <h2>Project Budget</h2>
-                  <h4>Edit <i class="uil uil-edit"></i></h4>
+                  <h4 onClick={openModal3}>Edit <i class="uil uil-edit"></i></h4>
                 </div>
                 <hr />
                 <p>Budget e.g ₦2,000,000</p>
@@ -135,6 +137,8 @@ const BuilderCreateReview = ({isOpen, onClose}) => {
 
         <BuilderCreateReviewModals isOpen={isModalOpen} onClose={closeModal}></BuilderCreateReviewModals>
         <ProjectDetailsModal isOpen1={isModalOpen1} onClose1={closeModal1}></ProjectDetailsModal>
+        <ProjectScaleModal isOpen2={isModalOpen2} onClose2={closeModal2}></ProjectScaleModal>
+        <ProjectBudgetModal isOpen3={isModalOpen3} onClose3={closeModal3}></ProjectBudgetModal>
     </div>
   )
 }

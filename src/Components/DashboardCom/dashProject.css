@@ -64,17 +64,69 @@
     padding-bottom: 30px;
 }
 
-.view{
+.dashProjectTWO a .view{
     cursor: pointer;
     background-color: var(--red-color);
     color: var(--white-color);
-    width: 40%;
+    width: 50%;
     height: 40%;
     border: none;
     border-radius: 10px;
+    padding: 10px;
 }
 
 .view:hover{
     background-color: #c9502f;
     transition: all ease 0.3s;
 } 
+
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    .dashProjectSectionGen{
+        padding: 120px 5%;
+    }
+    
+    .dashProjectSectionDiv{
+        background-color: #fbfbfb;
+        padding: 20px;
+    }
+
+    .dashProjectTWO{
+        display: grid;
+        grid-template-columns: 1fr ;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .dashProjectONE{
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-bottom: 20px;
+    }
+
+    .dashProjectONE li{
+        border:#f4d2c6 1px solid;
+        padding: 6px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .dashProjectTWO span{
+        font-size: 12px;
+        display: block;
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+
+    .dashProjectTWO a .view{
+        cursor: pointer;
+        background-color: var(--red-color);
+        color: var(--white-color);
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 10px;
+        /* padding: 100px; */
+    }
+}

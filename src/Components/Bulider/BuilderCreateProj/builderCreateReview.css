@@ -29,11 +29,10 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.9);
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     z-index: 1000;
     overflow-x: scroll;
-    padding-top: 50%;
+    /* padding-top: 50%; */
 }
 
 
@@ -41,8 +40,7 @@
 .builderCreateReviewSection{
     background-color: white;
     margin: 30px 3%;
-    /* padding: 0 20%; */
-    top: 0;
+    top: 50%;
     padding: 60px 50px;
     border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -147,4 +145,71 @@
     font-weight: 400 !important;
 }
 
-@media only screen and (min-width:321px) and (max-width:768px){}
+@media only screen and (min-width:321px) and (max-width:768px){
+
+
+
+    .builderCreateReviewSection{
+        background-color: white;
+        padding: 10px;
+        margin: 30px 1%;
+        top: 60%;
+    }
+
+    .builderCreateReviewDivOne{ 
+        padding-top: 80px;
+    }
+    
+    .builderCreateReviewDivOne h2{
+        font-size: 25px;
+    }
+
+    .builderCreateReviewDivOne p{
+        font-size: 12px;
+    }
+
+    .builderCreateReview{
+        margin: 0;
+        padding: 30px;
+    }
+
+    .reviewFlex h2{
+        font-size: 20px;
+    }
+
+    .reviewFlex h4{
+        font-size: 16px;
+    }
+
+    .reviewBtns{
+        display: block;
+    }
+
+    .reviewBtns .back{
+        padding: 15px;
+        width: 100%;
+        font-size: 13px;
+        border-radius: 20px;
+        cursor: pointer;
+        align-items: center;
+        background-color: white;
+        color: #C32F07;
+        border: #C32F07 solid 1px;
+        text-align: center;
+        font-weight: 400 !important;
+    }
+
+    .reviewBtns button{
+        padding: 15px;
+        width: 100%;
+        font-size: 13px;
+        border-radius: 20px;
+        border: none;
+        background-color: #C32F07;
+        color: white;
+        cursor: pointer;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+}

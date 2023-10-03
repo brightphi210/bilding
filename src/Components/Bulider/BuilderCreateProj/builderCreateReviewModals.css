@@ -73,3 +73,64 @@
   border-radius: 20px;
   cursor: pointer;
 }
+
+
+@media only screen and (min-width:321px) and (max-width:768px){
+  .builderCreateReviewSections {
+    /* padding: 0 1%; */
+  }
+  
+
+  .builderCreateReviewDivs {
+    width: 100%;
+  }
+
+  .reviewCloseIcon{
+    font-size: 25px;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #000000;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.reviewCloseIcon:hover{
+  rotate: 90deg;
+  transition: all ease 0.5s;
+}
+
+
+.builderCreateReviewDivs{
+  padding: 60px 60px;
+}
+
+.builderCreateReviewDivs img{
+  width: 220px;
+}
+
+
+.builderCreateReviewDivs h2{
+  font-size: 20px;
+  padding-top: 30px;
+}
+
+.builderCreateReviewDivs p{
+  font-size: 12px;
+  padding-top: 30px;
+}
+
+
+.builderCreateReviewDivs button{
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #C32F07;
+  color: white;
+  font-size: 13px;
+  width: 100%;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+}

@@ -55,4 +55,63 @@
     cursor: pointer;
 }
 
+.reviewClose:hover{
+    transform: rotate(90deg);
+    transition: all 0.5s ease;
+}
+
+.cancleSubBtn{
+    display: flex;
+    gap: 50px;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.cancleSubBtn span{
+    color: #C32F07;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.cancleSubBtn span:hover{
+    color: #cd4722;
+    transition: all 0.2s ease;
+}
+
+.cancleSubBtn button{
+    padding: 8px;
+    width: 20%;
+    border-radius: 20px;
+    background-color: #C32F07;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.cancleSubBtn button:hover{
+    background-color: #cd4722;
+    transition: all 0.2s ease;
+}
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    .projectDetailsDiv{
+        padding: 40px;
+        margin: 20px 5%;
+
+    }
+
+    .cancleSubBtn button{
+        padding: 8px;
+        width: 50%;
+    }
+
+    .reviewClose{
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
+
 

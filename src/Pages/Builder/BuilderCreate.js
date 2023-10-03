@@ -30,6 +30,7 @@ const BuilderCreate = () => {
 
   const [formData, setFormData] = useState({
     url: "",
+    image: null,
     title: "",
     categories: "",
     skills: "",
@@ -39,24 +40,36 @@ const BuilderCreate = () => {
     location: "",
     budget: "",
     description: "",
-    image: null,
   });
 
 
 
+  // const handleChange = (e) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // };
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
     const newValue = type === "file" ? e.target.files[0] : value;
     setFormData({ ...formData, [name]: newValue });
   }
+
+
+  // const handleChange = (e) => {
+  //   if (e.target.name === 'image') {
+
+  //     setFormData({ ...formData, [e.target.name]: e.target.files[0] });
+  //   } else {
+  //     setFormData({ ...formData, [e.target.name]: e.target.value });
+  //   }
+  // };
   
 
 
   let url = 'https://bildingapi.onrender.com/api/projects'
   const token = localStorage.getItem('authToken');
 
-  const handleSubmit  = async (e) => {
+  const handleSubmit  = async () => {
     // e.preventDefault();
     console.log(`Latest Token ${token}`)
 
@@ -78,23 +91,25 @@ const BuilderCreate = () => {
       formDataNew.append('image', formData.image);
 
 
-      const respose = await fetch(url, {
+      const response = await fetch(url, {
         method: 'POST',
         headers : {
           "Authorization": `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formDataNew),
+        // body: formData,
         
       })
 
-      // const data = await respose.json()
-
-      if (respose.ok) {
-        console.log('Product Successfully Created!');
+      
+      if (response.ok) {
+        const data = await response.json()
+        console.log('Product Successfully Created!', data);
         navigate('/dashboard')
       } else {
-        console.error('Product Failed to Create');
+        console.error( response.statusText, 'Product Failed to Create');
+        
       }
     }
 
@@ -249,9 +264,10 @@ const BuilderCreate = () => {
               <button 
                   className='mainBtn2'
                   type='submit'
-                  onClick={(e) =>{
+                  onClick={() =>{
                     if (page === FormTitle.length - 1) {
-                      openModal()
+                      // openModal()
+                      handleSubmit()
 
                     } else {
                       setPage((currPage) => currPage + 1);
@@ -259,7 +275,7 @@ const BuilderCreate = () => {
                   }}
                   
                   >
-                  {page === 0 ? "Proceed" : page === 1 ? "Next" : "review"}
+                  {page === 0 ? "Proceed" : page === 1 ? "Next" : "Submit"}
               </button>
               
             </div>
