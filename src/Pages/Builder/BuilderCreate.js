@@ -97,7 +97,7 @@ const BuilderCreate = () => {
           "Authorization": `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formDataNew),
+        body: JSON.stringify(formData),
         // body: formData,
         
       })
