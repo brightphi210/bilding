@@ -4,6 +4,8 @@ import React from 'react'
 import dashLogo from './1.png'
 import proLogo from './2.png'
 import qLogo from './4.png'
+
+import proImg from './5.webp'
 import noteLogo from './3.png'
 
 
@@ -59,9 +61,18 @@ const DashHeader = () => {
                     <div className='profile'>
                         <img src={proLogo} alt="" />
                         <ul className="dropdown">
-                            <li><i class="uil uil-edit-alt"></i> Edit Profile</li>
-                            <li><i class="uil uil-setting"></i> Settings</li>
-                            <li onClick={logoutUser}><i class="uil uil-sign-out-alt"></i> Logout</li>
+                            
+                            <div className='proImgFlex'>
+                              <img src={proImg} alt="" />
+                              <ul>
+                              <h3>Peter Obi & Sons</h3>
+                              <p>Supplier</p>
+                              </ul>
+                            </div>
+                            <div className='dropFlex'>
+                              <li><i class="uil uil-setting"></i> Settings</li>
+                              <li onClick={logoutUser}><i class="uil uil-sign-out-alt"></i> Logout</li>
+                            </div>
                         </ul>
                     </div>
                     <img src={qLogo} alt="" />

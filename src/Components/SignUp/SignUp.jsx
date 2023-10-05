@@ -1,12 +1,15 @@
 import React from 'react'
 import signUpBg from './Images/bg.png'
 import { useState } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 
 import './signUp.css'
 const SignUp = () => {
+
+    let navigate  = useNavigate()
+    
     const [isChecked, setIsChecked] = useState(false);
     const [isChecked1, setIsChecked1] = useState(false);
     const [isChecked2, setIsChecked2] = useState(false);
@@ -77,8 +80,8 @@ const SignUp = () => {
         setContainerBackgroundColor1('white');
         setContainerBorderColor1("Gray")
 
-        // setBtnColor('#C32F07')
-        // setCursorPointer('pointer');
+        setBtnColor('#C32F07')
+        setCursorPointer('pointer');
         // setBtnDisabled(null);
 
 
@@ -86,6 +89,22 @@ const SignUp = () => {
         setContainerBackgroundColor2(isChecked2 ? 'white' : 'pink');
         setContainerBorderColor2(isChecked2 ? 'Gray' : '#C32F07');
     };
+
+
+    const submit = () =>{
+
+        if(isChecked){
+            navigate('/builder')
+        }
+
+        else if(isChecked1){
+            navigate('/builder/project/create')
+        }
+
+        else if(isChecked2){
+            navigate('/worker')
+        }
+    }
   return (
     <div>
         <section className='signupSection'>
@@ -112,7 +131,12 @@ const SignUp = () => {
                 </div>
             </div>
 
-            <Link to={'/builder'}><button style={{backgroundColor : btnColor, cursor: cusorPointer}} disabled ={false}>Get Started</button></Link>
+            <button 
+                style={{backgroundColor : btnColor, cursor: cusorPointer}} 
+                disabled ={false}
+                onClick={submit}
+            >Get Started
+            </button>
             <span>Already have an account ? <Link to={'/login'}>Log in</Link></span>
         </section>
     </div>

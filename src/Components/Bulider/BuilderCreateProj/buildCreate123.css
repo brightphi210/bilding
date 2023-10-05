@@ -43,10 +43,12 @@
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 10px;
-    border: rgb(197, 197, 197) solid 1px;
+    
     font-size: 15px;
     outline: none;
 }
+
+
 
 .createOneDiv textarea{
     margin: auto;
@@ -76,6 +78,33 @@
     color: var(--white-color);
     border-radius: 30px;
     margin: 0;
+    cursor: pointer;
+}
+
+
+.createOneDivs{
+    padding: 20px;
+    border: rgb(197, 197, 197) solid 1px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+
+.createOneDivs img{
+    padding-top: 30px;
+}
+
+.createOneDivs label{
+    text-align: left;
+    display: block;
+}
+
+
+.createOneDivs input{
+    text-align: center;
+    border: none !important;
+    padding-left: 40%;
+    padding-top: 20px;
 }
 
 .uil-upload-alt{
@@ -101,6 +130,7 @@
     background-color: white;
     color: #C32F07;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 
@@ -142,6 +172,22 @@
         max-height: 150px;
         padding: 13px;
         font-size: 13px;
+    }
 
+
+    .createOneDivs label{
+        text-align: left;
+        display: block;
+        font-size: 13px;
+        padding-bottom: 30px;
+    }
+    
+
+
+    .createOneDivs input{
+        text-align: center;
+        border: none !important;
+        padding-left: 15%;
+        padding-top: 20px;
     }
 }

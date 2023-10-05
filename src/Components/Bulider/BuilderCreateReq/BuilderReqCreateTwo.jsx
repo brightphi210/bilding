@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './builderReqCreate.css'
 const BuilderReqCreateTwo = () => {
   return (
     <div>
@@ -15,7 +15,7 @@ const BuilderReqCreateTwo = () => {
                 <input type="text"  placeholder='Enter Amount'/>
             </div>
 
-            <button>Add another item</button>
+            <span>Add another item <i class="uil uil-arrow-right"></i></span>
 
         </form>
     </div>

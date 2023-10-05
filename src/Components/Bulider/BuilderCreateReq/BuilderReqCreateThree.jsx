@@ -17,7 +17,6 @@ const BuilderReqCreateThree = () => {
 
             <div className='createOneDiv'>
                 <label>Upload images to aid your request description</label>
-                <button>Upload image <i class="uil uil-upload-alt"></i></button>
             </div>
 
         </form>

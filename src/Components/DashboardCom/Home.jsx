@@ -125,7 +125,7 @@ const Home = () => {
             autoPlaySpeed={50000}
             keyBoardControl={true}
             containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
+            removeArrowOnDeviceType={["tablet", "mobile" ]}
             dotListClass="custom-dot-list-style"
             >
             <div className='dashCaroselDiv'> 

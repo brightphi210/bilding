@@ -1,113 +1,105 @@
-
 import React from 'react'
-
 import { useState, useMemo } from 'react'
-
 import { useNavigate } from 'react-router-dom'
-import Verify from '../Verify/Verify'
-import './builder.css'
-const Builder = () => {
+
+const WorkerSignUp = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const [isChecke, setIsChecke] = useState(false);
   
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [btnBg, setBtnColor] = useState('pink');
+
+  const handleColor = () => {
+     setIsChecke(!isChecke);
+     setBtnColor(isChecke ? 'pink' : '#C32F07')
+   }
+
+    const [isChecke, setIsChecke] = useState(false);
+  
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    const [btnBg, setBtnColor] = useState('pink');
+  
+  
+    const handleRadioChange = () => {
+      setIsChecke(!isChecke);
+      setIsButtonDisabled(isChecke);
+      setBtnColor(isChecke ? 'pink' : '#C32F07')
+    }
+  
+  
+    const [isModalOpen, setIsModalOpen] = useState(false);
+  
+    const openModal = () => {
+      setIsModalOpen(true);
+    };
+  
+    const closeModal = () => {
+      setIsModalOpen(false);
+    };
 
 
-  const handleRadioChange = () => {
-    setIsChecke(!isChecke);
-    setIsButtonDisabled(isChecke);
-    setBtnColor(isChecke ? 'pink' : '#C32F07')
-  }
 
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-
-
-  const [formData, setFormData] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: '',
-    phone_number: '',
-    location: '',
-    updates: false,
-  });
-
-
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData({ ...setFormData, [name]: value });
-  // };
-
-
-  const handleChange = (event) => {
-    const { name, value, type, checked } = event.target;
-    const newValue = type === 'checkbox' ? checked : value;
-
-    setFormData({ ...formData, [name]: newValue });
-  };
-
-  const handleColor = (  ) => {
-    setIsChecke(!isChecke);
-    setBtnColor(isChecke ? 'pink' : '#C32F07')
-  }
-
-
-  let navigate = useNavigate()
-
-  const handleSubmit = async  (e) => {
-    
-    e.preventDefault();
-
-    try {
-      // Use the Fetch API to send the user data to the server
-      const response = await fetch('https://bildingapi.onrender.com/auth/contractor/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+    const [formData, setFormData] = useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: '',
+        phone_number: '',
+        location: '',
+        updates: false,
       });
 
-      if (response.status === 200 || response.status === 500) {
-        console.log('User created successfully');
-        navigate('/builder/bvn');
-      } else {
-        console.error('There was an Error creating user:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error creating user:', error);
-    }
 
-    finally {
-      setIsLoading(false); 
-      }
 
-  };
+    const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    };
 
-  return (
-    <div>
+
+
+
+    let navigate = useNavigate()
+
+    const handleSubmit = async  (e) => {
       
-      <section className='builderSectionOne'>
-        <h2>Sign up to start your project.</h2>
-        <p>
-          Find the right skilled labour, suppliers, 
-          and everyone needed to get your project to life.
-        </p>
+      e.preventDefault();
+  
+      try {
+        // Use the Fetch API to send the user data to the server
+        const response = await fetch('https://bildingapi.onrender.com/auth/worker/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+  
+        if (response.status === 200 || response.status === 500) {
+          console.log('User created successfully');
+          navigate('/builder/bvn');
+        } else {
+          console.error('There was an Error creating user:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error creating user:', error);
+      }
+  
+      finally {
+        setIsLoading(false); 
+        }
+  
+    };
 
-        <form action="" className='buiderForm' onSubmit={handleSubmit}>
+    return (
+        <div>
+          
+          <section className='builderSectionOne'>
+            <h2>Sign up to provide your services.</h2>
+            <p>
+                Provide skills required to create great construction projects.
+            </p>
+    
+            <form action="" className='buiderForm' onSubmit={handleSubmit}>
           <div className='namesDiv'>
             <input 
               type="text" 
@@ -198,11 +190,11 @@ const Builder = () => {
           </div>
           <button className='googleBtn'>Continue with Google</button>
         </form>
-      </section>
-
-      <Verify isOpen={isModalOpen} onClose={closeModal}></Verify>
-    </div>
-  )
+          </section>
+    
+          {/* <Verify isOpen={isModalOpen} onClose={closeModal}></Verify> */}
+        </div>
+      )
 }
 
-export default Builder
+export default WorkerSignUp

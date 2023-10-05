@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import BuilderReqCreateONE from '../../Components/Bulider/BuilderCreateReq/BuilderReqCreateONE'
 import BuilderReqCreateTwo from '../../Components/Bulider/BuilderCreateReq/BuilderReqCreateTwo'
@@ -9,13 +10,77 @@ import { useState } from 'react'
 
 
 const BuilderProReq = () => {
-    const [page, setPage] = useState(0)
+
+  const navigate = useNavigate()
+
+  // const [title, setTitle] = useState("")
+  // const [category, setCategory] = useState("")
+  // const [location, setLocation] = useState("")
+  // const [description, setDescription] = useState("")
+  // const [item, setItem] = useState("")
+
+  const [formData, setFormData] = useState({
+    title: "",
+    category : "",
+    location : "",
+    // description : "",
+    // item : "",
+  })
+
+
+  let url = 'https://bildingapi.onrender.com/api/requests'
+  const token = localStorage.getItem('authToken');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try{
+
+      const formDataNew = new FormData();
+ 
+      formDataNew.append('title', formData.title);
+      formDataNew.append('category', formData.category);
+      formDataNew.append('location', formData.location);
+      // formDataNew.append('description', formData.description);
+      // formDataNew.append('item', formData.item);
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 
+          'Content-Type': "application/json",
+          'Authorization': `Bearer ${token}` ,
+        },
+
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        console.log('Product Successfully Created!', data);
+        navigate('/dashboard')
+      } else {
+        console.error( response.statusText, 'Product Failed to Create');
+        
+      }
+
+    }catch(err){
+      console.error("There was an error creating request !!!");
+    }
+  } 
+
+
+
+
+  const [page, setPage] = useState(0)
 
   const FormTitle = ["1", "2", "3", ]
 
   const PageDisplayed = () => {
     if(page === 0){
-      return <BuilderReqCreateONE />
+      return <BuilderReqCreateONE 
+      formData={formData} 
+      setFormData={setFormData} 
+      onSubmit={handleSubmit} 
+      />
     }
     if(page === 1){
       return <BuilderReqCreateTwo />
@@ -77,7 +142,7 @@ const BuilderProReq = () => {
         <Header />
         <div className="container">
           <h2>Create your Request.</h2>
-          <p>Get all the help you need for  your <br /> construction project.</p>
+          <p>Get all the help you need for  your construction project.</p>
 
 
           <div className='createLevel'>
