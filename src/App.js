@@ -27,6 +27,8 @@ import BuilderBvn from "./Pages/Builder/BuilderBvn";
 import AuthProvider from "./Pages/Utils/AuthContext";
 
 import ProtectedRoute from "./Pages/Utils/ProtectedRoute";
+import WorkerDashboardHome from "./Pages/DashboardWorker/WorkerDashboardHome";
+import SigninWorker from "./Pages/SigningWorker";
 function App() {
   return (
     <div className="App">
@@ -35,6 +37,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Signin />} />
+            <Route path="/login/user" element={<SigninWorker />} />
             <Route path="/register" element={<Register />} />
 
             
@@ -68,6 +71,10 @@ function App() {
               <Route path="/dashboard/requests" element={<DashRequestPage />} />
               <Route path="/dashboard/projects/description/:id" element={<DashProjectDes />} />
             
+
+
+            {/* ========================= Worker Dashboard ========================= */}
+            <Route path="/dashboard/worker" element={<WorkerDashboardHome />} />
 
           </Routes>
         </AuthProvider>

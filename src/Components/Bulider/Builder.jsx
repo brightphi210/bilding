@@ -81,7 +81,7 @@ const Builder = () => {
         body: JSON.stringify(formData),
       });
 
-      if (response.status === 200 || response.status === 500) {
+      if (response.status === 200 || response.status === 400) {
         console.log('User created successfully');
         navigate('/builder/bvn');
       } else {

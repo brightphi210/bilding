@@ -5,11 +5,8 @@ import { useContext, useState } from 'react'
 
 import { Link, useNavigate } from 'react-router-dom'
 
-// import jwt_decode from 'jsonwebtoken';
 
-
-
-const Login = () => {
+const LoginWorker = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -42,7 +39,6 @@ const Login = () => {
         });
 
         if (response.ok) {
-            
             const data = await response.json();
             localStorage.setItem('authToken', data.access);
             navigate('/dashboard/worker');
@@ -108,4 +104,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginWorker

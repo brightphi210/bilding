@@ -61,7 +61,7 @@ const WorkerSignUp = () => {
     let navigate = useNavigate()
 
     const handleSubmit = async  (e) => {
-      
+      setIsLoading(true);
       e.preventDefault();
   
       try {
@@ -73,12 +73,16 @@ const WorkerSignUp = () => {
           },
           body: JSON.stringify(formData),
         });
+
+        const data = await response.json();
   
-        if (response.status === 200 || response.status === 500) {
+        if (response.ok || response.statusCode === 400) {
           console.log('User created successfully');
-          navigate('/builder/bvn');
+          console.log(data)
+          navigate('/login/user');
         } else {
-          console.error('There was an Error creating user:', response.statusText);
+          console.error(response.statusText);
+          // console.log(data)
         }
       } catch (error) {
         console.error('Error creating user:', error);

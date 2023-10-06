@@ -11,6 +11,8 @@ import emptyImg from './Images/empty.png'
 
 import { Link } from 'react-router-dom';
 
+import WorkerDashboardHome from '../../Pages/DashboardWorker/WorkerDashboardHome';
+
 const Home = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,6 +52,8 @@ const Home = () => {
   let url2 = 'https://bildingapi.onrender.com/api/recentprojects'
 
   const token = localStorage.getItem('authToken');
+
+
   
 
   // ============================ Fetch Projects ===============================
@@ -71,6 +75,7 @@ const Home = () => {
       setProjects(data)
 
       console.log(data)
+
 
 
     }catch(er){
@@ -112,6 +117,8 @@ const Home = () => {
 
   return (
     <div>
+
+
       <section className='dashSectionOne'>
         <Carousel
             responsive={responsive}
@@ -236,6 +243,7 @@ const Home = () => {
 
 
       </section>
+
     </div>
   )
 }
