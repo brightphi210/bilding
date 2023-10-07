@@ -2,12 +2,14 @@ import React from 'react'
 import DashHeader from '../../Components/DashboardCom/Header/DashHeader'
 import Home from '../../Components/DashboardCom/Home'
 import Footer from '../../Components/Footer/Footer'
-import WorkerDashboardHome from '../DashboardWorker/WorkerDashboardHome'
+import WorkerDash from '../../Components/DashBoardWorker/WorkerDash'
 
 import jwt_decode from "jwt-decode"
 const DashboardHome = () => {
 
   const token = localStorage.getItem('authToken');
+
+  console.log(token)
   const decode = (jwt_decode(token))
   console.log(decode.role)
   return (
@@ -15,12 +17,8 @@ const DashboardHome = () => {
     
     <div>
         <DashHeader />
-
-        {decode.role === "Constructor" ? 
-        (<Home />): (
-          <WorkerDashboardHome />
-        )}
-
+        {/* <Home /> */}
+        {decode.role === "ContractorRole" ? (<Home />) : (<WorkerDash />)}
         <Footer />
     </div>
   )

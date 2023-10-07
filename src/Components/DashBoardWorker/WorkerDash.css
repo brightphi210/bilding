@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+:root{
+    --white-color:white;
+
+    --black-color:#000000;
+
+    --red-color:#C32F07;
+
+    --grey-color: #808080;
+}
+
+
+
+/* ========================= Worker Dash ======================= */
+
+
+.workerDashForm{
+    display: flex;
+    padding: 15px 2%;
+    gap: 20px;
+    align-items: center;
+}
+
+.workerDashForm input{
+    width: 100%;
+    padding: 15px;
+    border: #c9c9c9 1px solid;
+    border-radius: 20px;
+    outline: none;
+    font-size: 13px;
+}
+
+
+.workerDashForm button{
+    width: 10%;
+    border-radius: 30px;
+    border: none;
+    background-color: #C32F07;
+    color: white;
+    font-size: 13px;
+    padding: 13px;
+    cursor: pointer;
+
+}
+
+
+.workerDashForm button:hover{
+    background-color: #dc451c;
+    transition: all 0.2s ease;
+}
+
+
+.workerDashDiv{
+    background-color: #f7f7f7;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.workerDashSectionTwo{
+    padding-top: 30px;
+}
+
+.workerDashSectionTwo h2{
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+
+.proSeniorDivCategory{
+    background-color:#ffdbd1;
+    color: #C32F07;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.hrt{
+    margin-top: 40px;
+    margin-bottom: 10px;
+    border: rgb(228, 225, 225) solid 1px !important;
+}

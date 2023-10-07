@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route  } from "react-router-dom";
 
 import Home from "./Pages/Home";
 
@@ -24,60 +24,70 @@ import WorkerSignUpPage from "./Pages/Worker/WorkerSignUpPage";
 import BuilderBnv from "./Components/Bulider/BuilderBnv";
 import BuilderBvn from "./Pages/Builder/BuilderBvn";
 
-import AuthProvider from "./Pages/Utils/AuthContext";
+import PrivateRoute from "./Pages/Utils/PrivateRoute";
 
-import ProtectedRoute from "./Pages/Utils/ProtectedRoute";
 import WorkerDashboardHome from "./Pages/DashboardWorker/WorkerDashboardHome";
 import SigninWorker from "./Pages/SigningWorker";
+
+
+
 function App() {
+
+
+
   return (
     <div className="App">
       <BrowserRouter>
-        <AuthProvider>
           <Routes>
+
             <Route path="/" element={<Home />} />
+
             <Route path="/login" element={<Signin />} />
             <Route path="/login/user" element={<SigninWorker />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/builder" element={<Builders />} />
 
+                  <Route path="/builder/bvn" element={ <BuilderBvn/>} />
             
-              {/* ================= Builder =================================== */}
-              <Route path="/builder" element={<Builders />} />
-              <Route path="/builder/verify" element={<BuilderVerifyPage />} />
-              <Route path="/builder/options1" element={<BuilderRequestPart />} />
-              <Route path="/builder/options2" element={<BuilderReqCreatePage />} />
 
 
-            {/* ================= Builder Create Routes ================= */}
-              <Route path="/builder/project/create" element={<BuilderCreate />} />
-              <Route path="/builder/request/create" element={<BuilderProReq />} />
-              <Route path="/builder/bvn" element={ <BuilderBvn/>} />
+
+              <Route element={<PrivateRoute />}>
+
+                  {/* ================= Builder =================================== */}
+                  <Route path="/builder/verify" element={<BuilderVerifyPage />} />
+                  <Route path="/builder/options1" element={<BuilderRequestPart />} />
+                  <Route path="/builder/options2" element={<BuilderReqCreatePage />} />
+
+                  {/* ================= Builder Create Routes ================= */}
+                  <Route path="/builder/project/create" element={<BuilderCreate />} />
+                  <Route path="/builder/request/create" element={<BuilderProReq />} />
               
 
+                  {/* ======================== Worker Routes ======================== */}
+                  <Route path="/worker" element={<WorkerSignUpPage />} />
+
+                  {/* =================== Project Review ========================= */}
+                  <Route path="/builder/project/review" element={<BuilderCreateReview />} />
 
 
-              {/* ======================== Worker Routes ======================== */}
-              <Route path="/worker" element={<WorkerSignUpPage />} />
+                  {/* ======================= Dashboard ========================= */}
+                  <Route path="/dashboard" element={<DashboardHome />} />
 
-              {/* =================== Project Review ========================= */}
-              <Route path="/builder/project/review" element={<BuilderCreateReview />} />
-
-
-              {/* ======================= Dashboard ========================= */}
-              {/* <Route element={<ProtectedRoute />}> */}
-              <Route path="/dashboard" element={<DashboardHome />} />
-              {/* </Route> */}
-              <Route path="/dashboard/projects" element={<DashProjectPage />} />
-              <Route path="/dashboard/requests" element={<DashRequestPage />} />
-              <Route path="/dashboard/projects/description/:id" element={<DashProjectDes />} />
-            
+                  <Route path="/dashboard/projects" element={<DashProjectPage />} />
+                  <Route path="/dashboard/requests" element={<DashRequestPage />} />
+                  <Route path="/dashboard/projects/description/:id" element={<DashProjectDes />} />
+                
 
 
-            {/* ========================= Worker Dashboard ========================= */}
-            <Route path="/dashboard/worker" element={<WorkerDashboardHome />} />
+                  {/* ========================= Worker Dashboard ========================= */}
+                  <Route path="/dashboard/worker" element={<WorkerDashboardHome />} />
+              </Route>
+
+
+
 
           </Routes>
-        </AuthProvider>
       </BrowserRouter>
     </div>
 

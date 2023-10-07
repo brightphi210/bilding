@@ -44,7 +44,7 @@ const ProjectDescSec3 = () => {
           </div>
 
             <hr />
-        </section>
+      </section>
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import jwt_decode from "jwt-decode"
-
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -10,8 +9,6 @@ import BuilerModal from '../Bulider/BuilerModal';
 import emptyImg from './Images/empty.png'
 
 import { Link } from 'react-router-dom';
-
-import WorkerDashboardHome from '../../Pages/DashboardWorker/WorkerDashboardHome';
 
 const Home = () => {
 
@@ -53,12 +50,11 @@ const Home = () => {
 
   const token = localStorage.getItem('authToken');
 
-
-  
-
+  let newToken = jwt_decode(token)
+  console.log(newToken)
   // ============================ Fetch Projects ===============================
   const fetccData = async () => {
-    console.log(token)
+    // console.log(token)
 
 
     try{
