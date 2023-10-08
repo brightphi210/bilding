@@ -107,6 +107,10 @@
     padding-top: 30px;
 }
 
+
+.proDescFive img{
+    width: 20%;
+}
 .proDescFive h3{
     font-size: 16px;
     font-weight: 500;

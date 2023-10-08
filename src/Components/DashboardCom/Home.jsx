@@ -230,7 +230,7 @@ const Home = () => {
                 {recentProjects.slice(0, 3).map((recentproject) =>(
                   <div className='dashShowTwoFlex'>
                     <h3>{recentproject.project.title}</h3>
-                    <p>30 mins ago.</p>
+                    <p>{recentproject.project.time}</p>
                     <hr />
                   </div>
                 ))}
