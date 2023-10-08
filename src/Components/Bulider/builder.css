@@ -61,6 +61,11 @@
     outline: none;
 }
 
+
+.createOneDivs input{
+    border: none !important;
+}
+
 .checkDiv1{
     display: flex;
     width: 100%;

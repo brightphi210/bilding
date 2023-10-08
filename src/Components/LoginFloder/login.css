@@ -32,7 +32,8 @@
 } 
 
 .loginDiv h2{
-    font-size: 30px;
+    font-size: 23px;
+    font-weight: 500;
 }
 
 .formDiv{
@@ -46,8 +47,8 @@
 
 .myForm input{
     width: 70%;
-    padding: 20px;
-    font-size: 15px;
+    padding: 15px;
+    font-size: 13px;
     border-radius: 10px;
     border: rgb(216, 216, 216) solid 1px;
     margin-bottom: 20px;
@@ -57,14 +58,22 @@
 .myForm button{
     display: block;
     width: 50%;
-    padding: 15px;
-    font-size: 15px;
+    padding: 13px;
+    font-size: 13px;
     border: none;
     background-color: var(--red-color);
     color: var(--white-color);
     border-radius: 30px;
     margin-bottom: 30px;
     border: #808080 solid 1px;
+    cursor: pointer;
+    border: none;
+}
+
+
+.myForm button:hover{
+    background-color: #da5c39;
+    transition: all ease 0.2s;
 }
 
 .loadingColor {
@@ -72,24 +81,24 @@
 }
 
 .googleForm .googleLog{
-    padding: 15px;
+    padding: 13px;
     width: 50%;
     border-radius: 30px;
     border: none;
     background-color: #E8E8E8;
-    font-size: 15px;
+    font-size: 13px;
     margin-bottom: 30px;
     cursor: pointer;
 }
 
 .signupBtn{
-    padding: 15px;
+    padding: 13px;
     width: 50%;
     border-radius: 30px;
     border: none;
     background-color: var(--white-color);
     color: var(--red-color);
-    font-size: 15px;
+    font-size: 13px;
     border: var(--red-color) solid 1px;
     margin-top: 30px;
     cursor: pointer;

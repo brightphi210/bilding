@@ -1,43 +1,45 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import bvn from './Images/bvn.png'
 import jwt_decode from "jwt-decode"
-const BuilderBnv = ({userID}) => {
+import { useNavigate } from 'react-router-dom';
+const BuilderBnv = () => {
 
-    const { id } = useParams();
     let token = localStorage.getItem('authToken');
+    const [isLoading, setIsLoading] = useState(false);
 
     let newtoken = jwt_decode(token)
+
+    const navigate = useNavigate()
 
     const [formData, setFormData] = useState ({
         address: '',
         bvn: '',
-        gov_id_image: null,
     });
 
+
+    const [gov_id_image, setGov_id_image] = useState(null)
+
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    const  handleImageChange = (e) => {
-      const file = e.target.files[0];
-      setFormData({...formData, image: file,
-      });
-    }
+
+    const handleImageChange = (e) => {
+      setGov_id_image(e.target.files[0]);
+    };
 
 
-      const fetchUserData = async () => {
+      const fetchUserData = async (e) => {
 
-        
         try {
-          const response = await fetch(`https://bildingapi.onrender.com/auth/update/${newtoken.user_id}`, {
+          const response = await fetch(`https://bildingapi.onrender.com/auth/update/`, {
             method: 'GET',
             headers: {
-              'Content-Type': 'application/json',
-              "Authorization": `Bearer ${token}`
-
+              "Authorization": `Bearer ${token}`,
+              "Content-Type": "application/json"
             },
           });
           const userData = await response.json();
@@ -52,25 +54,32 @@ const BuilderBnv = ({userID}) => {
 
       useEffect(() => {
         fetchUserData();
-      }, [newtoken.user_id]);
+      }, []);
     
 
 
       function handleSubmit(e) {
         e.preventDefault();
+
+        setIsLoading(true);
+
+        const newFormData = new FormData();
+        newFormData.append('address', formData.address);
+        newFormData.append('bvn', formData.bvn);
+        newFormData.append('gov_id_image', gov_id_image);
+
       
-        // Send the updated user data to the backend
         fetch(`https://bildingapi.onrender.com/auth/update/${newtoken.user_id}`, {
-          method: 'PUT', // or 'PATCH' depending on your API
+          method: 'PUT',
           headers: {
-            'Content-Type': 'application/json',
             "Authorization": `Bearer ${token}`
           },
-          body: JSON.stringify(formData),
+          body: newFormData,
         })
           .then((response) => {
             if (response.ok) {
                 console.log("Successfully updated")
+                navigate('/dashboard')
             } else {
               console.log("Failed to update")
             }
@@ -116,11 +125,11 @@ const BuilderBnv = ({userID}) => {
                     id='image' 
                     name="gov_id_image" 
                     accept="image/*"
-                    onChange={handleImageChange} 
+                    onChange ={handleImageChange} 
                 />
                 
             </div>
-                <button type='submit'>Submit</button>
+                <button type='submit'>{isLoading ? "Loading. . .": "Submit"}</button>
             </form>
         </section>
 

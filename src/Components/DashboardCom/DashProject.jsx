@@ -54,7 +54,7 @@ const DashProject = () => {
                 <ul className='dashProjectTWO'>
                         <div>
                             <li>{project.title}</li>
-                            <span>Created: {project.date_time}</span>
+                            <span>Created: <b>{project.time}</b></span>
                         </div>
                     
 

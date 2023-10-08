@@ -15,7 +15,7 @@ const BuilderCreate = () => {
 
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -42,12 +42,6 @@ const BuilderCreate = () => {
     description: "",
   });
 
-
-
-  // const handleChange = (e) => {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
-  // };
-
   const handleChange = (e) => {
     const { name, value, type } = e.target;
     const newValue = type === "file" ? e.target.files[0] : value;
@@ -55,25 +49,13 @@ const BuilderCreate = () => {
   }
 
 
-  // const handleChange = (e) => {
-  //   if (e.target.name === 'image') {
-
-  //     setFormData({ ...formData, [e.target.name]: e.target.files[0] });
-  //   } else {
-  //     setFormData({ ...formData, [e.target.name]: e.target.value });
-  //   }
-  // };
-  
-
 
   let url = 'https://bildingapi.onrender.com/api/projects'
+  const [isLoading, setIsLoading] = useState(false);
   const token = localStorage.getItem('authToken');
 
   const handleSubmit  = async () => {
-    // e.preventDefault();
-    console.log(`Latest Token ${token}`)
-
-
+    setIsLoading(true);
     try{
 
 
@@ -88,6 +70,7 @@ const BuilderCreate = () => {
       formDataNew.append('duration', formData.duration);
       formDataNew.append('budget', formData.budget);
       formDataNew.append('description', formData.description);
+      formDataNew.append('location', formData.location);
       formDataNew.append('image', formData.image);
 
 
@@ -95,11 +78,9 @@ const BuilderCreate = () => {
         method: 'POST',
         headers : {
           "Authorization": `Bearer ${token}`,
-          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
-        // body: formData,
-        
+        body: formDataNew,
+
       })
 
       
@@ -275,7 +256,7 @@ const BuilderCreate = () => {
                   }}
                   
                   >
-                  {page === 0 ? "Proceed" : page === 1 ? "Next" : "Submit"}
+                  {page === 0 ? "Proceed" : page === 1 ? "Next" :  isLoading === true ? "Loading...": "Submit"}
               </button>
               
             </div>

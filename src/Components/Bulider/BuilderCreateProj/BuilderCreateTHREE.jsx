@@ -34,13 +34,14 @@ const BuilderCreateTHREE = ({formData, setFormData, onSubmit, onChange,  }) => {
 
         <div className='createOneDiv'>
           <label>Upload images to aid your project description</label>
-          {/* <input 
+          <input 
             type="file" 
             id='image' 
             name="image" 
             accept="image/*"
             onChange={onChange} 
-            /> */}
+            />
+            
         </div>
 
       </form>

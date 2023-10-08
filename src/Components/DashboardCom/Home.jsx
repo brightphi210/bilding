@@ -7,6 +7,7 @@ import './dashHome.css'
 import BuilerModal from '../Bulider/BuilerModal';
 
 import emptyImg from './Images/empty.png'
+import { useLocation } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
 
@@ -48,10 +49,37 @@ const Home = () => {
   let url = 'https://bildingapi.onrender.com/api/projects'
   let url2 = 'https://bildingapi.onrender.com/api/recentprojects'
 
+
+  
   const token = localStorage.getItem('authToken');
 
   let newToken = jwt_decode(token)
   console.log(newToken)
+
+
+  const [isVisible, setIsVisible] = useState(true);
+
+  const location = useLocation();
+  const state = location.state || {};
+  const successMessage = state.myMessage;
+
+  // useEffect(() => {
+  //   if (message) {
+  //     const timeout = setTimeout(() => {
+  //       setIsVisible(false);
+  //     }, 2000);
+
+  //     return () => {
+  //       clearTimeout(timeout);
+  //     };
+  //   }
+  // }, [message]);
+
+  console.log(successMessage)
+
+
+
+  
   // ============================ Fetch Projects ===============================
   const fetccData = async () => {
     // console.log(token)
@@ -114,8 +142,9 @@ const Home = () => {
   return (
     <div>
 
-
+      <p className='loginMessage'>{successMessage}</p>
       <section className='dashSectionOne'>
+
         <Carousel
             responsive={responsive}
             swipeable={true}
@@ -187,7 +216,7 @@ const Home = () => {
                         <span>Hired: 0</span>
                       </div>
                     </div>
-                    <Link to={`/dashboard/projects/description/${project.id}`}><button>View</button></Link>
+                    <Link to={`/dashboard/projects/description/${project.id}`}><button>View <i class="uil uil-arrow-right"></i></button></Link>
                     <hr />
                   </div>
                 ))}
