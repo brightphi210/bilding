@@ -37,9 +37,11 @@ const BuilderCreateTHREE = ({formData, setFormData, onSubmit, onChange,  }) => {
           <input 
             type="file" 
             id='image' 
-            name="image" 
+            name="images" 
             accept="image/*"
+            multiple
             onChange={onChange} 
+            
             />
             
         </div>

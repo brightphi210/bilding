@@ -30,7 +30,7 @@ const BuilderCreate = () => {
 
   const [formData, setFormData] = useState({
     url: "",
-    image: null,
+    images: [],
     title: "",
     categories: "",
     skills: "",
@@ -44,9 +44,11 @@ const BuilderCreate = () => {
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
-    const newValue = type === "file" ? e.target.files[0] : value;
+    const newValue = type === "file" ? e.target.files : value;
     setFormData({ ...formData, [name]: newValue });
   }
+
+  // const selectedImages = Array.from(e.target.files);
 
 
 
@@ -71,7 +73,11 @@ const BuilderCreate = () => {
       formDataNew.append('budget', formData.budget);
       formDataNew.append('description', formData.description);
       formDataNew.append('location', formData.location);
-      formDataNew.append('image', formData.image);
+
+      for (let i = 0; i < formData.images.length; i++) {
+        formDataNew.append('images', formData.images[i]);
+      }
+      // formDataNew.append('image', formData.image);
 
 
       const response = await fetch(url, {

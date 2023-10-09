@@ -27,6 +27,7 @@ import BuilderBvn from "./Pages/Builder/BuilderBvn";
 import PrivateRoute from "./Pages/Utils/PrivateRoute";
 
 import WorkerDashboardHome from "./Pages/DashboardWorker/WorkerDashboardHome";
+import WorkerDashboardAppPage from "./Pages/DashboardWorker/WorkerDashboardAppPage";
 import SigninWorker from "./Pages/SigningWorker";
 
 
@@ -41,7 +42,6 @@ function App() {
           <Routes>
 
             <Route path="/" element={<Home />} />
-
             <Route path="/login" element={<Signin />} />
             <Route path="/login/user" element={<SigninWorker />} />
             <Route path="/register" element={<Register />} />
@@ -81,7 +81,7 @@ function App() {
 
 
                   {/* ========================= Worker Dashboard ========================= */}
-                  <Route path="/dashboard/worker" element={<WorkerDashboardHome />} />
+                  <Route path="/dashboard/applications" element={<WorkerDashboardAppPage />} />
               </Route>
 
 

@@ -5,13 +5,15 @@ import { Link, useNavigate } from 'react-router-dom'
 import './nav.css'
 import logo from './1.png'
 
+import jwt_decode from "jwt-decode"
+
 const Nav = () => {
+  
+  const token = localStorage.getItem('authToken');
+
   const [isNavOpen, setIsNavOpen] = useState(false)
-
   const navigate = useNavigate()
-
-  let localstorage2 = localStorage.getItem('authToken')
-  const [user, setUser] = useState(() => localstorage2)
+  const [user, setUser] = useState(() => token)
  
   const logoutUser = async (e) => {
     e.preventDefault()
@@ -24,10 +26,11 @@ const Nav = () => {
     setIsNavOpen(true)
   };
 
-
   const closeMenu = () => {
     setIsNavOpen(false)
   };
+
+
   return (
     <div>
         <header className='header'>
@@ -48,7 +51,9 @@ const Nav = () => {
               <>
                 <div className='navBtn'>
                   <Link to={'/login'} onClick={logoutUser}><button>Logout</button></Link>
-                  <Link to={'/dashboard'}><button className='signup'>Dashboard</button></Link>
+
+
+                  <Link to={'/dashboard'}><button className='signup'>Dashboard</button></Link>                  
                 </div>
               </>
             ):(

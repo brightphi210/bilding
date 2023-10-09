@@ -215,6 +215,7 @@ const Home = () => {
                         <span>Applications: 2</span>
                         <span>Hired: 0</span>
                       </div>
+                      <img src="" alt="" />
                     </div>
                     <Link to={`/dashboard/projects/description/${project.id}`}><button>View <i class="uil uil-arrow-right"></i></button></Link>
                     <hr />

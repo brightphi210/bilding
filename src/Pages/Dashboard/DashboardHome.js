@@ -4,6 +4,8 @@ import Home from '../../Components/DashboardCom/Home'
 import Footer from '../../Components/Footer/Footer'
 import WorkerDash from '../../Components/DashBoardWorker/WorkerDash'
 
+import DashHeader2 from '../../Components/DashboardCom/Header/DashHeader2'
+
 import jwt_decode from "jwt-decode"
 const DashboardHome = () => {
 
@@ -16,9 +18,19 @@ const DashboardHome = () => {
 
     
     <div>
-        <DashHeader />
         {/* <Home /> */}
-        {decode.role === "ContractorRole" ? (<Home />) : (<WorkerDash />)}
+        {decode.role === "ContractorRole" ? (
+          <div>
+            <DashHeader />
+            <Home />
+          </div>
+        ) : 
+        (
+          <div>
+            <DashHeader2 />
+            <WorkerDash />
+          </div>
+        )}
         <Footer />
     </div>
   )

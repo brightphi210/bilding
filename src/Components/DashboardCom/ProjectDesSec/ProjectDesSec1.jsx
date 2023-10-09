@@ -9,12 +9,14 @@ const ProjectDesSec1 = () => {
 
   const { id } = useParams();
   const [project, setProject] = useState([])
+
+  const [myImage, setMyImage] = useState([])
   let url = `https://bildingapi.onrender.com/api/projects/${id}`
 
   const token = localStorage.getItem('authToken');
   
   const fetccData = async () => {
-    console.log(token)
+    // console.log(token)
 
 
     try{
@@ -30,7 +32,14 @@ const ProjectDesSec1 = () => {
       const data = await response.json()
       setProject(data)
 
-      console.log(data)
+      // console.log(data.project_images[0].image)
+      // console.log(data.project_images[1].image)
+
+      project.project_images.map((mydata)=>{
+        setMyImage(mydata.image)
+        console.log(myImage )
+        
+      })
 
 
     }catch(er){
@@ -76,7 +85,7 @@ const ProjectDesSec1 = () => {
           </div>
 
           <div className='proDesOneFlexThree'>
-            <h3>Request description:</h3>
+            <h3>Project description:</h3>
             <p>
               {project.description}
             </p>
@@ -84,11 +93,8 @@ const ProjectDesSec1 = () => {
           </div>
 
           <div className='proDescFive'>
-            <h3>Request images:</h3>
-            <img src={project.image} alt="" />
-            <p>new_site_full.jpg</p>
-            <p>new_site_side_shot.jpg</p>
-            <p>neighbors_house_design_inspiration.jpg</p>
+            <h3>Project images:</h3>
+              <img src={myImage} alt="" />
           </div>
 
         </section>
