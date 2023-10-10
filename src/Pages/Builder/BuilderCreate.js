@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react'
 import Header from '../../Components/LoginFloder/Header'
-
+import myVideo from './animation_lnkaatit.mp4'
 import './buildCreate.css'
 import { useNavigate } from 'react-router-dom'
 
@@ -30,7 +30,9 @@ const BuilderCreate = () => {
 
   const [formData, setFormData] = useState({
     url: "",
-    images: [],
+    image1: null,
+    image2: null,
+    // image3: null,
     title: "",
     categories: "",
     skills: "",
@@ -44,11 +46,9 @@ const BuilderCreate = () => {
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
-    const newValue = type === "file" ? e.target.files : value;
+    const newValue = type === "file" ? e.target.files[0] : value;
     setFormData({ ...formData, [name]: newValue });
   }
-
-  // const selectedImages = Array.from(e.target.files);
 
 
 
@@ -73,12 +73,9 @@ const BuilderCreate = () => {
       formDataNew.append('budget', formData.budget);
       formDataNew.append('description', formData.description);
       formDataNew.append('location', formData.location);
-
-      for (let i = 0; i < formData.images.length; i++) {
-        formDataNew.append('images', formData.images[i]);
-      }
-      // formDataNew.append('image', formData.image);
-
+      formDataNew.append('image1', formData.image1);
+      formDataNew.append('image2', formData.image2);
+      // formDataNew.append('image3', formData.image3);
 
       const response = await fetch(url, {
         method: 'POST',
@@ -266,8 +263,13 @@ const BuilderCreate = () => {
               </button>
               
             </div>
-            {/* <span onClick={openModal}>Review</span>  */}
 
+            {isLoading === true && (
+              <div className='creatingLoadingDiv'>
+                <p className='creatingLoading'>Creating Product . . .</p>
+                <video >{myVideo}</video>
+              </div>
+            )}
 
           </div>
         </div>        

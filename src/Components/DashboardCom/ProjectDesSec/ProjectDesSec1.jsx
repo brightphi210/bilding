@@ -92,10 +92,12 @@ const ProjectDesSec1 = () => {
           </div>
 
           <div className='proDescFive'>
-            <h3>Project images:</h3>
-              {project.project_images.map((myImage)=>{
-                <img src={myImage.image} alt="" />
-              })}
+          <h3>Project images:</h3>
+            <div className='proDevImage'>
+              <img src={project.image1} alt="" />
+              <img src={project.image2} alt="" />
+              <img src={project.image3} alt="" />
+            </div>
           </div>
 
         </section>
