@@ -40,8 +40,8 @@ const BuilderProReq = () => {
       formDataNew.append('title', formData.title);
       formDataNew.append('category', formData.category);
       formDataNew.append('location', formData.location);
-      // formDataNew.append('description', formData.description);
-      // formDataNew.append('item', formData.item);
+      formDataNew.append('item', formData.item);
+      formDataNew.append('description', formData.description);
 
       const response = await fetch(url, {
         method: 'POST',

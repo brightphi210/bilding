@@ -2,10 +2,23 @@ import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import VectorImage from './newvec.png'
+import WorkerProjectModal from './WorkerProjectDes/WorkerProjectModal';
+import { useState } from 'react';
 
 import './WorkerDash.css'
 
 const WorkerDash = () => {
+
+    const [modal, setModal] = useState(false)
+    const [modal2, setModal2] = useState(false)
+  
+    const showModal = ()=>{
+        setModal(true)
+    }
+  
+    const hideModal = ()=>{
+        setModal(false)
+    }
 
     const responsive = {
         desktop: {
@@ -65,7 +78,7 @@ const WorkerDash = () => {
                 <h2>Projects for you</h2>
                 <div className='workerDashDiv'>
 
-                    <section>
+                    <section onClick={showModal} className='workerDashSec'>
                         <div className='projectSectionTwo projectSectionTwoNew'>
 
                             <div className='proSeniorDiv'>
@@ -77,7 +90,7 @@ const WorkerDash = () => {
                                     <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
                                 </div>
                                 <div className='proSenior'>
-                                    <h2>Senior Electrical Engineer</h2>
+                                    <h2>Electrician to wire a two bedroom apartment complex</h2>
                                     <span><i class="uil uil-location-point sectTwoIcons"></i> Lagos street, Lekki, Lagos, Nigeria</span>
                                 </div>
                                 <p>
@@ -96,7 +109,7 @@ const WorkerDash = () => {
                         <hr className='hrt'/>
                     </section>
 
-                    <section>
+                    <section onClick={showModal} className='workerDashSec'>
                     <div className='projectSectionTwo projectSectionTwoNew'>
 
                         <div className='proSeniorDiv'>
@@ -108,7 +121,7 @@ const WorkerDash = () => {
                                 <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
                             </div>
                             <div className='proSenior'>
-                                <h2>Senior Electrical Engineer</h2>
+                                <h2>Electrician to wire a two bedroom apartment complex</h2>
                                 <span><i class="uil uil-location-point sectTwoIcons"></i> Lagos street, Lekki, Lagos, Nigeria</span>
                             </div>
                             <p>
@@ -129,6 +142,7 @@ const WorkerDash = () => {
                 </div>
             </section>
         </section>
+        <WorkerProjectModal isOpen={modal} onClose={hideModal}/>
         
     </div>
   )

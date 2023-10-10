@@ -36,9 +36,8 @@ const ProjectDesSec1 = () => {
       // console.log(data.project_images[1].image)
 
       project.project_images.map((mydata)=>{
-        setMyImage(mydata.image)
-        console.log(myImage )
-        
+        const newImage = mydata.image
+        console.log(newImage)
       })
 
 
@@ -94,7 +93,9 @@ const ProjectDesSec1 = () => {
 
           <div className='proDescFive'>
             <h3>Project images:</h3>
-              <img src={myImage} alt="" />
+              {project.project_images.map((myImage)=>{
+                <img src={myImage.image} alt="" />
+              })}
           </div>
 
         </section>

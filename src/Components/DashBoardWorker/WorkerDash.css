@@ -60,13 +60,25 @@
 
 
 .workerDashDiv{
-    background-color: #f7f7f7;
+    background-color: #fafafa;
     padding: 50px;
     border-radius: 10px;
 }
 
 .workerDashSectionTwo{
     padding-top: 30px;
+}
+
+
+.workerDashSec{
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.workerDashSec:hover{
+    background-color: antiquewhite;
+    transition: all ease 0.3s;
 }
 
 .workerDashSectionTwo h2{

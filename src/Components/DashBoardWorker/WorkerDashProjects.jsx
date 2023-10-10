@@ -49,25 +49,28 @@ const WorkerDashProjects = () => {
                     <li>drafts</li>
                     <li>1 - 3 of 3</li>
                 </ul>
-                {/* <hr /> */}
 
-
+                
                 {fetchProject.map((project)=>(
-                <ul className='dashProjectTWO'>
                     <div>
-                        <li>{project.title}</li>
-                        <span>Created: <b>{project.time}</b></span>
+                        {fetchProject.length > 0 ? (
+                        <ul className='dashProjectTWO'>
+                            <div>
+                                <li>{project.title}</li>
+                                <span>Created: <b>{project.time}</b></span>
+                            </div>
+                            
+        
+                            <div className='appBtn'>
+                                <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>View</button></Link>
+                                <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>Completed</button></Link>
+                            </div>
+                        </ul>
+                        ) : 
+                        
+                        fetchProject.length === 0 && (<h1 className='workNoShow'>There is no Project Available</h1>)}
                     </div>
-                    
-
-                    <div className='appBtn'>
-                        <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>View</button></Link>
-                        <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>Completed</button></Link>
-                    </div>
-                </ul>
-
                 ))}
-                {/* <hr /> */}
             </div>
         </section>
     </div>
