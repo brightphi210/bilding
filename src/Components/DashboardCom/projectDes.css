@@ -114,7 +114,7 @@
 
     .dashDesLinkUL{
         display: flex;
-        gap: 10px;
+        gap: 15px;
         align-items: center;
         margin-top: 0;
     }
