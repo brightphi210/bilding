@@ -41,7 +41,7 @@ const BuilderReqCreateThree = ({newData, onChange, onSubmit }) => {
                     required
                 />
             
-            <button type='submit'>Sumit</button>
+            {/* <button type='submit'>Sumit</button> */}
             </div>
 
         </form>

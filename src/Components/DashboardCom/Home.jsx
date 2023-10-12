@@ -9,11 +9,14 @@ import BuilerModal from '../Bulider/BuilerModal';
 import emptyImg from './Images/empty.png'
 import { useLocation } from 'react-router-dom';
 
+import myVideo from './animation_lnkaatit.mp4'
+
 import { Link } from 'react-router-dom';
 
 const Home = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -46,7 +49,6 @@ const Home = () => {
   console.log(projects)
   const [recentProjects, setRecentProject] = useState([])
 
-  // console.log(typeof(projects))
 
   let url = 'https://bildingapi.onrender.com/api/projects'
   let url2 = 'https://bildingapi.onrender.com/api/recentprojects'
@@ -56,7 +58,6 @@ const Home = () => {
   const token = localStorage.getItem('authToken');
 
   let newToken = jwt_decode(token)
-  // console.log(newToken)
 
 
   const [isVisible, setIsVisible] = useState(true);
@@ -84,9 +85,8 @@ const Home = () => {
   
   // ============================ Fetch Projects ===============================
   const fetccData = async () => {
-    // console.log(token)
-
-
+    
+    
     try{
       const response = await fetch(url, {
         method: 'GET',
@@ -95,14 +95,10 @@ const Home = () => {
         },
 
       })
-
-
       const data = await response.json()
+      // setIsLoading(true);
       setProjects(data)
-
       console.log(data)
-
-
 
     }catch(er){
       console.log("Error fetching project data !!! ")
@@ -291,16 +287,18 @@ const Home = () => {
         </div>
 
         <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
-      </div>
-          
-
-        )
-        
-        }
-
-
-
+      </div>)}
       </section>
+
+      {isLoading === true && (
+              <div className='creatingLoadingDiv'>
+                <div className='creatingLoading'>
+                  <video controls={false} autoPlay loop className='video'> 
+                    <source src={myVideo} type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            )}
 
     </div>
   )

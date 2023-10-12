@@ -4,11 +4,21 @@ import VectorImage from './newvec.png'
 import ProjectHireModal from './ProjectHireModal'
 import ProjectHireModal2 from './ProjectHireModal2'
 
+import { Link } from 'react-router-dom'
+
 const ProjectDescSec2 = () => {
 
   const [modal, setModal] = useState(false)
   const [modal2, setModal2] = useState(false)
 
+  const [application, setApplication] = useState([])
+  const [selectedApplication, setSelectedApplication] = useState([])
+  const [isLoading, setIsLoading] = useState(false);
+
+  const url = 'https://bildingapi.onrender.com/api/bids/'
+
+  const token = localStorage.getItem('authToken');
+  
   const showModal = ()=>{
       setModal(true)
   }
@@ -27,12 +37,6 @@ const ProjectDescSec2 = () => {
   }
 
 
-
-  const [application, setApplication] = useState([])
-  const [isLoading, setIsLoading] = useState(false);
-  const token = localStorage.getItem('authToken');
-
-  const url = 'https://bildingapi.onrender.com/api/bids/'
 
   const fetchData = async () => {
     try {
@@ -56,7 +60,11 @@ const ProjectDescSec2 = () => {
   }, [])
 
 
-  console.log(application)
+
+  const handleMoreClick = (myApplication) => {
+    setSelectedApplication(myApplication);
+    showModal(true);
+  };
 
   
   return (
@@ -65,8 +73,8 @@ const ProjectDescSec2 = () => {
         <section>
 
           {application.map((myApplication)=>(
-            <div className='projectSectionTwo'>
-
+            <div className='projectSectionTwo' key={myApplication.applicant.id}>
+              {console.log(myApplication)}
               <div className='proSeniorDiv'>
                   <img src={VectorImage} alt="" />
               </div>
@@ -76,7 +84,7 @@ const ProjectDescSec2 = () => {
                   <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
                 </div>
                   <div className='proSenior'>
-                    <h2>Senior Electrical Engineer</h2>
+                    <h2>{myApplication.applicant.profession}</h2>
                     <span><i class="uil uil-location-point sectTwoIcons"></i> {myApplication.applicant.location}</span>
                   </div>
                 <p>
@@ -88,7 +96,8 @@ const ProjectDescSec2 = () => {
               <div className='proSectHire'>
                 <h2>₦{myApplication.amount}</h2>
                 <div className='projectSec2Btns'>
-                  <button className='secTwoView' onClick={showModal}>View</button>
+
+                  <button className ="secTwoView" onClick={() => handleMoreClick(myApplication)}>View</button>
                   <button className='secTwoHire' onClick={showModal2}>Hire</button>
                 </div>
               </div>
@@ -97,7 +106,8 @@ const ProjectDescSec2 = () => {
             <hr />
         </section>
 
-        <ProjectHireModal isOpen={modal} onClose={hideModal}/>
+
+        <ProjectHireModal isOpen={modal} onClose={hideModal} selectedApplication = {selectedApplication}/>
         <ProjectHireModal2 isOpen2={modal2} onClose2={hideModal2}/>
       </section>
     </div>

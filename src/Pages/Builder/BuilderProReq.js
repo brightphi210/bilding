@@ -22,7 +22,7 @@ const BuilderProReq = () => {
     description : "",
     image1 : null,
     image2 : null,
-    uploaded_items: [{ name: '', amount: '' }],
+    uploaded_items: [{name: "", amount: ""}],
   })
 
   // const handleChange = (e) => {
@@ -48,15 +48,18 @@ const BuilderProReq = () => {
       setNewData({ ...newData, [name]: value });
     }
   };
+  
+  const newDataNew = JSON.stringify(newData.uploaded_items);
 
-
+  console.log(newDataNew)
+  
   let url = 'https://bildingapi.onrender.com/api/requests'
 
   const [isLoading, setIsLoading] = useState(false);
   const token = localStorage.getItem('authToken');
 
   const handleSubmit = async () => {
-    // setIsLoading(true);
+    setIsLoading(true);
     // e.preventDefault();
     try{
 
@@ -68,10 +71,10 @@ const BuilderProReq = () => {
       newFormData.append('description', newData.description);
       newFormData.append('image1', newData.image1);
       newFormData.append('image2', newData.image2);
-      newFormData.append('uploaded_items', newData.uploaded_items);
+      newFormData.append('uploaded_items', newDataNew);
 
       
-      console.log(newData)
+      // console.log(newData.uploaded_items[0])
       const response = await fetch(url, {
         
         method: 'POST',
@@ -117,7 +120,8 @@ const BuilderProReq = () => {
       newData={newData} 
       setNewData={setNewData} 
       onSubmit={handleSubmit} 
-      onChange={handleChange}/>
+      onChange={handleChange}
+      />
     }
     if(page === 2){
       return <BuilderReqCreateThree 

@@ -7,7 +7,6 @@ const DashProject = () => {
     const [fetchProject, setFetchProject] = useState([])
 
     let url = 'https://bildingapi.onrender.com/api/projects'
-    // let url = 'https://bildingapi.onrender.com/api/projects'
     const token = localStorage.getItem('authToken');
 
 
@@ -17,7 +16,6 @@ const DashProject = () => {
             const response = await fetch (url, {
                 method : 'GET',
                 headers : {
-                    // 'Content-Type': 'application/json',
                     "Authorization": `Bearer ${token}`,
                 }
             })

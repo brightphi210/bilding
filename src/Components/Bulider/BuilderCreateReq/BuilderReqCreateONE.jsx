@@ -47,7 +47,7 @@ const BuilderReqCreateONE = ({newData, onChange, onSubmit }) => {
               />
           </div>
 
-          <button type='submit'>Submit</button>
+          {/* <button type='submit'>Submit</button> */}
       </form>
     </div>
   )

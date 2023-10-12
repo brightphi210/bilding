@@ -16,8 +16,6 @@ const ProjectDesSec1 = () => {
   const token = localStorage.getItem('authToken');
   
   const fetccData = async () => {
-    // console.log(token)
-
 
     try{
       const response = await fetch(url, {
@@ -31,15 +29,6 @@ const ProjectDesSec1 = () => {
 
       const data = await response.json()
       setProject(data)
-
-      // console.log(data.project_images[0].image)
-      // console.log(data.project_images[1].image)
-
-      project.project_images.map((mydata)=>{
-        const newImage = mydata.image
-        console.log(newImage)
-      })
-
 
     }catch(er){
       console.log("Error fetching project data !!! ")
@@ -96,7 +85,6 @@ const ProjectDesSec1 = () => {
             <div className='proDevImage'>
               <img src={project.image1} alt="" />
               <img src={project.image2} alt="" />
-              {/* <img src={project.image3} alt="" /> */}
             </div>
           </div>
 
