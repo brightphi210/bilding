@@ -1,24 +1,29 @@
 import React from 'react'
 import './builderReqCreate.css'
 
-const BuilderReqCreateONE = ({formData, setFormData, onSubmit, onChange }) => {
+const BuilderReqCreateONE = ({newData, onChange, onSubmit }) => {
   return (
     <div>
         <form action="" className='createOneFormDiv' onSubmit={onSubmit}>
         
           <div className='createOneDiv'>
             <label>Request title e.g Contractor needed for high rise building</label>
-            <input type="text"  placeholder='Title'/>
+            <input 
+              type="text"  
+              placeholder='Title'
+              name='title'
+              value={newData.title}
+              onChange={onChange}
+              />
           </div>
 
           <div className='createOneDiv'>
           <label>Category e.g Electrical, plumbing, Construction</label>
           <select 
-            placeholder='Title' 
             className='createSelect'
-            name='categories'
-            value={formData.categories}
-            onChange={(e)=>setFormData(e.target.value)}
+            name='category'
+            value={newData.category}
+            onChange={onChange}
             required
             >
             <option value="">Category</option>
@@ -33,10 +38,16 @@ const BuilderReqCreateONE = ({formData, setFormData, onSubmit, onChange }) => {
 
           <div className='createOneDiv'>
             <label>Location</label>
-            <input type="text"  placeholder='Request location'/>
+            <input 
+              type="text"  
+              placeholder='Request location'
+              name='location'
+              value={newData.location}
+              onChange={onChange}
+              />
           </div>
 
-        <button type='submit'>submit</button>
+          <button type='submit'>Submit</button>
       </form>
     </div>
   )

@@ -6,7 +6,7 @@ const BuilderCreateTHREE = ({formData, setFormData, onSubmit, onChange,  }) => {
 
   return (
     <div>
-      <form action="" className='createOneFormDiv' onSubmit={onSubmit}>
+      <form action="/upload" className='createOneFormDiv' onSubmit={onSubmit} enctype="multipart/form-data">
 
         <div className='createOneDiv'>
           <label>Budget e.g ₦2,000,000</label>
@@ -26,6 +26,7 @@ const BuilderCreateTHREE = ({formData, setFormData, onSubmit, onChange,  }) => {
           name='description'
           value={formData.description}
           onChange={onChange}
+          required
           />
         </div>
 
@@ -40,24 +41,27 @@ const BuilderCreateTHREE = ({formData, setFormData, onSubmit, onChange,  }) => {
             name="image1" 
             accept="image/*"
             onChange={onChange} 
-            />
-
-
-          {/* <input 
-            type="file" 
-            id='image' 
-            name="image2" 
-            accept="image/*"
-            onChange={onChange} 
+            required
             />
 
 
           <input 
             type="file" 
             id='image' 
+            name="image2" 
+            accept="image/*"
+            onChange={onChange} 
+            required
+            />
+
+
+          {/* <input 
+            type="file" 
+            id='image' 
             name="image3" 
             accept="image/*"
             onChange={onChange} 
+            required
             /> */}
             
         </div>

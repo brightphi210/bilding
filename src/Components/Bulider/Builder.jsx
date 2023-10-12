@@ -116,7 +116,7 @@ const Builder = () => {
               value={formData.firstname}
               onChange={handleChange}
               required
-          />
+            />
             <input 
               type="text" 
               name="lastname"

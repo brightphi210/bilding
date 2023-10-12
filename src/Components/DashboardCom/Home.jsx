@@ -42,9 +42,11 @@ const Home = () => {
   };
 
   const [projects, setProjects] = useState([])
+
+  console.log(projects)
   const [recentProjects, setRecentProject] = useState([])
 
-  console.log(projects.length)
+  // console.log(typeof(projects))
 
   let url = 'https://bildingapi.onrender.com/api/projects'
   let url2 = 'https://bildingapi.onrender.com/api/recentprojects'
@@ -54,7 +56,7 @@ const Home = () => {
   const token = localStorage.getItem('authToken');
 
   let newToken = jwt_decode(token)
-  console.log(newToken)
+  // console.log(newToken)
 
 
   const [isVisible, setIsVisible] = useState(true);
@@ -75,7 +77,7 @@ const Home = () => {
   //   }
   // }, [message]);
 
-  console.log(successMessage)
+  // console.log(successMessage)
 
 
 
@@ -110,6 +112,33 @@ const Home = () => {
 
   useEffect(()=>{
     fetccData()
+  }, [])
+
+
+
+    const [request, setRequest] = useState([])
+    
+    const url3 = 'https://bildingapi.onrender.com/api/requests'
+    const fetchData2 = async () =>{
+      try {
+          const response = await fetch(url3, {
+              method: 'GET',
+              headers: {
+                "Authorization": `Bearer ${token}`
+              },
+
+          })
+          const data = await response.json()
+          setRequest(data)
+          console.log(data)
+      } catch (error) {
+          console.log(error)
+      }
+  }
+
+
+  useEffect(() =>{
+      fetchData2()
   }, [])
 
 
@@ -179,12 +208,15 @@ const Home = () => {
 
         <div className='dashProjectNumDiv'>
           <div className='dashProjectNum'>
-            <h2>{projects.length}</h2>
+            {projects.length > 0 ? (
+              <h2>{projects.length}</h2>
+            ): (<h2>0</h2>)}
+            
             <p>Projects</p>
           </div>
 
           <div className='dashProjectNum'>
-            <h2>0</h2>
+            {request.length > 0 ? (<><h2>{request.length}</h2></>) : (<><h2>0</h2></>)} 
             <p>Requests</p>
           </div>
 

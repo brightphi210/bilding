@@ -136,8 +136,10 @@
     color: var(--white-color);
     margin-left: -20px;
     font-size: 15px;
-
 }
+
+
+
 
 @media only screen and (min-width:321px) and (max-width:768px){
     .sectionOne{
@@ -202,3 +204,175 @@
         width: 100%;
     }
 }
+
+@media only screen and (min-width:768px) and (max-width:1024px){
+    .sectionOne{
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 130vh;
+        background-image: url('Images/build.jpg');
+    }
+    
+    .sectionOne::before {
+        height: 130vh;
+        background-color: rgba(235, 235, 235, 0.9);
+    }
+
+    .sectionOneSecond img{
+        width: 70%;
+        isolation: isolate;
+    }
+
+    .sectionOneFirst{
+        text-align: center;
+        isolation: isolate;
+    }
+
+
+    .homeForm input{
+        width: 65%;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 20px;
+        font-size: 15px;
+    }
+ 
+    
+    .custom-select {
+        padding: 10px;
+        font-size: 16px;
+        background-color: #fff;
+        width: 200px;
+        border: none;
+        position: absolute;
+        left: 260px;
+        top: 37px;
+        outline: none;
+        border-left: rgb(209, 209, 209) solid 2px;
+    }
+    
+    
+    .custom-select option {
+        background-color: #fff;
+        color: #333;
+        padding: 15px;
+    }
+    
+    
+    .custom-select option:checked {
+        background-color: #3498db;
+        color: #fff;
+    }
+    
+    
+    .btn{
+        width: 25%;
+        padding: 15px 15px;
+        border: none;
+        border-radius: 20px;
+        background-color: var(--red-color);
+        color: var(--white-color);
+        margin-left: -20px;
+        font-size: 15px;
+    }
+}
+
+
+
+@media only screen and (min-width:1024px) and (max-width: 1200px){
+    .sectionOne{
+        display: grid;
+        height: 90%;
+        grid-template-columns: 2fr 350px;
+        background-image: url('Images/build.jpg');
+        gap: 20px;
+        padding: 150px 8%;
+    }
+
+    .sectionOne::before{
+        height: 100%;
+    }
+
+
+    .sectionOneFirst h2{
+        font-size: 40px;
+    }
+    
+    
+    .sectionOneFirst h3{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .sectionOneFirst p{
+        font-size: 15px;
+    }
+
+    .sectionOneSecond img{
+        width: 100%;
+        isolation: isolate;
+    }
+
+    .homeForm input{
+        width: 80%;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 20px;
+        font-size: 15px;
+    }
+
+    .custom-select {
+        padding: 10px;
+        font-size: 16px;
+        background-color: #fff;
+        width: 150px;
+        border: none;
+        position: absolute;
+        left: 220px;
+        top: 37px;
+        outline: none;
+        border-left: rgb(209, 209, 209) solid 2px;
+    }
+    
+    
+    .custom-select option {
+        background-color: #fff;
+        color: #333;
+        padding: 15px;
+    }
+    
+    
+    .custom-select option:checked {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+        
+    .btn{
+        width: 20%;
+        padding: 15px 15px;
+        border: none;
+        border-radius: 20px;
+        background-color: var(--red-color);
+        color: var(--white-color);
+        margin-left: -20px;
+        font-size: 15px;
+    }
+    
+}
+
+
+@media only screen and (min-width:1201px) and (max-width:1440px){
+    .sectionOne{
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        padding: 150px 8%;
+        height: 80vh;
+    }
+
+    .sectionOne::before{
+        height: 80vh;
+    }
+}
+
+
+/* 1025px  — 1200px: Desktops, large screens */

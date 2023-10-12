@@ -4,16 +4,27 @@ import './projectHire.css'
 import proImage from './newvec.png'
 
 import newvecImg from './newvec.png'
-const ProjectHireModal = ({isOpen, onClose,}) => {
+import ProjectDesSec1 from './ProjectDesSec1'
+const ProjectHireModal = ({isOpen, onClose, application}) => {
+    
 
     if (!isOpen) return null;
+    else if (isOpen) {
+        <ProjectDesSec1
+            application={application}
+        />
+    }
+
+    console.log(application)
+
   return (
+    
     <div className='projectHireSectionDiv'>
         <section className='projectHireSection'>
             <i class="uil uil-multiply myprojIcon" onClick={onClose}></i>
 
             <div className='hireSecDiv'>
-                <h2>₦1,600,000</h2>
+                <h2>₦</h2>
                 <button>Hire</button>
             </div>
 

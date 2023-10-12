@@ -61,6 +61,20 @@
     outline: none;
 }
 
+.buiderForm textarea{
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 70px;
+    min-height: 70px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: rgb(207, 207, 207) 1px solid;
+    font-size: 14px;
+    border-radius: 5px;
+    outline: none;
+}
+
+
 
 .createOneDivs input{
     border: none !important;

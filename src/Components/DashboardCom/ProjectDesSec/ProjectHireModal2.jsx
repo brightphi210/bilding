@@ -2,7 +2,7 @@ import React from 'react'
 import hireImg from './d.png'
 import { Link } from 'react-router-dom';
 
-const ProjectHireModal2 = ({isOpen2, onClose2}) => {
+const ProjectHireModal2 = ({isOpen2, onClose2, }) => {
     if (!isOpen2) return null;
   return (
     <div className='projectHireSectionDiv2'>

@@ -96,7 +96,7 @@ const ProjectDesSec1 = () => {
             <div className='proDevImage'>
               <img src={project.image1} alt="" />
               <img src={project.image2} alt="" />
-              <img src={project.image3} alt="" />
+              {/* <img src={project.image3} alt="" /> */}
             </div>
           </div>
 

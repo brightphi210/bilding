@@ -159,3 +159,14 @@
         transition: all ease 0.3s;
     }
 }
+
+
+@media only screen and (min-width:768px) and (max-width: 1024px){
+    .sectionThreeDiv{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 50px 8%;
+        isolation:  isolate;
+    }
+}

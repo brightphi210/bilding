@@ -45,6 +45,7 @@ const WorkerSignUp = () => {
         password: '',
         phone_number: '',
         location: '',
+        about: '',
         updates: false,
       });
 
@@ -79,7 +80,7 @@ const WorkerSignUp = () => {
         if (response.ok || response.statusCode === 400) {
           console.log('User created successfully');
           console.log(data)
-          navigate('/login/user');
+          navigate('/login');
         } else {
           console.error(response.statusText);
           // console.log(data)
@@ -122,6 +123,7 @@ const WorkerSignUp = () => {
               required
           />
           </div>
+          <div className='createOneDiv'>
           <input 
             type="number" 
             name="phone_number"
@@ -131,7 +133,7 @@ const WorkerSignUp = () => {
             required
           />
 
-          <div className='createOneDiv'>
+          
           <input 
             type="email"  
             name='email'
@@ -140,8 +142,7 @@ const WorkerSignUp = () => {
             onChange={handleChange}
             required
           />
-          </div>
-
+          
           <input 
             type="password"  
             name="password"
@@ -160,6 +161,17 @@ const WorkerSignUp = () => {
             onChange={handleChange}
             required
           />
+
+          <textarea  
+          placeholder='Brief Bio about yourself '
+          name='about'
+          value={formData.about}
+          onChange={handleChange}
+          required
+          />
+          </div>
+
+
           {/* <Select options={options} value={value} onChange={changeHandler} className='select'/> */}
           
           <div className='checkDiv1'>

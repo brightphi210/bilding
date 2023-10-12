@@ -10,7 +10,7 @@ import BuilderCreateTHREE from '../../Components/Bulider/BuilderCreateProj/Build
 
 
 import BuilderCreateReview from '../../Components/Bulider/BuilderCreateProj/BuilderCreateReview'
-
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
 const BuilderCreate = () => {
 
 
@@ -32,7 +32,6 @@ const BuilderCreate = () => {
     url: "",
     image1: null,
     image2: null,
-    // image3: null,
     title: "",
     categories: "",
     skills: "",
@@ -53,13 +52,13 @@ const BuilderCreate = () => {
 
 
   let url = 'https://bildingapi.onrender.com/api/projects'
+  
   const [isLoading, setIsLoading] = useState(false);
   const token = localStorage.getItem('authToken');
 
   const handleSubmit  = async () => {
     setIsLoading(true);
     try{
-
 
       const formDataNew = new FormData();
  
@@ -75,7 +74,8 @@ const BuilderCreate = () => {
       formDataNew.append('location', formData.location);
       formDataNew.append('image1', formData.image1);
       formDataNew.append('image2', formData.image2);
-      // formDataNew.append('image3', formData.image3);
+
+      console.log(formDataNew)
 
       const response = await fetch(url, {
         method: 'POST',
@@ -98,7 +98,7 @@ const BuilderCreate = () => {
     }
 
     catch(err){
-      console.log("There was Error while creating project !!")
+      console.log("There was Error while creating project !!", err);
     }
   }
 
@@ -259,15 +259,18 @@ const BuilderCreate = () => {
                   }}
                   
                   >
-                  {page === 0 ? "Proceed" : page === 1 ? "Next" :  isLoading === true ? "Loading...": "Submit"}
+                  {page === 0 ? "Proceed" : page === 1 ? "Next" : "Submit"}
               </button>
               
             </div>
 
             {isLoading === true && (
               <div className='creatingLoadingDiv'>
-                <p className='creatingLoading'>Creating Product . . .</p>
-                <video >{myVideo}</video>
+                <div className='creatingLoading'>
+                  <video controls={false} autoPlay loop className='video'> 
+                    <source src={myVideo} type="video/mp4" />
+                  </video>
+                </div>
               </div>
             )}
 

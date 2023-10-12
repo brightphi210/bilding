@@ -46,8 +46,8 @@ function App() {
             <Route path="/login/user" element={<SigninWorker />} />
             <Route path="/register" element={<Register />} />
             <Route path="/builder" element={<Builders />} />
-
-                  <Route path="/builder/bvn" element={ <BuilderBvn/>} />
+            <Route path="/worker" element={<WorkerSignUpPage />} />
+            <Route path="/builder/bvn" element={ <BuilderBvn/>} />
             
 
 
@@ -65,7 +65,6 @@ function App() {
               
 
                   {/* ======================== Worker Routes ======================== */}
-                  <Route path="/worker" element={<WorkerSignUpPage />} />
 
                   {/* =================== Project Review ========================= */}
                   <Route path="/builder/project/review" element={<BuilderCreateReview />} />

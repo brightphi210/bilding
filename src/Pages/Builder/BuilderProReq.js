@@ -6,6 +6,8 @@ import BuilderReqCreateTwo from '../../Components/Bulider/BuilderCreateReq/Build
 import BuilderReqCreateThree from '../../Components/Bulider/BuilderCreateReq/BuilderReqCreateThree'
 import Header from '../../Components/LoginFloder/Header'
 
+import myVideo from './animation_lnkaatit.mp4'
+
 import { useState } from 'react'
 
 
@@ -13,44 +15,71 @@ const BuilderProReq = () => {
 
   const navigate = useNavigate()
 
-  // const [title, setTitle] = useState("")
-  // const [category, setCategory] = useState("")
-  // const [location, setLocation] = useState("")
-  // const [description, setDescription] = useState("")
-  // const [item, setItem] = useState("")
-
-  const [formData, setFormData] = useState({
-    title: "",
+  const [newData, setNewData] = useState({
+    title : "",
     category : "",
     location : "",
-    // description : "",
-    // item : "",
+    description : "",
+    image1 : null,
+    image2 : null,
+    uploaded_items: [{ name: '', amount: '' }],
   })
+
+  // const handleChange = (e) => {
+  //   const { name, value, type } = e.target;
+  //   const newValue = type === "file" ? e.target.files[0] : value;
+  //   setNewData({ ...newData, [name]: newValue });
+  // }
+
+
+  const handleChange = (e, index) => {
+    const { name, value, type, files } = e.target;
+
+    if (type === 'file') {
+      setNewData({ ...newData, [name]: files[0] });
+    } 
+
+    else if (name === 'name' || name === 'amount') {
+      const newItems = [...newData.uploaded_items];
+      newItems[index][name] = value;
+      setNewData({ ...newData, uploaded_items: newItems });
+    }
+    else {
+      setNewData({ ...newData, [name]: value });
+    }
+  };
 
 
   let url = 'https://bildingapi.onrender.com/api/requests'
+
+  const [isLoading, setIsLoading] = useState(false);
   const token = localStorage.getItem('authToken');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
+    // setIsLoading(true);
+    // e.preventDefault();
     try{
 
-      const formDataNew = new FormData();
- 
-      formDataNew.append('title', formData.title);
-      formDataNew.append('category', formData.category);
-      formDataNew.append('location', formData.location);
-      formDataNew.append('item', formData.item);
-      formDataNew.append('description', formData.description);
+      const newFormData = new FormData();
+      
+      newFormData.append('title', newData.title);
+      newFormData.append('category', newData.category);
+      newFormData.append('location', newData.location);
+      newFormData.append('description', newData.description);
+      newFormData.append('image1', newData.image1);
+      newFormData.append('image2', newData.image2);
+      newFormData.append('uploaded_items', newData.uploaded_items);
 
+      
+      console.log(newData)
       const response = await fetch(url, {
+        
         method: 'POST',
         headers: { 
-          'Content-Type': "application/json",
-          'Authorization': `Bearer ${token}` ,
+          'Authorization': `Bearer ${token}`
         },
 
-        body: JSON.stringify(formData),
+        body: newFormData,
       })
 
       if (response.ok) {
@@ -58,7 +87,7 @@ const BuilderProReq = () => {
         console.log('Product Successfully Created!', data);
         navigate('/dashboard')
       } else {
-        console.error( response.statusText, 'Product Failed to Create');
+        console.error( response.error);
         
       }
 
@@ -77,16 +106,26 @@ const BuilderProReq = () => {
   const PageDisplayed = () => {
     if(page === 0){
       return <BuilderReqCreateONE 
-      formData={formData} 
-      setFormData={setFormData} 
+      newData={newData} 
+      setNewData={setNewData} 
       onSubmit={handleSubmit} 
+      onChange={handleChange}
       />
     }
     if(page === 1){
-      return <BuilderReqCreateTwo />
+      return <BuilderReqCreateTwo 
+      newData={newData} 
+      setNewData={setNewData} 
+      onSubmit={handleSubmit} 
+      onChange={handleChange}/>
     }
     if(page === 2){
-      return <BuilderReqCreateThree />
+      return <BuilderReqCreateThree 
+      newData={newData} 
+      setNewData={setNewData} 
+      onSubmit={handleSubmit} 
+      onChange={handleChange}
+      />
     }
   }
 
@@ -202,7 +241,8 @@ const BuilderProReq = () => {
                   className='mainBtn2'
                   onClick={() =>{
                     if (page === FormTitle.length - 1) {
-                      alert("FORM SUBMITTED");
+                      // alert("FORM SUBMITTED");
+                      handleSubmit()
                       // console.log(formData);
                     } else {
                       setPage((currPage) => currPage + 1);
@@ -213,6 +253,17 @@ const BuilderProReq = () => {
                   {page === 0 ? "Create Request" : page === 1 ? "Next" : "Submit"}
               </button>
             </div>
+
+
+            {isLoading === true && (
+              <div className='creatingLoadingDiv'>
+                <div className='creatingLoading'>
+                  <video controls={false} autoPlay loop className='video'> 
+                    <source src={myVideo} type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            )}
 
 
           </div>
