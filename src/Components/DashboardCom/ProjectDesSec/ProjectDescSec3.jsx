@@ -38,7 +38,7 @@ const ProjectDescSec3 = () => {
               <h2>₦1,600,000</h2>
               <div className='projectSec2BtnsNew'>
                 <button className='secTwoView'>View</button>
-                <button className='secTwoHire'>Add to Favourite</button>
+                <button className='secTwoHire'>Favourite</button>
               </div>
             </div>
           </div>

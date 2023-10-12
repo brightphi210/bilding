@@ -33,7 +33,6 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication}) => {
 
             <div className='projectLetter'>
                 <h1>Appplication letter</h1>
-                <p><b>Hello Client,</b></p>
                 <p>
                     {selectedApplication.applicationletter}
                 </p>
@@ -59,7 +58,7 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication}) => {
                 <div className='projectLetterEach'>
                     <img src={proImage} alt="" />
                     <div>
-                        <span>Chevron NIgeria</span>
+                        <span>Chevron</span>
                         <h3>Electrician</h3>
                         <p>
                             Lorem ipsum dolor sit amet consectetur. Nibh aenean sit nulla vitae 
