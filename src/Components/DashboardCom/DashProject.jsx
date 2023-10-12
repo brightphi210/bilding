@@ -57,16 +57,16 @@ const DashProject = () => {
                     
 
 
-                    <div>
-                        <li>Applications</li>
+                    <div className='appHire'>
+                        <p>Applications : </p>
                         <span>0</span>
                     </div>
 
-                    <div>
-                        <li>Hired</li>
+                    <div className='appHire'>
+                        <p>Hired : </p>
                         <span>15</span>
                     </div>
-                    <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>View</button></Link>
+                    <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>View </button></Link>
                 </ul>
 
                 ))}

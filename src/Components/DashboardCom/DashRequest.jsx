@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import jwt_decode from "jwt-decode"
+import { Link } from 'react-router-dom'
 const DashRequest = () => {
 
     const [request, setRequest] = useState([])
@@ -58,16 +59,17 @@ const DashRequest = () => {
                                         <span>Created {eachRequest.time}.</span>
                                     </div>
 
-                                    <div>
-                                        <li>Applications</li>
+                                    <div className='appHire'>
+                                        <p>Applications</p>
                                         <span>0</span>
                                     </div>
 
-                                    <div>
-                                        <li>Hired</li>
+                                    <div className='appHire'>
+                                        <p>Hired</p>
                                         <span>15</span>
                                     </div>
-                                    <button className='view'>View</button>
+                                    <Link to={`/dashboard/projects/description/`}><button className='view'>View </button></Link>
+                                    {/* <button className='view'>View</button> */}
                                 </ul>
                                 <hr />
                             </>

@@ -260,7 +260,6 @@ const Home = () => {
                   <div className='dashShowTwoFlex'>
                     <h3>{recentproject.project.title}</h3>
                     <p>{recentproject.project.time}</p>
-                    <hr />
                   </div>
                 ))}
 
@@ -289,17 +288,6 @@ const Home = () => {
         <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
       </div>)}
       </section>
-
-      {isLoading === true && (
-              <div className='creatingLoadingDiv'>
-                <div className='creatingLoading'>
-                  <video controls={false} autoPlay loop className='video'> 
-                    <source src={myVideo} type="video/mp4" />
-                  </video>
-                </div>
-              </div>
-            )}
-
     </div>
   )
 }
