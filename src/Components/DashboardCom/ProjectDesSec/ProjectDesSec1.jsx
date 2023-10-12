@@ -9,6 +9,7 @@ const ProjectDesSec1 = () => {
 
   const { id } = useParams();
   const [project, setProject] = useState([])
+  const [projectTitle, setProjectTitle] = useState([])
 
   const [myImage, setMyImage] = useState([])
   let url = `https://bildingapi.onrender.com/api/projects/${id}`

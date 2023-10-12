@@ -141,20 +141,27 @@
 @media only screen and (min-width:321px) and (max-width:768px){
     
     .proDesOneDiv{
-        padding: 20px 0;
+        padding: 10px 0;
     }
 
 
     .proDesOneFlexTwo{
         display: grid;
         grid-template-columns: 1fr;
-        padding-bottom: 30px;
+        padding-bottom: 20px;
+    }
+
+
+
+    .proDesOneFlexOne{
+        padding-bottom: 20px;
     }
 
     .proSubGrid{
         display: block;
-        gap: 150px;
+        gap: 50px;
     }
+
 
     .proDesOneFlexTwo h4{
         font-size: 18px;
@@ -162,13 +169,31 @@
     }
 
 
+    .proDesOneFlexThree h3{
+        padding-bottom: 10px;
+    }
+
     .proDesOneFlexThree p{
         font-size: 12x;
         width: 100%;
-        padding-bottom: 40px;
+        padding-bottom: 20px;
         
     }
+
+
+    .proDesOneFlexThree{
+        padding-top: 0 !important;
+    }
+
+
+    .proDevImage{
+        display: block;
+    }
     
+
+    .proDevImage img{
+        width: 100%;
+    }
 }
 
 
@@ -281,9 +306,14 @@
 
 @media only screen and (min-width:321px) and (max-width:768px){
 
-    .projectSec2BtnsNew{
-        display: block;
-    }
+    /* .projectSectionTwo{
+        display: grid;
+        grid-template-columns: 60px 3fr 300px;
+        padding-top: 40px;
+        gap: 50px;
+    } */
+
+
 
     .projectSectionTwo{
         display: grid;
@@ -294,7 +324,7 @@
     
 
     .proSeniorDiv img{
-        width: 50px;
+        width: 30px;
     }
 
 
@@ -317,26 +347,49 @@
     }   
 
 
+    .projectSec2BtnsNew{
+        display: flex !important;
+        gap: 10px;
+    }
+
+
     .secTwoView{
-        width: 60%;
-        margin-bottom: 20px; 
+        width: 30%;
+        margin-bottom: 10px; 
     }
 
 
     .secTwoHire{
-        width: 60%;
-        margin-bottom: 30px;
+        width: 30%;
+        margin-bottom: 10px;
     }
 
 
     .review{
+        font-size: 10px !important;
+    }
+
+    .sectTwoIcons{
         font-size: 12px;
     }
 
+    
+    .proSenior h2{
+        font-size: 18px;
+    }
+
+    .proSenior span{
+        font-size: 15px;
+    }
+
+    .projectSectionTwo p{
+        font-size: 12px;
+    }
 
     .hireNum{
         font-size: 14px !important;
     }
+
 }
 
 

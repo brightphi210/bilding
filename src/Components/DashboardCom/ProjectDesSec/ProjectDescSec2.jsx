@@ -80,7 +80,7 @@ const ProjectDescSec2 = () => {
               </div>
               <div className=''>
                 <div>
-                  <span><b>{myApplication.applicant.firstname} {myApplication.applicant.lastname}</b></span>
+                  <span className='name'>{myApplication.applicant.firstname} {myApplication.applicant.lastname}</span>
                   <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
                 </div>
                   <div className='proSenior'>
@@ -88,7 +88,7 @@ const ProjectDescSec2 = () => {
                     <span><i class="uil uil-location-point sectTwoIcons"></i> {myApplication.applicant.location}</span>
                   </div>
                 <p>
-                  {myApplication.applicant.about}
+                  <b>Bio</b>: {myApplication.applicant.about}
                 </p>
                 <p className='hireNum'> <b>Hires:</b> 0</p>
               </div>
