@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import VectorImage from './newvec.png'
 import WorkerProjectModal from './WorkerProjectDes/WorkerProjectModal';
 import { useState } from 'react';
-
+import 'font-awesome/css/font-awesome.min.css';
 import './WorkerDash.css'
 
 const WorkerDash = () => {
@@ -36,7 +36,44 @@ const WorkerDash = () => {
           items: 1,
           slidesToSlide: 1
         }
+    };
+
+    const url = 'https://bildingapi.onrender.com/api/projects'
+    const token = localStorage.getItem('authToken');
+
+    const [datas, setDatas] = useState([])
+
+    const fetccData = async () => {
+        try {
+            const res = await fetch(url, {
+                method : 'GET',
+                headers : {
+                    "Authorization": `Bearer ${token}`,
+                }
+            })
+
+            const data = await res.json();
+            setDatas(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    useEffect(()=>{
+        fetccData()
+    }, [])
+
+    const [selectedData, setSelectedData] = useState([])
+
+    const handleMoreClick = (data) => {
+        setSelectedData(data);
+        showModal(true);
       };
+
+
+
+    
   return (
     <div>
         <section className='dashSectionOne'>
@@ -70,79 +107,53 @@ const WorkerDash = () => {
 
             <form action="" className='workerDashForm'>
                 <input type="text" placeholder='Search for projects . . .' />
-                <button>Search</button>
+                <button>Search <i class="fa-solid fa-arrow-right"></i></button>
             </form>
 
 
             <section className='workerDashSectionTwo'>
                 <h2>Projects for you</h2>
                 <div className='workerDashDiv'>
+                    <section  className='workerDashSec'>
 
-                    <section onClick={showModal} className='workerDashSec'>
-                        <div className='projectSectionTwo projectSectionTwoNew'>
+                        {datas.map((data)=>(
+                            <>
+                            <div className='projectSectionTwo projectSectionTwoNew' onClick={() => handleMoreClick(data)}>
 
-                            <div className='proSeniorDiv'>
-                                <img src={VectorImage} alt="" />
-                            </div>
-                            <div className=''>
-                                <div>
-                                    <span><b>Chevron N..</b></span>
-                                    <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
+                                <div className='proSeniorDiv'>
+                                    <img src={VectorImage} alt="" />
                                 </div>
-                                <div className='proSenior'>
-                                    <h2>Electrician to wire a two bedroom apartment complex</h2>
-                                    <span><i class="uil uil-location-point sectTwoIcons"></i> Lagos street, Lekki, Lagos, Nigeria</span>
+                                <div className=''>
+                                    <div>
+                                        <span><b>Chevron N..</b></span>
+                                        <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
+                                    </div>
+                                    <div className='proSenior'>
+                                        {console.log(datas)}
+                                        <h2>{data.title}</h2>
+                                        <span><i class="uil uil-location-point sectTwoIcons"></i> {data.location}</span>
+                                    </div>
+                                    <p>
+                                        {data.description}
+                                    </p>
+
+                                    <span className='proSeniorDivCategory'>Electrical Engineering</span>
                                 </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur. Nibh aenean sit nulla vitae cursus dignissim 
-                                    vel nisl tincidunt. Ipsum ipsum pellentesque tempor diam lobortis. Ut nisl feugiat...
-                                </p>
 
-                                <span className='proSeniorDivCategory'>Electrical Engineering</span>
+                                <div className='proSectHire'>
+                                    <h2>₦{data.budget}</h2>
+                                </div>
                             </div>
+                            <hr className='hrt'/>
+                            </>
+                        ))}
 
-                            <div className='proSectHire'>
-                                <h2>₦1,600,000</h2>
-                            </div>
-                        </div>
 
-                        <hr className='hrt'/>
                     </section>
-
-                    <section onClick={showModal} className='workerDashSec'>
-                    <div className='projectSectionTwo projectSectionTwoNew'>
-
-                        <div className='proSeniorDiv'>
-                            <img src={VectorImage} alt="" />
-                        </div>
-                        <div className=''>
-                            <div>
-                                <span><b>Chevron N..</b></span>
-                                <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
-                            </div>
-                            <div className='proSenior'>
-                                <h2>Electrician to wire a two bedroom apartment complex</h2>
-                                <span><i class="uil uil-location-point sectTwoIcons"></i> Lagos street, Lekki, Lagos, Nigeria</span>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur. Nibh aenean sit nulla vitae cursus dignissim 
-                                vel nisl tincidunt. Ipsum ipsum pellentesque tempor diam lobortis. Ut nisl feugiat...
-                            </p>
-
-                            <span className='proSeniorDivCategory'>Electrical Engineering</span>
-                        </div>
-
-                        <div className='proSectHire'>
-                            <h2>₦1,600,000</h2>
-                        </div>
-                    </div>
-
-                    <hr className='hrt'/>
-                </section>
                 </div>
             </section>
         </section>
-        <WorkerProjectModal isOpen={modal} onClose={hideModal}/>
+        <WorkerProjectModal isOpen={modal} onClose={hideModal} selectedData = {selectedData}/>
         
     </div>
   )

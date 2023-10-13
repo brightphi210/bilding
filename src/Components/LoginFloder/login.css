@@ -105,22 +105,34 @@
 }
 
 
+.eyeDiv{
+    position: relative;
+}
+
+
+.password-toggle-icon{
+    position: absolute;
+    left: 420px;
+    top: 20px;
+    cursor: pointer;
+}
+
 @media only screen and (min-width:321px) and (max-width:768px){
     .loginDiv{
         display: grid;
         grid-template-columns: 1fr;
-        height: 100vh;
+        height: 80vh;
         align-items: center;
     }
 
     .loginDiv h2{
         font-size: 20px;
         font-weight: 500;
+        padding-top: 10px;
     }
 
     .logImage img{
-        height: 55vh;
-        width: 100%;
+        display: none;
     }
     
     
@@ -132,7 +144,7 @@
 
     .formDiv{
         padding: 20px 8%;
-        padding-top: 40px;
+        padding-top: 0;
         text-align: center;
     }
 
@@ -141,17 +153,34 @@
         padding: 13px;
         font-size: 13px;
         margin-bottom: 10px;
+        border-radius: 10px;
     }
 
     .googleForm .googleLog{
         width: 100%;
         font-size: 13px;
-        margin: 10px;
+        margin: auto;
+        margin-bottom: 10px;
+        background-color: white;
+        border-radius: 10px;
+        border: #cbcbcb solid 1px;
     }
 
-    .signupBtn{
-        width: 100%;
-        font-size: 13px;
-        margin-top: 13px;
+
+    .dont{
+        display: flex;
+        gap: 10px;
+        font-size: 12px;
+        text-align: center;
+        justify-content: center;
+        margin: auto;
+    }
+
+
+    .password-toggle-icon{
+        position: absolute;
+        left: 280px;
+        top: 15px;
+        cursor: pointer;
     }
 }

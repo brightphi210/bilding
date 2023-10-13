@@ -1,24 +1,25 @@
 import React from 'react'
 import './login.css'
 import loginImage from './Image/loginImage.png'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import { Link, useNavigate } from 'react-router-dom'
-import myVideo from './animation_lnkaatit.mp4'
 
-
-import 'font-awesome/css/font-awesome.min.css';
+import jwt_decode from "jwt-decode"
+import Home from '../DashboardCom/Home'
 
 
 const Login = () => {
+
+  const [successMessage, setSuccessMessage] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
 
   const navigate = useNavigate()
-
-
 
 
 
@@ -65,13 +66,7 @@ const Login = () => {
     }
   };  
 
-
-  const [myPassword, setMyPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+  
 
 
   return (
@@ -83,7 +78,7 @@ const Login = () => {
             <img src={loginImage} alt="" />
         </div>
         <div className='formDiv'>
-            <h2>Login to your Bilding account</h2>
+            <h2>Login to Bilding</h2>
             
             <form action="" onSubmit={handleSubmit}  className='myForm' >
 
@@ -97,24 +92,17 @@ const Login = () => {
                 />
 
 
-                <div className='eyeDiv'>
                 <input 
-                  type={showPassword ? 'text' : 'password'}
+                  type="text" 
                   placeholder='Password'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
 
-                <i
-                  className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icon`}
-                  onClick={togglePasswordVisibility}
-                ></i>
-                </div>
-
 
                 <button type='submit' style={{backgroundColor : myLoadingColor} }>{
-                  isLoading? 'Login' : 'Login'
+                  isLoading? 'Loading. . .' : 'Login'
                 }
                 </button>
             </form>
@@ -123,8 +111,8 @@ const Login = () => {
             <form className='googleForm'>
                 <p>or</p>
                 <button className='googleLog'>Login with Google</button>
-                <div className='dont'><p>Don’t have an account ?</p> 
-                <Link to={'/register'}><span>Sign up to Bilding</span></Link></div>
+                <p>Don’t have an account ?</p>
+                <Link to={'/register'}><button className='signupBtn'>Sign up to Bilding</button></Link>
             </form>
         </div>
       </section>

@@ -60,8 +60,8 @@
 
 
 .workerDashDiv{
-    background-color: #fafafa;
-    padding: 50px;
+    background-color: #fbfbfb;
+    padding: 30px;
     border-radius: 10px;
 }
 
@@ -70,13 +70,13 @@
 }
 
 
-.workerDashSec{
+.projectSectionTwoNew{
     cursor: pointer;
-    padding: 20px;
+    padding: 30px;
     border-radius: 20px;
 }
 
-.workerDashSec:hover{
+.projectSectionTwoNew:hover{
     background-color: antiquewhite;
     transition: all ease 0.3s;
 }
@@ -101,4 +101,27 @@
     margin-top: 40px;
     margin-bottom: 10px;
     border: rgb(228, 225, 225) solid 1px !important;
+}
+
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    
+    .workerDashDiv{
+        background-color: white;
+        padding: 0;
+        border-radius: 10px;
+    }
+
+
+    .workerDashForm{
+        display: block;
+    }
+
+
+    .workerDashForm button{
+        width: 40%; 
+        padding: 10px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
 }

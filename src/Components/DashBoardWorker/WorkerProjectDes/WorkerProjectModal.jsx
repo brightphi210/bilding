@@ -6,7 +6,7 @@ import proImage from './newvec.png'
 import newvecImg from './newvec.png'
 
 
-const WorkerProjectModal = ({isOpen, onClose,}) => {
+const WorkerProjectModal = ({isOpen, onClose, selectedData}) => {
 
     if (!isOpen) return null;
   return (
@@ -15,7 +15,7 @@ const WorkerProjectModal = ({isOpen, onClose,}) => {
             <i class="uil uil-multiply myprojIcon" onClick={onClose}></i>
 
             <div className='hireSecDiv'>
-                <h2>₦1,600,000</h2>
+                <h2>₦{selectedData.budget}</h2>
                 <button>Apply</button>
             </div>
 
@@ -28,19 +28,13 @@ const WorkerProjectModal = ({isOpen, onClose,}) => {
             </div>
 
             <div className='projectProAddress'>
-                <p>Electrician to wire a two bedroom apartment complex</p>
-                <span>Lagos street, Lekki, Lagos, Nigeria</span>
+                <span>{selectedData.location}</span>
             </div>
 
             <div className='projectLetter'>
-                <h1>Electrician to wire a two bedroom apartment complex</h1>
+                <h1>{selectedData.title}</h1>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur. 
-                    Nibh aenean sit nulla vitae cursus dignissim vel nisl tincidunt. 
-                    Ipsum ipsum pellentesque tempor diam lobortis. Ut nisl feugiat Lorem 
-                    ipsum dolor sit amet consectetur. Nibh aenean sit nulla vitae cursus 
-                    dignissim vel nisl tincidunt. Ipsum ipsum pellentesque tempor diam lobortis. 
-                    Ut nisl feugiatLorem ipsum dolor sit amet consectetur. Nibh aenean sit nulla 
+                    {selectedData.description}
                 </p>
 
                 <hr />
@@ -51,7 +45,7 @@ const WorkerProjectModal = ({isOpen, onClose,}) => {
                 <h1>Project details</h1>
                 <p><b>Project location:</b></p>
                 <p>
-                    Gwarimpa, Abuja, Nigeria 
+                    {selectedData.location}
                 </p>
 
                 <hr />
@@ -59,6 +53,8 @@ const WorkerProjectModal = ({isOpen, onClose,}) => {
 
             <div className='projectLetter'>
                 <b>Project Images: </b>
+                <img src={selectedData.image1} alt="" />
+                <img src={selectedData.image2} alt="" />
             </div>
 
             <div className='projectLetter'>
