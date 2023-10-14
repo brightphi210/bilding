@@ -206,149 +206,95 @@ const Home = () => {
           <Link to={'/' + 'builder/options2'}><h2 className='createBtn'>Create New</h2></Link>
         </div>
 
-
-
-        
-          <>
-          <div className='dashProjectNumDiv'>
-            <div className='dashProjectNum'>
-              {projects.length > 0 ? (
-                <h2>{projects.length}</h2>
-              ): (<h2>0</h2>)}
-              
-              <p>Projects</p>
-            </div>
-
-            <div className='dashProjectNum'>
-              {request.length > 0 ? (<><h2>{request.length}</h2></>) : (<><h2>0</h2></>)} 
-              <p>Requests</p>
-            </div>
-
-            <div className='dashProjectNum'>
-              <h2>0</h2>
-              <p>Skilled labor</p>
-            </div>
-
-            <div className='dashProjectNum'>
-              <h2>0</h2>
-              <p>Suppliers</p>
-            </div>
+        <div className='dashProjectNumDiv'>
+          <div className='dashProjectNum'>
+            {projects.length > 0 ? (
+              <h2>{projects.length}</h2>
+            ): (<h2>0</h2>)}
+            
+            <p>Projects</p>
           </div>
 
-          {projects.length > 0 ? (
-          <section className='dashShowDiv'>
-            <>
-            <div className='dashShowDivOne'>
-              <h2>Active Projects</h2>
+          <div className='dashProjectNum'>
+            {request.length > 0 ? (<><h2>{request.length}</h2></>) : (<><h2>0</h2></>)} 
+            <p>Requests</p>
+          </div>
+
+          <div className='dashProjectNum'>
+            <h2>0</h2>
+            <p>Skilled labor</p>
+          </div>
+
+          <div className='dashProjectNum'>
+            <h2>0</h2>
+            <p>Suppliers</p>
+          </div>
+        </div>
+        
+        {projects.length >  0 ? 
+        (        <section className='dashShowDiv'>
+          <div className='dashShowDivOne'>
+            <h2>Active Projects</h2>
 
 
-              <div className='dashShowOneDiv'>
+            <div className='dashShowOneDiv'>
 
-                {projects.slice(0, 3).map((project) =>  (
-                  <div className='dashShowOneFlex' >
-                    <div >
-                      <h3 >{project.title}</h3>
-                      <div>
-                        <span>Applications: 2</span>
-                        <span>Hired: 0</span>
-                      </div>
-                      <img src="" alt="" />
+              {projects.slice(0, 3).map((project) =>  (
+                <div className='dashShowOneFlex' >
+                  <div >
+                    <h3 >{project.title}</h3>
+                    <div>
+                      <span>Applications: 2</span>
+                      <span>Hired: 0</span>
                     </div>
-                    <Link to={`/dashboard/projects/description/${project.id}`}><button>View <i class="uil uil-arrow-right"></i></button></Link>
-                    <hr />
+                    <img src="" alt="" />
                   </div>
-                ))}
-              </div>
-            </div>
-    
-            <div className='dashShowDivTwo'>
-              <h2>Recent Activity</h2>
-              <div className='dashShowDivTwoBack'>
-                
-                {recentProjects.slice(0, 3).map((recentproject) =>(
-                  <>
-                  <div className='dashShowTwoFlex'>
-                    <h3>{recentproject.project.title}</h3>
-                    <p>{recentproject.project.time}</p>
-                  </div>
-                  {/* <hr /> */}
-                  </>
-                ))}
-
-              </div>
-            </div>
-            
-
-
-            
-            <Link to={'/' + 'dashboard/projects'}><p className='viewAll'>View All <i class="uil uil-message"></i></p></Link>
-          </>
-          </section>
-          ) :
-
-          (
-
-            <>
-              <Placeholder fluid>
-                <Placeholder.Header image>
-                  <Placeholder.Line />
-                  <Placeholder.Line />
-                </Placeholder.Header>
-                <Placeholder.Paragraph>
-                  <Placeholder.Line />
-                  <Placeholder.Line />
-                  <Placeholder.Line />
-                </Placeholder.Paragraph>
-              </Placeholder>
-
-              <Placeholder fluid>
-                <Placeholder.Header image>
-                  <Placeholder.Line />
-                  <Placeholder.Line />
-                </Placeholder.Header>
-                <Placeholder.Paragraph>
-                  <Placeholder.Line />
-                  <Placeholder.Line />
-                  <Placeholder.Line />
-                </Placeholder.Paragraph>
-              </Placeholder>
-
-              <Placeholder fluid>
-                <Placeholder.Header image>
-                  <Placeholder.Line />
-                  <Placeholder.Line />
-                </Placeholder.Header>
-                <Placeholder.Paragraph>
-                  <Placeholder.Line />
-                  <Placeholder.Line />
-                  <Placeholder.Line />
-                </Placeholder.Paragraph>
-              </Placeholder>
-
-            </>
-            
-          )}
-          </>
-
-
-        {/* {fetccData.length < 0 && (
-                <div>
-                <div className='dashEmptyDiv'>
-                  <img src={emptyImg} alt='empty' />
-                  <h2>It’s empty here.</h2>
-    
-                  <p>
-                    Create your first project or request 
-                    in order to get the required help needed  <br />
-                    for your construction job.
-                  </p>
-    
-                  <button onClick={openModal}>Create New</button>
+                  <Link to={`/dashboard/projects/description/${project.id}`}><button>View <i class="uil uil-arrow-right"></i></button></Link>
+                  <hr />
                 </div>
-    
-                <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
+              ))}
+            </div>
+          </div>
+  
+          <div className='dashShowDivTwo'>
+            <h2>Recent Activity</h2>
+            <div className='dashShowDivTwoBack'>
+              
+              {recentProjects.slice(0, 3).map((recentproject) =>(
+                <>
+                <div className='dashShowTwoFlex'>
+                  <h3>{recentproject.project.title}</h3>
+                  <p>{recentproject.project.time}</p>
+                </div>
+                {/* <hr /> */}
+                </>
+              ))}
+
+            </div>
+          </div>
+          <Link to={'/' + 'dashboard/projects'}><p className='viewAll'>View All <i class="uil uil-message"></i></p></Link>
+        </section>): 
+        (<>
+            <div>
+              <div className='dashEmptyDiv'>
+                <img src={emptyImg} alt='empty' />
+                <h2>It’s empty here.</h2>
+  
+                <p>
+                  Create your first project or request 
+                  in order to get the required help needed  <br />
+                  for your construction job.
+                </p>
+  
+                <button onClick={openModal}>Create New</button>
+              </div>
+  
+              <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
             </div> 
-        )} */}
+        </>)}
+
+
+
       </section>
     </div>
   )
