@@ -229,8 +229,8 @@ const Home = () => {
           </div>
         </div>
         
-        {projects.length >  0 ? 
-        (        
+        {/* {projects.length >  0 ? 
+        (         */}
         <section className='dashShowDiv'>
           <div className='dashShowDivOne'>
             <h2>Active Projects</h2>
@@ -272,9 +272,11 @@ const Home = () => {
             </div>
           </div>
           <Link to={'/' + 'dashboard/projects'}><p className='viewAll'>View All <i class="uil uil-message"></i></p></Link>
-        </section>): 
-        (<>
-            <div>
+        </section>
+        {/* ):  */}
+        {/* ( */}
+          <>
+            {/* <div>
               <div className='dashEmptyDiv'>
                 <img src={emptyImg} alt='empty' />
                 <h2>It’s empty here.</h2>
@@ -289,8 +291,9 @@ const Home = () => {
               </div>
   
               <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
-            </div> 
-        </>)}
+            </div>  */}
+        </>
+        {/* )} */}
 
 
 
