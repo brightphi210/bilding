@@ -288,10 +288,12 @@
 
     .dropdown{
         left: 0;
-        width: 250px;
+        width: 3000px;
         padding: 30px;
         background-color: #232323;
         border: none;
+        overflow-y: scroll;
+        overflow-x: scroll;
     }
 
     .dropdown p{

@@ -7,6 +7,8 @@ import { useState } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import './WorkerDash.css'
 
+import { FormattedNumber } from 'react-intl';
+
 const WorkerDash = () => {
 
     const [modal, setModal] = useState(false)
@@ -72,6 +74,15 @@ const WorkerDash = () => {
       };
 
 
+      const formatAmount = (value) => {
+        if (value === null || value === undefined) return 0; 
+        return value.toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'NGN',
+          minimumFractionDigits: 2,
+        });
+      };
+
 
     
   return (
@@ -125,7 +136,7 @@ const WorkerDash = () => {
                                 </div>
                                 <div className=''>
                                     <div>
-                                        <span><b>Chevron N..</b></span>
+                                        <span><b>{data.owner.firstname} {data.owner.lastname}</b></span>
                                         <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
                                     </div>
                                     <div className='proSenior'>
@@ -141,7 +152,7 @@ const WorkerDash = () => {
                                 </div>
 
                                 <div className='proSectHire'>
-                                    <h2>₦{data.budget}</h2>
+                                    <h2>{formatAmount(data.budget)}</h2>
                                 </div>
                             </div>
                             <hr className='hrt'/>

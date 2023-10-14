@@ -46,6 +46,7 @@ const WorkerSignUp = () => {
         phone_number: '',
         location: '',
         about: '',
+        profession: '',
         updates: false,
       });
 
@@ -152,12 +153,21 @@ const WorkerSignUp = () => {
             required
           />
 
-
           <input 
             type='text'
             name="location"
             placeholder='Location e.g (Nigeria)' 
             value={formData.location}
+            onChange={handleChange}
+            required
+          />
+
+
+          <input 
+            type='text'
+            name="profession"
+            placeholder='Profession e.g (Electrical Engineer)' 
+            value={formData.profession}
             onChange={handleChange}
             required
           />
