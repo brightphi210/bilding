@@ -33,7 +33,7 @@ const Nav = () => {
 
   return (
     <div>
-        <header className='header'>
+        <header className='headers'>
           <div>
             <Link to={'/'}><img src={logo} alt="" /></Link>
           </div>

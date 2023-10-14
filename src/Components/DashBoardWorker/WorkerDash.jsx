@@ -7,6 +7,8 @@ import { useState } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import './WorkerDash.css'
 
+import { Card, Placeholder } from 'semantic-ui-react'
+
 import { FormattedNumber } from 'react-intl';
 
 const WorkerDash = () => {
@@ -125,6 +127,9 @@ const WorkerDash = () => {
             <section className='workerDashSectionTwo'>
                 <h2>Projects for you</h2>
                 <div className='workerDashDiv'>
+
+                    {datas.length > 0 ? (
+                    <>                    
                     <section  className='workerDashSec'>
 
                         {datas.map((data)=>(
@@ -161,6 +166,63 @@ const WorkerDash = () => {
 
 
                     </section>
+                    </>
+                    ) 
+                    : (
+<>
+            <Placeholder fluid>
+              <Placeholder.Header image>
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Header>
+              <Placeholder.Paragraph>
+                <Placeholder.Line />
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Paragraph>
+            </Placeholder>
+
+            <Placeholder fluid>
+              <Placeholder.Header image>
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Header>
+              <Placeholder.Paragraph>
+                <Placeholder.Line />
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Paragraph>
+            </Placeholder>
+
+          <br />
+          <br />
+
+            <Card.Group itemsPerRow={3}>
+                <Card>
+                  <Card.Content>
+                    <Placeholder>
+                      <Placeholder.Image square />
+                    </Placeholder>
+                  </Card.Content>
+                </Card>
+                <Card>
+                  <Card.Content>
+                    <Placeholder>
+                      <Placeholder.Image square />
+                    </Placeholder>
+                  </Card.Content>
+                </Card>
+                <Card>
+                  <Card.Content>
+                    <Placeholder>
+                      <Placeholder.Image square />
+                    </Placeholder>
+                  </Card.Content>
+                </Card>
+              </Card.Group>
+          </>
+                    )}
+
                 </div>
             </section>
         </section>

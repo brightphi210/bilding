@@ -3,6 +3,8 @@ import jwt_decode from "jwt-decode"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
+import { Card, Placeholder } from 'semantic-ui-react'
+
 import './dashHome.css'
 import BuilerModal from '../Bulider/BuilerModal';
 
@@ -13,8 +15,6 @@ import myVideo from './animation_lnkaatit.mp4'
 
 import { Link } from 'react-router-dom';
 
-
-import {Placeholder} from 'semantic-ui-react'
 
 
 const Home = () => {
@@ -54,8 +54,8 @@ const Home = () => {
   const [recentProjects, setRecentProject] = useState([])
 
 
-  let url = 'https://bildingapi.onrender.com/api/projects'
-  let url2 = 'https://bildingapi.onrender.com/api/recentprojects'
+  let url = 'https:bildingapi.onrender.com/api/projects'
+  let url2 = 'https:bildingapi.onrender.com/api/recentprojects'
 
 
   
@@ -70,24 +70,24 @@ const Home = () => {
   const state = location.state || {};
   const successMessage = state.myMessage;
 
-  // useEffect(() => {
-  //   if (message) {
-  //     const timeout = setTimeout(() => {
-  //       setIsVisible(false);
-  //     }, 2000);
+  //  useEffect(() => {
+  //    if (message) {
+  //      const timeout = setTimeout(() => {
+  //        setIsVisible(false);
+  //      }, 2000);
 
-  //     return () => {
-  //       clearTimeout(timeout);
-  //     };
-  //   }
-  // }, [message]);
+  //      return () => {
+  //        clearTimeout(timeout);
+  //      };
+  //    }
+  //  }, [message]);
 
-  // console.log(successMessage)
+  //  console.log(successMessage)
 
 
 
   
-  // ============================ Fetch Projects ===============================
+  //  ============================ Fetch Projects ===============================
   const fetccData = async () => {
     
     
@@ -100,7 +100,7 @@ const Home = () => {
 
       })
       const data = await response.json()
-      // setIsLoading(true);
+       setIsLoading(true);
       setProjects(data)
       console.log(data)
 
@@ -118,7 +118,7 @@ const Home = () => {
 
     const [request, setRequest] = useState([])
     
-    const url3 = 'https://bildingapi.onrender.com/api/requests'
+    const url3 = 'https:bildingapi.onrender.com/api/requests'
     const fetchData2 = async () =>{
       try {
           const response = await fetch(url3, {
@@ -142,7 +142,7 @@ const Home = () => {
   }, [])
 
 
-  // ========================== Recent Project ========================
+  //  ========================== Recent Project ========================
 
   const fetchRecentData = async () => {
     try{
@@ -206,32 +206,36 @@ const Home = () => {
           <Link to={'/' + 'builder/options2'}><h2 className='createBtn'>Create New</h2></Link>
         </div>
 
-        <div className='dashProjectNumDiv'>
-          <div className='dashProjectNum'>
-            {projects.length > 0 ? (
-              <h2>{projects.length}</h2>
-            ): (<h2>0</h2>)}
-            
-            <p>Projects</p>
-          </div>
 
-          <div className='dashProjectNum'>
-            {request.length > 0 ? (<><h2>{request.length}</h2></>) : (<><h2>0</h2></>)} 
-            <p>Requests</p>
-          </div>
-
-          <div className='dashProjectNum'>
-            <h2>0</h2>
-            <p>Skilled labor</p>
-          </div>
-
-          <div className='dashProjectNum'>
-            <h2>0</h2>
-            <p>Suppliers</p>
-          </div>
-        </div>
 
         {projects.length > 0 ? (
+          <>
+          <div className='dashProjectNumDiv'>
+            <div className='dashProjectNum'>
+              {projects.length > 0 ? (
+                <h2>{projects.length}</h2>
+              ): (<h2>0</h2>)}
+              
+              <p>Projects</p>
+            </div>
+
+            <div className='dashProjectNum'>
+              {request.length > 0 ? (<><h2>{request.length}</h2></>) : (<><h2>0</h2></>)} 
+              <p>Requests</p>
+            </div>
+
+            <div className='dashProjectNum'>
+              <h2>0</h2>
+              <p>Skilled labor</p>
+            </div>
+
+            <div className='dashProjectNum'>
+              <h2>0</h2>
+              <p>Suppliers</p>
+            </div>
+          </div>
+
+
           <section className='dashShowDiv'>
             <div className='dashShowDivOne'>
               <h2>Active Projects</h2>
@@ -271,27 +275,83 @@ const Home = () => {
             </div>
             <Link to={'/' + 'dashboard/projects'}><p className='viewAll'>View All <i class="uil uil-message"></i></p></Link>
           </section>
+          </>
         ) :
 
         (
 
-          <div>
-          <div className='dashEmptyDiv'>
-          <img src={emptyImg} alt='empty' />
-          <h2>It’s empty here.</h2>
+          <>
+            <Placeholder fluid>
+              <Placeholder.Header image>
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Header>
+              <Placeholder.Paragraph>
+                <Placeholder.Line />
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Paragraph>
+            </Placeholder>
 
-          <p>
-            Create your first project or request 
-            in order to get the required help needed  <br />
-            for your construction job.
-          </p>
+            <Placeholder fluid>
+              <Placeholder.Header image>
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Header>
+              <Placeholder.Paragraph>
+                <Placeholder.Line />
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Paragraph>
+            </Placeholder>
 
-          <button onClick={openModal}>Create New</button>
-        </div>
+          <br />
+          <br />
 
-        <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
-          </div> 
+            <Card.Group itemsPerRow={3}>
+                <Card>
+                  <Card.Content>
+                    <Placeholder>
+                      <Placeholder.Image square />
+                    </Placeholder>
+                  </Card.Content>
+                </Card>
+                <Card>
+                  <Card.Content>
+                    <Placeholder>
+                      <Placeholder.Image square />
+                    </Placeholder>
+                  </Card.Content>
+                </Card>
+                <Card>
+                  <Card.Content>
+                    <Placeholder>
+                      <Placeholder.Image square />
+                    </Placeholder>
+                  </Card.Content>
+                </Card>
+              </Card.Group>
+          </>
       )}
+
+        {fetccData.length < 0 && (
+                <div>
+                <div className='dashEmptyDiv'>
+                  <img src={emptyImg} alt='empty' />
+                  <h2>It’s empty here.</h2>
+    
+                  <p>
+                    Create your first project or request 
+                    in order to get the required help needed  <br />
+                    for your construction job.
+                  </p>
+    
+                  <button onClick={openModal}>Create New</button>
+                </div>
+    
+                <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
+            </div> 
+        )}
       </section>
     </div>
   )

@@ -19,6 +19,10 @@
 
 /* ===================== dashProjectSection ===================== */
 
+.header {
+    z-index: 0;
+    display: none;
+}
 .dashProjectSectionGen{
     padding: 120px 8%;
 }

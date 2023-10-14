@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import WorkerProjectModal from './WorkerProjectDes/WorkerProjectModal'
-
+import {Placeholder, Segment } from 'semantic-ui-react'
 const WorkerDashProjects = () => {
 
     const [fetchProject, setFetchProject] = useState([])
@@ -70,28 +70,61 @@ const WorkerDashProjects = () => {
                     <li>1 - 3 of 3</li>
                 </ul>
 
-                
-                {fetchProject.map((project)=>(
-                    <div>
-                        {fetchProject.length > 0 ? (
-                        <ul className='dashProjectTWO'>
-                            <div>
-                                <li>{project.title}</li>
-                                <span>Created: <b>{project.time}</b></span>
-                            </div>
+                {fetchProject.length > 0 ? (
+                    <>
+                    {fetchProject.map((project)=>(
+                        <div>
+                            {fetchProject.length > 0 ? (
+                            <ul className='dashProjectTWO'>
+                                <div>
+                                    <li>{project.title}</li>
+                                    <span>Created: <b>{project.time}</b></span>
+                                </div>
+                                
+            
+                                <div className='appBtn'>
+                                
+                                    <button className='view' onClick={() => handleMoreClick(project)}>View</button>
+                                    <button className='view1'>Completed</button>
+                                </div>
+                            </ul>
+                            ) : 
                             
+                            fetchProject.length === 0 && (<h1 className='workNoShow'>There is no Project Available</h1>)}
+                        </div>
+                    ))}
+                    </>
+                ) : (
+                <>
+
+                <Placeholder fluid>
+                    <Placeholder.Header image>
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    </Placeholder.Header>
+                    <Placeholder.Paragraph>
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    </Placeholder.Paragraph>
+                </Placeholder>
+
+                <Placeholder fluid>
+                    <Placeholder.Header image>
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    </Placeholder.Header>
+                    <Placeholder.Paragraph>
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    </Placeholder.Paragraph>
+                </Placeholder>
         
-                            <div className='appBtn'>
-                            
-                                <button className='view' onClick={() => handleMoreClick(project)}>View</button>
-                                <button className='view1'>Completed</button>
-                            </div>
-                        </ul>
-                        ) : 
-                        
-                        fetchProject.length === 0 && (<h1 className='workNoShow'>There is no Project Available</h1>)}
-                    </div>
-                ))}
+                </>
+
+                )}
+
             </div>
 
             <WorkerProjectModal isOpen={modal} onClose={hideModal} selectedData = {selectedData}/>

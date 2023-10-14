@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
+import {Placeholder, Segment } from 'semantic-ui-react'
 
 const WorkerDashApplica = () => {
 
@@ -51,23 +51,57 @@ const WorkerDashApplica = () => {
                     <li>drafts</li>
                     <li>1 - 3 of 3</li>
                 </ul>
-                {/* <hr /> */}
 
 
-                {fetchProject.map((project)=>(
-                <ul className='dashProjectTWO'>
+                {fetchProject.length > 0 ? 
+                (
                     <>
-                    <div>
-                        <li>{project.title}</li>
-                        <span>Created: <b>{project.time}</b></span>
-                    </div>
-
-                    <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>View</button></Link>
+                    {fetchProject.map((project)=>(
+                    <ul className='dashProjectTWO'>
+                        <>
+                        <div>
+                            <li>{project.title}</li>
+                            <span>Created: <b>{project.time}</b></span>
+                        </div>
+    
+                        <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>View</button></Link>
+                        </>
+    
+                    </ul>
+    
+                    ))}
                     </>
-                    {/* <hr /> */}
-                </ul>
+                ) : 
+                (
+                    <>
 
-                ))}
+                    <Placeholder fluid>
+                        <Placeholder.Header image>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        </Placeholder.Header>
+                        <Placeholder.Paragraph>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        </Placeholder.Paragraph>
+                    </Placeholder>
+    
+                    <Placeholder fluid>
+                        <Placeholder.Header image>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        </Placeholder.Header>
+                        <Placeholder.Paragraph>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        </Placeholder.Paragraph>
+                    </Placeholder>
+            
+                    </>
+                )}
+
             </div>
         </section>
     </div>
