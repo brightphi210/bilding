@@ -138,7 +138,7 @@ ul .li:hover::before {
     }
 
     .headers{
-        z-index: 0;
+        z-index: 3;
     }
 
     .open{
@@ -192,7 +192,7 @@ ul .li:hover::before {
         position: fixed;
         top: 0;
         width: 100%;
-        z-index: 3;
+        z-index: 3 !important;
         gap: 170px;
     }
 
@@ -230,7 +230,7 @@ ul .li:hover::before {
         position: fixed;
         top: 0;
         width: 100%;
-        z-index: 3;
+        z-index: 3 !important;
     }
 
     .ulDiv{
