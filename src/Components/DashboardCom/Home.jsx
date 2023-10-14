@@ -54,8 +54,8 @@ const Home = () => {
   const [recentProjects, setRecentProject] = useState([])
 
 
-  let url = 'https:bildingapi.onrender.com/api/projects'
-  let url2 = 'https:bildingapi.onrender.com/api/recentprojects'
+  let url = 'https://bildingapi.onrender.com/api/projects'
+  let url2 = 'https://bildingapi.onrender.com/api/recentprojects'
 
 
   
@@ -275,7 +275,7 @@ const Home = () => {
         </section>
         {/* ):  */}
         {/* ( */}
-          <>
+        <>
             {/* <div>
               <div className='dashEmptyDiv'>
                 <img src={emptyImg} alt='empty' />
