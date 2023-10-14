@@ -194,32 +194,20 @@ const WorkerDash = () => {
               </Placeholder.Paragraph>
             </Placeholder>
 
-          <br />
-          <br />
 
-            <Card.Group itemsPerRow={3}>
-                <Card>
-                  <Card.Content>
-                    <Placeholder>
-                      <Placeholder.Image square />
-                    </Placeholder>
-                  </Card.Content>
-                </Card>
-                <Card>
-                  <Card.Content>
-                    <Placeholder>
-                      <Placeholder.Image square />
-                    </Placeholder>
-                  </Card.Content>
-                </Card>
-                <Card>
-                  <Card.Content>
-                    <Placeholder>
-                      <Placeholder.Image square />
-                    </Placeholder>
-                  </Card.Content>
-                </Card>
-              </Card.Group>
+            <Placeholder fluid>
+              <Placeholder.Header image>
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Header>
+              <Placeholder.Paragraph>
+                <Placeholder.Line />
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Paragraph>
+            </Placeholder>
+
+
           </>
                     )}
 
