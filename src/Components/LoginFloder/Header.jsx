@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Header = () => {
   return (
     <div>
-      <section className='header'>
+      <section className='headers'>
         <Link to={'/'}><img src={logo} alt="" /></Link>
       </section>
     </div>
