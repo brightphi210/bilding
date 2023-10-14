@@ -29,6 +29,7 @@ import PrivateRoute from "./Pages/Utils/PrivateRoute";
 import WorkerDashboardHome from "./Pages/DashboardWorker/WorkerDashboardHome";
 import WorkerDashboardAppPage from "./Pages/DashboardWorker/WorkerDashboardAppPage";
 import SigninWorker from "./Pages/SigningWorker";
+import DashRequestDes from "./Pages/Dashboard/DashRequestDes";
 
 
 
@@ -77,6 +78,7 @@ function App() {
                   <Route path="/dashboard/projects" element={<DashProjectPage />} />
                   <Route path="/dashboard/requests" element={<DashRequestPage />} />
                   <Route path="/dashboard/projects/description/:id" element={<DashProjectDes />} />
+                  <Route path="/dashboard/requests/description/:id" element={<DashRequestDes />} />
 
 
                   {/* ========================= Worker Dashboard ========================= */}

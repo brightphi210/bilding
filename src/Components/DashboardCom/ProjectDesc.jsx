@@ -13,22 +13,22 @@ const ProjectDesc = () => {
 
 
 
-    const [sect, setSect] = useState(0)
+  const [sect, setSect] = useState(0)
 
 
-    const SecDisplay = () =>{
-        if(sect === 0){
-            return <ProjectDesSec1 />
-        }
+  const SecDisplay = () =>{
+      if(sect === 0){
+          return <ProjectDesSec1 />
+      }
 
-        else if(sect === 1){
-            return <ProjectDescSec2 />
-        }
+      else if(sect === 1){
+          return <ProjectDescSec2 />
+      }
 
-        else{
-            return <ProjectDescSec3 />
-        }
-    }
+      else{
+          return <ProjectDescSec3 />
+      }
+  }
 
 
     let myBorder1 = ''

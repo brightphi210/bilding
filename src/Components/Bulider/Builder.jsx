@@ -6,6 +6,8 @@ import { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Verify from '../Verify/Verify'
 import './builder.css'
+
+import myVideo from './animation_lnkaatit.mp4'
 const Builder = () => {
 
   const [isLoading, setIsLoading] = useState(false);
@@ -71,6 +73,7 @@ const Builder = () => {
     
     e.preventDefault();
 
+    setIsLoading(true);
     try {
       // Use the Fetch API to send the user data to the server
       const response = await fetch('https://bildingapi.onrender.com/auth/contractor/', {
@@ -83,7 +86,7 @@ const Builder = () => {
 
       if (response.status === 200 || response.status === 400) {
         console.log('User created successfully');
-        navigate('/builder/bvn');
+        navigate('/login');
       } else {
         console.error('There was an Error creating user:', response.statusText);
       }
@@ -199,6 +202,16 @@ const Builder = () => {
           <button className='googleBtn'>Continue with Google</button>
         </form>
       </section>
+
+      {isLoading === true && (
+        <div className='creatingLoadingDiv'>
+          <div className='creatingLoading'>
+            <video controls={false} autoPlay loop className='video'> 
+              <source src={myVideo} type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      )}
 
       <Verify isOpen={isModalOpen} onClose={closeModal}></Verify>
     </div>

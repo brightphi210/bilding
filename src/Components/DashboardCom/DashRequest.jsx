@@ -68,7 +68,8 @@ const DashRequest = () => {
                                         <p>Hired</p>
                                         <span>15</span>
                                     </div>
-                                    <Link to={`/dashboard/projects/description/`}><button className='view'>View </button></Link>
+                                    {/* /dashboard/requests/description/:id */}
+                                    <Link to={`/dashboard/requests/description/${eachRequest.id}`}><button className='view'>View </button></Link>
                                     {/* <button className='view'>View</button> */}
                                 </ul>
                                 <hr />
