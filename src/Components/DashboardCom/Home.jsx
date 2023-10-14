@@ -204,6 +204,9 @@ const Home = () => {
           <Link to={'/' + 'builder/options2'}><h2 className='createBtn'>Create New</h2></Link>
         </div>
 
+        {projects.length >  0 ? 
+        ( 
+        <>
         <div className='dashProjectNumDiv'>
           <div className='dashProjectNum'>
             {projects.length > 0 ? (
@@ -228,9 +231,8 @@ const Home = () => {
             <p>Suppliers</p>
           </div>
         </div>
+       
         
-        {projects.length >  0 ? 
-        (        
         <section className='dashShowDiv'>
           <div className='dashShowDivOne'>
             <h2>Active Projects</h2>
@@ -273,6 +275,7 @@ const Home = () => {
           </div>
           <Link to={'/' + 'dashboard/projects'}><p className='viewAll'>View All <i class="uil uil-message"></i></p></Link>
         </section>
+        </>
         ): 
         (
           <>
