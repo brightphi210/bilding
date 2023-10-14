@@ -275,26 +275,67 @@ const Home = () => {
         </section>
         ): 
         (
-        <>
-            <div>
-              <div className='dashEmptyDiv'>
-                <img src={emptyImg} alt='empty' />
-                <h2>It’s empty here.</h2>
-  
-                <p>
-                  Create your first project or request 
-                  in order to get the required help needed  <br />
-                  for your construction job.
-                </p>
-  
-                <button onClick={openModal}>Create New</button>
-              </div>
-  
-              <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
-            </div> 
+          <>
+          <Placeholder fluid>
+            <Placeholder.Header image>
+              <Placeholder.Line />
+              <Placeholder.Line />
+            </Placeholder.Header>
+            <Placeholder.Paragraph>
+              <Placeholder.Line />
+              <Placeholder.Line />
+              <Placeholder.Line />
+            </Placeholder.Paragraph>
+          </Placeholder>
+
+          <Placeholder fluid>
+            <Placeholder.Header image>
+              <Placeholder.Line />
+              <Placeholder.Line />
+            </Placeholder.Header>
+            <Placeholder.Paragraph>
+              <Placeholder.Line />
+              <Placeholder.Line />
+              <Placeholder.Line />
+            </Placeholder.Paragraph>
+          </Placeholder>
+
+
+          <Placeholder fluid>
+            <Placeholder.Header image>
+              <Placeholder.Line />
+              <Placeholder.Line />
+            </Placeholder.Header>
+            <Placeholder.Paragraph>
+              <Placeholder.Line />
+              <Placeholder.Line />
+              <Placeholder.Line />
+            </Placeholder.Paragraph>
+          </Placeholder>
+
+
         </>
         )}
 
+        {projects.length < 0 && (
+
+        <div>
+          <div className='dashEmptyDiv'>
+            <img src={emptyImg} alt='empty' />
+            <h2>It’s empty here.</h2>
+
+            <p>
+              Create your first project or request 
+              in order to get the required help needed  <br />
+              for your construction job.
+            </p>
+
+            <button onClick={openModal}>Create New</button>
+          </div>
+
+          <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
+        </div> 
+        )}
 
 
       </section>
