@@ -102,7 +102,6 @@ const Home = () => {
       const data = await response.json()
        setIsLoading(true);
       setProjects(data)
-      console.log(data)
 
     }catch(er){
       console.log("Error fetching project data !!! ")
@@ -130,7 +129,6 @@ const Home = () => {
           })
           const data = await response.json()
           setRequest(data)
-          console.log(data)
       } catch (error) {
           console.log(error)
       }
@@ -232,7 +230,8 @@ const Home = () => {
         </div>
         
         {projects.length >  0 ? 
-        (        <section className='dashShowDiv'>
+        (        
+        <section className='dashShowDiv'>
           <div className='dashShowDivOne'>
             <h2>Active Projects</h2>
 
