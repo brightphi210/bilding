@@ -13,6 +13,10 @@ import myVideo from './animation_lnkaatit.mp4'
 
 import { Link } from 'react-router-dom';
 
+
+import {Placeholder} from 'semantic-ui-react'
+
+
 const Home = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -286,7 +290,8 @@ const Home = () => {
         </div>
 
         <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
-      </div>)}
+          </div> 
+      )}
       </section>
     </div>
   )

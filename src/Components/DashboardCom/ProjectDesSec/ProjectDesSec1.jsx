@@ -15,7 +15,7 @@ const ProjectDesSec1 = () => {
   let url = `https://bildingapi.onrender.com/api/projects/${id}`
 
   const token = localStorage.getItem('authToken');
-  
+  console.log(project)
   const fetccData = async () => {
 
     try{

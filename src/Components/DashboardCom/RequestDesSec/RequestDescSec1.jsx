@@ -9,6 +9,8 @@ const RequestDescSec1 = () => {
     const [request, setRequest] = useState([])
     const [projectTitle, setProjectTitle] = useState([])
   
+
+    console.log(request)
     const [myImage, setMyImage] = useState([])
     let url = `https://bildingapi.onrender.com/api/requests/${id}`
     

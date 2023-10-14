@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import jwt_decode from "jwt-decode"
 import { Link } from 'react-router-dom'
+
+import {Placeholder, Segment } from 'semantic-ui-react'
 const DashRequest = () => {
 
     const [request, setRequest] = useState([])
@@ -68,9 +70,7 @@ const DashRequest = () => {
                                         <p>Hired</p>
                                         <span>15</span>
                                     </div>
-                                    {/* /dashboard/requests/description/:id */}
                                     <Link to={`/dashboard/requests/description/${eachRequest.id}`}><button className='view'>View </button></Link>
-                                    {/* <button className='view'>View</button> */}
                                 </ul>
                                 <hr />
                             </>
@@ -78,7 +78,29 @@ const DashRequest = () => {
                     </>
                 ) : (
                     <>
-                        <p>No Request Yet !!!!</p>
+                    <Placeholder fluid>
+                        <Placeholder.Header image>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        </Placeholder.Header>
+                        <Placeholder.Paragraph>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        </Placeholder.Paragraph>
+                    </Placeholder>
+
+                    <Placeholder fluid>
+                        <Placeholder.Header image>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        </Placeholder.Header>
+                        <Placeholder.Paragraph>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        </Placeholder.Paragraph>
+                    </Placeholder>
                     </>
                 )}
 

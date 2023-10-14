@@ -133,7 +133,12 @@ ul .li:hover::before {
         bottom: 0;
         padding-left: 40px;
         padding-top: 60px;
+        z-index: 100;
 
+    }
+
+    .header{
+        z-index: 0;
     }
 
     .open{

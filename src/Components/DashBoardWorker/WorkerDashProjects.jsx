@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import WorkerProjectModal from './WorkerProjectDes/WorkerProjectModal'
 
 const WorkerDashProjects = () => {
 
@@ -35,6 +36,25 @@ const WorkerDashProjects = () => {
         fetchData()
     }, [])
 
+    const [modal, setModal] = useState(false)
+    const [modal2, setModal2] = useState(false)
+    const [selectedData, setSelectedData] = useState([])
+  
+    const showModal = ()=>{
+        setModal(true)
+    }
+  
+    const hideModal = ()=>{
+        setModal(false)
+    }
+
+
+    const handleMoreClick = (project) => {
+        setSelectedData(project);
+        showModal(true);
+    };
+
+
 
   return (
     <div>
@@ -62,8 +82,9 @@ const WorkerDashProjects = () => {
                             
         
                             <div className='appBtn'>
-                                <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>View</button></Link>
-                                <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>Completed</button></Link>
+                            
+                                <button className='view' onClick={() => handleMoreClick(project)}>View</button>
+                                <button className='view1'>Completed</button>
                             </div>
                         </ul>
                         ) : 
@@ -72,6 +93,8 @@ const WorkerDashProjects = () => {
                     </div>
                 ))}
             </div>
+
+            <WorkerProjectModal isOpen={modal} onClose={hideModal} selectedData = {selectedData}/>
         </section>
     </div>
   )
