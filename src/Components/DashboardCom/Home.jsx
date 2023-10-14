@@ -320,7 +320,7 @@ const Home = () => {
           </>
       )}
 
-        {fetccData.length < 0 && (
+        {/* {fetccData.length < 0 && (
                 <div>
                 <div className='dashEmptyDiv'>
                   <img src={emptyImg} alt='empty' />
@@ -337,7 +337,7 @@ const Home = () => {
     
                 <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
             </div> 
-        )}
+        )} */}
       </section>
     </div>
   )
