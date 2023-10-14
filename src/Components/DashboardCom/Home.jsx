@@ -208,7 +208,7 @@ const Home = () => {
 
 
 
-        {projects.length > 0 ? (
+        
           <>
           <div className='dashProjectNumDiv'>
             <div className='dashProjectNum'>
@@ -235,8 +235,9 @@ const Home = () => {
             </div>
           </div>
 
-
+          {projects.length > 0 ? (
           <section className='dashShowDiv'>
+            <>
             <div className='dashShowDivOne'>
               <h2>Active Projects</h2>
 
@@ -265,60 +266,70 @@ const Home = () => {
               <div className='dashShowDivTwoBack'>
                 
                 {recentProjects.slice(0, 3).map((recentproject) =>(
+                  <>
                   <div className='dashShowTwoFlex'>
                     <h3>{recentproject.project.title}</h3>
                     <p>{recentproject.project.time}</p>
                   </div>
+                  {/* <hr /> */}
+                  </>
                 ))}
 
               </div>
             </div>
+            
+
+
+            
             <Link to={'/' + 'dashboard/projects'}><p className='viewAll'>View All <i class="uil uil-message"></i></p></Link>
+          </>
           </section>
+          ) :
+
+          (
+
+            <>
+              <Placeholder fluid>
+                <Placeholder.Header image>
+                  <Placeholder.Line />
+                  <Placeholder.Line />
+                </Placeholder.Header>
+                <Placeholder.Paragraph>
+                  <Placeholder.Line />
+                  <Placeholder.Line />
+                  <Placeholder.Line />
+                </Placeholder.Paragraph>
+              </Placeholder>
+
+              <Placeholder fluid>
+                <Placeholder.Header image>
+                  <Placeholder.Line />
+                  <Placeholder.Line />
+                </Placeholder.Header>
+                <Placeholder.Paragraph>
+                  <Placeholder.Line />
+                  <Placeholder.Line />
+                  <Placeholder.Line />
+                </Placeholder.Paragraph>
+              </Placeholder>
+
+              <Placeholder fluid>
+                <Placeholder.Header image>
+                  <Placeholder.Line />
+                  <Placeholder.Line />
+                </Placeholder.Header>
+                <Placeholder.Paragraph>
+                  <Placeholder.Line />
+                  <Placeholder.Line />
+                  <Placeholder.Line />
+                </Placeholder.Paragraph>
+              </Placeholder>
+
+            </>
+            
+          )}
           </>
-        ) :
 
-        (
-
-          <>
-            <Placeholder fluid>
-              <Placeholder.Header image>
-                <Placeholder.Line />
-                <Placeholder.Line />
-              </Placeholder.Header>
-              <Placeholder.Paragraph>
-                <Placeholder.Line />
-                <Placeholder.Line />
-                <Placeholder.Line />
-              </Placeholder.Paragraph>
-            </Placeholder>
-
-            <Placeholder fluid>
-              <Placeholder.Header image>
-                <Placeholder.Line />
-                <Placeholder.Line />
-              </Placeholder.Header>
-              <Placeholder.Paragraph>
-                <Placeholder.Line />
-                <Placeholder.Line />
-                <Placeholder.Line />
-              </Placeholder.Paragraph>
-            </Placeholder>
-
-            <Placeholder fluid>
-              <Placeholder.Header image>
-                <Placeholder.Line />
-                <Placeholder.Line />
-              </Placeholder.Header>
-              <Placeholder.Paragraph>
-                <Placeholder.Line />
-                <Placeholder.Line />
-                <Placeholder.Line />
-              </Placeholder.Paragraph>
-            </Placeholder>
-
-          </>
-      )}
 
         {/* {fetccData.length < 0 && (
                 <div>
