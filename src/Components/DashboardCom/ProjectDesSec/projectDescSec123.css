@@ -137,6 +137,15 @@
 }
 
 
+.proDevImage{
+    display: block;
+}
+
+.proDevImage a{
+    display: block;
+}
+
+
 
 @media only screen and (min-width:321px) and (max-width:768px){
     
@@ -433,4 +442,14 @@
         padding-top: 20px;
         width: 60%;
     } 
+
+
+    .proDevImage{
+        display: block;
+    }
+    
+    .proDevImage a{
+        display: block;
+        font-size: 13px;
+    }
 }

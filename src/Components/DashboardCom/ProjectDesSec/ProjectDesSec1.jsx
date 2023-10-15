@@ -83,9 +83,14 @@ const ProjectDesSec1 = () => {
 
           <div className='proDescFive'>
           <h3>Project images:</h3>
-            <div className='proDevImage'>
+            {/* <div className='proDevImage'>
               <img src={project.image1} alt="" />
               <img src={project.image2} alt="" />
+            </div> */}
+
+            <div className='proDevImage'>
+              <a href={project.image1}>Click to preview project Image 1 <i class="uil uil-arrow-up-right"></i></a>
+              <a href={project.image2}>Click to preview project Image 2 <i class="uil uil-arrow-up-right"></i></a>
             </div>
           </div>
 

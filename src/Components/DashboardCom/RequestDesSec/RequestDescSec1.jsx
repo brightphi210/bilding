@@ -51,7 +51,9 @@ const RequestDescSec1 = () => {
               <div className='proDesOneFlexOne'>
                 <div className='proDesOneFlexTwo'>
                   <h4>{request.title}</h4>
-                  <h4>₦{request.budget}</h4>
+                  {/* {request.items.map((item) =>( */}
+                    <h4>₦{request.items[0].amount}</h4>
+                  {/* ))} */}
                 </div>
 
                 <div className='proSubGrid'>
@@ -84,8 +86,8 @@ const RequestDescSec1 = () => {
           <div className='proDescFive'>
           <h3>Request images:</h3>
             <div className='proDevImage'>
-              <img src={request.image1} alt="" />
-              <img src={request.image2} alt="" />
+              <a href={request.image1}>Click to preview request Image 1 <i class="uil uil-arrow-up-right"></i></a>
+              <a href={request.image2}>Click to preview request Image 2 <i class="uil uil-arrow-up-right"></i></a>
             </div>
           </div>
 
