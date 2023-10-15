@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom'
 const DashProject = () => {
 
     const [fetchProject, setFetchProject] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
-    let url = 'https://bildingapi.onrender.com/api/projects'
+    let url = 'https://bildingapi.onrender.com/api/projects/user'
     const token = localStorage.getItem('authToken');
 
 
@@ -23,10 +24,12 @@ const DashProject = () => {
 
             const data = await response.json()
             setFetchProject(data)
+            setIsLoading(false)
 
             console.log(data)
         }catch(e){
             console.log("There is an error fetching project Data")
+            setIsLoading(false)
         }
     }
 
@@ -76,35 +79,43 @@ const DashProject = () => {
                 ))}
                 </>) 
                 : (
-                <>
-                <Placeholder fluid>
-                    <Placeholder.Header image>
-                    <Placeholder.Line />
-                    <Placeholder.Line />
-                    </Placeholder.Header>
-                    <Placeholder.Paragraph>
-                    <Placeholder.Line />
-                    <Placeholder.Line />
-                    <Placeholder.Line />
-                    </Placeholder.Paragraph>
-                </Placeholder>
 
-                <Placeholder fluid>
-                    <Placeholder.Header image>
-                    <Placeholder.Line />
-                    <Placeholder.Line />
-                    </Placeholder.Header>
-                    <Placeholder.Paragraph>
-                    <Placeholder.Line />
-                    <Placeholder.Line />
-                    <Placeholder.Line />
-                    </Placeholder.Paragraph>
-                </Placeholder>
-        
-                </>
+                    <h4>No Project available !!!</h4>
                 )}
 
+
+                {isLoading === true && 
+                    <>
+                    <Placeholder fluid>
+                        <Placeholder.Header image>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        </Placeholder.Header>
+                        <Placeholder.Paragraph>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        </Placeholder.Paragraph>
+                    </Placeholder>
+
+                    <Placeholder fluid>
+                        <Placeholder.Header image>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        </Placeholder.Header>
+                        <Placeholder.Paragraph>
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        <Placeholder.Line />
+                        </Placeholder.Paragraph>
+                    </Placeholder>
+            
+                    </>
+                }
             </div>
+
+
+
         </section>
     </div>
   )

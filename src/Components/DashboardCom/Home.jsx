@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -54,7 +54,7 @@ const Home = () => {
   const [recentProjects, setRecentProject] = useState([])
 
 
-  let url = 'https://bildingapi.onrender.com/api/projects'
+  let url = 'https://bildingapi.onrender.com/api/projects/user'
   let url2 = 'https://bildingapi.onrender.com/api/recentprojects'
 
 
@@ -100,10 +100,11 @@ const Home = () => {
 
       })
       const data = await response.json()
-       setIsLoading(true);
+      setIsLoading(false); 
       setProjects(data)
 
     }catch(er){
+      setIsLoading(false)
       console.log("Error fetching project data !!! ")
     }
   }
@@ -117,7 +118,7 @@ const Home = () => {
 
     const [request, setRequest] = useState([])
     
-    const url3 = 'https:bildingapi.onrender.com/api/requests'
+    const url3 = 'https:bildingapi.onrender.com/api/requests/user'
     const fetchData2 = async () =>{
       try {
           const response = await fetch(url3, {
@@ -277,68 +278,71 @@ const Home = () => {
         </section>
         </>
         ): 
-        (
-          <>
-          <Placeholder fluid>
-            <Placeholder.Header image>
-              <Placeholder.Line />
-              <Placeholder.Line />
-            </Placeholder.Header>
-            <Placeholder.Paragraph>
-              <Placeholder.Line />
-              <Placeholder.Line />
-              <Placeholder.Line />
-            </Placeholder.Paragraph>
-          </Placeholder>
-
-          <Placeholder fluid>
-            <Placeholder.Header image>
-              <Placeholder.Line />
-              <Placeholder.Line />
-            </Placeholder.Header>
-            <Placeholder.Paragraph>
-              <Placeholder.Line />
-              <Placeholder.Line />
-              <Placeholder.Line />
-            </Placeholder.Paragraph>
-          </Placeholder>
-
-
-          <Placeholder fluid>
-            <Placeholder.Header image>
-              <Placeholder.Line />
-              <Placeholder.Line />
-            </Placeholder.Header>
-            <Placeholder.Paragraph>
-              <Placeholder.Line />
-              <Placeholder.Line />
-              <Placeholder.Line />
-            </Placeholder.Paragraph>
-          </Placeholder>
-
-
-        </>
-        )}
-
-        {projects.length < 0 && (
 
         <div>
-          <div className='dashEmptyDiv'>
-            <img src={emptyImg} alt='empty' />
-            <h2>It’s empty here.</h2>
+        <div className='dashEmptyDiv'>
+          <img src={emptyImg} alt='empty' />
+          <h2>It’s empty here.</h2>
 
-            <p>
-              Create your first project or request 
-              in order to get the required help needed  <br />
-              for your construction job.
-            </p>
+          <p>
+            Create your first project or request 
+            in order to get the required help needed  <br />
+            for your construction job.
+          </p>
 
-            <button onClick={openModal}>Create New</button>
-          </div>
+          <button onClick={openModal}>Create New</button>
+        </div>
 
-          <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
+        <BuilerModal isOpen={isModalOpen} onClose={closeModal}></BuilerModal>
         </div> 
-        )}
+        
+        }
+
+        {/* {isLoading === true &&  (
+
+          (
+            <>
+            <Placeholder fluid>
+              <Placeholder.Header image>
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Header>
+              <Placeholder.Paragraph>
+                <Placeholder.Line />
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Paragraph>
+            </Placeholder>
+
+            <Placeholder fluid>
+              <Placeholder.Header image>
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Header>
+              <Placeholder.Paragraph>
+                <Placeholder.Line />
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Paragraph>
+            </Placeholder>
+
+
+            <Placeholder fluid>
+              <Placeholder.Header image>
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Header>
+              <Placeholder.Paragraph>
+                <Placeholder.Line />
+                <Placeholder.Line />
+                <Placeholder.Line />
+              </Placeholder.Paragraph>
+            </Placeholder>
+
+
+          </>
+          )
+        )} */}
 
 
       </section>

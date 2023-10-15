@@ -7,9 +7,12 @@ import {Placeholder, Segment } from 'semantic-ui-react'
 const DashRequest = () => {
 
     const [request, setRequest] = useState([])
-    const url = 'https://bildingapi.onrender.com/api/requests'
+    const [isLoading, setIsLoading] = useState(true)
+    const url = 'https://bildingapi.onrender.com/api/requests/user'
+    
 
     const token = localStorage.getItem('authToken');
+
 
     let newToken = jwt_decode(token)
 
@@ -23,10 +26,12 @@ const DashRequest = () => {
 
             })
             const data = await response.json()
+            setIsLoading(false)
             setRequest(data)
             console.log(data)
         } catch (error) {
             console.log(error)
+            setIsLoading(false)
         }
     }
 
@@ -76,7 +81,14 @@ const DashRequest = () => {
                             </>
                         ))}
                     </>
-                ) : (
+                ) : 
+                (
+                    <h4>No Request available yet !!!</h4>
+
+                )}
+
+
+                {isLoading === true && (
                     <>
                     <Placeholder fluid>
                         <Placeholder.Header image>
@@ -103,7 +115,6 @@ const DashRequest = () => {
                     </Placeholder>
                     </>
                 )}
-
                 
 
             </div>
