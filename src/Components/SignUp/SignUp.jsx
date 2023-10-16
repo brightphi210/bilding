@@ -135,7 +135,7 @@ const SignUp = () => {
                 style={{backgroundColor : btnColor, cursor: cusorPointer}} 
                 disabled ={false}
                 onClick={submit}
-            >Get Started
+                >Get Started
             </button>
             <span>Already have an account ? <Link to={'/login'}>Log in</Link></span>
         </section>
