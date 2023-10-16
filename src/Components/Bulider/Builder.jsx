@@ -100,6 +100,14 @@ const Builder = () => {
 
   };
 
+
+  const [myPassword, setMyPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div>
       
@@ -149,14 +157,24 @@ const Builder = () => {
           />
           </div>
 
+
+          <div className='eyeDiv'>
           <input 
-            type="password"  
+            type={showPassword ? 'text' : 'password'} 
             name="password"
             placeholder='Password e.g (Johndoe6421@)' 
             value={formData.password}
             onChange={handleChange}
             required
           />
+
+
+
+          <i
+            className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icon`}
+            onClick={togglePasswordVisibility}
+          ></i>
+          </div>
 
 
           <input 
@@ -177,7 +195,7 @@ const Builder = () => {
                 onClick={handleColor}
                 required
             />
-            <span className='span1'>Send me the latest insights and updates from Bilding.</span>
+            <span className='span1'>Latest insights and updates from Bilding.</span>
           </div>
 
           <div className='checkDiv1'>
@@ -185,7 +203,7 @@ const Builder = () => {
               // checked={isChecke} 
               // onChange={handleRadioChange} 
             />
-            <span className='span2'>I accept  Bilding’s <span className='terms'>terms of use, privacy policy</span> and <span className='terms'>user agreement.</span></span>
+            <span className='span2'>I accept  Bilding’s <span className='terms'>terms, privacy policy</span></span>
           </div>
 
 

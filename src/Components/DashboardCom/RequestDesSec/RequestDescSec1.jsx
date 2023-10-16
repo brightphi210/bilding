@@ -52,7 +52,7 @@ const RequestDescSec1 = () => {
                 <div className='proDesOneFlexTwo'>
                   <h4>{request.title}</h4>
                   {/* {request.items.map((item) =>( */}
-                    <h4>₦{request.items[0].amount}</h4>
+                    {/* <h4>₦{request.items[0].amount}</h4> */}
                   {/* ))} */}
                 </div>
 
