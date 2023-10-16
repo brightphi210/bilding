@@ -425,6 +425,17 @@
 
 
 @media only screen and (min-width:321px) and (max-width:768px){
+
+    .projectLetter{
+        padding-top: 20px;
+    }
+
+
+    .projectLetter h1{
+        padding-top: 10px !important;
+    }
+
+
     .projectSecThree{
         padding-top: 50px;
         margin: auto;
@@ -451,5 +462,6 @@
     .proDevImage a{
         display: block;
         font-size: 13px;
+        padding-top: 10px;
     }
 }

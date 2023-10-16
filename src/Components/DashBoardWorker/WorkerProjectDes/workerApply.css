@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --white-color:white;
+
+    --black-color:#000000;
+
+    --red-color:#C32F07;
+
+    --grey-color: #808080;
+}
+
+
+/* ===================== apply section ======================== */
+
+.applySection{
+    padding: 50px 15%;
+    padding-top: 100px;
+}
+
+
+.applyTech{
+    padding-top: 50px;
+}
+
+.copyDiv{
+    display: flex;
+    gap: 650px;
+}
+
+
+.productDetails{
+    padding-top: 20px;
+}
+
+.productDetails h3{
+    padding-top: 10px;
+    padding: 0;
+    font-size: 17px;
+}
+
+
+.productDetails h2{
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+
+.bidDiv h2{
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    .applySection{
+        padding: 50px 5%;
+        padding-top: 80px;
+    }
+
+
+    .copyDiv{
+        display: block;
+        gap: 50px;
+    }
+
+    .copyDiv span{
+        display: block;
+        font-size: 12px;
+    }
+
+
+    .linkBtn{
+        background-color: antiquewhite;
+        color: #000000;
+        width: 40%;
+        padding: 5px 10px;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    .copyDiv p{
+        font-size: 12px;
+        color: gray;
+        padding-top: 10px;
+    }
+
+    .applyTech{
+        padding-top: 50px;
+        font-size: 20px;
+    }
+
+
+    .productDetails{
+        padding-top: 10px;
+    }
+
+    .productDetails p{
+        font-size: 12px;
+    }
+}
