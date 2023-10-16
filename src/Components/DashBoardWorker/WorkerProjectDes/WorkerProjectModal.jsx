@@ -53,8 +53,10 @@ const WorkerProjectModal = ({isOpen, onClose, selectedData}) => {
 
             <div className='projectLetter'>
                 <b>Project Images: </b>
-                <img src={selectedData.image1} alt="" />
-                <img src={selectedData.image2} alt="" />
+                <div className='proDevImage'>
+              <a href={selectedData.image1} download={selectedData.image1}>Click to preview project Image 1 <i class="uil uil-arrow-up-right"></i></a>
+              <a href={selectedData.image2} download={selectedData.image2}>Click to preview project Image 2 <i class="uil uil-arrow-up-right"></i></a>
+            </div>
             </div>
 
             <div className='projectLetter'>

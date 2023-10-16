@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom'
 import Verify from '../Verify/Verify'
 import './builder.css'
 
+import { Link } from 'react-router-dom'
+
 import myVideo from './animation_lnkaatit.mp4'
 const Builder = () => {
 
@@ -213,7 +215,7 @@ const Builder = () => {
 
 
           
-          <span className='span3'>Already have an account ? Log in</span>
+          <span className='span3'>Already have an account ? <Link to={'/login'}>Log in</Link></span>
           <div className='hrDiv'>
             <hr /> or <hr />
           </div>

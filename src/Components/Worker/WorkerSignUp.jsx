@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import { Link } from 'react-router-dom'
+
 const WorkerSignUp = () => {
 
   const [isLoading, setIsLoading] = useState(false);
@@ -228,7 +230,7 @@ const WorkerSignUp = () => {
 
 
           
-          <span className='span3'>Already have an account ? Log in</span>
+          <span className='span3'>Already have an account ? <Link to={'/login'}> Log in</Link></span>
           <div className='hrDiv'>
             <hr /> or <hr />
           </div>
