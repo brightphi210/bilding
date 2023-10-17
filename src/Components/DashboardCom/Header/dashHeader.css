@@ -36,6 +36,19 @@
     z-index: 3;
 }
 
+.dashHeaderSectionTwo{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: 20px 5%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    gap: 50px;
+    position: fixed;
+    width: 100%;
+    background-color: var(--white-color);
+    align-items: center;
+    z-index: 3;
+}
+
 .dashHeaderOne{
 
 }
@@ -43,6 +56,13 @@
 .nav-ul{
     display: grid;
     grid-template-columns: 3fr 650px 1fr;
+}
+
+
+.nav-ul2{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 50px;
 }
 
 .dashHeaderOne img{
@@ -70,8 +90,8 @@
 }
 
 .notifyImageDiv img{
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
 }
 

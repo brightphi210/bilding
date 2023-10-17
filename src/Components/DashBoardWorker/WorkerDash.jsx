@@ -15,6 +15,8 @@ import { FormattedNumber } from 'react-intl';
 
 import WorkerProjectApply from './WorkerProjectDes/WorkerProjectApply';
 
+import { AiOutlineArrowRight } from "react-icons/ai"
+
 const WorkerDash = () => {
 
     const [modal, setModal] = useState(false)
@@ -125,7 +127,7 @@ const WorkerDash = () => {
 
             <form action="" className='workerDashForm'>
                 <input type="text" placeholder='Search for projects . . .' />
-                <button>Search <i class="fa-solid fa-arrow-right"></i></button>
+                <button>Search <AiOutlineArrowRight /></button>
             </form>
 
 
@@ -146,7 +148,7 @@ const WorkerDash = () => {
                                 </div>
                                 <div className=''>
                                     <div>
-                                        <span><b>{data.owner.firstname} {data.owner.lastname}</b></span>
+                                        <span className='myName'><b>{data.owner.firstname} {data.owner.lastname}</b></span>
                                         <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
                                     </div>
                                     <div className='proSenior'>
@@ -158,14 +160,17 @@ const WorkerDash = () => {
                                         {data.description}
                                     </p>
 
-                                    <span className='proSeniorDivCategory'>Electrical Engineering</span>
+                                    
+                                    <div className='applyBtn'>
+                                      <button className=''>{data.owner.profession}</button>
+                                      <Link to={`/dashboard/apply/${data.id}`}><button >Apply For Project</button></Link>
+                                    </div>
                                 </div>
 
                                 <div className='proSectHire'>
                                     <h2>{formatAmount(data.budget)}</h2>
                                 </div>
                             </div>
-                            <Link to={`/dashboard/apply/${data.id}`}><button>See More</button></Link>
                             <hr className='hrt'/>
                             </>
                         ))}

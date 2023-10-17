@@ -113,8 +113,8 @@ const WorkerProjectApply = ({ selectedData }) => {
                 {console.log(project)}
                 <div className='copyDiv'>
                     <div className=''>
-                        <span>https://bilding.contruction/project....</span>
-                        <span className='linkBtn'>Copy project link</span>
+                        {/* <span>https://bilding.contruction/project....</span> */}
+                        {/* <span className='linkBtn'>Copy project link</span> */}
                     </div>
 
                     <p>Created {project.time}</p>
@@ -151,6 +151,7 @@ const WorkerProjectApply = ({ selectedData }) => {
                                 name='amount'
                                 onChange={handleChange}
                                 value={formData.amount}
+                                required
                             />
                         </div>
 
@@ -162,6 +163,7 @@ const WorkerProjectApply = ({ selectedData }) => {
                                 name='duration'
                                 value={formData.duration}
                                 onChange={handleChange}
+                                required
                                 >
                                 <option value="">Durations</option>
                                 <option value="1-6months">1-6months</option>
@@ -174,13 +176,15 @@ const WorkerProjectApply = ({ selectedData }) => {
                             <label htmlFor="">Application letter</label>
                             <textarea 
                                 name="applicationletter" 
-                                placeholder='applicationletter'
+                                // placeholder='applicationletter'
                                 value={formData.applicationletter}
                                 onChange={handleChange}
+                                required
                         />
                         </div>
 
                         <div className='createOneDiv'>
+                        <label htmlFor="">Upload CV</label>
                         <input 
                             type="file" 
                             id='images' 

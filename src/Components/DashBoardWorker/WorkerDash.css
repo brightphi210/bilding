@@ -104,6 +104,30 @@
 }
 
 
+.applyBtn{
+    display: flex;
+    gap: 20px;
+}
+
+.applyBtn a button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color:#C32F07 !important;
+    /* border:none; */
+    color: white;
+}
+
+
+.applyBtn button{
+    padding: 10px;
+    background-color: white;
+    border: #ed896e solid 1px;
+    border-radius: 10px;
+    color:#C32F07;
+    font-size: 12px;
+
+}
+
 @media only screen and (min-width:321px) and (max-width:768px){
     
     .workerDashDiv{
@@ -123,5 +147,29 @@
         padding: 10px;
         font-size: 12px;
         margin-top: 10px;
+    }
+
+
+    .applyBtn{
+        display: block;
+        gap: 20px;
+    }
+
+
+    .applyBtn button{
+        display: block;
+        margin-bottom: 20px;
+    }
+
+
+    .proSenior h2{
+        padding-bottom: 0 !important;
+        padding-top: 10px;
+    }
+
+
+    .myName{
+        font-weight: 300;
+        text-transform: capitalize;
     }
 }

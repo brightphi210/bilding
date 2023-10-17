@@ -38,23 +38,23 @@ const DashHeader2 = () => {
     }
   return (
     <div>
-        <section className='dashHeaderSection'>
+        <section className='dashHeaderSection dashHeaderSectionTwo'>
             <div className='dashHeaderOne'>
                 <Link to={'/'}><img src={dashLogo} alt="" /></Link>
             </div>
 
-            <div className={`nav-ul ${isNavOpen ? "open" :"close"} `}>
+            <div className={`nav-ul nav-ul2 ${isNavOpen ? "open" :"close"} `}>
                 <ul className='dashHeaderTow'>
                     <Link to={'/dashboard'}><li>Dashboard</li></Link>
                     <Link to={'/dashboard/projects'}><li>Projects</li></Link>
                    <Link to={'/dashboard/applications'}><li>Applications</li></Link>
                 </ul>
 
-                <form action="" className='dashBoardForm'>
+                {/* <form action="" className='dashBoardForm'>
                     <input type="text" placeholder='Looking for' />
                     <div>Suppliers <i class="uil uil-angle-down"></i></div>
                     <button>Search</button>
-                </form>
+                </form> */}
 
                 <div className='notifyImageDiv'>
                     <div className='profile'>
