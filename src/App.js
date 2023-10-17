@@ -31,6 +31,7 @@ import WorkerDashboardAppPage from "./Pages/DashboardWorker/WorkerDashboardAppPa
 import SigninWorker from "./Pages/SigningWorker";
 import DashRequestDes from "./Pages/Dashboard/DashRequestDes";
 import WorkerApplyPage from "./Pages/DashboardWorker/WorkerApplyPage";
+import ApplicationSent from "./Components/DashBoardWorker/WorkerProjectDes/ApplicationSent";
 
 
 function App() {
@@ -83,6 +84,9 @@ function App() {
                   {/* ========================= Worker Dashboard ========================= */}
                   <Route path="/dashboard/applications" element={<WorkerDashboardAppPage />} />
                   <Route path="/dashboard/apply/:id" element={<WorkerApplyPage />} />
+                  <Route path="/dashboard/apply/sent" element={<ApplicationSent />} />
+
+                  
               </Route>
 
 

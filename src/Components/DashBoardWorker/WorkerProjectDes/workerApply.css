@@ -101,6 +101,8 @@
     max-width: 600px;
     text-align: left;
     border-radius: 30px;
+    overflow-y: scroll;
+    height: 70%;
   }
 
 
@@ -125,19 +127,70 @@
 
 
 .modal-view-Two h2{
-    font-size: 20px;
+    font-size: 15px;
+    padding-top: 10px;
 }
 
 .modal-view-Two h4{
-    padding-top: 20px;
-    font-size: 14px;
-    font-weight: ;
+    padding-top: 10px;
+    font-size: 13px;
+    font-weight: 400;
 }
 
 .modal-view-Three{
     padding-top: 50px;
 }
 
+
+.modal-view button{
+    padding: 10px 40px;
+    margin-top: 20px;
+    background-color: #C32F07;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+
+
+.modal-view-sent {
+    background: #fff;
+    padding: 50px 70px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+
+.modal-view-sent img {
+    width: 50%;
+}
+
+
+.modal-view-sent h2 {
+   padding-top: 20px;
+   font-size: 18px;
+}
+
+
+.modal-view-sent p {
+    padding-top: 10px;
+    font-size: 13px;
+ }
+
+
+ .modal-view-sent button{
+    padding: 10px 30px;
+    background-color: #C32F07;
+    color: white;
+    border: none;
+
+    border-radius: 10px;
+ }
 @media only screen and (min-width:321px) and (max-width:768px){
     .applySection{
         padding: 50px 9%;
@@ -220,11 +273,46 @@
         margin-top: 10px;
     }
 
+
+    .modal-view {
+        width: 90%;
+        padding: 40px;
+        border-radius: 10px;
+        overflow-y: scroll;
+    }
+
     
     .modal-view p,h2,h3,h4{
         padding: 0;
         margin: 0;
     }
+
+    .modal-view-One{
+        padding-bottom: 30px;
+    }
+
+
+    .modal-view-Three h4{
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 20px;
+        text-align: justify;
+    }
+
+    .modal-view-Three{
+        padding-top: 30px;
+    }
+
+
+    .modal-view-sent {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .modal-view-sent p{
+        font-size: 13px;
+    }
+
 
 
 }

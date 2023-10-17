@@ -92,7 +92,7 @@ const WorkerProjectApply = ({ selectedData }) => {
             if (response.ok) {
                 const data = await response.json()
                 console.log('Product Successfully Created!', data);
-                navigate('/dashboard')
+                navigate('/dashboard/apply/sent')
               } else {
                 console.error( response.statusText, 'Product Failed to Create');
                 

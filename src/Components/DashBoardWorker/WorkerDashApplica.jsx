@@ -55,7 +55,7 @@ const WorkerDashApplica = () => {
   return (
     <div>
         <section className='dashProjectSectionGen'>
-            <h2>Projects</h2>
+            <h2>My Applications</h2>
 
             <div className='dashProjectSectionDiv'>
                 <ul className='dashProjectONE'>
@@ -78,7 +78,7 @@ const WorkerDashApplica = () => {
                             {console.log(project)}
                             <span>Created: <b>{project.time}</b></span>
                         </div>
-                        <button onClick={() => handleMoreClick(project)}>view</button>
+                        <button onClick={() => handleMoreClick(project)} className='view'>view</button>
                         {/* <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>View</button></Link> */}
                         </>
     
