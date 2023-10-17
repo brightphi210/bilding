@@ -48,59 +48,59 @@ const WorkerProjectApply = ({ selectedData }) => {
         fetccData()
       }, [])
 
-    // const [formData, setFormData] = useState({
-    //     amount: "",
-    //     duration : "",
-    //     applicationletter : "",
-    //     images: null,
-    // })
+    const [formData, setFormData] = useState({
+        amount: "",
+        duration : "",
+        applicationletter : "",
+        images: null,
+    })
 
 
-    // const handleChange = (e) => {
-    //     const { name, value, type } = e.target;
-    //     const newValue = type === "file" ? e.target.files[0] : value;
-    //     setFormData({ ...formData, [name]: newValue });
-    // }
+    const handleChange = (e) => {
+        const { name, value, type } = e.target;
+        const newValue = type === "file" ? e.target.files[0] : value;
+        setFormData({ ...formData, [name]: newValue });
+    }
     
     
     
     
-    // const postData = async (e) =>{
-    //     e.preventDefault();
-    //     setIsLoading(true);
-    //     let url = `https://bildingapi.onrender.com/api/bids`
-    //     try {
+    const postData = async (e) =>{
+        e.preventDefault();
+        setIsLoading(true);
+        let url = `https://bildingapi.onrender.com/api/bids/${project.id}`
+        try {
 
-    //         const formDataNew = new FormData();
+            const formDataNew = new FormData();
  
-    //         formDataNew.append('amount', formData.amount);
-    //         formDataNew.append('duration', formData.duration);
-    //         formDataNew.append('applicationletter', formData.applicationletter);
-    //         formDataNew.append('images', formData.images);
+            formDataNew.append('amount', formData.amount);
+            formDataNew.append('duration', formData.duration);
+            formDataNew.append('applicationletter', formData.applicationletter);
+            formDataNew.append('images', formData.images);
 
 
-    //         const response = await fetch (url, {
-    //             method: 'POST',
-    //             headers : {
-    //                 "Authorization": `Bearer ${token}`,
-    //             },
-    //             body: formDataNew,
+            const response = await fetch (url, {
+                method: 'POST',
+                headers : {
+                    "Authorization": `Bearer ${token}`,
+                },
+                body: formDataNew,
                 
-    //         }) 
+            }) 
 
 
-    //         if (response.ok) {
-    //             const data = await response.json()
-    //             console.log('Product Successfully Created!', data);
-    //             navigate('/dashboard')
-    //           } else {
-    //             console.error( response.statusText, 'Product Failed to Create');
+            if (response.ok) {
+                const data = await response.json()
+                console.log('Product Successfully Created!', data);
+                navigate('/dashboard')
+              } else {
+                console.error( response.statusText, 'Product Failed to Create');
                 
-    //           }
-    //     } catch (error) {
+              }
+        } catch (error) {
             
-    //     }
-    // }
+        }
+    }
 
 
 
@@ -117,33 +117,30 @@ const WorkerProjectApply = ({ selectedData }) => {
                         <span className='linkBtn'>Copy project link</span>
                     </div>
 
-                    <p>Created Jul 4, 2023</p>
+                    <p>Created {project.time}</p>
                 </div>
 
                 <div className='productDetails'>
                     <h2>Project details</h2>
-                    <h3>Electrician to wire a two bedroom apartment complex</h3>
+                    <h3>{project.title}</h3>
                     {/* {console.log(selectedData)} */}
                     <p>
-                        Lorem ipsum dolor sit amet consectetur. 
-                        Nibh aenean sit nulla vitae cursus dignissim vel nisl 
-                        tincidunt. Ipsum ipsum pellentesque tempor diam lobortis. 
-                        la vitae cursus dignisor diam lobortis. Ut nisl feugiatLorem ia 
+                        {project.description}
                     </p>
                 </div>
 
-                {/* <div className='productDetails'>
+                <div className='productDetails'>
                     <h2>Project category:</h2>
-                    <p>Electrical</p>
-                </div> */}
+                    <p>{project.categories}</p>
+                </div>
 
-                {/* <div className='productDetails'>
+                <div className='productDetails'>
                     <h2>Project required skills:</h2>
-                    <p>Building wiring, Conduit wiring, wiring diagram.   </p>
-                </div> */}
+                    <p>{project.skills}</p>
+                </div>
 
 
-                {/* <div className='bidDiv'>
+                <div className='bidDiv'>
                     <h2>Bid</h2>
                     <form action="" onSubmit={postData}>
                         <div className='createOneDiv'>
@@ -196,7 +193,7 @@ const WorkerProjectApply = ({ selectedData }) => {
 
                         <button type='submit'>{isLoading ? 'Loading . . .' : 'Submit application'}</button>
                     </form>
-                </div> */}
+                </div>
 
 
             </section>
