@@ -54,7 +54,7 @@ const Home = () => {
   const [recentProjects, setRecentProject] = useState([])
 
 
-  let url = 'https://bildingapi.onrender.com/api/projects/user'
+  let url = 'https://bildingapi.onrender.com/api/projects/user/'
   let url2 = 'https://bildingapi.onrender.com/api/recentprojects'
 
 

@@ -5,8 +5,10 @@ import proImage from './newvec.png'
 
 import newvecImg from './newvec.png'
 
-
+import { useParams } from 'react-router-dom'
 const WorkerProjectModal = ({isOpen, onClose, selectedData}) => {
+
+    const { id } = useParams()
 
     if (!isOpen) return null;
   return (
@@ -17,7 +19,7 @@ const WorkerProjectModal = ({isOpen, onClose, selectedData}) => {
             <div className='hireSecDiv'>
                 <h2>₦{selectedData.budget}</h2>
                 {console.log(selectedData)}
-                <Link to={`/dashboard/apply/`}><button>Apply</button></Link>
+                <Link to={`/dashboard/apply/${selectedData.id}`}><button>Apply</button></Link>
             </div>
 
             <div className='projectPro'>
