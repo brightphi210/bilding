@@ -82,7 +82,7 @@ function App() {
 
                   {/* ========================= Worker Dashboard ========================= */}
                   <Route path="/dashboard/applications" element={<WorkerDashboardAppPage />} />
-                  <Route path="/dashboard/apply" element={<WorkerApplyPage />} />
+                  <Route path="/dashboard/apply/:id" element={<WorkerApplyPage />} />
               </Route>
 
 

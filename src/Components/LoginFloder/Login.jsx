@@ -9,11 +9,16 @@ import myVideo from './animation_lnkaatit.mp4'
 
 import 'font-awesome/css/font-awesome.min.css';
 
+import { BiError } from 'react-icons/bi'
+
 
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] =useState('');
+  const [emailError, setEmailError] =useState('');
+  const [passError, setPassError] =useState('');
   
 
   const navigate = useNavigate()
@@ -35,6 +40,19 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     setIsLoading(true);
+
+    if(email === ''){
+      setEmailError("Email field must not be empty")
+    }
+
+    else if(password === ''){
+      setPassError("Password Field must not be empty")
+    }
+
+    setTimeout(() => setEmailError(''), 3000);
+    setTimeout(() => setPassError(''), 3000);
+
+
     e.preventDefault();
     try {
         const response = await fetch(logUrl, {
@@ -55,13 +73,17 @@ const Login = () => {
             
         } else {
             console.log('This Error occured while logging in');
+            setError('Incorrect username or password');
+            setTimeout(() => setError(''), 3000);
+            setIsLoading(false);
         }
     } catch (error) {
         console.log('Error logging')
+        setIsLoading(false); 
     }
 
     finally {
-    setIsLoading(false); 
+      setIsLoading(false); 
     }
   };  
 
@@ -87,13 +109,18 @@ const Login = () => {
             
             <form action="" onSubmit={handleSubmit}  className='myForm' >
 
-
+                {/* <div className='errorLog'> */}
+                  {error && <p className='errorLog'> <BiError /> {error} </p>}
+                  {emailError && <p className='errorLog'> <BiError /> {emailError} </p>}
+                  {passError && <p className='errorLog'> <BiError /> {passError} </p>}
+                  
+                {/* </div> */}
                 <input 
                   type="email"  
                   placeholder='Email address or Phone Number'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)} 
-                  required
+                  // required
                 />
 
 
@@ -103,7 +130,7 @@ const Login = () => {
                   placeholder='Password'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  required
+                  // required
                 />
 
                 <i

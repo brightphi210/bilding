@@ -183,4 +183,24 @@
         top: 15px;
         cursor: pointer;
     }
+
+    .errorLog{
+        background-color:#da5c39;
+        padding: 10px;
+        position: absolute;
+        top: 70px !important;
+        right: 60px;
+        left: 60px;
+        z-index: 1000;
+        color: white;
+        border-radius: 10px;
+        font-size: 12px;
+    }
+
+    /* .up{
+        font-size: 13px;
+        color: white;
+        z-index: 100;
+        position: absolute;
+    } */
 }

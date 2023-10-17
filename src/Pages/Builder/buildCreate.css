@@ -140,11 +140,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 3;
   }
 
 .creatingLoading{
-    position: absolute;
+    /* position: absolute; */
     /* background: #fff; */
     padding: 50px;
     border-radius: 20px;

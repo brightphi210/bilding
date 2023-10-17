@@ -1,5 +1,5 @@
 import React from 'react'
-// import './projectHire.css'
+import { Link } from 'react-router-dom'
 
 import proImage from './newvec.png'
 
@@ -16,7 +16,8 @@ const WorkerProjectModal = ({isOpen, onClose, selectedData}) => {
 
             <div className='hireSecDiv'>
                 <h2>₦{selectedData.budget}</h2>
-                <button>Apply</button>
+                {console.log(selectedData)}
+                <Link to={`/dashboard/apply/`}><button>Apply</button></Link>
             </div>
 
             <div className='projectPro'>

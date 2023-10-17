@@ -7,9 +7,13 @@ import { useState } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import './WorkerDash.css'
 
+import { Link } from 'react-router-dom';
+
 import { Card, Placeholder } from 'semantic-ui-react'
 
 import { FormattedNumber } from 'react-intl';
+
+import WorkerProjectApply from './WorkerProjectDes/WorkerProjectApply';
 
 const WorkerDash = () => {
 
@@ -73,7 +77,8 @@ const WorkerDash = () => {
     const handleMoreClick = (data) => {
         setSelectedData(data);
         showModal(true);
-      };
+    };
+      
 
 
       const formatAmount = (value) => {
@@ -160,9 +165,13 @@ const WorkerDash = () => {
                                     <h2>{formatAmount(data.budget)}</h2>
                                 </div>
                             </div>
+                            <Link to={`/dashboard/apply/${data.id}`}><button>See More</button></Link>
                             <hr className='hrt'/>
                             </>
                         ))}
+
+
+                        
 
 
                     </section>
@@ -215,6 +224,7 @@ const WorkerDash = () => {
             </section>
         </section>
         <WorkerProjectModal isOpen={modal} onClose={hideModal} selectedData = {selectedData}/>
+        {/* <WorkerProjectApply  selectedData = {selectedData} /> */}
         
     </div>
   )
