@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {Placeholder, Segment } from 'semantic-ui-react'
+import WorkerApplicationDes from './WorkerApplicationDes'
 
 const WorkerDashApplica = () => {
+    const [modal, setModal] = useState(false)
+    const showModal = ()=>{
+        setModal(true)
+    }
+  
+    const hideModal = ()=>{
+        setModal(false)
+    }
 
 
     const [fetchProject, setFetchProject] = useState([])
 
-    let url = 'https://bildingapi.onrender.com/api/projects'
+    let url = 'https://bildingapi.onrender.com/api/users/applications'
     // let url = 'https://bildingapi.onrender.com/api/projects'
     const token = localStorage.getItem('authToken');
 
@@ -36,6 +45,11 @@ const WorkerDashApplica = () => {
         fetchData()
     }, [])
 
+    const [selectedData, setSelectedData] = useState([])
+    const handleMoreClick = (project) => {
+        setSelectedData(project);
+        showModal(true);
+    };
 
 
   return (
@@ -60,11 +74,12 @@ const WorkerDashApplica = () => {
                     <ul className='dashProjectTWO'>
                         <>
                         <div>
-                            <li>{project.title}</li>
+                            <li>{project.project.title}</li>
+                            {console.log(project)}
                             <span>Created: <b>{project.time}</b></span>
                         </div>
-    
-                        <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>View</button></Link>
+                        <button onClick={() => handleMoreClick(project)}>view</button>
+                        {/* <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>View</button></Link> */}
                         </>
     
                     </ul>
@@ -101,8 +116,8 @@ const WorkerDashApplica = () => {
             
                     </>
                 )}
-
             </div>
+            <WorkerApplicationDes isOpen={modal} onClose={hideModal} selectedData = {selectedData}/>
         </section>
     </div>
   )

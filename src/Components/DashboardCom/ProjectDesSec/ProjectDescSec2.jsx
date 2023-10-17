@@ -15,7 +15,7 @@ const ProjectDescSec2 = () => {
   const [selectedApplication, setSelectedApplication] = useState([])
   const [isLoading, setIsLoading] = useState(false);
 
-  const url = 'https://bildingapi.onrender.com/api/bids/'
+  const url = 'https://bildingapi.onrender.com/api/bids/user/'
 
   const token = localStorage.getItem('authToken');
   
