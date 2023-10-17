@@ -86,11 +86,11 @@ const Builder = () => {
         body: JSON.stringify(formData),
       });
 
-      if (response.status === 200 || response.status === 400) {
+      if (response.ok || response.status === 400) {
         console.log('User created successfully');
         navigate('/login');
       } else {
-        console.error('There was an Error creating user:', response.statusText);
+        console.error(response.statusText);
       }
     } catch (error) {
       console.error('Error creating user:', error);

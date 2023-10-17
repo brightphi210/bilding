@@ -1,19 +1,67 @@
 import React from 'react'
 import './workerApply.css'
-
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import jwt_decode from 'jwt-decode';
 const WorkerProjectApply = () => {
 
-    let url = ""
-    const postData = async () =>{
+    const token = localStorage.getItem('authToken');
+
+    // console.log(jwt_decode(token));
+    const decodeToken = jwt_decode(token)
+    // console.log(decodeToken.user_id);
+
+    const navigate = useNavigate()
+    const [formData, setFormData] = useState({
+        amount: "",
+        duration : "",
+        applicationletter : "",
+        images: null,
+    })
+
+
+    const handleChange = (e) => {
+        const { name, value, type } = e.target;
+        const newValue = type === "file" ? e.target.files[0] : value;
+        setFormData({ ...formData, [name]: newValue });
+    }
+
+    
+    
+    let url = "https://bildingapi.onrender.com/api/bids/"
+
+
+
+    const postData = async (e) =>{
+        e.preventDefault();
         try {
+
+            const formDataNew = new FormData();
+ 
+            formDataNew.append('amount', formData.amount);
+            formDataNew.append('duration', formData.duration);
+            formDataNew.append('applicationletter', formData.applicationletter);
+            formDataNew.append('images', formData.images);
+
+
             const response = await fetch (url, {
                 method: 'POST',
                 headers : {
-                    "Content-Type": "application/json"
-                }
-
+                    "Authorization": `Bearer ${token}`,
+                },
+                body: formDataNew,
                 
             }) 
+
+
+            if (response.ok) {
+                const data = await response.json()
+                console.log('Product Successfully Created!', data);
+                navigate('/dashboard')
+              } else {
+                console.error( response.statusText, 'Product Failed to Create');
+                
+              }
         } catch (error) {
             
         }
@@ -59,34 +107,56 @@ const WorkerProjectApply = () => {
 
                 <div className='bidDiv'>
                     <h2>Bid</h2>
-                    <form action="">
+                    <form action="" onSubmit={postData}>
                         <div className='createOneDiv'>
                             <label htmlFor="">Amount</label>
-                            <input type="number" placeholder='Amount(NGN 20,000,000)'/>
+                            <input 
+                                type="number" 
+                                placeholder='Amount(NGN 20,000,000)'
+                                name='amount'
+                                onChange={handleChange}
+                                value={formData.amount}
+                            />
                         </div>
 
                         <div className='createOneDiv'>
                             <label htmlFor="">Duration:</label>
-                            <input type="text" placeholder='Enter Duration (3-5 yrs)'/>
+                            <select 
+                                placeholder='Title' 
+                                className='createSelect'
+                                name='duration'
+                                value={formData.duration}
+                                onChange={handleChange}
+                                >
+                                <option value="">Durations</option>
+                                <option value="1-6months">1-6months</option>
+                                <option value="1-2yrs">1-2yrs</option>
+                                <option value="1-5yrs">1-5yrs</option>
+                            </select>  
                         </div>
 
                         <div className='createOneDiv'>
                             <label htmlFor="">Application letter</label>
-                            <textarea name="" id="" cols="30" rows="10" placeholder=''>
-
-                            </textarea>
+                            <textarea 
+                                name="applicationletter" 
+                                placeholder='applicationletter'
+                                value={formData.applicationletter}
+                                onChange={handleChange}
+                        />
                         </div>
 
                         <div className='createOneDiv'>
                         <input 
                             type="file" 
-                            id='image' 
-                            name="image2" 
+                            id='images' 
+                            name="images" 
                             accept="image/*"
-                            // onChange={onChange} 
+                            onChange={handleChange} 
                             required
                             />
                         </div>
+
+                        <button type='submit'>Submit application</button>
                     </form>
                 </div>
             </section>
