@@ -203,5 +203,13 @@ hr{
         width: 100%;
     }
 
+
+    .buiderForm input{
+        font-size: 13px;
+        padding: 15px;
+        border: rgb(232, 232, 232) 1px solid !important;
+        border-radius: 10px;
+    }
+
     
 }
