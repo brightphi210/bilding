@@ -32,6 +32,7 @@ import SigninWorker from "./Pages/SigningWorker";
 import DashRequestDes from "./Pages/Dashboard/DashRequestDes";
 import WorkerApplyPage from "./Pages/DashboardWorker/WorkerApplyPage";
 import ApplicationSent from "./Components/DashBoardWorker/WorkerProjectDes/ApplicationSent";
+import Verify from "./Components/Verify/Verify";
 
 
 function App() {
@@ -86,6 +87,7 @@ function App() {
                   <Route path="/dashboard/apply/:id" element={<WorkerApplyPage />} />
                   <Route path="/dashboard/apply/sent" element={<ApplicationSent />} />
 
+                  <Route path="/account/verify" element={<Verify />} />
                   
               </Route>
 

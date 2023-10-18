@@ -88,7 +88,7 @@ const Builder = () => {
 
       if (response.ok || response.status === 400) {
         console.log('User created successfully');
-        navigate('/login');
+        navigate('/account/verify');
       } else {
         console.error(response.statusText);
       }

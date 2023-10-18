@@ -16,7 +16,7 @@ const Verify = ({isOpen, onClose,}) => {
                 A verification link has been sent to your email, click the link to verify your account.
             </p>
             <button>Resend Link</button>
-            <Link to={'/builder/verify'}><button>Continue</button></Link>
+            <Link to={'/'}><button>Continue</button></Link>
         </section>
     </div>
   )

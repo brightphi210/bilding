@@ -83,7 +83,7 @@ const WorkerSignUp = () => {
         if (response.ok || response.statusCode === 400) {
           console.log('User created successfully');
           console.log(data)
-          navigate('/login');
+          navigate('/account/verify');
         } else {
           console.error(response.statusText);
           // console.log(data)
