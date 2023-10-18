@@ -46,16 +46,24 @@ function App() {
 
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Signin />} />
+
+
             <Route path="/login/user" element={<SigninWorker />} />
+
             <Route path="/register" element={<Register />} />
+
+
             <Route path="/builder" element={<Builders />} />
             <Route path="/worker" element={<WorkerSignUpPage />} />
+
+
             <Route path="/builder/bvn" element={ <BuilderBvn/>} />
             
 
 
 
               <Route element={<PrivateRoute />}>
+                  
 
                   {/* ================= Builder =================================== */}
                   <Route path="/builder/verify" element={<BuilderVerifyPage />} />
@@ -86,6 +94,7 @@ function App() {
                   <Route path="/dashboard/applications" element={<WorkerDashboardAppPage />} />
                   <Route path="/dashboard/apply/:id" element={<WorkerApplyPage />} />
                   <Route path="/dashboard/apply/sent" element={<ApplicationSent />} />
+
 
                   <Route path="/account/verify" element={<Verify />} />
                   

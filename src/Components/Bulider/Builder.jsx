@@ -73,32 +73,37 @@ const Builder = () => {
 
   const handleSubmit = async  (e) => {
     
+    setIsLoading(true);
     e.preventDefault();
 
-    setIsLoading(true);
     try {
       // Use the Fetch API to send the user data to the server
       const response = await fetch('https://bildingapi.onrender.com/auth/contractor/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
 
-      if (response.ok || response.status === 400) {
-        console.log('User created successfully');
-        navigate('/account/verify');
-      } else {
-        console.error(response.statusText);
+        const data = await response.json();
+  
+        if (response.ok || response.statusCode === 400) {
+          console.log('User created successfully');
+          console.log(data)
+          navigate('/account/verify');
+        } else {
+          console.error(response.statusText);
+          // console.log(data)
+        }
+      } catch (error) {
+        console.error('Error creating user:', error);
       }
-    } catch (error) {
-      console.error('Error creating user:', error);
-    }
-
-    finally {
-      setIsLoading(false); 
-      }
+  
+      finally {
+        setIsLoading(false); 
+        }
+  
 
   };
 
@@ -233,7 +238,7 @@ const Builder = () => {
         </div>
       )}
 
-      <Verify isOpen={isModalOpen} onClose={closeModal}></Verify>
+      {/* <Verify isOpen={isModalOpen} onClose={closeModal}></Verify> */}
     </div>
   )
 }
