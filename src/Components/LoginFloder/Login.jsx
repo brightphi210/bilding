@@ -141,7 +141,7 @@ const Login = () => {
 
 
                 <button type='submit' style={{backgroundColor : myLoadingColor} }>{
-                  isLoading? 'Login' : 'Login'
+                  isLoading? 'Signin' : 'Singin'
                 }
                 </button>
             </form>

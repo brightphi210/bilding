@@ -217,9 +217,9 @@ const Builder = () => {
           
           <span className='span3'>Already have an account ? <Link to={'/login'}>Log in</Link></span>
           <div className='hrDiv'>
-            <hr /> or <hr />
+            {/* <hr /> or <hr /> */}
           </div>
-          <button className='googleBtn'>Continue with Google</button>
+          {/* <button className='googleBtn'>Continue with Google</button> */}
         </form>
       </section>
 
