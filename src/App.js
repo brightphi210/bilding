@@ -59,6 +59,7 @@ function App() {
 
             <Route path="/builder/bvn" element={ <BuilderBvn/>} />
             
+            <Route path="/account/verify" element={<Verify />} />
 
 
 
@@ -96,7 +97,6 @@ function App() {
                   <Route path="/dashboard/apply/sent" element={<ApplicationSent />} />
 
 
-                  <Route path="/account/verify" element={<Verify />} />
                   
               </Route>
 

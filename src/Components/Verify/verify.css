@@ -44,6 +44,7 @@
     width: 100%;
     max-width: 600px;
     text-align: center;
+    border-radius: 30px;
   }
 
   .modal img{
@@ -92,5 +93,11 @@
 
   .modal img{
     width: 100px;
+    margin-top: 20px;
+  }
+
+  .modal button{
+    margin-top: 0 !important;
+    margin-bottom: 20px;
   }
 }
