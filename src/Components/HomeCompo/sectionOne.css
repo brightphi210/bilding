@@ -372,6 +372,16 @@
     .sectionOne::before{
         height: 80vh;
     }
+
+    .btn{
+        width: 20%;
+        padding: 15px 15px;
+    }
+
+    .homeForm input{
+        width: 80%;
+
+    }
 }
 
 

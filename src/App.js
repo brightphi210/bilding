@@ -33,6 +33,7 @@ import DashRequestDes from "./Pages/Dashboard/DashRequestDes";
 import WorkerApplyPage from "./Pages/DashboardWorker/WorkerApplyPage";
 import ApplicationSent from "./Components/DashBoardWorker/WorkerProjectDes/ApplicationSent";
 import Verify from "./Components/Verify/Verify";
+import ProfileDashboard from "./Pages/Dashboard/ProfileDashboard";
 
 
 function App() {
@@ -97,6 +98,10 @@ function App() {
                   <Route path="/dashboard/apply/sent" element={<ApplicationSent />} />
 
 
+                  {/* ========================= Profile ============================== */}
+                  <Route path="/dashboard/profile" element={<ProfileDashboard />} />
+                  <Route path="/dashboard/profile" element={<ProfileDashboard />} />
+                  
                   
               </Route>
 

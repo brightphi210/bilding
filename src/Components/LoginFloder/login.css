@@ -113,7 +113,14 @@
 
 .password-toggle-icon{
     position: absolute;
-    left: 420px;
+    left: 750px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.password-toggle-icons{
+    position: absolute;
+    left: 430px;
     top: 20px;
     cursor: pointer;
 }
@@ -181,7 +188,17 @@
     .password-toggle-icon{
         position: absolute;
         left: 280px;
+        right: 0;
         top: 15px;
+        cursor: pointer;
+    }
+
+    .password-toggle-icons{
+        position: absolute;
+        right: 0;
+        left: 280px;
+        top: 20px;
+        bottom: 0;
         cursor: pointer;
     }
 

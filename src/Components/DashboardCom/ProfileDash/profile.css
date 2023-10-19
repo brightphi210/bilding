@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+
+.sideSection{
+    background-color: white;
+    /* width: 300px; */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+
+
+.sideSection h2{
+    font-size: 15px;
+    font-weight: 300;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.sideSection h2:hover{
+    color: chocolate;
+    transition: all 0.5 ;
+}
+
+.sideSection hr{
+    border: rgb(227, 227, 227) solid 1px;
+}
+
+
+
+/* ====================== proInfo ======================= */
+.sett{
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 30px;
+}
+.profileInfoSection{
+    padding: 150px 15%;
+}
+
+
+.prfileDivFlex{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 50px;
+}
+
+.OneDiv{
+    background-color: white ;
+    margin-bottom: 20px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+}
+
+
+.OneDiv h2{
+    font-size: 18px;
+    font-weight: 300;
+    padding-bottom: 10px;
+    color: #C32F07;
+}
+
+.OneDiv h3{
+    font-size: 15px;
+    font-weight: 300;
+    padding-top: 10px;
+    color: gray;
+}
+
+.OneDiv p{
+    padding-top: 10px !important;
+    font-size: 15px;
+}
+
+
+.OneDiv hr{
+    border: solid 1px rgb(223, 223, 223);
+}
+
+.editDiv{
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    font-size: 15px;
+    align-items: center;
+}
+
+
+.luIcons{
+    font-size: 16px;
+    cursor: pointer;
+    color: #C32F07;
+}
+
+
+.luIcons:hover{
+    background-color: rgb(240, 240, 240);
+    padding: 7px;
+    border-radius: 50%;
+    font-size: 29px;
+    transition: all ease 0.5s;
+}
+.formDetails input{
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin-top: 10px;
+    background-color: #f8f8f8 ;
+    font-weight: 300;
+}
+
+.new{
+    /* display: none; */
+}
+
+.proFormDiv button{
+    padding: 5px 30px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: white;
+    border: #C32F07 1px solid;
+    color: #C32F07;
+}

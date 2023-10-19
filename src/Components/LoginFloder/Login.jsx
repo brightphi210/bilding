@@ -134,7 +134,7 @@ const Login = () => {
                 />
 
                 <i
-                  className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icon`}
+                  className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icons`}
                   onClick={togglePasswordVisibility}
                 ></i>
                 </div>

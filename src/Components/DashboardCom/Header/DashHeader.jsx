@@ -116,7 +116,7 @@ const DashHeader = () => {
                               </ul>
                             </div>
                             <div className='dropFlex'>
-                              <li><i class="uil uil-setting"></i> Settings</li>
+                              <Link to={'/dashboard/profile'}><li><i class="uil uil-setting"></i> Settings</li></Link>
                               <li onClick={logoutUser}><i class="uil uil-sign-out-alt"></i> Logout</li>
                             </div>
                         </ul>

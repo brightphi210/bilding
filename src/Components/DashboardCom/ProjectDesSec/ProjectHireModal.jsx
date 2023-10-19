@@ -1,12 +1,24 @@
 import React, {useState, useEffect} from 'react'
 import './projectHire.css'
 
+import ProjectHireModal2 from './ProjectHireModal2'
 import proImage from './newvec.png'
 
 import newvecImg from './newvec.png'
 const ProjectHireModal = ({isOpen, onClose, selectedApplication}) => {
 
+    const [modal2, setModal2] = useState(false)
     if (!isOpen) return null;
+
+
+
+    const showModal2 = ()=>{
+        setModal2(true)
+      }
+    
+      const hideModal2 = ()=>{
+        setModal2(false)
+      }
   return (
     
     <div className='projectHireSectionDiv'>
@@ -15,7 +27,7 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication}) => {
             <>
             <div className='hireSecDiv'>
                 <h2>₦{selectedApplication.amount}</h2>
-                <button>Hire</button>
+                <button onClick={showModal2}>Hire</button>
             </div>
 
             <div className='projectPro'>
@@ -70,6 +82,7 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication}) => {
                 <hr />
             </div>
         </section>
+        <ProjectHireModal2 isOpen2={modal2} onClose2={hideModal2}/>
     </div>
   )
 }
