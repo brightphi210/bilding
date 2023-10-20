@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+
+.notifiSection{
+    padding: 150px 10%;
+}
+
+
+.notifiSection h3{
+    font-weight: 300;
+}
+
+.notifiDiv{
+    background-color: white;
+    padding: 50px;
+    border-radius: 30px;
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+
+.notifiFlex{
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    padding-top: 30px;
+}
+.notifiDiv h2{
+    font-weight: 400; 
+    font-size: 22px;  
+}
+
+
+.notifiDiv hr{
+    border: rgb(231, 231, 231) solid 1px;
+    height: 0;
+    
+}
+
+.notifiDiv p{
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+.notiClose{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    .notifiSection{
+        padding: 150px 5%;
+    }
+
+    .notifiFlex h2{
+        font-size: 15px;
+    }
+
+    .notifiFlex{
+        display: flex;
+        gap: 20px;
+        padding-top: 30px;
+    }
+
+    .notifiDiv{
+        background-color: white;
+        padding: 30px;
+    }
+
+    .notiClose{
+        font-size: 15px;
+        cursor: pointer;
+    }
+    
+}

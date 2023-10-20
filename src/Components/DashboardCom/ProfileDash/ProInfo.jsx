@@ -45,7 +45,7 @@ const ProInfo = () => {
 
     let [success, setSuccess] = useState("")
 
-    setTimeout(() => setSuccess(''), 6000);
+    setTimeout(() => setSuccess(''), 10000);
 
 
     const [formData, setFormData] = useState ({
@@ -169,34 +169,23 @@ const ProInfo = () => {
 
                             <form action="" className='proFormDiv' onSubmit={handleSubmit}>
                                 <div className='formDetails'>
-                                    <h3>Your name</h3>
+                                    <h3>First Name</h3>
                                     <input type="text" 
                                     placeholder='First Name . . .' 
                                     onChange={handleChange}
-                                    name='firstName'
+                                    name='firstname'
                                     value={formData.firstname}
                                     />
                                 </div>
 
 
                                 <div className='formDetails'>
-                                    <h3>Your name</h3>
+                                    <h3>Last Name</h3>
                                     <input type="text" 
                                     placeholder='Last Name . . .' 
                                     onChange={handleChange}
                                     name='lastname'
                                     value={formData.lastname}
-                                    />
-                                </div>
-
-
-                                <div className='formDetails'>
-                                    <h3>Email address</h3>
-                                    <input type="text" 
-                                    placeholder='Email . . .' 
-                                    onChange={handleChange}
-                                    name='email'
-                                    value={formData.email}
                                     />
                                 </div>
 
@@ -210,8 +199,8 @@ const ProInfo = () => {
                                     value={formData.phone_number}
                                     />
                                 </div>
-                                <button type='submit'>Update <AiOutlineArrowRight /></button>
-                                <button className='cancle' onClick={cancleShow1}>Cancle <AiOutlineArrowRight/></button>
+                                <button type='submit'>Save </button>
+                                <button className='cancle' onClick={cancleShow1}>Cancle </button>
                             </form>
                         </>)}
 
@@ -269,8 +258,8 @@ const ProInfo = () => {
                                     <input type="text" placeholder='Address.  .' />
                                 </div>
                                 
-                                <Link to={'/dashboard/profile/modal'}><button>Update <AiOutlineArrowRight /></button></Link>
-                                <button className='cancle' onClick={cancleShow2}>Cancle <AiOutlineArrowRight/></button>
+                                <Link to={'/dashboard/profile/modal'}><button>Save</button></Link>
+                                <button className='cancle' onClick={cancleShow2}>Cancle</button>
                             </form>
                         </>)}
 

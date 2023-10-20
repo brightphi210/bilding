@@ -138,6 +138,7 @@
     background-color: white;
     border: #C32F07 1px solid;
     color: #C32F07;
+    cursor: pointer;
 }
 
 .cancle{

@@ -83,7 +83,7 @@ const DashHeader = () => {
                               </p>
                               <hr />
 
-                              <span>See all Notifications <i class="uil uil-arrow-right"></i></span>
+                              <Link to={'/dashboard/notifications'}><span>See all Notifications <i class="uil uil-arrow-right"></i></span></Link>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ const DashHeader = () => {
                               <img src={proImg} alt="" />
                               <ul>
                               <h3>Peter Obi & Sons</h3>
-                              <p>Supplier</p>
+                              <p>Contractor</p>
                               </ul>
                             </div>
                             <div className='dropFlex'>

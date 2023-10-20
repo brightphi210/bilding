@@ -82,7 +82,8 @@ const DashHeader2 = () => {
                               </p>
                               <hr />
 
-                              <span>See all Notifications <i class="uil uil-arrow-right"></i></span>
+                              <Link to={'/dashboard/notifications'}><span>See all Notifications <i class="uil uil-arrow-right"></i></span></Link>
+                              
                             </div>
                         </div>
                     </div>
@@ -115,7 +116,7 @@ const DashHeader2 = () => {
                               </ul>
                             </div>
                             <div className='dropFlex'>
-                              <li><i class="uil uil-setting"></i> Settings</li>
+                              <Link to={'/dashboard/profile/info'}><li><i class="uil uil-setting"></i> Settings</li></Link>
                               <li onClick={logoutUser}><i class="uil uil-sign-out-alt"></i> Logout</li>
                             </div>
                         </ul>

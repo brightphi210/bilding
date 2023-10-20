@@ -37,6 +37,7 @@ import ProfileDashboard from "./Pages/Dashboard/ProfileDashboard";
 import ProSett from "./Components/DashboardCom/ProfileDash/ProSett";
 import ProfileDashboardSett from "./Pages/Dashboard/ProfileDashboardSett";
 import ProfileModal from "./Components/DashboardCom/ProfileDash/ProfileModal";
+import NotificationPage from "./Pages/Dashboard/NotificationPage";
 
 
 function App() {
@@ -105,6 +106,12 @@ function App() {
                   <Route path="/dashboard/profile/info" element={<ProfileDashboard />} />
                   <Route path="/dashboard/profile/setting" element={<ProfileDashboardSett />} />
                   <Route path="/dashboard/profile/modal" element={<ProfileModal />} />
+
+
+
+                  {/* ===================== Notification Routes ================= */}
+                  <Route path="/dashboard/notifications" element={<NotificationPage />} />
+
                   
                   
               </Route>
