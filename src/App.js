@@ -34,6 +34,9 @@ import WorkerApplyPage from "./Pages/DashboardWorker/WorkerApplyPage";
 import ApplicationSent from "./Components/DashBoardWorker/WorkerProjectDes/ApplicationSent";
 import Verify from "./Components/Verify/Verify";
 import ProfileDashboard from "./Pages/Dashboard/ProfileDashboard";
+import ProSett from "./Components/DashboardCom/ProfileDash/ProSett";
+import ProfileDashboardSett from "./Pages/Dashboard/ProfileDashboardSett";
+import ProfileModal from "./Components/DashboardCom/ProfileDash/ProfileModal";
 
 
 function App() {
@@ -99,8 +102,9 @@ function App() {
 
 
                   {/* ========================= Profile ============================== */}
-                  <Route path="/dashboard/profile" element={<ProfileDashboard />} />
-                  <Route path="/dashboard/profile" element={<ProfileDashboard />} />
+                  <Route path="/dashboard/profile/info" element={<ProfileDashboard />} />
+                  <Route path="/dashboard/profile/setting" element={<ProfileDashboardSett />} />
+                  <Route path="/dashboard/profile/modal" element={<ProfileModal />} />
                   
                   
               </Route>
