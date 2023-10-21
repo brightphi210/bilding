@@ -87,23 +87,9 @@ const DashHeader2 = () => {
                 <div className='notifyImageDiv'>
                     <div className='profile'>
                       <img src={noteLogo} alt="" />
-                        <div className="dropdown">
+                        <div className="dropdown dn1">
                             <div className='dropMenu'>
                               <h4>Notifications </h4>
-                              <p>
-                                Lorem ipsum dolor sit amet consectetur. 
-                                Nibh ellentesque tempor diam lobortis. Ut nisl at...
-                              </p>
-                              <hr />
-
-
-                              <p>
-                                Lorem ipsum dolor sit amet consectetur. 
-                                Nibh ellentesque tempor diam lobortis. Ut nisl at...
-                              </p>
-                              <hr />
-
-
                               <p>
                                 Lorem ipsum dolor sit amet consectetur. 
                                 Nibh ellentesque tempor diam lobortis. Ut nisl at...
@@ -117,17 +103,14 @@ const DashHeader2 = () => {
                     </div>
 
 
-                    
-
-
                     <div className='profile'>
                         <img src={qLogo} alt="" />
-                        <div className='dropdown'>
-                        <div className='dropMenu'>
-                          <h4>Help & Support</h4>
-                          <p>Frequently asked questions (FAQS)</p>
-                          <p>Submit support ticket</p>
-                        </div>
+                        <div className='dropdown dn2'>
+                          <div className='dropMenu '>
+                            <h4>Help & Support</h4>
+                            <p>Frequently asked questions (FAQS)</p>
+                            <p>Submit support ticket</p>
+                          </div>
                         </div>
                     </div>
 
@@ -135,7 +118,7 @@ const DashHeader2 = () => {
 
                     <div className='profile'>
                     <img src={proLogo} alt="" />
-                        <ul className="dropdown">
+                        <ul className="dropdown dn3">
                             <div className='proImgFlex'>
                             {console.log(data.profile_pics)}
                               {data.profile_pics === null || data.profile_pics === "" ? 
