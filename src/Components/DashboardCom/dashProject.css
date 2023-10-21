@@ -69,6 +69,8 @@
     padding-bottom: 30px;
 }
 
+
+
 .dashProjectTWO .view{
     cursor: pointer;
     background-color: var(--red-color);
@@ -92,6 +94,8 @@
     padding: 10px; 
     border: #C32F07 solid 1px;
 }
+
+
 
 .view1{
     cursor: pointer;

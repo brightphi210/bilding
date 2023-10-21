@@ -236,9 +236,11 @@ const Home = () => {
         
         <section className='dashShowDiv'>
           <div className='dashShowDivOne'>
-            <h2>Active Projects</h2>
-
-
+            <div className='viewDiv'>
+              <h2>Active Projects</h2>
+              <Link to={'/' + 'dashboard/projects'}><p className='viewAll'>View All <i class="uil uil-message"></i></p></Link>
+            </div>
+  
             <div className='dashShowOneDiv'>
 
               {projects.slice(0, 3).map((project) =>  (
@@ -274,7 +276,6 @@ const Home = () => {
 
             </div>
           </div>
-          <Link to={'/' + 'dashboard/projects'}><p className='viewAll'>View All <i class="uil uil-message"></i></p></Link>
         </section>
         </>
         ): 

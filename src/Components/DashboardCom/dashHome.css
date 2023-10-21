@@ -129,6 +129,8 @@
 }
 
 
+
+
 @media only screen and (min-width:321px) and (max-width:768px){
     .dashSectionOne{
         padding: 100px 8%;
@@ -270,14 +272,21 @@
     margin-bottom: 10px;
 }
 
+
+.viewDiv{
+    display: flex;
+    gap: 20px;
+}
+
+
 .viewAll{
-    width: 15%;
     border: none;
     color: var(--red-color);
     border-radius: 20px;
     cursor: pointer;
     padding-left: 10px;
 }
+
 
 .createButton{
     display: flex;
