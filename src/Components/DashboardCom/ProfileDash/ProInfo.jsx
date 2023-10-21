@@ -53,6 +53,8 @@ const ProInfo = () => {
         lastname: '',
         email: '',
         phone_number: '',
+        location: '',
+        profile : {address: '', state: '',}
     });
 
 
@@ -60,6 +62,18 @@ const ProInfo = () => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
+
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+          ...formData,
+          profile: {
+            ...formData.profile,
+            [name]: value,
+          },
+        });
+      };
 
 
 
@@ -100,6 +114,9 @@ const ProInfo = () => {
         newFormData.append('lastname', formData.lastname);
         newFormData.append('email', formData.email);
         newFormData.append('phone_number', formData.phone_number);
+        newFormData.append('location', formData.location);
+        newFormData.append('profile.address', formData.profile.address);
+        newFormData.append('profile.state', formData.profile.state);
 
       
         fetch('https://bildingapi.onrender.com/auth/edit', {
@@ -221,44 +238,60 @@ const ProInfo = () => {
                         {showEditAdd ? 
                         (<>
                             <div className='formDetails'>
+                                {console.log(formData)}
                                 <h3>Country</h3>
-                                <p>Nigeria</p>
+                                <p>{formData.location}</p>
                             </div>
 
 
                             <div className='formDetails'>
                                 <h3>State</h3>
-                                <p>Lagos State</p>
+                                <p>{formData.profile.address} ,State</p>
                             </div>
 
 
                             <div className='formDetails'>
                                 <h3>Address</h3>
-                                <p>40 Lekki Street, Mile two park, Lagos</p>
+                                <p>{formData.profile.state}</p>
                             </div>
                         </>) : 
 
 
                         (<>
-                            <form action="" className='proFormDiv'>
+                            <form action="" className='proFormDiv' onSubmit={handleSubmit}>
                                 <div className='formDetails'>
                                     <h3>Country</h3>
-                                    <input type="text" placeholder='Count . .' />
+                                    <input type="text" 
+                                    placeholder='Count . .' 
+                                    value={formData.location}
+                                    name='location'
+                                    onChange={handleChange}
+                                    />
                                 </div>
 
 
                                 <div className='formDetails'>
                                     <h3>State</h3>
-                                    <input type="text" placeholder='State . .' />
+                                    <input 
+                                        type="text"
+                                        name="profile.state"
+                                        value={formData.profile.state}
+                                        onChange={handleChange}
+                                    />
                                 </div>
 
 
                                 <div className='formDetails'>
                                     <h3>Address</h3>
-                                    <input type="text" placeholder='Address.  .' />
+                                    <input 
+                                        type="text"
+                                        name="profile.address"
+                                        value={formData.profile.address}
+                                        onChange={handleChange}
+                                    />
                                 </div>
-                                
-                                <Link to={'/dashboard/profile/modal'}><button>Save</button></Link>
+                        
+                                <button  type='submit'>Save</button>
                                 <button className='cancle' onClick={cancleShow2}>Cancle</button>
                             </form>
                         </>)}

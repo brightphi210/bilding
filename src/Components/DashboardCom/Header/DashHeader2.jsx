@@ -5,11 +5,11 @@ import dashLogo from './1.png'
 import proLogo from './2.png'
 import qLogo from './4.png'
 
-import proImg from './5.webp'
+import proImg from './newvec.png'
 import noteLogo from './3.png'
 
 
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 
 import './dashHeader.css'
@@ -36,6 +36,34 @@ const DashHeader2 = () => {
       localStorage.removeItem('authToken')
       navigate('/', { state: { successMessage: 'Successfully logged Out !!' }})
     }
+
+
+    const [data, setData] = useState([])
+    let token = localStorage.getItem('authToken');
+    const fetchUserData = async (e) => {
+
+      try {
+        const response = await fetch('https://bildingapi.onrender.com/auth/edit', {
+          method: 'GET',
+          headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json"
+          },
+        });
+        const userData = await response.json();
+        console.log("This is the user data: " + JSON.stringify(userData));
+
+        setData(userData);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+
+    useEffect(() => {
+      fetchUserData();
+    }, []);
+
   return (
     <div>
         <section className='dashHeaderSection dashHeaderSectionTwo'>
@@ -109,10 +137,13 @@ const DashHeader2 = () => {
                     <img src={proLogo} alt="" />
                         <ul className="dropdown">
                             <div className='proImgFlex'>
-                              <img src={proImg} alt="" />
+                            {console.log(data.profile_pics)}
+                              {data.profile_pics === null || data.profile_pics === "" ? 
+                              (<><img src={proImg} alt="" /></>): 
+                              (<><img src={data.profile_pics} alt="" /></>)}
                               <ul>
-                              <h3>Peter Obi & Sons</h3>
-                              <p>Supplier</p>
+                                <h3>{data.firstname} {data.lastname}</h3>
+                                <p>{data.profession}</p>
                               </ul>
                             </div>
                             <div className='dropFlex'>
