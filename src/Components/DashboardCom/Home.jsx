@@ -246,7 +246,7 @@ const Home = () => {
                 />
 
                 {/* <span onClick={fetchData}>Search</span> */}
-                <button type='submit' onClick={fetchDataSearch}>{isLoading ? "Searching . . " : 'Search'} </button>
+                <button type='submit' onClick={fetchDataSearch}>{isLoading ? " . . . " : 'Search'} </button>
             </form>
 
         <div className='createButton'>
@@ -300,7 +300,7 @@ const Home = () => {
                       <span>Applications: 2</span>
                       <span>Hired: 0</span>
                     </div>
-                    <img src="" alt="" />
+                    <p>{project.categories} *</p>
                   </div>
                   <Link to={`/dashboard/projects/description/${project.id}`}><button>View <i class="uil uil-arrow-right"></i></button></Link>
                   <hr />

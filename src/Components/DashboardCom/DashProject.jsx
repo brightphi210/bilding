@@ -86,7 +86,7 @@ const DashProject = () => {
                 />
 
                 {/* <span onClick={fetchData}>Search</span> */}
-                <button type='submit' onClick={fetchDataSearch}>{isLoading ? "Searching . . " : 'Search'} </button>
+                <button type='submit' onClick={fetchDataSearch}>{isLoading ? "...." : 'Search'} </button>
             </form>
 
             <div className='dashProjectSectionDiv'>

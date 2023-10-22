@@ -55,6 +55,7 @@
     border-radius: 20px;
     padding: 20px;
     padding-left: 150px;
+    /* z-index: 3; */
 }
 
 .dashCaroselDiv h2{
@@ -381,11 +382,15 @@
         font-size: 12px;
     }
     
+    .dashShowOneFlex p{
+        padding: 5px 0;
+        color: #808080;
+    }
 
     .dashShowOneFlex button{
-        width: 50%;
+        width: 35%;
         padding: 8px 5px;
-        margin-top: 20px;
+        margin-top: 0;
     }
 
     .dashShowOneFlex hr {
@@ -399,7 +404,7 @@
         height: 100%;
         padding: 0;
         border-radius: 20px !important; 
-        padding-top: 30px;
+        padding-top: 0;
     }
 
     .dashShowDivTwoBack h3{ 
