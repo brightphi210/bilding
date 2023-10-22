@@ -41,9 +41,9 @@ const WorkerDashApplica = () => {
         }
     }
 
-    useEffect(() => {
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     fetchData()
+    // }, [])
 
     const [selectedData, setSelectedData] = useState([])
     const handleMoreClick = (project) => {
@@ -52,10 +52,59 @@ const WorkerDashApplica = () => {
     };
 
 
+
+    const [searchQuery, setSearchQuery] = useState('')
+    let searchUrl2 = `https://bildingapi.onrender.com/api/projects?search=${searchQuery}`
+
+    const [isLoading, setIsLoading] = useState(false)
+
+
+    const fetchDataQueries =  async (e) =>{
+      e.preventDefault();
+      setIsLoading(true)
+      try{
+        const response = await fetch(searchUrl2,{
+          method: 'GET',
+          headers: {
+            // 'Content-Type': 'application/json',
+            "Authorization": `Bearer ${token}`
+          },
+  
+        })
+        const data = await response.json();
+        setFetchProject(data)
+        setIsLoading(false)
+  
+  
+      }catch(e){
+        console.log("There was an error fetching the data!!")
+      }
+    }
+  
+    useEffect(() => {
+      if (searchQuery) {
+          fetchDataQueries();
+      }
+
+      fetchData()
+    }, []);
+
+
   return (
     <div>
         <section className='dashProjectSectionGen'>
-            <h2>My Applications</h2>
+            <h2 className='myProj'>My Applications</h2>
+
+            <form action="" className='workerDashForm' >
+                <input type="text" 
+                  placeholder='Search for projects . . .' 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+
+                {/* <span onClick={fetchData}>Search</span> */}
+                <button type='submit' >{isLoading ? ". . ." : 'Search'} </button>
+            </form>
 
             <div className='dashProjectSectionDiv'>
                 <ul className='dashProjectONE'>
@@ -76,6 +125,7 @@ const WorkerDashApplica = () => {
                         <div>
                             <li>{project.project.title}</li>
                             {console.log(project)}
+                            <p>{project.project.categories} *</p>
                             <span>Created: <b>{project.time}</b></span>
                         </div>
                         <button onClick={() => handleMoreClick(project)} className='view'>view</button>

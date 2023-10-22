@@ -25,7 +25,7 @@ const WorkerProjectModal = ({isOpen, onClose, selectedData}) => {
             <div className='projectPro'>
                 <img src={newvecImg} alt="" />
                 <div className='projectProSub'>
-                    <p>Peter Obi</p> 
+                    <p>{selectedData.owner.firstname} {selectedData.owner.lastname}</p> 
                     <span>4.6 (9 reviews)</span>
                 </div>
             </div>
@@ -34,7 +34,7 @@ const WorkerProjectModal = ({isOpen, onClose, selectedData}) => {
                 <span>{selectedData.location}</span>
             </div>
 
-            <div className='projectLetter'>
+            <div className='projectLetter'> 
                 <h1>{selectedData.title}</h1>
                 <p>
                     {selectedData.description}

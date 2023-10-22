@@ -55,11 +55,58 @@ const WorkerDashProjects = () => {
     };
 
 
+    const [searchQuery, setSearchQuery] = useState('')
+      let searchUrl2 = `https://bildingapi.onrender.com/api/projects?search=${searchQuery}`
+
+      const [isLoading, setIsLoading] = useState(false)
+
+
+      const fetchDataQueries =  async (e) =>{
+        e.preventDefault();
+        setIsLoading(true)
+        try{
+          const response = await fetch(searchUrl2,{
+            method: 'GET',
+            headers: {
+              // 'Content-Type': 'application/json',
+              "Authorization": `Bearer ${token}`
+            },
+    
+          })
+          const data = await response.json();
+          setFetchProject(data)
+          setIsLoading(false)
+    
+    
+        }catch(e){
+          console.log("There was an error fetching the data!!")
+        }
+      }
+    
+      useEffect(() => {
+        if (searchQuery) {
+            fetchDataQueries();
+        }
+
+        fetchData()
+      }, []);
+
 
   return (
     <div>
         <section className='dashProjectSectionGen'>
-            <h2>Projects</h2>
+            <h2 className='myProj'>Projects</h2>
+
+            <form action="" className='workerDashForm' >
+                <input type="text" 
+                  placeholder='Search for projects . . .' 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+
+                {/* <span onClick={fetchData}>Search</span> */}
+                <button type='submit' onClick={fetchDataQueries}>{isLoading ? ". . ." : 'Search'} </button>
+            </form>
 
             <div className='dashProjectSectionDiv'>
                 <ul className='dashProjectONE'>
@@ -69,6 +116,7 @@ const WorkerDashProjects = () => {
                     <li>drafts</li>
                     <li>1 - 3 of 3</li>
                 </ul>
+                
 
                 {fetchProject.length > 0 ? (
                     <>
@@ -78,6 +126,7 @@ const WorkerDashProjects = () => {
                             <ul className='dashProjectTWO'>
                                 <div>
                                     <li>{project.title}</li>
+                                    <p>{project.categories} *</p>
                                     <span>Created: <b>{project.time}</b></span>
                                 </div>
                                 
