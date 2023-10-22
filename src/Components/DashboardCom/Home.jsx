@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -57,7 +57,7 @@ const Home = () => {
   let url = 'https://bildingapi.onrender.com/api/projects/user'
   let url2 = 'https://bildingapi.onrender.com/api/recentprojects'
 
-
+  
   
   const token = localStorage.getItem('authToken');
 
@@ -167,6 +167,44 @@ const Home = () => {
 
 
 
+    const [searchQuery, setSearchQuery] = useState('')
+    let searchUrl = `https://bildingapi.onrender.com/api/projects?search=Painting${searchQuery}`
+
+    const [isLoading, setIsLoading] = useState(false)
+
+
+    const fetchData =  async (e) =>{
+      e.preventDefault();
+      setIsLoading(true)
+      try{
+        const response = await fetch(searchUrl,{
+          method: 'GET',
+          headers: {
+            // 'Content-Type': 'application/json',
+            "Authorization": `Bearer ${token}`
+          },
+
+        })
+        const data = await response.json();
+        setProjects(data)
+        setIsLoading(false)
+
+
+      }catch(e){
+        console.log("There was an error fetching the data!!")
+      }
+    }
+
+    useEffect(() => {
+      if (searchQuery) {
+        fetchData();
+      }
+
+      fetccData()
+    }, []);
+
+
+
   return (
     <div>
 
@@ -199,6 +237,17 @@ const Home = () => {
               </div>
             </div>
         </Carousel>
+
+        <form action="" className='workerDashForm' >
+                <input type="text" 
+                  placeholder='Search for projects . . .' 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+
+                {/* <span onClick={fetchData}>Search</span> */}
+                <button type='submit' onClick={fetchData}>{isLoading ? "Searching . . " : 'Search'} </button>
+            </form>
 
         <div className='createButton'>
           <p>Create a new project or request </p>

@@ -70,9 +70,9 @@ const WorkerDash = () => {
     }
 
 
-    useEffect(()=>{
-        fetccData()
-    }, [])
+    // useEffect(()=>{
+    //     fetccData()
+    // }, [])
 
     const [selectedData, setSelectedData] = useState([])
 
@@ -93,6 +93,45 @@ const WorkerDash = () => {
       };
 
 
+
+      const [searchQuery, setSearchQuery] = useState('')
+      let searchUrl2 = `https://bildingapi.onrender.com/api/projects?search=${searchQuery}`
+
+      const [isLoading, setIsLoading] = useState(false)
+
+
+      const fetchData =  async (e) =>{
+        e.preventDefault();
+        setIsLoading(true)
+        try{
+          const response = await fetch(searchUrl2,{
+            method: 'GET',
+            headers: {
+              // 'Content-Type': 'application/json',
+              "Authorization": `Bearer ${token}`
+            },
+    
+          })
+          const data = await response.json();
+          setDatas(data)
+          setIsLoading(false)
+    
+    
+        }catch(e){
+          console.log("There was an error fetching the data!!")
+        }
+      }
+    
+      useEffect(() => {
+        if (searchQuery) {
+          fetchData();
+        }
+
+        fetccData()
+      }, []);
+
+
+      console.log(datas)
     
   return (
     <div>
@@ -125,9 +164,15 @@ const WorkerDash = () => {
             </Carousel>
 
 
-            <form action="" className='workerDashForm'>
-                <input type="text" placeholder='Search for projects . . .' />
-                <button>Search <AiOutlineArrowRight /></button>
+            <form action="" className='workerDashForm' >
+                <input type="text" 
+                  placeholder='Search for projects . . .' 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+
+                {/* <span onClick={fetchData}>Search</span> */}
+                <button type='submit' onClick={fetchData}>{isLoading ? "Searching . . " : 'Search'} </button>
             </form>
 
 
@@ -152,8 +197,8 @@ const WorkerDash = () => {
                                         <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
                                     </div>
                                     <div className='proSenior'>
-                                        {console.log(datas)}
                                         <h2>{data.title}</h2>
+                                        <p>{data.categories}</p>
                                         <span><i class="uil uil-location-point sectTwoIcons"></i> {data.location}</span>
                                     </div>
                                     <p>

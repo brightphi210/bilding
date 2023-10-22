@@ -320,6 +320,8 @@
 }
 
 
+
+
 @media only screen and (min-width:321px) and (max-width:768px){
   
     .dashShowDivOne h2{
@@ -419,5 +421,12 @@
 
     .viewAll{
         width: 100%;
+    }
+
+
+    .proSenior p{
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+        margin: 0 !important;
     }
 }
