@@ -128,7 +128,7 @@
 
 @media only screen and (min-width:321px) and (max-width:768px){
     .dashProjectSectionGen{
-        padding: 120px 5%;
+        padding: 100px 5%;
         padding-bottom: 20px;
     }
 
@@ -143,23 +143,22 @@
     
     .dashProjectSectionDiv{
         background-color: white;
-        padding: 20px;
+        padding: 0;
         border: none;
-        padding-top: 10px;
+        padding-top: 0;
     }
 
     .dashProjectTWO{
         display: grid;
         grid-template-columns: 1fr ;
-        gap: 10px;
+        gap: 5px;
         margin-bottom: 20px;
     }
 
     .dashProjectONE{
         display: flex;
         gap: 8px;
-        /* grid-template-columns: 1fr 1fr 1fr; */
-        padding-bottom: 10px;
+        padding-bottom: 5px;
     }
 
     hr{
@@ -186,20 +185,23 @@
     .appHire{
         display: flex;
         gap: 10px;
+        margin: 0 !important;
+        padding: 0 !important;
+        /* align-items: center; */
     }
 
     .dashProjectTWO p{
         font-size: 15px;
         font-weight: 500;
-        padding: 0;
+        padding: 0 !important;
     }
 
 
     .dashProjectTWO span{
         font-size: 12px;
         display: block;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding: 0 !important; 
+        margin: 0 !important;
     }
 
     .dashProjectTWO .view{
@@ -210,6 +212,7 @@
         height: 100%;
         border: none;
         border-radius: 10px;
+        margin: 0;
         /* padding: 100px; */
     }
 
@@ -230,6 +233,12 @@
     .dashProjectTWO li{
         font-size: 15px;
         padding-bottom: 10px;
+    }
+
+    .appHire p, span{
+        padding: 0;
+        margin: 0;
+        font-weight: 300;
     }
     
 }

@@ -196,12 +196,12 @@ const Home = () => {
     }
 
     useEffect(() => {
-      // if (searchQuery) {
-      //   fetchDataSearch();
-      // }
+      if (searchQuery) {
+        fetchDataSearch();
+      }
 
       fetchData()
-    }, [searchQuery]);
+    }, []);
 
 
 

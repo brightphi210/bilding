@@ -27,7 +27,7 @@ const WorkerApplyPage = () => {
             )}
 
             < WorkerProjectApply/>
-            <Footer />
+            {/* <Footer /> */}
         </div>
 
     </div>

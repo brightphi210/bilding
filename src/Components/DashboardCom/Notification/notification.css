@@ -55,7 +55,7 @@
 
 @media only screen and (min-width:321px) and (max-width:768px){
     .notifiSection{
-        padding: 150px 5%;
+        padding: 100px 5%;
     }
 
     .notifiFlex h2{

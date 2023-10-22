@@ -172,7 +172,7 @@ const WorkerDash = () => {
                 />
 
                 {/* <span onClick={fetchData}>Search</span> */}
-                <button type='submit' onClick={fetchData}>{isLoading ? "Searching . . " : 'Search'} </button>
+                <button type='submit' onClick={fetchData}>{isLoading ? ". . ." : 'Search'} </button>
             </form>
 
 

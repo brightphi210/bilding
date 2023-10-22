@@ -32,9 +32,9 @@ const DashProject = () => {
         }
     }
 
-    useEffect(() => {
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     fetchData()
+    // }, [])
 
 
     const [searchQuery, setSearchQuery] = useState('')
@@ -66,12 +66,12 @@ const DashProject = () => {
     }
 
     useEffect(() => {
-      // if (searchQuery) {
-      //   fetchDataSearch();
-      // }
+      if (searchQuery) {
+        fetchDataSearch();
+      }
 
       fetchData()
-    }, [searchQuery]);
+    }, []);
 
 
   return (
@@ -86,7 +86,7 @@ const DashProject = () => {
                 />
 
                 {/* <span onClick={fetchData}>Search</span> */}
-                <button type='submit' onClick={fetchDataSearch}>{isLoading ? "...." : 'Search'} </button>
+                <button type='submit' onClick={fetchDataSearch}>{isLoading ? "..." : 'Search'} </button>
             </form>
 
             <div className='dashProjectSectionDiv'>

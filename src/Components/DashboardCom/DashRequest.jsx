@@ -7,7 +7,7 @@ import {Placeholder, Segment } from 'semantic-ui-react'
 const DashRequest = () => {
 
     const [request, setRequest] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
+    // const [isLoading, setIsLoading] = useState(true)
     const url = 'https://bildingapi.onrender.com/api/requests/user'
     
 
@@ -36,14 +36,63 @@ const DashRequest = () => {
     }
 
 
-    useEffect(() =>{
-        fetchData()
-    }, [])
+    // useEffect(() =>{
+    //     fetchData()
+    // }, [])
+
+
+
+    const [searchQuery, setSearchQuery] = useState('')
+    let searchUrl = `https://bildingapi.onrender.com/api/requests?search=${searchQuery}`
+
+    const [isLoading, setIsLoading] = useState(false)
+
+
+    const fetchDataSearch =  async (e) =>{
+      e.preventDefault();
+      setIsLoading(true)
+      try{
+        const response = await fetch(searchUrl,{
+          method: 'GET',
+          headers: {
+            // 'Content-Type': 'application/json',
+            "Authorization": `Bearer ${token}`
+          },
+
+        })
+        const data = await response.json();
+        setRequest(data)
+        setIsLoading(false)
+
+
+      }catch(e){
+        console.log("There was an error fetching the data!!")
+      }
+    }
+
+    useEffect(() => {
+      if (searchQuery) {
+        fetchDataSearch();
+      }
+
+      fetchData()
+    }, []);
 
   return (
     <div>
         <section className='dashProjectSectionGen'>
             <h2 className='myProj'>My Request</h2>
+
+            <form action="" className='workerDashForm' >
+                <input type="text" 
+                  placeholder='Search for projects . . .' 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+
+                {/* <span onClick={fetchData}>Search</span> */}
+                <button type='submit' onClick={fetchDataSearch}>{isLoading ? "..." : 'Search'} </button>
+            </form>
 
             <div className='dashProjectSectionDiv'>
                 <ul className='dashProjectONE'>
