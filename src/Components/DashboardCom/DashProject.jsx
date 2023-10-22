@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 const DashProject = () => {
 
     const [fetchProject, setFetchProject] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
 
     let url = 'https://bildingapi.onrender.com/api/projects/user'
     const token = localStorage.getItem('authToken');
@@ -36,10 +35,59 @@ const DashProject = () => {
     useEffect(() => {
         fetchData()
     }, [])
+
+
+    const [searchQuery, setSearchQuery] = useState('')
+    let searchUrl = `https://bildingapi.onrender.com/api/projects?search=${searchQuery}`
+
+    const [isLoading, setIsLoading] = useState(false)
+
+
+    const fetchDataSearch =  async (e) =>{
+      e.preventDefault();
+      setIsLoading(true)
+      try{
+        const response = await fetch(searchUrl,{
+          method: 'GET',
+          headers: {
+            // 'Content-Type': 'application/json',
+            "Authorization": `Bearer ${token}`
+          },
+
+        })
+        const data = await response.json();
+        setFetchProject(data)
+        setIsLoading(false)
+
+
+      }catch(e){
+        console.log("There was an error fetching the data!!")
+      }
+    }
+
+    useEffect(() => {
+      // if (searchQuery) {
+      //   fetchDataSearch();
+      // }
+
+      fetchData()
+    }, [searchQuery]);
+
+
   return (
     <div>
         <section className='dashProjectSectionGen'>
-            <h2>My Projects</h2>
+            <h2 className='myProj'>My Projects</h2>
+            <form action="" className='workerDashForm' >
+                <input type="text" 
+                  placeholder='Search for projects . . .' 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+
+                {/* <span onClick={fetchData}>Search</span> */}
+                <button type='submit' onClick={fetchDataSearch}>{isLoading ? "Searching . . " : 'Search'} </button>
+            </form>
 
             <div className='dashProjectSectionDiv'>
                 <ul className='dashProjectONE'>
@@ -80,7 +128,7 @@ const DashProject = () => {
                 </>) 
                 : (
 
-                    <h4>No Project available !!!</h4>
+                    <h4 className='noAvail'>No Project available !!!</h4>
                 )}
 
 

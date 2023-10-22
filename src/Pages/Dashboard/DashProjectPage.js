@@ -33,7 +33,7 @@ const DashProjectPage = () => {
           <WorkerDashProjects />
         </div>
       )}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

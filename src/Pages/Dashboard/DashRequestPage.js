@@ -7,7 +7,7 @@ const DashRequestPage = () => {
     <div>
         <DashHeader />
         <DashRequest />
-        <Footer />
+        {/* <Footer /> */}
     </div>
   )
 }

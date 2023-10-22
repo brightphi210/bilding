@@ -95,7 +95,8 @@
     }
 
     .dashProjectDesc{
-        padding: 140px 5%;
+        padding: 140px 8%;
+        padding-bottom: 30px;
     }
 
     .dashProjectDesc span{

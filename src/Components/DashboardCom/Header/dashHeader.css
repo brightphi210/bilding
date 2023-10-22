@@ -25,7 +25,7 @@
 
 .dashHeaderSection{
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 1000px;
     padding: 20px 5%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     gap: 50px;
@@ -55,7 +55,7 @@
 
 .nav-ul{
     display: grid;
-    grid-template-columns: 3fr 650px 1fr;
+    grid-template-columns: 3fr  300px;
 }
 
 
@@ -71,7 +71,7 @@
 
 .dashHeaderTow {
     display: flex;
-    gap: 20px;
+    gap: 40px;
     align-items: center;
 }
 

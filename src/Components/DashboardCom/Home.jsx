@@ -88,7 +88,7 @@ const Home = () => {
 
   
   //  ============================ Fetch Projects ===============================
-  const fetccData = async () => {
+  const fetchData = async () => {
     
     
     try{
@@ -110,9 +110,9 @@ const Home = () => {
   }
 
 
-  useEffect(()=>{
-    fetccData()
-  }, [])
+  // useEffect(()=>{
+  //   fetccData()
+  // }, [])
 
 
 
@@ -168,12 +168,12 @@ const Home = () => {
 
 
     const [searchQuery, setSearchQuery] = useState('')
-    let searchUrl = `https://bildingapi.onrender.com/api/projects?search=Painting${searchQuery}`
+    let searchUrl = `https://bildingapi.onrender.com/api/projects?search=${searchQuery}`
 
     const [isLoading, setIsLoading] = useState(false)
 
 
-    const fetchData =  async (e) =>{
+    const fetchDataSearch =  async (e) =>{
       e.preventDefault();
       setIsLoading(true)
       try{
@@ -196,12 +196,12 @@ const Home = () => {
     }
 
     useEffect(() => {
-      if (searchQuery) {
-        fetchData();
-      }
+      // if (searchQuery) {
+      //   fetchDataSearch();
+      // }
 
-      fetccData()
-    }, []);
+      fetchData()
+    }, [searchQuery]);
 
 
 
@@ -238,7 +238,7 @@ const Home = () => {
             </div>
         </Carousel>
 
-        <form action="" className='workerDashForm' >
+            <form action="" className='workerDashForm' >
                 <input type="text" 
                   placeholder='Search for projects . . .' 
                   value={searchQuery}
@@ -246,7 +246,7 @@ const Home = () => {
                 />
 
                 {/* <span onClick={fetchData}>Search</span> */}
-                <button type='submit' onClick={fetchData}>{isLoading ? "Searching . . " : 'Search'} </button>
+                <button type='submit' onClick={fetchDataSearch}>{isLoading ? "Searching . . " : 'Search'} </button>
             </form>
 
         <div className='createButton'>

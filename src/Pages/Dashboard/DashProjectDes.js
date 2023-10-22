@@ -7,7 +7,7 @@ const DashProjectDes = () => {
     <div>
         <DashHeader />
         <ProjectDesc />
-        <Footer />
+        {/* <Footer /> */}
     </div>
   )
 }

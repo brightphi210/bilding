@@ -81,13 +81,8 @@ const DashHeader = () => {
                     <Link to={'/dashboard/projects'}><li>Projects</li></Link>
                    <Link to={'/dashboard/requests'}><li>Requests</li></Link>
                     <li>Favorites <i class="uil uil-angle-down"></i></li>
-                </ul>
-
-                <form action="" className='dashBoardForm'>
-                    <input type="text" placeholder='Looking for' />
                     <div>Suppliers <i class="uil uil-angle-down"></i></div>
-                    <button>Search</button>
-                </form>
+                </ul>
 
                 <div className='notifyImageDiv'>
                     <div className='profile'>

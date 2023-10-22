@@ -43,7 +43,7 @@ const DashRequest = () => {
   return (
     <div>
         <section className='dashProjectSectionGen'>
-            <h2>My Request</h2>
+            <h2 className='myProj'>My Request</h2>
 
             <div className='dashProjectSectionDiv'>
                 <ul className='dashProjectONE'>
@@ -83,7 +83,7 @@ const DashRequest = () => {
                     </>
                 ) : 
                 (
-                    <h4>No Request available yet !!!</h4>
+                    <h4 className='noAvail'>No Request available yet !!!</h4>
 
                 )}
 

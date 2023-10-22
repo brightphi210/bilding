@@ -177,7 +177,7 @@ const WorkerDash = () => {
 
 
             <section className='workerDashSectionTwo'>
-                <h2>Projects for you</h2>
+                <h2 >Projects for you</h2>
                 <div className='workerDashDiv'>
 
                     {datas.length > 0 ? (

@@ -131,10 +131,21 @@
         padding: 120px 5%;
         padding-bottom: 20px;
     }
+
+    .myProj{
+        font-weight: 300;
+    }
+
+    .noAvail{
+        font-weight: 300;
+        color: #c9502f;
+    }
     
     .dashProjectSectionDiv{
         background-color: white;
         padding: 20px;
+        border: none;
+        padding-top: 10px;
     }
 
     .dashProjectTWO{
@@ -145,17 +156,23 @@
     }
 
     .dashProjectONE{
-        display: grid;
-        gap: 20px;
-        grid-template-columns: 1fr 1fr 1fr;
-        padding-bottom: 20px;
+        display: flex;
+        gap: 8px;
+        /* grid-template-columns: 1fr 1fr 1fr; */
+        padding-bottom: 10px;
+    }
+
+    hr{
+        display: none !important;
     }
 
     .dashProjectONE li{
         border:#f4d2c6 1px solid;
-        padding: 6px;
+        padding: 3px;
         width: 100%;
         text-align: center;
+        font-size: 11px;
+        font-weight: 300;
     }
 
 
