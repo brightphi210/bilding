@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../../Components/LoginFloder/Header'
 import SupplierSignUp from '../../Components/Supplier/SupplierSignUp'
+import Header from '../../Components/LoginFloder/Header'
 const SupplierPage = () => {
   return (
     <div>

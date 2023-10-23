@@ -39,6 +39,7 @@ import ProfileDashboardSett from "./Pages/Dashboard/ProfileDashboardSett";
 import ProfileModal from "./Components/DashboardCom/ProfileDash/ProfileModal";
 import NotificationPage from "./Pages/Dashboard/NotificationPage";
 import SupplierSignUp from "./Components/Supplier/SupplierSignUp";
+import SupplierPage from "./Pages/Suppliers/SupplierPage";
 
 
 function App() {
@@ -61,7 +62,7 @@ function App() {
 
             <Route path="/builder" element={<Builders />} />
             <Route path="/worker" element={<WorkerSignUpPage />} />
-            <Route path="/supplier" element={<SupplierSignUp />} />
+            <Route path="/supplier" element={<SupplierPage />} />
 
 
             <Route path="/builder/bvn" element={ <BuilderBvn/>} />
