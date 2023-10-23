@@ -4,6 +4,7 @@ import "react-multi-carousel/lib/styles.css";
 import VectorImage from './newvec.png'
 import WorkerProjectModal from './WorkerProjectDes/WorkerProjectModal';
 import { useState } from 'react';
+
 import 'font-awesome/css/font-awesome.min.css';
 import './WorkerDash.css'
 

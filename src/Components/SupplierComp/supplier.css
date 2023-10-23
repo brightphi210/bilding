@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+    text-decoration: none;
+}
+
+:root{
+    --white-color:white;
+
+    --black-color:#000000;
+
+    --red-color:#C32F07;
+
+    --grey-color: #808080;
+}
