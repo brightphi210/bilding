@@ -7,6 +7,8 @@ import WorkerDash from '../../Components/DashBoardWorker/WorkerDash'
 import DashHeader2 from '../../Components/DashboardCom/Header/DashHeader2'
 
 import jwt_decode from "jwt-decode"
+import SupplierDashHome from '../../Components/SupplierComp/SupplierDashHome'
+import DashHeader3 from '../../Components/DashboardCom/Header/DashHeader3'
 const DashboardHome = () => {
 
   const token = localStorage.getItem('authToken');
@@ -19,18 +21,26 @@ const DashboardHome = () => {
     
     <div>
         {/* <Home /> */}
-        {decode.role === "ContractorRole" ? (
+        {decode.role === "ContractorRole" && (
           <div>
             <DashHeader />
             <Home />
           </div>
-        ) : 
-        (
+        ) }
+
+
+        { decode.role === "WorkerRole" &&(
           <div>
             <DashHeader2 />
             <WorkerDash />
           </div>
         )}
+
+        {decode.role === 'SupplierRole' && 
+        (<>
+            <DashHeader3 />
+          <SupplierDashHome />
+        </>)}
         <Footer />
     </div>
   )

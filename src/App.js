@@ -38,6 +38,7 @@ import ProSett from "./Components/DashboardCom/ProfileDash/ProSett";
 import ProfileDashboardSett from "./Pages/Dashboard/ProfileDashboardSett";
 import ProfileModal from "./Components/DashboardCom/ProfileDash/ProfileModal";
 import NotificationPage from "./Pages/Dashboard/NotificationPage";
+import SupplierSignUp from "./Components/Supplier/SupplierSignUp";
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
 
             <Route path="/builder" element={<Builders />} />
             <Route path="/worker" element={<WorkerSignUpPage />} />
+            <Route path="/supplier" element={<SupplierSignUp />} />
 
 
             <Route path="/builder/bvn" element={ <BuilderBvn/>} />

@@ -98,7 +98,7 @@ const SignUp = () => {
         }
 
         else if(isChecked1){
-            navigate('/builder/project/create')
+            navigate('/supplier')
         }
 
         else if(isChecked2){
