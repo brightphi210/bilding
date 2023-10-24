@@ -110,22 +110,22 @@ const SignUp = () => {
         <section className='signupSection'>
             <div className='signupSectionImg'>
                 <img src={signUpBg} alt="" />
-                <h2>Sign up to Bilding</h2>
+                <h2>Join Bilding</h2>
             </div>
             
             <div className='categoryDiv'>
 
-                <div className='cateEach' style={{ backgroundColor: containerBackgroundColor , borderColor: containerBorderColor }}>
+                <div className='cateEach' onClick={handleRadioChange} style={{ backgroundColor: containerBackgroundColor , borderColor: containerBorderColor }}>
                     <p>I’m a builder looking  to <br /> hire top professionals.</p>
                     <input type="radio" id="radio" name="radio" checked={isChecked} onChange={handleRadioChange}></input>
                 </div>
 
-                <div className='cateEach' style={{ backgroundColor: containerBackgroundColor1 , borderColor: containerBorderColor1 }}>
+                <div className='cateEach'onClick={handleRadioChange1} style={{ backgroundColor: containerBackgroundColor1 , borderColor: containerBorderColor1 }}>
                     <p>I’m a supplier, providing <br />goods for projects.</p>
                     <input type="radio" id="radio" name="radio" checked={isChecked1} onChange={handleRadioChange1}></input>
                 </div>
 
-                <div className='cateEach' style={{ backgroundColor: containerBackgroundColor2 , borderColor: containerBorderColor2}}>
+                <div className='cateEach' onClick={handleRadioChange2} style={{ backgroundColor: containerBackgroundColor2 , borderColor: containerBorderColor2}}>
                     <p>I’m a service provider, <br /> looking for work.</p>
                     <input type="radio" id="radio" name="radio" checked={isChecked2} onChange={handleRadioChange2}></input>
                 </div>

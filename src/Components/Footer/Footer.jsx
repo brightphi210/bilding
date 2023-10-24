@@ -1,12 +1,14 @@
 import React from 'react'
 import './footer.css'
+
+import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <div>
         <footer className='footer'>
             <div className='footerDiv'>
                 <div className='footerEach'>
-                    <h2>Bilding.construction</h2>
+                    <Link to={'/'}><h2 className='navLogo'>GetBilding</h2></Link>
                     <p>
                         Your Go-To Platform for Building <br /> 
                         Contractors, Suppliers, and Labor Force. 
@@ -26,9 +28,9 @@ const Footer = () => {
                 <div className='footerEach'>
                     <h2>Other Links  </h2>
                     <ul>
-                        <li>Registration</li>
+                        <Link to={'/register'}><li>Registration</li></Link>
                         <li>FAQ’s</li>
-                        <li>Login</li>
+                        <Link to={'/login'}><li>Login</li></Link>
                     </ul>
                 </div>
 

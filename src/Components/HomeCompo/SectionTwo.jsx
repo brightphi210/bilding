@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import sec2Image from './Images/sec2.png'
 import whatImg1 from './Images/what1.png'
 import whatImg2 from './Images/what2.png'
@@ -27,7 +27,7 @@ const SectionTwo = () => {
                     Bilding.tech is here to revolutionize the way you connect, collaborate, 
                     and create.
                 </p>
-                <button>Get Started</button>
+                <Link to={'/register'}><button>Get Started</button></Link>
             </div>
         </div>
 
@@ -45,21 +45,20 @@ const SectionTwo = () => {
                         <h2>Skilled workers</h2>
                         <p>
                             Get top talents for your construction
-                            <br />projects with ease.
+                            projects with ease.
                         </p>
-                        <button>Find Talent</button>
+                        <Link to={'/builder'}><button>Find Talent</button></Link>
                     </div>
                 </div>
 
                 <div className='skilledDiv'>
                     <img src={whatImg1} alt="" />
                     <div>
-                        <h2>Skilled workers</h2>
+                        <h2>Suppliers</h2>
                         <p>
-                            Get top talents for your construction
-                            <br />projects with ease.
+                            Get the best products for your projects with ease.
                         </p>
-                        <button>Find Supplier</button>
+                        <Link to={'/builder'}><button>Find Supplier</button></Link>
                     </div>
                 </div>
             </div>

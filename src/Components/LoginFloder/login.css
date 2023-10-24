@@ -125,7 +125,7 @@
     cursor: pointer;
 }
 
-@media only screen and (min-width:321px) and (max-width:768px){
+@media only screen and (min-width:321px) and (max-width:767px){
     .loginDiv{
         display: grid;
         grid-template-columns: 1fr;
@@ -221,4 +221,49 @@
         z-index: 100;
         position: absolute;
     } */
+}
+
+
+@media only screen and (min-width:768px) and (max-width: 1024px){
+    .loginDiv{
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 80vh;
+        align-items: center;
+        text-align: center;
+    }
+
+    .loginDiv h2{
+        font-size: 20px;
+        font-weight: 500;
+        padding-top: 10px;
+    }
+
+    .logImage img{
+        display: none;
+    }
+
+    .formDiv{
+        padding: 20px 5%;
+        padding-top: 0;
+        text-align: center;
+    }
+
+    .myForm button{
+        width: 50%;
+        padding: 13px;
+        font-size: 13px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        margin: auto;
+    }
+
+    .password-toggle-icons{
+        position: absolute;
+        right: 0;
+        left: 390px;
+        top: 20px;
+        bottom: 0;
+        cursor: pointer;
+    }
 }
