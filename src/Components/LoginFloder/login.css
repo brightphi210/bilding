@@ -270,6 +270,14 @@
         bottom: 0;
         cursor: pointer;
     }
+
+
+    .password-toggle-icon{
+        position: absolute;
+        left: 600px;
+        top: 20px;
+        cursor: pointer;
+    }
 }
 
 
@@ -298,6 +306,13 @@
     .password-toggle-icons{
         position: absolute;
         left: 300px;
+        top: 20px;
+        cursor: pointer;
+    }
+
+    .password-toggle-icon{
+        position: absolute;
+        left: 600px;
         top: 20px;
         cursor: pointer;
     }
