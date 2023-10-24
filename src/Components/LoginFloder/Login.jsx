@@ -16,6 +16,7 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfrimPassword] = useState('');
   const [error, setError] =useState('');
   const [emailError, setEmailError] =useState('');
   const [passError, setPassError] =useState('');
@@ -125,18 +126,34 @@ const Login = () => {
 
 
                 <div className='eyeDiv'>
-                <input 
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder='Password'
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  // required
-                />
+                  <input 
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder='Password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    // required
+                  />
 
-                <i
-                  className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icons`}
-                  onClick={togglePasswordVisibility}
-                ></i>
+                  <i
+                    className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icons`}
+                    onClick={togglePasswordVisibility}
+                  ></i>
+                </div>
+
+
+                <div className='eyeDiv'>
+                  <input 
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder='Confrim Password'
+                    value={confirmPassword}
+                    onChange={(e) => setConfrimPassword(e.target.value)}
+                    // required
+                  />
+
+                  <i
+                    className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icons`}
+                    onClick={togglePasswordVisibility}
+                  ></i>
                 </div>
 
 
@@ -148,8 +165,8 @@ const Login = () => {
 
 
             <form className='googleForm'>
-                <p>or</p>
-                <button className='googleLog'>Login with Google</button>
+                {/* <p>or</p> */}
+                {/* <button className='googleLog'>Login with Google</button> */}
                 <div className='dont'><p>Don’t have an account ? <Link to={'/register'}><span>Join to Bilding</span></Link></p> 
                 
                 </div>

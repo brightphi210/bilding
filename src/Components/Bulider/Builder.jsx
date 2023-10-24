@@ -44,6 +44,7 @@ const Builder = () => {
     lastname: '',
     email: '',
     password: '',
+    confirmPassword: '',
     phone_number: '',
     location: '',
     profession: '',
@@ -167,21 +168,40 @@ const Builder = () => {
 
 
           <div className='eyeDiv'>
-          <input 
-            type={showPassword ? 'text' : 'password'} 
-            name="password"
-            placeholder='Password e.g (Johndoe6421@)' 
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+            <input 
+              type={showPassword ? 'text' : 'password'} 
+              name="password"
+              placeholder='Password e.g (Johndoe6421@)' 
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
 
 
 
-          <i
-            className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icon`}
-            onClick={togglePasswordVisibility}
-          ></i>
+            <i
+              className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icon`}
+              onClick={togglePasswordVisibility}
+            ></i>
+          </div>
+
+
+          <div className='eyeDiv'>
+            <input 
+              type={showPassword ? 'text' : 'password'} 
+              name="confirmPassword"
+              placeholder='Confirm Password e.g (Johndoe6421@)' 
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+
+
+
+            <i
+              className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icon`}
+              onClick={togglePasswordVisibility}
+            ></i>
           </div>
 
 

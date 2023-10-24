@@ -133,7 +133,7 @@
     .loginDiv{
         display: grid;
         grid-template-columns: 1fr;
-        height: 80vh;
+        height: 75vh;
         align-items: center;
     }
 
@@ -232,7 +232,7 @@
     .loginDiv{
         display: grid;
         grid-template-columns: 1fr;
-        height: 80vh;
+        height: 70vh;
         align-items: center;
         text-align: center;
     }
