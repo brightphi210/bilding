@@ -150,8 +150,9 @@ const Login = () => {
             <form className='googleForm'>
                 <p>or</p>
                 <button className='googleLog'>Login with Google</button>
-                <div className='dont'><p>Don’t have an account ?</p> 
-                <Link to={'/register'}><span>Join to Bilding</span></Link></div>
+                <div className='dont'><p>Don’t have an account ? <Link to={'/register'}><span>Join to Bilding</span></Link></p> 
+                
+                </div>
             </form>
         </div>
       </section>
