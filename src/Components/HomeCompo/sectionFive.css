@@ -20,12 +20,12 @@
 /* =============== section Five ======================= */
 
 .sectionFive{
-    padding: 100px 8%;
+    padding: 60px 8%;
     text-align: center;
 }
 
 .sectionFiveText{
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 .sectionFiveText h2{
     font-size: 30px;
@@ -49,5 +49,16 @@
 .caroselDiv h3{
     padding-bottom: 50px;
     padding-top: 20px;
+}
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    .sectionFiveText h2{
+        font-size: 25px;
+    }
+
+    .caroselDiv p{
+        font-size: 13px;
+    }
+    
 }
 

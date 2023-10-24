@@ -386,4 +386,14 @@
 }
 
 
+@media screen and (min-width: 1439px) {
+    .sectionOne{
+        height: 70vh;
+    }
+
+    .sectionOne::before{
+        height: 100%;
+    }
+}
+
 /* 1025px  — 1200px: Desktops, large screens */
