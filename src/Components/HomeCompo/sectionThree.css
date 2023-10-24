@@ -183,11 +183,7 @@
 }
 
 
-@media (max-width: 1344px) {
-    .sectionThree{
-        height: 100vh;
-    }
-  }
+
 
 @media only screen and (min-width:1024px) and (max-width: 1200px){
     .sectionThree{
@@ -224,3 +220,17 @@
         padding: 20px;
     }
 }
+
+@media (max-width: 1344px) {
+    .sectionThree{
+        height: 110vh;
+    }
+
+    .sectionThree::before {
+        height: 100%;
+    }
+
+    .sectionThreeDiv h2{
+        font-size: 25px;
+    }
+  }

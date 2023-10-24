@@ -386,6 +386,17 @@
 }
 
 
+@media (max-width: 1344px) {
+    .sectionOne{
+        height: 100vh;
+    }
+
+    .sectionOne::before {
+        height: 100%;
+    }
+  }
+
+
 /* @media screen and (min-width: 1439px) {
     .sectionOne{
         height: 70vh;
