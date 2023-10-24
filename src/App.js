@@ -40,6 +40,8 @@ import ProfileModal from "./Components/DashboardCom/ProfileDash/ProfileModal";
 import NotificationPage from "./Pages/Dashboard/NotificationPage";
 import SupplierSignUp from "./Components/Supplier/SupplierSignUp";
 import SupplierPage from "./Pages/Suppliers/SupplierPage";
+import SupplierApplicationPage from "./Pages/DashboardSupplier/SupplierApplicationPage";
+import SupplierApplyPage from "./Pages/DashboardSupplier/SupplierApplyPage";
 
 
 function App() {
@@ -103,6 +105,12 @@ function App() {
                   <Route path="/dashboard/applications" element={<WorkerDashboardAppPage />} />
                   <Route path="/dashboard/apply/:id" element={<WorkerApplyPage />} />
                   <Route path="/dashboard/apply/sent" element={<ApplicationSent />} />
+
+
+                  {/* ========================= supplier Dashboards ========================= */}
+                  <Route path="/dashboard/supplier/applications" element={<SupplierApplicationPage />} />
+                  <Route path="/dashboard/supplier/apply/:id" element={<SupplierApplyPage />} />
+
 
 
                   {/* ========================= Profile ============================== */}

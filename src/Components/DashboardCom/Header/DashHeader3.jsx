@@ -71,8 +71,8 @@ const DashHeader3 = () => {
             <ul className='dashHeaderTow'>
                 <Link to={'/dashboard'}><li>Dashboard</li></Link>
                 <Link to={'/dashboard/projects'}><li>Supplies</li></Link>
-               <Link to={'/dashboard/applications'}><li>Applications</li></Link>
-               <Link to={'/dashboard/applications'}><li>Messages</li></Link>
+               <Link to={'/dashboard/supplier/applications'}><li>Applications</li></Link>
+               <Link to={'/dashboard/supplier/messages'}><li>Messages</li></Link>
             </ul>
 
             {/* <form action="" className='dashBoardForm'>

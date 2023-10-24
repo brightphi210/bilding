@@ -125,6 +125,8 @@ const SupplierDashHome = () => {
 
     console.log(datas)
 
+
+    
   
 
 
@@ -191,7 +193,7 @@ const SupplierDashHome = () => {
                                 </div>
                                 <div className=''>
                                     <div>
-                                        {/* <span className='myName'><b>{data.owner.firstname} {data.owner.lastname}</b></span> */}
+                                        <span className='myName'><b>{data.owner.firstname} {data.owner.lastname}</b></span>
                                         <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
                                     </div>
                                     <div className='proSenior'>
@@ -205,13 +207,15 @@ const SupplierDashHome = () => {
 
                                     
                                     <div className='applyBtn'>
-                                      {/* <button className=''>{data.owner.profession}</button> */}
-                                      <Link to={`/dashboard/apply/${data.id}`}><button >Apply For Project</button></Link>
+                                      <button className=''>{data.owner.profession}</button>
+                                      <Link to={`/dashboard/supplier/apply/${data.id}`}><button >Apply For Project</button></Link>
                                     </div>
                                 </div>
 
                                 <div className='proSectHire'>
-                                    <h2>{formatAmount(data.budget)}</h2>
+                                    <h2>{formatAmount(data.items.map((item)=>(
+                                      item.amount
+                                    )))}</h2>
                                 </div>
                             </div>
                             <hr className='hrt'/>

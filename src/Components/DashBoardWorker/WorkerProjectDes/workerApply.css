@@ -22,7 +22,8 @@
 
 .applySection{
     padding: 50px 20%;
-    padding-top: 100px;
+    padding-top: 60px;
+    border: #a3a3a3 1px solid;
 }
 
 
@@ -36,6 +37,14 @@
     gap: 0;
 }
 
+
+/* .secBorder{
+    border: #b0b0b0 solid 1px;
+    border-radius: 20px;
+    padding: 50px;
+    margin-top: 20px;
+    width: 100%;
+} */
 
 .productDetails{
     padding-top: 20px;
@@ -53,6 +62,22 @@
     padding-top: 20px;
     font-size: 20px;
     font-weight: 300;
+}
+
+
+.projectDesBord{
+    border: #e3e3e3 solid 1px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+
+}
+
+.bidDiv{
+    border: #e3e3e3 solid 1px;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 
@@ -196,8 +221,8 @@
  }
 @media only screen and (min-width:321px) and (max-width:768px){
     .applySection{
-        padding: 50px 9%;
-        padding-top: 80px;
+        padding: 50px 5%;
+        padding-top: 50px;
     }
 
 
@@ -220,6 +245,12 @@
         border-radius: 10px;
         margin-top: 10px;
     }
+
+    /* .bidFormDiv input, textarea{
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+    } */
 
     .copyDiv p{
         font-size: 12px;
@@ -314,6 +345,15 @@
 
     .modal-view-sent p{
         font-size: 13px;
+    }
+
+
+    .secBorder{
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin-top: 0;
+        width: 100% !important;
     }
 
 

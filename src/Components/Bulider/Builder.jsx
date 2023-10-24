@@ -46,6 +46,7 @@ const Builder = () => {
     password: '',
     phone_number: '',
     location: '',
+    profession: '',
     updates: false,
   });
 
@@ -182,6 +183,16 @@ const Builder = () => {
             onClick={togglePasswordVisibility}
           ></i>
           </div>
+
+
+          <input 
+            type='text'
+            name="profession"
+            placeholder='Profession e.g (Contractor)' 
+            value={formData.profession}
+            onChange={handleChange}
+            required
+          />
 
 
           <input 
