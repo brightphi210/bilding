@@ -64,7 +64,7 @@
     border: none;
     background-color: var(--red-color);
     color: var(--white-color);
-    border-radius: 30px;
+    border-radius: 10px;
     margin-bottom: 30px;
     border: #808080 solid 1px;
     cursor: pointer;
@@ -84,7 +84,7 @@
 .googleForm .googleLog{
     padding: 13px;
     width: 50%;
-    border-radius: 30px;
+    border-radius: 10px;
     border: none;
     background-color: #E8E8E8;
     font-size: 13px;
@@ -123,6 +123,10 @@
     left: 430px;
     top: 20px;
     cursor: pointer;
+}
+
+.googleForm span{
+    color: #C32F07;
 }
 
 @media only screen and (min-width:321px) and (max-width:767px){
@@ -266,4 +270,51 @@
         bottom: 0;
         cursor: pointer;
     }
+}
+
+
+@media only screen and (min-width:1024px) and (max-width: 1200px){
+    .loginDiv{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 100vh;
+        align-items: center;
+    }
+    
+    .logImage img{
+        height: 100vh;
+        width: 100%;
+    } 
+    
+    .myForm input{
+        width: 100%;
+        padding: 15px;
+        font-size: 13px;
+        border-radius: 10px;
+        border: rgb(216, 216, 216) solid 1px;
+        margin-bottom: 20px;
+        outline: none;
+    }
+    .password-toggle-icons{
+        position: absolute;
+        left: 300px;
+        top: 20px;
+        cursor: pointer;
+    }
+
+    .myForm button{
+        display: block;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    .signupBtn{
+        border-radius: 10px;
+    }
+    
+
+    .googleForm .googleLog{
+        width: 100%;
+    }
+
 }
