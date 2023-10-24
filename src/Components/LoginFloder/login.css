@@ -359,18 +359,18 @@
 
 
 
-@media (max-width: 1344px) {
+@media  only screen and (min-width: 1201px) and (max-width: 1344px) {
     .password-toggle-icons{
         position: absolute;
-        left: 0;
+        left: 320px;
         top: 20px;
         bottom: 0;
         cursor: pointer;
     }
 
-    .password-toggle-icons{
+    .password-toggle-icon{
         position: absolute;
-        left: 0;
+        left: 700px;
         top: 20px;
         bottom: 0;
         cursor: pointer;
