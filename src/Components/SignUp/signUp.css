@@ -61,12 +61,32 @@
     position: absolute;
     bottom: 50px;
     right: 50px;
-    padding: 50px;
+    padding: 8px;
 }
 
 .cateEach input[type="radio"]{
     transform: scale(1.5);
 }
+
+
+.check{
+    -webkit-appearance: none; 
+    height: 10px !important;
+    width: 10px !important;
+    transition: 0.10s;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    border-radius: 50%;
+    outline: none;
+    border:#C32F07 1px solid;
+    background-color: white;
+}
+
+.check:checked {
+    background-color:#C32F07;
+    /* border: white 1px solid; */
+  }
 
 .signupSection button{ 
     padding: 15px;
@@ -128,7 +148,8 @@
         position: absolute;
         bottom: 40px !important;
         right: 50px;
-        padding: 10px;
+        padding: 6px;
+        color: #C32F07;
     }
 
     .signupSection button{
@@ -140,8 +161,8 @@
 
     .cateEach input[type="radio"]{
         transform: scale(1.3);
+        color: #C32F07;
     }
-
 
     .signupSection span{
         display: block;
