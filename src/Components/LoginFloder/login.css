@@ -344,4 +344,11 @@
         cursor: pointer;
     }
 
+    .password-toggle-icon{
+        position: absolute;
+        left: 750px;
+        top: 20px;
+        cursor: pointer;
+    }
+
 }
