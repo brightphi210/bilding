@@ -70,9 +70,9 @@ const DashHeader3 = () => {
         <div className={`nav-ul nav-ul2 ${isNavOpen ? "open" :"close"} `}>
             <ul className='dashHeaderTow'>
                 <Link to={'/dashboard'}><li>Dashboard</li></Link>
-                <Link to={'/dashboard/projects'}><li>Supplies</li></Link>
+                <Link to={''}><li>Supplies</li></Link>
                <Link to={'/dashboard/supplier/applications'}><li>Applications</li></Link>
-               <Link to={'/dashboard/supplier/messages'}><li>Messages</li></Link>
+               {/* <Link to={'/dashboard/supplier/messages'}><li>Messages</li></Link> */}
             </ul>
 
             {/* <form action="" className='dashBoardForm'>

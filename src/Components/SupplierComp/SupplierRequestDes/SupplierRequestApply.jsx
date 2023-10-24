@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 
@@ -18,7 +18,10 @@ const SupplierRequestApply = ({selectedData}) => {
   const { id } = useParams()
 
   const [request, setRequest] = useState([])
+  const [item, setItem] = useState([])
+  
   let url = `https://bildingapi.onrender.com/api/requests/${id}`
+  let urlItems = `https://bildingapi.onrender.com/api/items/${id}`
 
 
   const fetccData = async () => {
@@ -44,6 +47,34 @@ const SupplierRequestApply = ({selectedData}) => {
 
   useEffect(()=>{
     fetccData()
+  }, [])
+
+
+  const fetchItem = async () => {
+
+    try{
+      const response = await fetch(urlItems, {
+        method: 'GET',
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
+
+      })
+
+
+      const data = await response.json()
+      setItem(data)
+
+      console.log(data)
+
+    }catch(er){
+      console.log("Error fetching project data !!! ")
+    }
+  }
+
+
+  useEffect(()=>{
+    fetchItem()
   }, [])
 
 const [formData, setFormData] = useState({
@@ -97,10 +128,31 @@ const postData = async (e) =>{
       
   }
 }
+
+
+// const [myItems, setMyItems] = useState([]);
+
+// const newItems = request.items
+// (newItems.map((item)=>(
+//   console.log(item)
+//   )))
+
+
+const formatAmount = (value) => {
+  if (value === null || value === undefined) return 0; 
+  return value.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'NGN',
+    minimumFractionDigits: 2,
+  });
+};
   return (
     <div>
         <section className='applySection'>
-            <h2 className='applyTech'>Apply to fulfil this request.</h2>
+            <div className='applyFlexDiv'>
+              <h2 className='applyTech'>Apply to fulfil this request.</h2>
+              <Link to={'/dashboard'}><button>Cancle</button></Link>
+            </div>
             {request && ( <>
             <section className=''>
                 {console.log(request)}
@@ -117,7 +169,6 @@ const postData = async (e) =>{
                 <div className='productDetails'>
                     <h2>Project details</h2>
                     <h3>{request.title}</h3>
-                    {/* {console.log(selectedData)} */}
                     <p>
                         {request.description}
                     </p>
@@ -127,27 +178,59 @@ const postData = async (e) =>{
                     <h2>Project category:</h2>
                     <p>{request.category}</p>
                 </div>
-
-                <div className='productDetails'>
-                    <h2>Project required skills:</h2>
-                    <p>{request.skills}</p>
-                </div>
                 </div>
 
 
                 <div className='bidDiv'>
                     <h2>Bid</h2>
                     <form action="" onSubmit={postData}>
-                        <div className='createOneDiv'>
-                            <label htmlFor="">Amount</label>
-                            <input 
+                        <div className='createOneDiv '>
+                            <div className='itemDivRequest'>
+                              <div>
+                                <h3>Item</h3>
+                                <p>{item.map((myItem)=>(
+                                    myItem.name
+                                  ))}
+                                </p>
+     
+                              </div>
+
+                              <div>
+                                <h3>Amount</h3>
+                                <p>{formatAmount(item.map((myItem)=>(
+                                    myItem.amount
+                                  )))}
+                                </p>
+                              </div>
+
+                              <div>
+                                <h3>Bid</h3>
+                                <input 
                                 type="number" 
-                                placeholder='Amount(NGN 20,000,000)'
+                                placeholder='NGN'
                                 name='amount'
                                 onChange={handleChange}
                                 value={formData.amount}
                                 required
                             />
+                              </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+                          <h2>Delivery inclusive:</h2>
+                          <div className='willDeliver'>
+                            <input type="checkbox" />
+                            <label>I’ll be delivering the goods.</label>
+                          </div>
+
+                          <div className='createOneDiv delivery'>
+                            <label htmlFor="">Delivery duration:</label>
+                            <input type="text" placeholder='(e.g) 2 months '/>
+                          </div>
                         </div>
 
                         <div className='createOneDiv bidFormDiv'>
@@ -171,7 +254,6 @@ const postData = async (e) =>{
                             <label htmlFor="">Application letter</label>
                             <textarea 
                                 name="applicationletter" 
-                                // placeholder='applicationletter'
                                 value={formData.applicationletter}
                                 onChange={handleChange}
                                 required

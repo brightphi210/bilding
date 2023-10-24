@@ -40,6 +40,50 @@ const RequestDescSec1 = () => {
     useEffect(()=>{
       fetchData()
     }, [])
+
+
+
+    const [item, setItem] = useState([])
+    let urlItems = `https://bildingapi.onrender.com/api/items/${id}`
+    const fetchItem = async () => {
+
+      try{
+        const response = await fetch(urlItems, {
+          method: 'GET',
+          headers: {
+            "Authorization": `Bearer ${token}`
+          },
+  
+        })
+  
+  
+        const data = await response.json()
+        setItem(data)
+  
+        console.log(data)
+  
+      }catch(er){
+        console.log("Error fetching project data !!! ")
+      }
+    }
+  
+  
+    useEffect(()=>{
+      fetchItem()
+    }, [])
+
+
+    const formatAmount = (value) => {
+      if (value === null || value === undefined) return 0; 
+      return value.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'NGN',
+        minimumFractionDigits: 2,
+      });
+    };
+
+
+
   return (
     <div>
 
@@ -51,9 +95,9 @@ const RequestDescSec1 = () => {
               <div className='proDesOneFlexOne'>
                 <div className='proDesOneFlexTwo'>
                   <h4>{request.title}</h4>
-                  {/* {request.items.map((item) =>( */}
-                    {/* <h4>₦{request.items[0].amount}</h4> */}
-                  {/* ))} */}
+                  <h4>{formatAmount(item.map((myItem)=>(
+                    myItem.amount
+                  )))}</h4>
                 </div>
 
                 <div className='proSubGrid'>

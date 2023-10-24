@@ -144,8 +144,8 @@
 @media only screen and (min-width:321px) and (max-width:768px){
     .sectionOne{
         grid-template-columns: 1fr;
-        padding: 150px 6%;
-        height: 115vh;
+        padding: 120px 6%;
+        height: 110vh;
     }
 
     .sectionOne::before {
@@ -246,7 +246,7 @@
         border: none;
         position: absolute;
         left: 260px;
-        top: 37px;
+        top: 30px;
         outline: none;
         border-left: rgb(209, 209, 209) solid 2px;
     }
@@ -282,11 +282,12 @@
 @media only screen and (min-width:1024px) and (max-width: 1200px){
     .sectionOne{
         display: grid;
-        height: 90%;
         grid-template-columns: 2fr 350px;
         background-image: url('Images/build.jpg');
         gap: 20px;
-        padding: 150px 8%;
+        padding: 170px 8%;
+        padding-bottom: 100px;
+        height: 90% !important;
     }
 
     .sectionOne::before{
@@ -328,7 +329,7 @@
         border: none;
         position: absolute;
         left: 220px;
-        top: 37px;
+        top: 30px;
         outline: none;
         border-left: rgb(209, 209, 209) solid 2px;
     }

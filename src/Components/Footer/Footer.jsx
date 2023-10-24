@@ -42,7 +42,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <h3>Copyright © 2023 bilding.construction</h3>
+            <h3>Copyright © 2023 Getbilding</h3>
         </footer>
     </div>
   )

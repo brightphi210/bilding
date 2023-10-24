@@ -94,7 +94,7 @@ const WorkerDash = () => {
       };
 
 
-
+      
       const [searchQuery, setSearchQuery] = useState('')
       let searchUrl2 = `https://bildingapi.onrender.com/api/projects?search=${searchQuery}`
 

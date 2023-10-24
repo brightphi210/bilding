@@ -7,19 +7,22 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Card, Placeholder } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
+import SupplierRequestModal from './SupplierRequestDes/SupplierRequestModal';
 
 const SupplierDashHome = () => {
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  const [modal, setModal] = useState(false)
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+    const [modal2, setModal2] = useState(false)
+  
+    const showModal = ()=>{
+        setModal(true)
+    }
+  
+    const hideModal = ()=>{
+        setModal(false)
+    }
 
   const responsive = {
     desktop: {
@@ -40,6 +43,8 @@ const SupplierDashHome = () => {
     
   };
 
+
+  const [isLoading, setIsLoading] = useState()
 
   const url = 'https://bildingapi.onrender.com/api/requests'
   const token = localStorage.getItem('authToken');
@@ -65,10 +70,13 @@ const SupplierDashHome = () => {
 
 
   const [selectedData, setSelectedData] = useState([])
+  
+
+
 
   const handleMoreClick = (data) => {
       setSelectedData(data);
-      // showModal(true);
+      showModal(true);
   };
     
 
@@ -273,6 +281,8 @@ const SupplierDashHome = () => {
                     )}
 
                 </div>
+                  <SupplierRequestModal isOpen={modal} onClose={hideModal} selectedData = {selectedData}/>
+
             </section>
         </section>
     </div>

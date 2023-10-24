@@ -97,12 +97,14 @@
 @media only screen and (min-width:321px) and (max-width:768px){
 
     .sectionThree{
-        height: 109vh;
+        height: 90vh;
     }
 
     .sectionThree::before {
         height: 100%;
     }
+
+
     .sectionThreeText{
         isolation: isolate;
         padding-top: 15%;
@@ -112,12 +114,12 @@
     
     
     .sectionThreeText h2{
-        font-size: 30px;
+        font-size: 25px;
         text-align: center;
     }
     
     .sectionThreeText h3{
-        font-size: 30px;
+        font-size: 20px;
         font-weight: 500;
     }
     
@@ -143,7 +145,7 @@
     }
     
     .sectionThreeEach h2{
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 500;
         padding-bottom: 10px;
     }
@@ -168,5 +170,41 @@
         gap: 15px;
         padding: 50px 8%;
         isolation:  isolate;
+    }
+}
+
+@media only screen and (min-width:1024px) and (max-width: 1200px){
+    .sectionThree{
+        height: 50vh;
+    }
+
+    .sectionThree::before {
+        height: 100%;
+    }
+
+
+    .sectionThreeText{
+        padding-top: 10%;
+    }
+
+    .sectionThree h3{
+        font-size: 25px;
+        font-weight: 300;
+    }
+
+    .sectionThreeDiv{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px;
+        padding: 30px 5%;
+        isolation:  isolate;
+    }
+
+    .sectionThreeDiv h2{
+        font-size: 25px;
+    }
+
+    .sectionThreeEach{
+        padding: 20px;
     }
 }

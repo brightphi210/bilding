@@ -32,7 +32,7 @@ h1,h2,h3,h4,h5,h6, p, span, label, button, input, select, textarea{
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
-    padding: 10px 5%;
+    padding: 8px 5%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: var(--white-color);
     position: fixed;
@@ -44,7 +44,7 @@ h1,h2,h3,h4,h5,h6, p, span, label, button, input, select, textarea{
 
 
 .headers img{
-    width: 250px;
+    width: 150px;
 }
 
 .ulDiv{
@@ -159,7 +159,7 @@ ul .li:hover::before {
 
 
     .headers img{
-        width: 200px;
+        width: 120px;
     }
 
     .nav-ul1 .li{

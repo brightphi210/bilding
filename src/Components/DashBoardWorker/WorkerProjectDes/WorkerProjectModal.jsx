@@ -11,6 +11,8 @@ const WorkerProjectModal = ({isOpen, onClose, selectedData}) => {
     const { id } = useParams()
 
     if (!isOpen) return null;
+
+    
   return (
     <div className='projectHireSectionDiv'>
         <section className='projectHireSection'>
