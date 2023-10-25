@@ -45,8 +45,9 @@ const WorkerSignUp = () => {
         lastname: '',
         email: '',
         password: '',
+        password2: '',
         phone_number: '',
-        location: '',
+        country: '',
         about: '',
         profession: '',
         updates: false,
@@ -105,6 +106,13 @@ const WorkerSignUp = () => {
   
     const togglePasswordVisibility = () => {
       setShowPassword(!showPassword);
+    };
+
+
+    const [showPassword2, setShowPassword2] = useState(false);
+
+    const togglePasswordVisibility2 = () => {
+      setShowPassword2(!showPassword2);
     };
 
     return (
@@ -173,14 +181,48 @@ const WorkerSignUp = () => {
           ></i>
           </div>
 
-          <input 
-            type='text'
-            name="location"
-            placeholder='Location e.g (Nigeria)' 
-            value={formData.location}
+
+          <div className='eyeDiv'>
+            <input 
+              type={showPassword2 ? 'text' : 'password'} 
+              name="password2"
+              placeholder='Confirm Password e.g (Johndoe6421@)' 
+              value={formData.password2}
+              onChange={handleChange}
+              required
+            />
+
+
+
+            <i
+              className={`fa ${showPassword2 ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icon`}
+              onClick={togglePasswordVisibility2}
+            ></i>
+          </div>
+
+          <div className='createOneDiv'>
+          {/* <label>Country, e.g (Nigeria)</label> */}
+          <select 
+            placeholder='Title' 
+            className='createSelect'
+            name='country'
+            value={formData.country}
             onChange={handleChange}
             required
-          />
+            >
+            <option value="">Country</option>
+            <option value="Nigeria">Nigeria</option>
+            <option value="Egypt">Egypt</option>
+            <option value="South Africa">South Africa</option>
+            <option value="Morocco">Morocco</option>
+            <option value="Kenya">Kenya</option>
+            <option value="Ethopia">Ethopia</option>
+            <option value="Ghana">Ghana</option>
+            <option value="Cameroon">Cameroon</option>
+            <option value="Tanzania">Tanzania</option>
+            <option value="Cote d'Ivoire">Cote d'Ivoire</option>
+          </select> 
+        </div>
 
 
           <input 

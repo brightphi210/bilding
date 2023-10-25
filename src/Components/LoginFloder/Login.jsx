@@ -145,7 +145,7 @@ const Login = () => {
                   placeholder='Email address or Phone Number'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)} 
-                  // required
+                  required
                 />
 
 
@@ -155,7 +155,7 @@ const Login = () => {
                     placeholder='Password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    // required
+                    required
                   />
 
                   <i

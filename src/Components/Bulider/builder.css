@@ -162,6 +162,11 @@ hr{
     text-align: left;
     padding-top: 20px;
     font-size: 12px;
+    color: black;
+}
+
+.span3 a{
+    color: #C32F07;
 }
 
 .terms{
