@@ -16,10 +16,11 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfrimPassword] = useState('');
+  const [ password2, setPassword2] = useState('');
   const [error, setError] =useState('');
   const [emailError, setEmailError] =useState('');
   const [passError, setPassError] =useState('');
+  const [confirmPasswordErrr, setConfirmPasswordErrr] =useState('');
   
 
   const navigate = useNavigate()
@@ -50,8 +51,16 @@ const Login = () => {
       setPassError("Password Field must not be empty")
     }
 
+    else if(password !== password2){
+      // setConfirmPasswordErrr("Password do not match")
+    }
+
+
+    // else if()
+
     setTimeout(() => setEmailError(''), 3000);
     setTimeout(() => setPassError(''), 3000);
+    setTimeout(() => setConfirmPasswordErrr(''), 3000);
 
 
     e.preventDefault();
@@ -64,23 +73,28 @@ const Login = () => {
             body: JSON.stringify({
                 email,
                 password,
+                password2,
             }),
         });
 
-        if (response.ok) {
+        if (response.ok ) {
             const data = await response.json();
             localStorage.setItem('authToken', data.access);
             navigate('/dashboard', { myMessage: 'Successfully logged in!' });
             
-        } else {
+        }else {
             console.log('This Error occured while logging in');
-            setError('Incorrect username or password');
-            setTimeout(() => setError(''), 3000);
             setIsLoading(false);
+            setTimeout(() => setError(''), 3000);
+            setError('Invalid details, try again');
         }
+
+
+        
     } catch (error) {
         console.log('Error logging')
         setIsLoading(false); 
+
     }
 
     finally {
@@ -94,6 +108,15 @@ const Login = () => {
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+
+
+  const [myPassword2, setMyPassword2] = useState('');
+  const [showPassword2, setShowPassword2] = useState(false);
+
+  const togglePasswordVisibility2 = () => {
+    setShowPassword2(!showPassword2);
   };
 
 
@@ -114,6 +137,7 @@ const Login = () => {
                   {error && <p className='errorLog'> <BiError /> {error} </p>}
                   {emailError && <p className='errorLog'> <BiError /> {emailError} </p>}
                   {passError && <p className='errorLog'> <BiError /> {passError} </p>}
+                  {confirmPasswordErrr && <p className='errorLog'> <BiError /> {confirmPasswordErrr} </p>}
                   
                 {/* </div> */}
                 <input 
@@ -143,16 +167,16 @@ const Login = () => {
 
                 <div className='eyeDiv'>
                   <input 
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword2 ? 'text' : 'password'}
                     placeholder='Confrim Password'
-                    value={confirmPassword}
-                    onChange={(e) => setConfrimPassword(e.target.value)}
-                    // required
+                    value={password2}
+                    onChange={(e) => setPassword2(e.target.value)}
+                    required
                   />
 
                   <i
-                    className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icons`}
-                    onClick={togglePasswordVisibility}
+                    className={`fa ${showPassword2 ? 'fa-eye-slash' : 'fa-eye'} password-toggle-icons`}
+                    onClick={togglePasswordVisibility2}
                   ></i>
                 </div>
 

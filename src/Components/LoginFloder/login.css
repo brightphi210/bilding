@@ -129,6 +129,25 @@
     color: #C32F07;
 }
 
+.formDiv{
+    position: relative;
+}
+
+
+.errorLog{
+    background-color:#ffc2b2;
+    padding: 10px 20px;
+    position: absolute;
+    top: 90px !important;
+    right: 60px;
+    left: 80px;
+    z-index: 1000;
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 40%;
+}
+
 @media only screen and (min-width:321px) and (max-width:767px){
     .loginDiv{
         display: grid;
@@ -207,16 +226,17 @@
     }
 
     .errorLog{
-        background-color:#da5c39;
+        background-color:#ffc2b2;
         padding: 10px;
         position: absolute;
-        top: 70px !important;
+        top: -40px !important;
         right: 60px;
-        left: 60px;
+        left: 40px;
         z-index: 1000;
         color: white;
         border-radius: 10px;
         font-size: 12px;
+        width: 80%;
     }
 
     /* .up{
@@ -236,7 +256,7 @@
     .loginDiv{
         display: grid;
         grid-template-columns: 1fr;
-        height: 70vh;
+        height: 75vh;
         align-items: center;
         text-align: center;
     }
@@ -282,7 +302,24 @@
         top: 20px;
         cursor: pointer;
     }
+
+
+    .errorLog{
+        background-color:#ffc2b2;
+        padding: 10px;
+        position: absolute;
+        top: -50px !important;
+        right: 0;
+        left: 200px;
+        z-index: 1000;
+        color: white;
+        border-radius: 10px;
+        font-size: 12px;
+        width: 50%;
+    }
 }
+
+
 
 
 @media only screen and (min-width:1024px) and (max-width: 1200px){
@@ -334,6 +371,10 @@
 
     .googleForm .googleLog{
         width: 100%;
+    }
+
+    .errorLog{
+        width: 70%;
     }
 
 }
