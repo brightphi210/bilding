@@ -221,9 +221,13 @@
     }
 }
 
-@media (max-width: 1344px) {
+
+
+
+@media only screen and (min-width: 1201px) and (max-width: 1363px){
+
     .sectionThree{
-        height: 110vh;
+        height: 120vh;
     }
 
     .sectionThree::before {
@@ -233,4 +237,20 @@
     .sectionThreeDiv h2{
         font-size: 25px;
     }
+  }
+
+
+  @media only screen and (min-width: 1364px) and (max-width: 1648px){
+    .sectionThree{
+        height: 120vh;
+    }
+
+    .sectionThree::before {
+        height: 100%;
+    }
+
+    .sectionThreeDiv h2{
+        font-size: 25px;
+    }
+  
   }
