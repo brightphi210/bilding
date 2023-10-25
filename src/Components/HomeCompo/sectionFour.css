@@ -212,9 +212,21 @@
     }
   }
 
-/* .sectionFourText{
-    background-color: var(--black-color);
-    padding: 50px;
-    color: var(--white-color);
-    height: 100%;
-} */
+
+
+  @media only screen and (min-width: 1201px) and (max-width: 1363px){
+    .sectionFourImg img{
+        height: 120vh;
+    }
+
+
+  }
+
+
+  @media only screen and (min-width: 1364px) and (max-width: 1648px){
+    .sectionFourImg img{
+        height: 120vh;
+    }
+
+  
+  }

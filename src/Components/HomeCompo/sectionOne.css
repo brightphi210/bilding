@@ -397,14 +397,25 @@
   }
 
 
-/* @media screen and (min-width: 1439px) {
+  @media only screen and (min-width: 1201px) and (max-width: 1363px){
     .sectionOne{
-        height: 70vh;
+        height: 120vh;
     }
 
     .sectionOne::before{
         height: 100%;
     }
-} */
+  }
 
-/* 1025px  — 1200px: Desktops, large screens */
+
+  @media only screen and (min-width: 1364px) and (max-width: 1648px){
+    .sectionOne{
+        height: 130vh;
+        
+    }
+
+    .sectionOne::before{
+        height: 100%;
+    }
+  
+  }
