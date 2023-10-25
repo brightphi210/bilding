@@ -44,7 +44,7 @@ const Builder = () => {
     lastname: '',
     email: '',
     password: '',
-    confirmPassword: '',
+    password2: '',
     phone_number: '',
     location: '',
     profession: '',
@@ -106,7 +106,6 @@ const Builder = () => {
         setIsLoading(false); 
         }
   
-
   };
 
 
@@ -117,11 +116,23 @@ const Builder = () => {
     setShowPassword(!showPassword);
   };
 
+
+  const [phoneError, setPhoneError] = useState('');
+  const handleError = () => {
+    if(formData.phone_number.length < 11){
+      setPhoneError('Invalid phone number, must be 11 digits')
+    }
+  }
+
+
+  console.log(formData.phone_number.length)
+
   return (
     <div>
       
       <section className='builderSectionOne'>
         <h2>Sign up to start your project.</h2>
+        {phoneError && <p>{phoneError}</p>}
         <p>
           Find the right skilled labour, suppliers, 
           and everyone needed to get your project to life.
@@ -189,9 +200,9 @@ const Builder = () => {
           <div className='eyeDiv'>
             <input 
               type={showPassword ? 'text' : 'password'} 
-              name="confirmPassword"
+              name="password2"
               placeholder='Confirm Password e.g (Johndoe6421@)' 
-              value={formData.confirmPassword}
+              value={formData.password2}
               onChange={handleChange}
               required
             />
@@ -246,7 +257,7 @@ const Builder = () => {
 
 
           {/* <Link to={'/builder/verify'}></Link> */}
-          <button className='joinBtn' style={{backgroundColor : btnBg}}  type='submit' > {isLoading? 'Loading. . .' : 'SignUp'}</button>
+          <button className='joinBtn' style={{backgroundColor : btnBg}}  type='submit' onClick={handleError} > {isLoading? 'Loading. . .' : 'SignUp'}</button>
           
 
 
