@@ -181,6 +181,19 @@
     } 
 
 
+    .dashEmptyDiv img{
+        width: 200px;
+    } 
+
+    .dashEmptyDiv h2{
+        font-size: 20px;
+    }
+
+    .dashEmptyDiv p{
+        font-size: 13px;
+    }
+
+
 }
 
 

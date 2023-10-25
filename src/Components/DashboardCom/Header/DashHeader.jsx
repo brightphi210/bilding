@@ -67,6 +67,8 @@ const DashHeader = () => {
     }, []);
 
 
+    console.log(data)
+
   return (
     <div>
       {/* {} */}

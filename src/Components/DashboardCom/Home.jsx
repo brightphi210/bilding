@@ -336,7 +336,7 @@ const Home = () => {
 
           <p>
             Create your first project or request 
-            in order to get the required help needed  <br />
+            in order to get the required help needed
             for your construction job.
           </p>
 
