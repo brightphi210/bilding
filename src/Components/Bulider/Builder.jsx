@@ -250,7 +250,7 @@ const Builder = () => {
             <option value="South Africa">South Africa</option>
             <option value="Morocco">Morocco</option>
             <option value="Kenya">Kenya</option>
-            <option value="Ethopia">Ethopia</option>
+            <option value="Ethiopia">Ethiopia</option>
             <option value="Ghana">Ghana</option>
             <option value="Cameroon">Cameroon</option>
             <option value="Tanzania">Tanzania</option>
