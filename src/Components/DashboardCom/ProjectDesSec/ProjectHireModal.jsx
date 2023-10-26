@@ -5,20 +5,55 @@ import ProjectHireModal2 from './ProjectHireModal2'
 import proImage from './newvec.png'
 
 import newvecImg from './newvec.png'
-const ProjectHireModal = ({isOpen, onClose, selectedApplication}) => {
-
-    const [modal2, setModal2] = useState(false)
-    if (!isOpen) return null;
+import { useNavigate } from 'react-router-dom'
+const ProjectHireModal = ({isOpen, onClose, selectedApplication, onClick}) => {
 
 
+  const [isLoading, setIsLoading] = useState(false)
 
-    const showModal2 = ()=>{
-        setModal2(true)
-      }
+    const navigate = useNavigate()
+    //   console.log(selectedApplication)
+    const token = localStorage.getItem('authToken');
+    const [accepted, setAccepted] = useState (false);
+
+    const url2 = `https://bildingapi.onrender.com/api/bids/accept/${selectedApplication.id}`;
+
+
+
+    const [message, setMessage] = useState('')
+
+    const updateInput =  async (e) => {
+  
+      try{
     
-      const hideModal2 = ()=>{
-        setModal2(false)
+        const response = await fetch(url2, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            "Authorization": `Bearer ${token}`,
+          },
+  
+  
+          body: JSON.stringify({ accepted: true })
+        })
+  
+  
+        if (response.ok) {
+            setAccepted(true);
+            console.log('Product Successfully Created!');
+            setMessage("You have Successfully Hired a worker")
+            navigate('/dashboard/hire/success')
+        } else {
+          console.error( response.statusText, 'Product Failed to Create');
+          
+        }
+        
+      }catch(e){
+        console.log("THis is an error")
       }
+    }
+
+    if (!isOpen) return null;
   return (
     
     <div className='projectHireSectionDiv'>
@@ -27,7 +62,8 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication}) => {
             <>
             <div className='hireSecDiv'>
                 <h2>₦{selectedApplication.amount}</h2>
-                <button onClick={showModal2}>Hire</button>
+                {/* {console.log(selectedApplication.id)} */}
+                <button onClick={updateInput}>Hire</button>
             </div>
 
             <div className='projectPro'>
@@ -82,7 +118,7 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication}) => {
                 <hr />
             </div>
         </section>
-        <ProjectHireModal2 isOpen2={modal2} onClose2={hideModal2}/>
+        {/* <ProjectHireModal2 /> */}
     </div>
   )
 }

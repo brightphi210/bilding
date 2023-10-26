@@ -90,7 +90,7 @@ const BuilderCreate = () => {
       if (response.ok) {
         const data = await response.json()
         console.log('Product Successfully Created!', data);
-        navigate('/dashboard')
+        navigate('/dashboard/builder/success')
       } else {
         console.error( response.statusText, 'Product Failed to Create');
         

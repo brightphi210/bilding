@@ -42,6 +42,8 @@ import SupplierSignUp from "./Components/Supplier/SupplierSignUp";
 import SupplierPage from "./Pages/Suppliers/SupplierPage";
 import SupplierApplicationPage from "./Pages/DashboardSupplier/SupplierApplicationPage";
 import SupplierApplyPage from "./Pages/DashboardSupplier/SupplierApplyPage";
+import ProjectHireModal2 from "./Components/DashboardCom/ProjectDesSec/ProjectHireModal2";
+import BuilderCreateModal from "./Pages/Builder/BuilderCreateModal";
 
 
 function App() {
@@ -83,6 +85,9 @@ function App() {
 
                   {/* ================= Builder Create Routes ================= */}
                   <Route path="/builder/project/create" element={<BuilderCreate />} />
+                  <Route path="/builder/project/success" element={<BuilderCreateModal />} />
+
+
                   <Route path="/builder/request/create" element={<BuilderProReq />} />
               
 
@@ -117,6 +122,11 @@ function App() {
                   <Route path="/dashboard/profile/info" element={<ProfileDashboard />} />
                   <Route path="/dashboard/profile/setting" element={<ProfileDashboardSett />} />
                   <Route path="/dashboard/profile/modal" element={<ProfileModal />} />
+
+
+                  <Route path="/dashboard/hire/success" element={<ProjectHireModal2 />} />
+
+
 
 
 

@@ -2,12 +2,11 @@ import React from 'react'
 import hireImg from './d.png'
 import { Link } from 'react-router-dom';
 
-const ProjectHireModal2 = ({isOpen2, onClose2, }) => {
-    if (!isOpen2) return null;
+const ProjectHireModal2 = () => {
   return (
     <div className='projectHireSectionDiv2'>
         <section className='projectHireSection2'>
-            <i class="uil uil-multiply hiredClose" onClick={onClose2}></i>
+            <i class="uil uil-multiply hiredClose"></i>
             <div className='HiredModal'>
                 <img src={hireImg} alt="" />
                 <p>

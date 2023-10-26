@@ -5,6 +5,8 @@ import ProjectHireModal from './ProjectHireModal'
 import ProjectHireModal2 from './ProjectHireModal2'
 import sectTwoImage from './ggh.png'
 
+import { useParams } from 'react-router-dom'
+
 import { Link } from 'react-router-dom'
 
 const ProjectDescSec2 = () => {
@@ -14,29 +16,31 @@ const ProjectDescSec2 = () => {
 
   const [application, setApplication] = useState([])
   const [selectedApplication, setSelectedApplication] = useState([])
-  const [isLoading, setIsLoading] = useState(false);
 
-  const url = 'https://bildingapi.onrender.com/api/bids/user/'
+
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const token = localStorage.getItem('authToken');
   
   const showModal = ()=>{
-      setModal(true)
+    setModal(true)
   }
 
   const hideModal = ()=>{
       setModal(false)
   }
-
+  
 
   const showModal2 = ()=>{
     setModal2(true)
   }
-
+  
   const hideModal2 = ()=>{
     setModal2(false)
   }
-
+  
+  const url = 'https://bildingapi.onrender.com/api/bids/user/'
 
 
   const fetchData = async () => {
@@ -61,11 +65,61 @@ const ProjectDescSec2 = () => {
   }, [])
 
 
-
   const handleMoreClick = (myApplication) => {
     setSelectedApplication(myApplication);
     showModal(true);
   };
+
+
+  const {myId} = useParams()
+
+  const [accepted, setAccepted] = useState (false);
+
+  let targetProductId = null;
+
+
+  application.map((appli) => {
+    // if(!application.title){
+      targetProductId = null;
+    // }
+
+    // else(targetProductId = appli.id)
+  })
+
+
+  const url2 = `https://bildingapi.onrender.com/api/bids/accept/${myId}`;
+
+
+  const updateInput =  async (e) => {
+
+    try{
+  
+      const response = await fetch(url2, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          "Authorization": `Bearer ${token}`,
+        },
+
+
+        body: JSON.stringify({ accepted: true })
+      })
+
+
+      if (response.ok) {
+        setAccepted(true);
+        console.log('Product Successfully Created!');
+        // setFormData
+        // navigate('/dashboard')
+      } else {
+        console.error( response.statusText, 'Product Failed to Create');
+        
+      }
+      
+    }catch(e){
+      console.log("THis is an error")
+    }
+  }
 
   
   return (
@@ -80,8 +134,10 @@ const ProjectDescSec2 = () => {
           </section>): 
         (<>
           {application.map((myApplication)=>(
+            <>
+            {/* <hr /> */}
             <div className='projectSectionTwo' key={myApplication.applicant.id}>
-              {console.log(myApplication)}
+              {/* {console.log(myApplication.id)} */}
               <div className='proSeniorDiv'>
                   <img src={VectorImage} alt="" />
               </div>
@@ -104,19 +160,23 @@ const ProjectDescSec2 = () => {
                 <h2>₦{myApplication.amount}</h2>
                 <div className='projectSec2Btns'>
 
-                  <button className ="secTwoView" onClick={() => handleMoreClick(myApplication)}>View</button>
-                  <button className='secTwoHire' onClick={showModal2}>Hire</button>
+                  <button className ="secTwoView" onClick={() => handleMoreClick(myApplication)}>Hire User</button>
+                  {/* <button className='secTwoHire' onClick={updateInput}>Hire</button> */}
                 </div>
               </div>
             </div>
-          ))}
             <hr />
+            </>
+
+          ))}
+          
+            
         </>)}
         </section>
 
 
         <ProjectHireModal isOpen={modal} onClose={hideModal} selectedApplication = {selectedApplication}/>
-        <ProjectHireModal2 isOpen2={modal2} onClose2={hideModal2}/>
+        {/* <ProjectHireModal2 isOpen2={modal2} onClose2={hideModal2}/> */}
       </section>
     </div>
   )
