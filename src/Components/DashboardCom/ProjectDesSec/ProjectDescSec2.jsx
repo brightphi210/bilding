@@ -3,6 +3,7 @@ import './projectDescSec123.css'
 import VectorImage from './newvec.png'
 import ProjectHireModal from './ProjectHireModal'
 import ProjectHireModal2 from './ProjectHireModal2'
+import sectTwoImage from './ggh.png'
 
 import { Link } from 'react-router-dom'
 
@@ -71,7 +72,13 @@ const ProjectDescSec2 = () => {
     <div>
       <section className='projectSectionTwoDiv'>
         <section>
-
+        {application.length === 0 ? 
+          (<section className='projectSecThree'>
+            <img src={sectTwoImage} alt="" />
+            <h3>No Application yet.</h3>
+            <p>Please go to your applications section, and select <br /> a preferred candidate for your project</p>
+          </section>): 
+        (<>
           {application.map((myApplication)=>(
             <div className='projectSectionTwo' key={myApplication.applicant.id}>
               {console.log(myApplication)}
@@ -85,7 +92,7 @@ const ProjectDescSec2 = () => {
                 </div>
                   <div className='proSenior'>
                     <h2>{myApplication.applicant.profession}</h2>
-                    <span><i class="uil uil-location-point sectTwoIcons"></i> {myApplication.applicant.location}</span>
+                    <span><i class="uil uil-location-point sectTwoIcons"></i> {myApplication.applicant.country}</span>
                   </div>
                 <p>
                   <b>Bio</b>: {myApplication.applicant.about}
@@ -104,6 +111,7 @@ const ProjectDescSec2 = () => {
             </div>
           ))}
             <hr />
+        </>)}
         </section>
 
 

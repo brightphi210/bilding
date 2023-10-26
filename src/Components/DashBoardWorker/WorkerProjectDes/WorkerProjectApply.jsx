@@ -109,9 +109,9 @@ const WorkerProjectApply = ({ selectedData }) => {
         <section className='applySection'>
             <h2 className='applyTech'>Apply to work on this project</h2>
             {project && ( <>
-            <section className='secBorder'>
+            <section className=''>
                 <div className='projectDesBord'>
-                {console.log(project)}
+                {/* {console.log(project)} */}
                 <div className='copyDiv'>
                     <div className=''>
                         {/* <span>https://bilding.contruction/project....</span> */}

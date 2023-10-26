@@ -8,8 +8,8 @@ const ProSide = () => {
             <Link to={'/dashboard/profile/info'}><h2>Contact Information</h2></Link>
             <hr />
             <Link to={'/dashboard/profile/setting'}><h2>Profile Settings</h2></Link>
-            <hr />
-            <Link to={'/dashboard/profile/setting'}><h2>Change Password</h2></Link>
+            {/* <hr /> */}
+            {/* <Link to={'/dashboard/profile/setting'}><h2>Change Password</h2></Link> */}
         </section>
     </div>
   )

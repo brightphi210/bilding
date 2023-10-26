@@ -77,36 +77,62 @@ const SupplierRequestApply = ({selectedData}) => {
     fetchItem()
   }, [])
 
+
+  
+
 const [formData, setFormData] = useState({
-    amount: "",
+    uploaded_bids: [{amount: ""}],
     duration : "",
-    applicationletter : "",
+    letter : "",
     images: null,
 })
 
 
-const handleChange = (e) => {
-  const { name, value, type } = e.target;
-  const newValue = type === "file" ? e.target.files[0] : value;
-  setFormData({ ...formData, [name]: newValue });
-}
+// const handleChange = (e, index) => {
+//   const { name, value, type } = e.target;
+//   const newValue = type === "file" ? e.target.files[0] : value;
+//   setFormData({ ...formData, [name]: newValue });
+// }
+
+
+const handleChange = (e, index) => {
+  const { name, value, type, files } = e.target;
+
+  if (type === 'file') {
+    setFormData({ ...formData, [name]: files[0] });
+  } 
+
+  else if (name === 'amount') {
+    const newItems = [...formData.uploaded_bids];
+    newItems[index][name] = value;
+    setFormData({ ...formData, uploaded_bids: newItems });
+  }
+  else {
+    setFormData({ ...formData, [name]: value });
+  }
+};
+
+const newFormData = JSON.stringify(formData.uploaded_bids);
 
 
 const postData = async (e) =>{
   e.preventDefault();
   setIsLoading(true);
+
   let url = `https://bildingapi.onrender.com/api/bids/${request.id}`
+  let applyUrl = `https://bildingapi.onrender.com/api/applies/${request.id}`
   try {
 
       const formDataNew = new FormData();
 
-      formDataNew.append('amount', formData.amount);
+      // formDataNew.append('amount', formData.amount);
       formDataNew.append('duration', formData.duration);
-      formDataNew.append('applicationletter', formData.applicationletter);
+      formDataNew.append('letter', formData.letter);
       formDataNew.append('images', formData.images);
+      formDataNew.append('uploaded_bids', newFormData);
 
 
-      const response = await fetch (url, {
+      const response = await fetch (applyUrl, {
           method: 'POST',
           headers : {
               "Authorization": `Bearer ${token}`,
@@ -128,14 +154,6 @@ const postData = async (e) =>{
       
   }
 }
-
-
-// const [myItems, setMyItems] = useState([]);
-
-// const newItems = request.items
-// (newItems.map((item)=>(
-//   console.log(item)
-//   )))
 
 
 const formatAmount = (value) => {
@@ -181,6 +199,10 @@ const formatAmount = (value) => {
                 </div>
 
 
+
+
+
+
                 <div className='bidDiv'>
                     <h2>Bid</h2>
                     <form action="" onSubmit={postData}>
@@ -203,34 +225,21 @@ const formatAmount = (value) => {
                                 </p>
                               </div>
 
-                              <div>
+                            {formData.uploaded_bids.map((item, index) => (
+                              <div key={index}>
                                 <h3>Bid</h3>
                                 <input 
-                                type="number" 
-                                placeholder='NGN'
-                                name='amount'
-                                onChange={handleChange}
-                                value={formData.amount}
-                                required
-                            />
+                                  type="number" 
+                                  placeholder='NGN'
+                                  name='amount'
+                                  value={item.amount}
+                                  onChange={(e) => handleChange(e, index)}
+                                  required
+                                />
                               </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div>
-                          <h2>Delivery inclusive:</h2>
-                          <div className='willDeliver'>
-                            <input type="checkbox" />
-                            <label>I’ll be delivering the goods.</label>
+                            ))}
                           </div>
 
-                          <div className='createOneDiv delivery'>
-                            <label htmlFor="">Delivery duration:</label>
-                            <input type="text" placeholder='(e.g) 2 months '/>
-                          </div>
                         </div>
 
                         <div className='createOneDiv bidFormDiv'>
@@ -253,8 +262,8 @@ const formatAmount = (value) => {
                         <div className='createOneDiv bidFormDiv'>
                             <label htmlFor="">Application letter</label>
                             <textarea 
-                                name="applicationletter" 
-                                value={formData.applicationletter}
+                                name="letter" 
+                                value={formData.letter}
                                 onChange={handleChange}
                                 required
                         />

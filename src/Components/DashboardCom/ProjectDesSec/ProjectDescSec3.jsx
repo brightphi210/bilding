@@ -1,9 +1,16 @@
 import React from 'react'
 import './projectDescSec123.css'
+import { useState, useEffect } from 'react'
 import VectorImage from './newvec.png'
 import sectTwoImage from './ggh.png'
 
+
+
 const ProjectDescSec3 = () => {
+
+  const [hires, setHires] = useState([])
+
+  // const 
   return (
     <div>
       {/* <section className='projectSecThree'>

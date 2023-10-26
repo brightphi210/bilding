@@ -24,6 +24,11 @@
     padding: 50px 0;
 }
 
+.proDesOneDiv b{
+    color: #808080;
+    font-weight: 300px;
+}
+
 .proDesOneFlexTwo{
     display: grid;
     grid-template-columns: 4fr 200px;
@@ -145,7 +150,12 @@
     display: block;
 }
 
-
+.noAvail{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 17px;
+    color: #808080;
+}
 
 @media only screen and (min-width:321px) and (max-width:768px){
     
@@ -416,10 +426,12 @@
     width: 20%;
 }
 
-.projectSecThree h2{
+.projectSecThree h3{
     font-size: 20px;
     color: #000000;
     padding-top: 20px;
+    text-align: center;
+    font-weight: 400;
 } 
 
 

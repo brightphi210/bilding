@@ -53,8 +53,8 @@ const ProInfo = () => {
         lastname: '',
         email: '',
         phone_number: '',
-        location: '',
-        profile : {address: '', state: '',}
+        country: '',
+        // profile : {address: '', state: '',}
     });
 
 
@@ -62,19 +62,6 @@ const ProInfo = () => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
-
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-          ...formData,
-          profile: {
-            ...formData.profile,
-            [name]: value,
-          },
-        });
-      };
-
 
 
 
@@ -114,7 +101,7 @@ const ProInfo = () => {
         newFormData.append('lastname', formData.lastname);
         newFormData.append('email', formData.email);
         newFormData.append('phone_number', formData.phone_number);
-        newFormData.append('location', formData.location);
+        newFormData.append('country', formData.country);
         newFormData.append('profile.address', formData.profile.address);
         newFormData.append('profile.state', formData.profile.state);
 
@@ -131,6 +118,79 @@ const ProInfo = () => {
                 console.log("Successfully updated")
                 setSuccess('Successfuly Updated')
                 
+            } else {
+              console.log("Failed to update")
+            }
+          })
+          .catch((error) => {
+            console.error('Error updating user profile:', error);
+          });
+      }
+
+
+      const [proFormData, setProFormData] = useState ({
+        address: '',
+        bvn: null,
+        state: '',
+    });
+
+
+    const handleProChange = (e) => {
+        const { name, value } = e.target;
+        setProFormData({ ...proFormData, [name]: value });
+    };
+
+
+    const fetchUserProData = async (e) => {
+
+        try {
+          const response = await fetch(`https://bildingapi.onrender.com/auth/update/`, {
+            method: 'GET',
+            headers: {
+              "Authorization": `Bearer ${token}`,
+              "Content-Type": "application/json"
+            },
+          });
+          const userData = await response.json();
+          console.log("This is the user data: " + JSON.stringify(userData));
+
+          setProFormData(userData);
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      };
+
+
+      useEffect(() => {
+        fetchUserProData();
+      }, []);
+
+
+
+      function handleProSubmit(e) {
+        e.preventDefault();
+
+        // setIsLoading(true);
+
+        const newFormDataPro = new FormData();
+        newFormDataPro.append('address', proFormData.address);
+        newFormDataPro.append('bvn', proFormData.bvn);
+        newFormDataPro.append('state', proFormData.state);
+        // newFormData.append('gov_id_image', gov_id_image);
+
+      
+        fetch(`https://bildingapi.onrender.com/auth/update/${newtoken.user_id}`, {
+          method: 'PUT',
+          headers: {
+            "Authorization": `Bearer ${token}`
+          },
+          body: newFormDataPro,
+        })
+          .then((response) => {
+            if (response.ok) {
+                console.log("Successfully updated")
+                setSuccess('Successfuly Updated')
+                // navigate('/dashboard/profile/info')
             } else {
               console.log("Failed to update")
             }
@@ -180,6 +240,12 @@ const ProInfo = () => {
                                 <h3>Phone number</h3>
                                 <p>{formData.phone_number}</p>
                             </div>
+
+                            <div className='formDetails'>
+                                {/* {console.log(formData)} */}
+                                <h3>Country</h3>
+                                <p>{formData.country}</p>
+                            </div>
                                 
                         </>) : 
                         (<>
@@ -216,6 +282,16 @@ const ProInfo = () => {
                                     value={formData.phone_number}
                                     />
                                 </div>
+
+                                <div className='formDetails'>
+                                    <h3>Country</h3>
+                                    <input type="text" 
+                                    placeholder='Count . .' 
+                                    value={formData.country}
+                                    name='country'
+                                    onChange={handleChange}
+                                    />
+                                </div>
                                 <button type='submit'>Save </button>
                                 <button className='cancle' onClick={cancleShow1}>Cancle </button>
                             </form>
@@ -237,38 +313,29 @@ const ProInfo = () => {
 
                         {showEditAdd ? 
                         (<>
-                            <div className='formDetails'>
-                                {console.log(formData)}
-                                <h3>Country</h3>
-                                <p>{formData.location}</p>
-                            </div>
 
+                            <div className='formDetails'>
+                                <h3>BVN</h3>
+                                <p>{proFormData.bvn}</p>
+                            </div>
 
                             <div className='formDetails'>
                                 <h3>State</h3>
-                                <p>{formData.profile.address} ,State</p>
+                                <p>{proFormData.state} ,State</p>
                             </div>
 
 
                             <div className='formDetails'>
                                 <h3>Address</h3>
-                                <p>{formData.profile.state}</p>
+                                <p>{proFormData.address}</p>
                             </div>
+
+                            {console.log(proFormData)}
                         </>) : 
 
 
                         (<>
-                            <form action="" className='proFormDiv' onSubmit={handleSubmit}>
-                                <div className='formDetails'>
-                                    <h3>Country</h3>
-                                    <input type="text" 
-                                    placeholder='Count . .' 
-                                    value={formData.location}
-                                    name='location'
-                                    onChange={handleChange}
-                                    />
-                                </div>
-
+                            <form action="" className='proFormDiv' onSubmit={handleProSubmit}>
 
                                 <div className='formDetails'>
                                     <h3>State</h3>
@@ -276,7 +343,18 @@ const ProInfo = () => {
                                         type="text"
                                         name="profile.state"
                                         value={formData.profile.state}
-                                        onChange={handleChange}
+                                        onChange={handleProChange}
+                                    />
+                                </div>
+
+
+                                <div className='formDetails'>
+                                    <h3>BVN</h3>
+                                    <input 
+                                        type="number"
+                                        name="bvn"
+                                        value={proFormData.bvn}
+                                        onChange={handleProChange}
                                     />
                                 </div>
 
@@ -285,9 +363,9 @@ const ProInfo = () => {
                                     <h3>Address</h3>
                                     <input 
                                         type="text"
-                                        name="profile.address"
-                                        value={formData.profile.address}
-                                        onChange={handleChange}
+                                        name="address"
+                                        value={proFormData.address}
+                                        onChange={handleProChange}
                                     />
                                 </div>
                         
