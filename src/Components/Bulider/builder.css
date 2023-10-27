@@ -21,6 +21,7 @@
 /* ================ builderSectionOne ============= */
 .builderSectionOne{
     padding: 100px 10%;
+    padding-top: 150px;
     padding-bottom: 0;
     text-align: center !important;
 }
@@ -73,6 +74,14 @@
     font-size: 14px;
     border-radius: 5px;
     outline: none;
+}
+
+
+.buiderForm button {
+    padding: 10px 40px;
+    background-color: #C32F07;
+    color: white;
+    border: none;
 }
 
 

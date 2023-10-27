@@ -14,6 +14,7 @@ const BuilderBnv = () => {
 
     const [formData, setFormData] = useState ({
         address: '',
+        state: '',
         bvn: '',
     });
 
@@ -55,6 +56,9 @@ const BuilderBnv = () => {
       useEffect(() => {
         fetchUserData();
       }, []);
+
+
+      console.log(formData.id)
     
 
 
@@ -65,6 +69,7 @@ const BuilderBnv = () => {
 
         const newFormData = new FormData();
         newFormData.append('address', formData.address);
+        newFormData.append('state', formData.state);
         newFormData.append('bvn', formData.bvn);
         newFormData.append('gov_id_image', gov_id_image);
 
@@ -79,7 +84,7 @@ const BuilderBnv = () => {
           .then((response) => {
             if (response.ok) {
                 console.log("Successfully updated")
-                navigate('/dashboard')
+                // navigate('/dashboard')
             } else {
               console.log("Failed to update")
             }
@@ -101,11 +106,23 @@ const BuilderBnv = () => {
             <input 
               type="text" 
               name="address"
-              placeholder='Address' 
+              placeholder='Address e.g 35 D/Line, Port Harcourt' 
               value={formData.address}
               onChange={handleChange}
               required
             />
+
+
+            <input 
+              type="text" 
+              name="state"
+              placeholder='State e.g Rivers' 
+              value={formData.state}
+              onChange={handleChange}
+              required
+            />
+
+
             <input 
               type="text" 
               name="bvn"

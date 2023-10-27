@@ -44,6 +44,7 @@ import SupplierApplicationPage from "./Pages/DashboardSupplier/SupplierApplicati
 import SupplierApplyPage from "./Pages/DashboardSupplier/SupplierApplyPage";
 import ProjectHireModal2 from "./Components/DashboardCom/ProjectDesSec/ProjectHireModal2";
 import BuilderCreateModal from "./Pages/Builder/BuilderCreateModal";
+import Signin2 from "./Pages/Signin2";
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
 
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Signin />} />
+            <Route path="/login/new" element={<Signin2 />} />
 
 
             <Route path="/login/user" element={<SigninWorker />} />
