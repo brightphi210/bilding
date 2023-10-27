@@ -10,9 +10,9 @@ const BuilderCreateModal = () => {
         <i class="uil uil-multiply hiredClose"></i>
         <div className='HiredModal'>
             <img src={createImg} alt="" />
+            <h3>Project created successfully!</h3>
             <p>
-                You’ve successfully selected a Skilled labor, it’s time to <br /> 
-                get your project started.
+            You project has been created and sent out, keep your eyes <br /> on the notifications panel for offers from professionals.
             </p>
             <Link to={'/' + 'dashboard'}><button>Continue to dashboard</button></Link>
         </div>

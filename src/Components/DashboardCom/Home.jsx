@@ -205,6 +205,38 @@ const Home = () => {
 
 
 
+    const [hires, setHires] = useState([])
+  
+  
+    const hireUrl = 'https://bildingapi.onrender.com/api/bids/user/'
+  
+    const fetcHire = async () => {
+      try {
+        const response = await fetch(hireUrl, {
+          method: "GET",
+          headers : {
+            "Authorization": `Bearer ${token}`,
+          }
+  
+        })
+        const data = await response.json()
+
+        const verifiedCount = data.filter((item) => item.accepted).length;
+        setHires(verifiedCount)
+  
+  
+      } catch (error) {
+        console.log("There is an error fetching hired workers")
+      }
+    }
+  
+  
+    useEffect(() =>{
+      fetcHire()
+    }, [])
+
+
+
   return (
     <div>
 
@@ -272,7 +304,11 @@ const Home = () => {
           </div>
 
           <div className='dashProjectNum'>
-            <h2>0</h2>
+            {/* {hires.map((hire)=>( */}
+            <>
+            {hires=== 0 ? <h2>0</h2> : <h2>{hires}</h2>}
+            </>
+            {/* ))} */}
             <p>Skilled labor</p>
           </div>
 

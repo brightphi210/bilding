@@ -23,7 +23,7 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication, onClick}) => {
     const [message, setMessage] = useState('')
 
     const updateInput =  async (e) => {
-  
+      setIsLoading(true)
       try{
     
         const response = await fetch(url2, {
@@ -63,7 +63,7 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication, onClick}) => {
             <div className='hireSecDiv'>
                 <h2>₦{selectedApplication.amount}</h2>
                 {/* {console.log(selectedApplication.id)} */}
-                <button onClick={updateInput}>Hire</button>
+                <button onClick={updateInput}>{isLoading ? ". . ." : "Hire Now"}</button>
             </div>
 
             <div className='projectPro'>
