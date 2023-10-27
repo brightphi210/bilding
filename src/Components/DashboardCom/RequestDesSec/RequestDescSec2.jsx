@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 
 import VectorImage from './newvec.png'
 import sectTwoImage from './ggh.png'
+import RequestHireModal from './RequestHireModal'
 
 const RequestDescSec2 = () => {
 
@@ -104,7 +105,7 @@ const RequestDescSec2 = () => {
       </section>
 
 
-      {/* <ProjectHireModal isOpen={modal} onClose={hideModal} selectedApplication = {selectedApplication}/> */}
+      <RequestHireModal isOpen={modal} onClose={hideModal} selectedApplication = {selectedApplication}/>
     </section>
   </div>
   )
