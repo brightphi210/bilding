@@ -14,7 +14,7 @@ const RequestHireModal = ({isOpen, onClose, selectedApplication}) => {
     const token = localStorage.getItem('authToken');
     const [accepted, setAccepted] = useState (false);
 
-    const url2 = `https://bildingapi.onrender.com/api/bids/accept/${selectedApplication.id}`;
+    const url2 = `https://bildingapi.onrender.com/api/applies/${selectedApplication.id}`;
 
 
 

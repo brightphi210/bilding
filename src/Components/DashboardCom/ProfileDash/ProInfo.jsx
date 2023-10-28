@@ -102,8 +102,8 @@ const ProInfo = () => {
         newFormData.append('email', formData.email);
         newFormData.append('phone_number', formData.phone_number);
         newFormData.append('country', formData.country);
-        newFormData.append('profile.address', formData.profile.address);
-        newFormData.append('profile.state', formData.profile.state);
+        // newFormData.append('profile.address', formData.profile.address);
+        // newFormData.append('profile.state', formData.profile.state);
 
       
         fetch('https://bildingapi.onrender.com/auth/edit', {
@@ -130,8 +130,10 @@ const ProInfo = () => {
 
       const [proFormData, setProFormData] = useState ({
         address: '',
-        bvn: null,
+        bvn: '',
         state: '',
+        // gov_id_image : null
+
     });
 
 
@@ -161,6 +163,9 @@ const ProInfo = () => {
       };
 
 
+      console.log(proFormData)
+
+
       useEffect(() => {
         fetchUserProData();
       }, []);
@@ -176,10 +181,10 @@ const ProInfo = () => {
         newFormDataPro.append('address', proFormData.address);
         newFormDataPro.append('bvn', proFormData.bvn);
         newFormDataPro.append('state', proFormData.state);
-        // newFormData.append('gov_id_image', gov_id_image);
+        // newFormDataPro.append('gov_id_image', proFormData.gov_id_image);
 
       
-        fetch(`https://bildingapi.onrender.com/auth/update/${newtoken.user_id}`, {
+        fetch(`https://bildingapi.onrender.com/auth/update/`, {
           method: 'PUT',
           headers: {
             "Authorization": `Bearer ${token}`
@@ -341,8 +346,8 @@ const ProInfo = () => {
                                     <h3>State</h3>
                                     <input 
                                         type="text"
-                                        name="profile.state"
-                                        value={formData.profile.state}
+                                        name="state"
+                                        value={proFormData.state}
                                         onChange={handleProChange}
                                     />
                                 </div>

@@ -74,7 +74,7 @@ const BuilderBnv = () => {
         newFormData.append('gov_id_image', gov_id_image);
 
       
-        fetch(`https://bildingapi.onrender.com/auth/update/${newtoken.user_id}`, {
+        fetch(`https://bildingapi.onrender.com/auth/update/`, {
           method: 'PUT',
           headers: {
             "Authorization": `Bearer ${token}`
@@ -84,7 +84,7 @@ const BuilderBnv = () => {
           .then((response) => {
             if (response.ok) {
                 console.log("Successfully updated")
-                // navigate('/dashboard')
+                navigate('/dashboard')
             } else {
               console.log("Failed to update")
             }
