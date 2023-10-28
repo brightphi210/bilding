@@ -309,7 +309,6 @@ const Home = () => {
             <>
             {hires.length=== null || hires.length === ''|| hires.length === 0 ? <h2>0</h2> : <h2>{hires}</h2>}
             </>
-            {/* ))} */}
             <p>Skilled labor</p>
           </div>
 

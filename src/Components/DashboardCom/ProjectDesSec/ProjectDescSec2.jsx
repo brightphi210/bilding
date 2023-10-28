@@ -43,7 +43,6 @@ const ProjectDescSec2 = () => {
     try {
       const res = await fetch(url, {
         method: 'GET',
-        credentials: 'include',
         headers: {
           "Authorization": `Bearer ${token}`,
         }
