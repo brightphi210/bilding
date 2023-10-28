@@ -8,7 +8,9 @@ const BuilderReqCreateTwo = ({newData, onChange }) => {
 
             <div className='createOneDiv'>
             {newData.uploaded_items.map((item, index) => (
-              <div key={index}>
+
+              <>
+                <div key={index}>
                 <label>Item name </label>
                   <input 
                     type="text"  
@@ -28,6 +30,31 @@ const BuilderReqCreateTwo = ({newData, onChange }) => {
                     onChange={(e) => onChange(e, index)}
                   />
               </div>
+
+
+              <div key={index}>
+              <label>Item name </label>
+                <input 
+                  type="text"  
+                  placeholder='Item name'
+                  name='name'
+                  value={item.name}
+                  onChange={(e) => onChange(e, index)}
+
+                />
+
+                <label>Amount </label>
+                <input 
+                  type="number"  
+                  placeholder='Enter Amount'
+                  name='amount'
+                  value={item.amount}
+                  onChange={(e) => onChange(e, index)}
+                />
+              </div>
+
+              </>
+              
             ))}
 
             </div>

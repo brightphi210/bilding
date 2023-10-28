@@ -275,6 +275,7 @@ const Home = () => {
                   placeholder='Search for projects . . .' 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  required
                 />
 
                 {/* <span onClick={fetchData}>Search</span> */}

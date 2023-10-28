@@ -75,6 +75,7 @@ function App() {
             
             <Route path="/account/verify" element={<Verify />} />
 
+            <Route path="/builder/project/success" element={<BuilderCreateModal />} />
 
 
               <Route element={<PrivateRoute />}>
@@ -87,7 +88,6 @@ function App() {
 
                   {/* ================= Builder Create Routes ================= */}
                   <Route path="/builder/project/create" element={<BuilderCreate />} />
-                  <Route path="/builder/project/success" element={<BuilderCreateModal />} />
 
 
                   <Route path="/builder/request/create" element={<BuilderProReq />} />
