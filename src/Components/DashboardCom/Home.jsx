@@ -306,7 +306,7 @@ const Home = () => {
           <div className='dashProjectNum'>
             {/* {hires.map((hire)=>( */}
             <>
-            {hires=== 0 ? <h2>0</h2> : <h2>{hires}</h2>}
+            {hires.length=== null || hires.length === ''|| hires.length === 0 ? <h2>0</h2> : <h2>{hires}</h2>}
             </>
             {/* ))} */}
             <p>Skilled labor</p>
