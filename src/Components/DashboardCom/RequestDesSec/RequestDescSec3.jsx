@@ -65,7 +65,7 @@ const ProjectDescSec3 = () => {
                 </div>
                   <div className='proSenior'>
                     <h2>{hire.store.owner.profession}</h2>
-                    <span><i class="uil uil-location-point sectTwoIcons"></i> {hire.store.owner.address}</span>
+                    <span><i class="uil uil-location-point sectTwoIcons"></i> {hire.store.owner.country}</span>
                   </div>
                 <p>
                   {hire.store.owner.about}
