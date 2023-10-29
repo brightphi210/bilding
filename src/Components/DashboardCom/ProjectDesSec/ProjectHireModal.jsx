@@ -5,6 +5,7 @@ import ProjectHireModal2 from './ProjectHireModal2'
 import proImage from './newvec.png'
 
 import newvecImg from './newvec.png'
+import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 const ProjectHireModal = ({isOpen, onClose, selectedApplication, onClick}) => {
 
@@ -15,8 +16,10 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication, onClick}) => {
     //   console.log(selectedApplication)
     const token = localStorage.getItem('authToken');
     const [accepted, setAccepted] = useState (false);
-
-    const url2 = `https://bildingapi.onrender.com/api/bids/accept/${selectedApplication.id}`;
+    
+    const {id} = useParams()
+    
+    const url2 = `https://bildingapi.onrender.com/api/projects/${id}`
 
 
 
@@ -53,15 +56,50 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication, onClick}) => {
       }
     }
 
+
+    const [project, setProject] = useState([])
+    const [dBids, setdBids] = useState([])
+    
+    const url = `https://bildingapi.onrender.com/api/projects/${id}`
+  
+    const fetccData = async () => {
+  
+      try{
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            "Authorization": `Bearer ${token}`
+          },
+  
+        })
+  
+  
+        const data = await response.json()
+        setProject(data)
+  
+      }catch(er){
+        console.log("Error fetching project data !!! ")
+      }
+    }
+  
+  
+    useEffect(()=>{
+      fetccData()
+    }, [])
     if (!isOpen) return null;
+
+    console.log(selectedApplication)
   return (
     
     <div className='projectHireSectionDiv'>
         <section className='projectHireSection'>
             <i class="uil uil-multiply myprojIcon" onClick={onClose}></i>
+
+            {project.bids.map((item, index) => (
+              <div key={index}>
             <>
             <div className='hireSecDiv'>
-                <h2>₦{selectedApplication.amount}</h2>
+                <h2>₦{item.amount}</h2>
                 {/* {console.log(selectedApplication.id)} */}
                 <button onClick={updateInput}>{isLoading ? ". . ." : "Hire Now"}</button>
             </div>
@@ -69,20 +107,20 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication, onClick}) => {
             <div className='projectPro'>
                 <img src={newvecImg} alt="" />
                 <div className='projectProSub'>
-                    <p>{selectedApplication.applicant.firstname} {selectedApplication.applicant.lastname}</p> 
+                    <p>{item.applicant.firstname} {item.applicant.lastname}</p> 
                     <span>4.6 (9 reviews)</span>
                 </div>
             </div>
 
             <div className='projectProAddress'>
-                <p>{selectedApplication.applicant.profession}</p>
-                <span>{selectedApplication.applicant.location}</span>
+                <p>{item.applicant.profession}</p>
+                <span>{item.applicant.location}</span>
             </div>
 
             <div className='projectLetter'>
                 <h1>Appplication letter</h1>
                 <p>
-                    {selectedApplication.applicationletter}
+                    {item.applicationletter}
                 </p>
                 
 
@@ -94,12 +132,15 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication, onClick}) => {
                 <h1>About Me</h1>
                 <p><b>Hires:</b> 20</p>
                 <p>
-                    {selectedApplication.applicant.about}
+                    {item.applicant.about}
                 </p>
 
                 <hr />
             </div>
             </>
+              </div>
+            ))}
+
 
             <div className='projectLetter'>
                 <h1>Reviews</h1>

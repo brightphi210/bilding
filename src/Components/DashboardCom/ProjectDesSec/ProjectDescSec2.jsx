@@ -4,6 +4,9 @@ import VectorImage from './newvec.png'
 import ProjectHireModal from './ProjectHireModal'
 // import ProjectHireModal2 from './ProjectHireModal2'
 import sectTwoImage from './ggh.png'
+import { useParams } from 'react-router-dom'
+
+// import useParams
 
 const ProjectDescSec2 = () => {
 
@@ -35,88 +38,103 @@ const ProjectDescSec2 = () => {
   const hideModal2 = ()=>{
     setModal2(false)
   }
+
+  const {id} = useParams()
+  const [project, setProject] = useState([])
+  const [dBids, setdBids] = useState([])
   
-  const url = 'https://bildingapi.onrender.com/api/bids/user/'
+  const url = `https://bildingapi.onrender.com/api/projects/${id}`
 
+  const fetccData = async () => {
 
-  const fetchData = async () => {
-    try {
-      const res = await fetch(url, {
+    try{
+      const response = await fetch(url, {
         method: 'GET',
         headers: {
-          "Authorization": `Bearer ${token}`,
-        }
+          "Authorization": `Bearer ${token}`
+        },
 
       })
-      const data = await res.json()
-      setApplication(data)
 
-    } catch (error) {
-      console.error(error)
+
+      const data = await response.json()
+      setProject(data)
+
+    }catch(er){
+      console.log("Error fetching project data !!! ")
     }
   }
 
+
   useEffect(()=>{
-    fetchData()
+    fetccData()
   }, [])
 
 
-  const handleMoreClick = (myApplication) => {
-    setSelectedApplication(myApplication);
+  
+  console.log(project.bids)
+
+
+  const handleMoreClick = (index) => {
+    setSelectedApplication(index);
     showModal(true);
   };
  
-
-  console.log(application)
-
 
   return (
     <div>
       <section className='projectSectionTwoDiv'>
         <section>
-        {application.length === 0 ? 
-          (<section className='projectSecThree'>
+          
+        {project.bids === 0 ? ( 
+              <>
+                {project.bids.map((item, index) => (
+                  <>
+                    <div className='projectSectionTwo' key={index} >
+                      <div className='proSeniorDiv'>
+                          <img src={VectorImage} alt="" />
+                      </div>
+                      <div className=''>
+                        <div>
+                          <span className='name'>{item.applicant.firstname} {item.applicant.lastname}</span>
+                          <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
+                        </div>
+                          <div className='proSenior'>
+                            <h2>{item.applicationletter}</h2>
+                            <span><i class="uil uil-location-point sectTwoIcons"></i> {item.applicant.country}</span>
+                          </div>
+                        <p>
+                          <b>Bio</b>: {item.applicant.about}
+                        </p>
+                        <p className='hireNum'> <b>Hires:</b> 0</p>
+                      </div>
+      
+                      <div className='proSectHire'>
+                        <h2>₦{item.amount}</h2>
+                        <div className='projectSec2Btns'>
+      
+                          <button className ="secTwoView" onClick={() => handleMoreClick(index)}>Hire User</button>
+                        </div>
+                      </div>
+                    </div>
+                    <hr />  
+                  </>
+                
+                ))}
+              </>
+        ) : 
+        
+        (<>
+          <section className='projectSecThree'>
             <img src={sectTwoImage} alt="" />
             <h3>No Application yet.</h3>
             <p>Please go to your applications section, and select <br /> a preferred candidate for your project</p>
-          </section>): 
-        (
+          </section>
+        </>)
+        }
 
-          <>
-          {application.map((myApplication)=>(
-              <>
-                  <div className='projectSectionTwo' key={myApplication.applicant.id}>
-                    <div className='proSeniorDiv'>
-                        <img src={VectorImage} alt="" />
-                    </div>
-                    <div className=''>
-                      <div>
-                        <span className='name'>{myApplication.applicant.firstname} {myApplication.applicant.lastname}</span>
-                        <span className='review'><i class="uil uil-favorite sectTwoIcons"></i> 4.6 (9 reviews)</span>
-                      </div>
-                        <div className='proSenior'>
-                          <h2>{myApplication.applicant.profession}</h2>
-                          <span><i class="uil uil-location-point sectTwoIcons"></i> {myApplication.applicant.country}</span>
-                        </div>
-                      <p>
-                        <b>Bio</b>: {myApplication.applicant.about}
-                      </p>
-                      <p className='hireNum'> <b>Hires:</b> 0</p>
-                    </div>
 
-                    <div className='proSectHire'>
-                      <h2>₦{myApplication.amount}</h2>
-                      <div className='projectSec2Btns'>
 
-                        <button className ="secTwoView" onClick={() => handleMoreClick(myApplication)}>Hire User</button>
-                      </div>
-                    </div>
-                      </div>
-                      <hr />  
-                  </>
-          ))}
-        </>
-        )}
         </section>
 
 
