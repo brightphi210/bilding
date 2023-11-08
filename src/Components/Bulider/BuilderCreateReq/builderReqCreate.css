@@ -35,6 +35,23 @@
 }
 
 
+.item{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.item input{
+    width: 100%;
+}
+
+.myCloseIcon {
+    width: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
 .createOneFormDiv button{
     
 }

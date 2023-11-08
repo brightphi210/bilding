@@ -15,6 +15,10 @@ const BuilderProReq = () => {
 
   const navigate = useNavigate()
 
+  const [items, setItems] = useState([
+    {name: "", amount: ""},
+  ])
+
   const [newData, setNewData] = useState({
     title : "",
     category : "",
@@ -22,14 +26,31 @@ const BuilderProReq = () => {
     description : "",
     image1 : null,
     image2 : null,
-    uploaded_items: [{name: "", amount: ""}],
+    uploaded_items: items,
   })
 
-  // const handleChange = (e) => {
-  //   const { name, value, type } = e.target;
-  //   const newValue = type === "file" ? e.target.files[0] : value;
-  //   setNewData({ ...newData, [name]: newValue });
+
+  // const handleAdd = (e) => {
+  //   e.preventDefault();
+  //   setItems([...items, {name: "", amount: ""}])
+  //   console.log('Item Add!!', newData.items)
   // }
+
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    const updatedItems = [...items, { name: "", amount: "" }];
+    setItems(updatedItems);
+    setNewData({ ...newData, uploaded_items: updatedItems }); // Update uploaded_items in newData
+    console.log('Item Add!!', updatedItems);
+  };
+
+  const handleRemove = (e) => {
+    const list = [...items];
+    list.splice(e, 1)
+    setItems(list)
+    setNewData({...newData, uploaded_items: list})
+  }
 
 
   const handleChange = (e, index) => {
@@ -113,6 +134,9 @@ const BuilderProReq = () => {
       setNewData={setNewData} 
       onSubmit={handleSubmit} 
       onChange={handleChange}
+      handleAdd = {handleAdd}
+      handleRemove = {handleRemove}
+
       />
     }
     if(page === 1){
@@ -121,6 +145,9 @@ const BuilderProReq = () => {
       setNewData={setNewData} 
       onSubmit={handleSubmit} 
       onChange={handleChange}
+      handleAdd = {handleAdd}
+      handleRemove = {handleRemove}
+
       />
     }
     if(page === 2){
@@ -129,6 +156,8 @@ const BuilderProReq = () => {
       setNewData={setNewData} 
       onSubmit={handleSubmit} 
       onChange={handleChange}
+      handleAdd = {handleAdd}
+      handleRemove = {handleRemove}
       />
     }
   }
