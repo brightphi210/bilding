@@ -85,8 +85,7 @@ const ProjectDescSec2 = () => {
     <div>
       <section className='projectSectionTwoDiv'>
         <section>
-          
-        {project.bids === 0 ? ( 
+          {project.bids && (<>
               <>
                 {project.bids.map((item, index) => (
                   <>
@@ -122,19 +121,19 @@ const ProjectDescSec2 = () => {
                 
                 ))}
               </>
-        ) : 
-        
-        (<>
-          <section className='projectSecThree'>
-            <img src={sectTwoImage} alt="" />
-            <h3>No Application yet.</h3>
-            <p>Please go to your applications section, and select <br /> a preferred candidate for your project</p>
-          </section>
-        </>)
-        }
+              </>)}
 
-
-
+              <>
+              {!project.bids || project.bids.length === 0 && (
+                <>
+                <section className='projectSecThree'>
+                  <img src={sectTwoImage} alt="" />
+                  <h3>No Application yet.</h3>
+                  <p>Please go to your applications section, and select <br /> a preferred candidate for your project</p>
+                </section>
+                </>
+              )}
+              </>
         </section>
 
 

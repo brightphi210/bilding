@@ -13,7 +13,6 @@ const ProjectHireModal = ({isOpen, onClose, selectedApplication, onClick}) => {
   const [isLoading, setIsLoading] = useState(false)
 
     const navigate = useNavigate()
-    //   console.log(selectedApplication)
     const token = localStorage.getItem('authToken');
     const [accepted, setAccepted] = useState (false);
     

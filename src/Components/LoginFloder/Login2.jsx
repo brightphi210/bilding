@@ -184,7 +184,7 @@ const Login2 = () => {
 
 
                 <button type='submit' style={{backgroundColor : myLoadingColor} }>{
-                  isLoading? 'Signin' : 'Singin'
+                  isLoading  && (<span className="loading loading-spinner loading-md"></span>)
                 }
                 </button>
             </form>
@@ -200,7 +200,7 @@ const Login2 = () => {
         </div>
       </section>
 
-      {isLoading === true && (
+      {/* {isLoading === true && (
         <div className='creatingLoadingDiv'>
           <div className='creatingLoading'>
             <video controls={false} autoPlay loop className='video'> 
@@ -208,7 +208,7 @@ const Login2 = () => {
             </video>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   )
 }

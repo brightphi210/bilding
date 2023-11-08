@@ -123,10 +123,10 @@ const WorkerDashApplica = () => {
                     <ul className='dashProjectTWO'>
                         <>
                         <div>
-                            <li>{project.project.title}</li>
-                            {console.log(project)}
-                            <p>{project.project.categories} *</p>
-                            <span>Created: <b>{project.time}</b></span>
+                            {/* <li>{project.project.title}</li> */}
+                            {console.log(project.accepted)}
+                            {/* <p>{project.project.categories} *</p> */}
+                            {/* <span>Created: <b>{project.time}</b></span> */}
                         </div>
                         <button onClick={() => handleMoreClick(project)} className='view'>view</button>
                         {/* <Link to={`/dashboard/projects/description/${project.id}`}><button className='view'>View</button></Link> */}

@@ -19,7 +19,7 @@ const BuilderCreateReviewModals = ({ isOpen, onClose }) => {
                 keep your eyes on the notifications panel 
                 <br />for offers from professionals.
             </p>
-            <Link to={'/dashboard'}><button>Visit Dashboard</button></Link>
+            <Link to={'/dashboard'}><button >Visit Dashboard</button></Link>
         </section>
 
         

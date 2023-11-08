@@ -10,7 +10,7 @@ const SectionFour = () => {
         </div>
 
         <div className='sectionFourText'>
-            <h2>Why use Bilding.tech</h2>
+            <h2>Why use GetBilding</h2>
             <p>
                 Connecting Contractors, Suppliers, and Labor - Your Ultimate Construction Hub
             </p>

@@ -13,9 +13,9 @@ const SectionTwo = () => {
                 <img src={sec2Image} alt="" />
             </div>
             <div className='sectionTwoTwo'>
-                <h2>What is Bilding.construction?</h2>
+                <h2>What is GetBilding?</h2>
                 <p>
-                    Welcome to Bilding.tech, the ultimate web platform that streamlines 
+                    Welcome to GetBilding, the ultimate web platform that streamlines 
                     construction connections like never before. Whether you're a building 
                     contractor in need of reliable suppliers and skilled labor, or a skilled 
                     worker searching for the perfect job opportunity, we've got you covered.
@@ -24,7 +24,7 @@ const SectionTwo = () => {
                 <p className='p2'>
                     With years of experience in the industry, we understand the challenges you 
                     face. Say goodbye to time-consuming searches and costly delays – 
-                    Bilding.tech is here to revolutionize the way you connect, collaborate, 
+                    GetBilding is here to revolutionize the way you connect, collaborate, 
                     and create.
                 </p>
                 <Link to={'/register'}><button>Get Started</button></Link>

@@ -6,7 +6,7 @@ const SectionOne = () => {
     <div>
       <section className='sectionOne'>
         <div className='sectionOneFirst'>
-            <h2>Welcome to <span className='secSpan1'>Bilding</span> <span className='secSpan2'>.construction</span></h2>
+            <h2>Welcome to <span className='secSpan1'>GetBilding</span> </h2>
             <h3>
                 Connecting Builders with Reliable <br />
                 Suppliers and Skilled Labor
