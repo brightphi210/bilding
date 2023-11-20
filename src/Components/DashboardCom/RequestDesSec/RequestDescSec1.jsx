@@ -44,6 +44,7 @@ const RequestDescSec1 = () => {
 
 
     const [item, setItem] = useState([])
+    const totalAmount = item.reduce((acc, currentItem) => acc + currentItem.amount, 0);
     let urlItems = `https://bildingapi.onrender.com/api/items/${id}`
     const fetchItem = async () => {
 
@@ -95,16 +96,16 @@ const RequestDescSec1 = () => {
               <div className='proDesOneFlexOne'>
                 <div className='proDesOneFlexTwo'>
                   <h4>{request.title}</h4>
-                  <h4>{formatAmount(item.map((myItem)=>(
-                    myItem.amount
-                  )))}</h4>
+                  
+                  <h4>{formatAmount(totalAmount)}</h4>
                 </div>
 
                 <div className='proSubGrid'>
                   <div className='proSubGrid1'>
                     <p><b>Location:</b> {request.location}</p>
-                    <p><b>Category:</b> {request.categories}.</p>
-                    <p><b>Items:</b> 5</p>
+                    <p><b>Category:</b> {request.category}.</p>
+                    
+                    <p><b>Items:</b> {item.length}</p>
                   </div>
 
                   <div className='proSubGrid2'>
@@ -125,6 +126,18 @@ const RequestDescSec1 = () => {
               {request.description}
             </p>
             <hr />
+          </div>
+
+
+          <div className='itemDescMain'>
+            {item.map((myItem)=>(
+              <>
+              <div className='itemDescFlex'>
+                <p><b>Item:</b> {myItem.name}</p>
+                <p>Amount: {formatAmount(myItem.amount)}</p>
+                </div>
+              </>
+            ))}
           </div>
 
           <div className='proDescFive'>

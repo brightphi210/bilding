@@ -19,10 +19,9 @@ const SectionOne = () => {
                 <input type="text" placeholder='Looking for...' />
                 <select className='custom-select' >
                     <option value="">Category</option>
-                    <option value="">Melson</option>
-                    <option value="">Painting</option>
-                    <option value="">Wiring</option>
-                    <option value="">Funiture</option>
+                    <option value="">Contractor</option>
+                    <option value="">Skilled Labour</option>
+                    <option value="">Supplier</option>
                 </select>
                 <button className='btn'>Search</button>
             </form>

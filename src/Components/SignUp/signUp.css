@@ -57,6 +57,14 @@
     font-size: 20px;
 }
 
+.cateEach span{
+    display: block;
+    padding: 0 !important;
+    font-size: 20px !important;
+    font-weight: 400;
+    color: #C32F07;
+}
+
 .cateEach input{ 
     position: absolute;
     bottom: 50px;
@@ -140,7 +148,7 @@
     }
 
     .cateEach p{
-        font-size: 14px;
+        font-size: 17px;
         padding-bottom: 0 !important;
     }
 
@@ -149,6 +157,14 @@
         bottom: 40px !important;
         right: 50px;
         padding: 6px;
+        color: #C32F07;
+    }
+
+    .cateEach span{
+        display: block;
+        padding: 0 !important;
+        font-size: 20px !important;
+        font-weight: 400;
         color: #C32F07;
     }
 
