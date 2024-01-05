@@ -10,6 +10,7 @@ import myVideo from './animation_lnkaatit.mp4'
 import 'font-awesome/css/font-awesome.min.css';
 
 import { BiError } from 'react-icons/bi'
+import { IoWarningOutline } from "react-icons/io5";
 
 
 const Login2 = () => {
@@ -129,7 +130,7 @@ const Login2 = () => {
             <img src={loginImage} alt="" />
         </div>
         <div className='formDiv'>
-            <p>Please Verify account before loggin in</p>
+            <h4><IoWarningOutline/>Please Verify account before loggin in</h4>
             <h2>Login to your Bilding account</h2>
 
             

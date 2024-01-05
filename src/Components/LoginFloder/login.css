@@ -149,12 +149,25 @@
 }
 
 
+.formDiv h4{
+    color: #da5c39;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: auto;
+    /* justify-content: center; */
+}
+
+
 
 @media only screen and (min-width:321px) and (max-width:767px){
     .loginDiv{
         display: grid;
         grid-template-columns: 1fr;
-        height: 75vh;
+        height: 80vh;
         align-items: center;
     }
 
@@ -168,6 +181,18 @@
         display: none;
     }
     
+
+    .formDiv h4{
+        color: #da5c39;
+        font-size: 15px;
+        font-weight: 300;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: auto;
+        justify-content: center;
+    }
     
     .myForm input{
         width: 100%;
