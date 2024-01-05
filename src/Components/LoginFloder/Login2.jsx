@@ -183,10 +183,7 @@ const Login2 = () => {
                 </div>
 
 
-                <button type='submit' style={{backgroundColor : myLoadingColor} }>{
-                  isLoading  && (<span className="loading loading-spinner loading-md"></span>)
-                }
-                </button>
+                <button type='submit' style={{backgroundColor : myLoadingColor} }>{isLoading ? 'Loading . . .': "Login"}</button>
             </form>
 
 
