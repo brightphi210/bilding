@@ -215,7 +215,14 @@ hr{
 
 
     .span1, .span2{
-        font-size: 12px;
+        font-size: 15px;
+        font-weight: 300 !important;
+    }
+
+
+    .span3{
+        font-size: 15px;
+        font-weight: 300 !important;
     }
 
     .joinBtn,
@@ -225,8 +232,8 @@ hr{
 
 
     .buiderForm input{
-        font-size: 13px;
-        padding: 15px;
+        font-size: 15px;
+        padding: 20px;
         border: rgb(232, 232, 232) 1px solid !important;
         border-radius: 10px;
     }

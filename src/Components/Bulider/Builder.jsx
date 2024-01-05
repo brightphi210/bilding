@@ -173,7 +173,7 @@ const Builder = () => {
             required
           />
 
-          <div className='createOneDiv'>
+          <div className=''>
           <input 
             type="email"  
             name='email'
