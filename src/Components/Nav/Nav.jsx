@@ -60,7 +60,7 @@ const Nav = () => {
               <>
                 <div className='navBtn'>
                   <Link to={'/login'}><button>Login</button></Link>
-                  <Link to={'/register'}><button className='signup'>Sign Up</button></Link>
+                  <Link to={'/register'}><button className='signup'>Join Bilding</button></Link>
                 </div>
               </>
             )}

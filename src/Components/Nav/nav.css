@@ -138,7 +138,7 @@ ul .li:hover::before {
         top: 60px;
         left: -100%;
         bottom: 0;
-        padding-left: 40px;
+        padding-left: 0;
         padding-top: 60px;
         z-index: 100;
 
@@ -169,6 +169,24 @@ ul .li:hover::before {
         font-size: 20px;
         color: white;
         padding-top: 30px;
+        text-align: center;
+    }
+
+
+    ul .li::before {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: var(--red-color);
+        transition: width 0.3s ease;
+        transform: translateY(-50%);
+    }
+    
+    ul .li:hover::before {
+        width: 0;
     }
 
     .navBtn{
@@ -188,11 +206,12 @@ ul .li:hover::before {
     
 
     .navBtn button{
-        margin-bottom: 30px;
         display: block;
         width: 60%;
         padding: 15px;
         font-size: 16px;
+        margin: auto;
+        margin-bottom: 30px;
     }
 }
 
