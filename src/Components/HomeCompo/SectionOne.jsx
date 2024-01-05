@@ -1,6 +1,8 @@
 import React from 'react'
 import bgImage from './Images/bg1.png'
 import './sectionOne.css'
+
+import { Link } from 'react-router-dom'
 const SectionOne = () => {
   return (
     <div>
@@ -23,7 +25,8 @@ const SectionOne = () => {
                     <option value="">Skilled Labour</option>
                     <option value="">Supplier</option>
                 </select>
-                <button className='btn'>Search</button>
+                
+                <Link to={'/register'}><button className='btn'>Search</button></Link>
             </form>
         </div>
         <div className='sectionOneSecond'>
