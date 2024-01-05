@@ -41,10 +41,10 @@ const Nav = () => {
           <div className={`ulDiv ${isNavOpen ? "open" :"close"} `}>
             <ul className='nav-ul1'>
               <Link to={'/'}><li className='li'>Home</li></Link>
-              <li className='li'>About us</li>
-              <li className='li'>FAQ’s</li>
-              <li className='li'>Support</li>
-              <li className='li'>Testimonials</li>
+              <li className='li cl'>About us</li>
+              <li className='li cl'>FAQ’s</li>
+              <li className='li cl'>Support</li>
+              <li className='li cl'>Testimonials</li>
             </ul>
 
             {user ? (

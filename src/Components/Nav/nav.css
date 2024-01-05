@@ -78,6 +78,8 @@ ul .li:hover::before {
     width: 50%;
 }
 
+
+
 .navBtn{
     display: flex;
     gap: 20px;
@@ -165,8 +167,9 @@ ul .li:hover::before {
     .nav-ul1 .li{
         display: block;
         padding-bottom:20px;
-        font-size: 15px;
+        font-size: 20px;
         color: white;
+        padding-top: 30px;
     }
 
     .navBtn{
@@ -174,7 +177,24 @@ ul .li:hover::before {
         gap: 20px;
     }
 
+
+    .cl{
+        display: none !important;
+    }
+
+
+    .navBtn{
+        display: block;
+    }
     
+
+    .navBtn button{
+        margin-bottom: 30px;
+        display: block;
+        width: 60%;
+        padding: 15px;
+        font-size: 16px;
+    }
 }
 
 
