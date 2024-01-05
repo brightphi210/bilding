@@ -171,8 +171,9 @@
     
     .myForm input{
         width: 100%;
-        padding: 15px;
-        font-size: 13px;
+        padding: 20px;
+        font-size: 15px;
+        margin-bottom: 20px;
     }
 
     .formDiv{
@@ -183,8 +184,8 @@
 
     .myForm button{
         width: 100%;
-        padding: 13px;
-        font-size: 13px;
+        padding: 15px;
+        font-size: 15px;
         margin-bottom: 10px;
         border-radius: 10px;
     }
@@ -203,7 +204,7 @@
     .dont{
         display: flex;
         gap: 10px;
-        font-size: 12px;
+        font-size: 15px;
         text-align: center;
         justify-content: center;
         margin: auto;

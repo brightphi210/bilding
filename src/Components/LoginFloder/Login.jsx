@@ -168,7 +168,7 @@ const Login = () => {
                 <div className='eyeDiv'>
                   <input 
                     type={showPassword2 ? 'text' : 'password'}
-                    placeholder='Confrim Password'
+                    placeholder='Confirm Password'
                     value={password2}
                     onChange={(e) => setPassword2(e.target.value)}
                     required
@@ -182,7 +182,7 @@ const Login = () => {
 
 
                 <button type='submit' style={{backgroundColor : myLoadingColor} }>{
-                  isLoading? 'Signin' : 'Singin'
+                  isLoading? 'Login' : 'Login'
                 }
                 </button>
             </form>
