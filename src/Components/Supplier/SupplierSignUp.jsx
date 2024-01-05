@@ -141,7 +141,7 @@ const SupplierSignUp = () => {
         required
     />
     </div>
-    <div className='createOneDiv'>
+    <div className=''>
     <input 
       type="number" 
       name="phone_number"
